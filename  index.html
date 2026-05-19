@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AICDI — Analyse Pays · Côte d'Ivoire</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   AICDI — Institutional Design System
+   Référence : Banque Mondiale · ONU · Ambassades
+   ═══════════════════════════════════════ */
+:root {
+  /* Palette institutionnelle */
+  --white:      #FFFFFF;
+  --paper:      #F9F7F2;
+  --paper2:     #F2EFE7;
+  --paper3:     #E8E4D8;
+  --ink:        #1A1A2E;
+  --ink2:       #2D3142;
+  --ink3:       #4A4E69;
+  --gold:       #9B7D2E;
+  --gold2:      #7A6020;
+  --gold-pale:  #F0E6C8;
+  --civ-orange: #B85C1E;
+  --civ-green:  #1A5C35;
+  --rule:       rgba(26,26,46,0.10);
+  --rule2:      rgba(155,125,46,0.20);
+}
+
+/* RESET */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:'Source Sans 3',Arial,sans-serif;
+  background:var(--white);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── NAVIGATION ─────────────────────────── */
+.topbar {
+  background:var(--ink);
+  height:36px;
+  display:flex;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.topbar-inner {
+  max-width:1320px;margin:0 auto;width:100%;
+  padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar-left {
+  font-size:0.7rem;letter-spacing:1.5px;
+  color:rgba(255,255,255,0.4);font-weight:300;
+}
+.topbar-left span { color:rgba(255,255,255,0.6); margin:0 8px; }
+.lang-bar { display:flex;gap:0; }
+.lb {
+  background:none;border:none;
+  color:rgba(255,255,255,0.4);
+  padding:0 10px;height:36px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.68rem;font-weight:500;letter-spacing:1.5px;
+  cursor:pointer;transition:color 0.2s;
+  border-left:1px solid rgba(255,255,255,0.08);
+}
+.lb:first-child{border-left:none;}
+.lb.on,.lb:hover{color:var(--white);}
+
+nav {
+  position:sticky;top:0;z-index:999;
+  background:var(--white);
+  border-bottom:1px solid var(--rule);
+  height:68px;
+  display:flex;align-items:center;
+  box-shadow:0 1px 0 var(--rule);
+}
+.nav-inner {
+  max-width:1320px;margin:0 auto;width:100%;
+  padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand {
+  display:flex;align-items:center;gap:16px;cursor:pointer;
+}
+.nav-logo-mark {
+  display:flex;flex-direction:column;gap:2px;
+}
+.nav-logo-mark span {
+  display:block;
+  font-family:'Libre Baskerville',Georgia,serif;
+  font-size:1.25rem;color:var(--ink);
+  letter-spacing:5px;font-weight:700;line-height:1;
+}
+.nav-logo-mark small {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.58rem;color:var(--gold);
+  letter-spacing:3px;text-transform:uppercase;font-weight:500;
+}
+.nav-divider {width:1px;height:28px;background:var(--rule);}
+.nav-flag {display:flex;gap:2px;}
+.nav-flag span {width:3px;height:18px;}
+.nav-menu {display:flex;align-items:center;gap:0;}
+.nitem {position:relative;}
+.nlink {
+  display:flex;align-items:center;gap:4px;
+  color:var(--ink3);
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.73rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+  padding:0 1rem;height:68px;
+  background:none;border:none;cursor:pointer;
+  transition:color 0.2s;white-space:nowrap;
+  border-bottom:2px solid transparent;
+}
+.nlink:hover{color:var(--ink);border-bottom-color:var(--gold);}
+.nlink .arr{font-size:0.5rem;opacity:0.4;}
+.drop {
+  position:absolute;top:100%;left:0;
+  background:var(--white);
+  border:1px solid var(--rule);
+  border-top:2px solid var(--gold);
+  min-width:280px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.15s;
+  box-shadow:0 4px 20px rgba(26,26,46,0.08);
+  z-index:100;
+}
+.nitem:hover .drop{opacity:1;pointer-events:all;}
+.drop a {
+  display:flex;align-items:center;gap:14px;
+  padding:0.9rem 1.25rem;
+  color:var(--ink);text-decoration:none;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.8rem;font-weight:500;letter-spacing:0.5px;
+  border-bottom:1px solid var(--rule);
+  transition:all 0.15s;
+}
+.drop a:last-child{border-bottom:none;}
+.drop a:hover{background:var(--paper);color:var(--gold2);padding-left:1.6rem;}
+.drop a .drop-num {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.62rem;color:var(--white);
+  background:var(--gold);
+  padding:2px 6px;border-radius:2px;
+  font-weight:700;letter-spacing:1px;
+  flex-shrink:0;
+}
+.nav-contact {
+  background:var(--ink);color:var(--white);
+  padding:9px 22px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  border:none;cursor:pointer;transition:background 0.2s;
+  margin-left:1rem;
+}
+.nav-contact:hover{background:var(--gold2);}
+
+/* ── PAGES ─────────────────────────────── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ── HERO ───────────────────────────────── */
+.hero {
+  display:grid;
+  grid-template-columns:55% 45%;
+  min-height:calc(100vh - 104px);
+}
+.hero-l {
+  background:var(--ink);
+  padding:6rem 5rem 6rem 7rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-l::before {
+  content:'';position:absolute;
+  top:0;bottom:0;left:0;width:5px;
+  background:linear-gradient(180deg,var(--civ-orange),rgba(250,248,243,0.1),var(--civ-green));
+}
+.hero-l::after {
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-overline {
+  display:flex;align-items:center;gap:12px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(240,230,200,0.5);font-weight:500;
+  margin-bottom:2.5rem;position:relative;z-index:1;
+}
+.hero-overline::before{content:'';width:24px;height:1px;background:var(--gold);opacity:0.6;}
+.hero-akwaba {
+  font-family:'Libre Baskerville',Georgia,serif;
+  font-size:clamp(4.5rem,8vw,7.5rem);
+  font-weight:400;color:var(--white);
+  line-height:0.9;letter-spacing:2px;
+  margin-bottom:1.5rem;
+  position:relative;z-index:1;
+}
+.hero-akwaba-sub {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.15rem;font-style:italic;
+  color:rgba(240,230,200,0.55);
+  margin-bottom:0.5rem;
+  position:relative;z-index:1;font-weight:400;
+}
+.hero-baoulé {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.68rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(240,230,200,0.3);
+  margin-bottom:3rem;
+  position:relative;z-index:1;
+}
+.hero-statement {
+  font-size:1rem;
+  color:rgba(255,255,255,0.6);
+  line-height:1.9;font-weight:300;
+  max-width:420px;
+  margin-bottom:3.5rem;
+  position:relative;z-index:1;
+  border-left:1px solid rgba(155,125,46,0.3);
+  padding-left:1.25rem;
+}
+.hero-btns {
+  display:flex;gap:0.75rem;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.btn-primary {
+  background:var(--white);color:var(--ink);
+  padding:12px 28px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all 0.2s;
+}
+.btn-primary:hover{background:var(--gold-pale);}
+.btn-outline {
+  border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.65);
+  padding:12px 28px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  background:none;cursor:pointer;transition:all 0.2s;
+}
+.btn-outline:hover{border-color:var(--gold);color:rgba(240,230,200,0.9);}
+
+.hero-r {
+  background:var(--paper);
+  padding:5rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;
+  border-left:1px solid var(--rule);
+}
+.hero-r-label {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.62rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:2rem;
+}
+.hero-r-title {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.5rem;color:var(--ink);
+  font-weight:400;line-height:1.4;
+  margin-bottom:2.5rem;
+}
+.audience-list {border-top:1px solid var(--rule);}
+.aud-row {
+  display:grid;grid-template-columns:48px 1fr 20px;
+  align-items:center;gap:1rem;
+  padding:1.1rem 0;
+  border-bottom:1px solid var(--rule);
+  transition:all 0.2s;cursor:default;
+}
+.aud-row:hover{padding-left:8px;background:rgba(155,125,46,0.03);}
+.aud-n {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.4rem;color:var(--gold);
+  font-weight:400;opacity:0.4;text-align:center;
+}
+.aud-text h4 {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.75rem;font-weight:600;
+  letter-spacing:1px;color:var(--ink);
+  text-transform:uppercase;margin-bottom:2px;
+}
+.aud-text p {
+  font-size:0.82rem;color:var(--ink3);font-weight:300;line-height:1.4;
+}
+.aud-arr {color:var(--gold);opacity:0;font-size:0.75rem;transition:opacity 0.2s;}
+.aud-row:hover .aud-arr{opacity:1;}
+
+/* ── PAGE HEADER ─────────────────────── */
+.pg-header {
+  background:var(--white);
+  border-bottom:1px solid var(--rule);
+  padding:4rem 2.5rem 3rem;
+}
+.pg-header-inner {
+  max-width:1320px;margin:0 auto;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:3rem;flex-wrap:wrap;
+}
+.pg-eyebrow {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--white);font-weight:700;margin-bottom:1rem;
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold2);padding:6px 14px;border-radius:2px;
+}
+.pg-eyebrow::before{content:'';display:none;}
+.pg-title {
+  font-family:'Libre Baskerville',Georgia,serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:400;color:var(--ink);line-height:1.1;
+}
+.pg-title em{font-style:italic;color:var(--gold2);}
+.pg-desc {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.88rem;color:var(--ink3);
+  line-height:1.85;max-width:480px;font-weight:300;
+}
+
+/* ── CONTENT ─────────────────────────── */
+.cnt {max-width:1320px;margin:0 auto;padding:4rem 2.5rem;}
+
+/* ── SLIDE ───────────────────────────── */
+.slide-box {
+  background:var(--paper);
+  border:1px solid var(--rule2);
+  overflow:hidden;
+  box-shadow:0 2px 16px rgba(26,26,46,0.06);
+  margin-bottom:3rem;
+}
+.slide-box iframe{width:100%;aspect-ratio:16/9;border:none;display:block;}
+
+/* ── FORMATIONS ─────────────────────── */
+.f-table {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--rule);
+  margin-top:2.5rem;
+}
+.f-col {
+  padding:3rem 2.5rem;
+  border-right:1px solid var(--rule);
+  position:relative;
+  transition:background 0.2s;
+}
+.f-col:last-child{border-right:none;}
+.f-col:hover{background:var(--paper);}
+.f-col::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+}
+.f-col.fc1::before{background:var(--civ-orange);}
+.f-col.fc2::before{background:var(--civ-green);}
+.f-col.fc3::before{background:var(--gold);}
+.f-num {
+  font-family:'Libre Baskerville',serif;
+  font-size:3.5rem;font-weight:400;
+  color:rgba(26,26,46,0.04);
+  position:absolute;top:1.5rem;right:2rem;
+  line-height:1;
+}
+.f-badge {
+  display:inline-block;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;
+  font-weight:700;padding:3px 10px;
+  margin-bottom:1.5rem;
+}
+.fc1 .f-badge{background:rgba(184,92,30,0.08);color:var(--civ-orange);}
+.fc2 .f-badge{background:rgba(26,92,53,0.08);color:var(--civ-green);}
+.fc3 .f-badge{background:rgba(155,125,46,0.08);color:var(--gold2);}
+.f-title {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.35rem;color:var(--ink);
+  font-weight:400;margin-bottom:1rem;line-height:1.3;
+}
+.f-desc {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.82rem;color:var(--ink3);
+  line-height:1.8;margin-bottom:2rem;font-weight:300;
+}
+.f-specs{display:flex;flex-direction:column;gap:0.5rem;}
+.f-spec {
+  display:flex;align-items:flex-start;gap:10px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.78rem;color:var(--ink2);padding:0.4rem 0;
+  border-bottom:1px solid var(--rule);
+}
+.f-spec:last-child{border-bottom:none;}
+.f-spec-label{font-weight:600;min-width:80px;color:var(--ink3);font-size:0.72rem;letter-spacing:0.5px;}
+
+/* ── PROGRAMME ──────────────────────── */
+.prog-table {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--rule);
+  margin-top:2.5rem;
+}
+.prog-col {
+  padding:2.5rem;border-right:1px solid var(--rule);
+  cursor:pointer;transition:background 0.2s;
+  position:relative;
+}
+.prog-col:last-child{border-right:none;}
+.prog-col:hover{background:var(--paper);}
+.prog-col::after {
+  content:'→';
+  position:absolute;bottom:2rem;right:2rem;
+  font-size:0.9rem;color:var(--gold);
+  opacity:0;transition:opacity 0.2s;
+}
+.prog-col:hover::after{opacity:1;}
+.prog-day-tag {
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;
+  font-weight:700;padding:7px 16px;margin-bottom:1.5rem;border-radius:2px;
+}
+.pc1 .prog-day-tag{background:var(--civ-orange);color:var(--white);}
+.pc2 .prog-day-tag{background:var(--gold);color:var(--white);}
+.pc3 .prog-day-tag{background:var(--civ-green);color:var(--white);}
+.prog-title {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.35rem;color:var(--ink);
+  font-weight:700;margin-bottom:1.5rem;line-height:1.3;
+}
+.prog-items{display:flex;flex-direction:column;gap:0;}
+.prog-item {
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.85rem;color:var(--ink2);font-weight:400;
+  padding:0.6rem 0;border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:10px;
+}
+.prog-item:last-child{border-bottom:none;}
+.prog-item::before{content:'→';color:var(--gold);font-size:0.75rem;flex-shrink:0;}
+
+/* ── MODULE PAGE ─────────────────────── */
+.module-block{margin-bottom:4rem;}
+.module-tag {
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;
+  font-weight:700;padding:8px 18px;margin-bottom:1.5rem;border-radius:2px;
+}
+.mt1{background:var(--civ-orange);color:var(--white);}
+.mt2{background:var(--gold);color:var(--white);}
+.mt3{background:var(--civ-green);color:var(--white);}
+.mtb{background:var(--ink2);color:var(--white);}
+.module-title {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.8rem;color:var(--ink);
+  font-weight:700;margin-bottom:2rem;
+  border-left:4px solid var(--gold);
+  padding-left:1rem;
+}
+.module-rule{border:none;border-top:1px solid var(--rule);margin:3.5rem 0;}
+.nav-btns{display:flex;gap:1rem;margin-top:3.5rem;justify-content:space-between;flex-wrap:wrap;}
+
+/* ── BTN STANDARD ────────────────────── */
+.btn-dark {
+  background:var(--ink);color:var(--white);
+  padding:11px 26px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  border:none;cursor:pointer;transition:background 0.2s;
+}
+.btn-dark:hover{background:var(--gold2);}
+.btn-light {
+  border:1px solid var(--rule);background:var(--white);color:var(--ink);
+  padding:11px 26px;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.2s;
+}
+.btn-light:hover{border-color:var(--ink);background:var(--paper);}
+
+/* ── EXPERT ─────────────────────────── */
+.expert-layout{display:grid;grid-template-columns:280px 1fr;gap:5rem;align-items:start;}
+.expert-card{background:var(--paper);border:1px solid var(--rule);padding:2.5rem;text-align:center;position:sticky;top:88px;}
+.expert-monogram {
+  width:100px;height:100px;border-radius:50%;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 2rem;
+  font-family:'Libre Baskerville',serif;
+  font-size:2rem;color:var(--white);font-weight:400;
+}
+.e-stat{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--rule);}
+.e-stat:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.e-n{font-family:'Libre Baskerville',serif;font-size:2.2rem;color:var(--ink);font-weight:400;line-height:1;}
+.e-l{font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.expert-name{font-family:'Libre Baskerville',serif;font-size:2.5rem;color:var(--ink);font-weight:400;line-height:1.1;margin-bottom:0.5rem;}
+.expert-title{font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--gold2);letter-spacing:3px;text-transform:uppercase;margin-bottom:2rem;}
+.expert-rule{width:36px;height:1px;background:var(--rule2);margin-bottom:2rem;}
+.expert-bio{font-size:1rem;color:var(--ink3);line-height:2;margin-bottom:2rem;font-weight:300;}
+.expert-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.etag{background:var(--paper2);border:1px solid var(--rule);color:var(--ink2);padding:4px 12px;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:400;}
+
+/* ── CONTACT ─────────────────────────── */
+.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start;}
+.contact-info h2{font-family:'Libre Baskerville',serif;font-size:2rem;color:var(--ink);font-weight:400;margin-bottom:1.5rem;line-height:1.2;}
+.contact-info p{font-family:'Source Sans 3',sans-serif;color:var(--ink3);line-height:1.9;font-weight:300;font-size:0.88rem;margin-bottom:3rem;}
+.contact-items{display:flex;flex-direction:column;gap:0;}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);}
+.contact-item:first-child{border-top:1px solid var(--rule);}
+.ci-label{font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);font-weight:700;margin-bottom:3px;}
+.ci-val{font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);font-weight:400;}
+.cform{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule);}
+.fg{display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--rule);padding:1.25rem 0;}
+.fg label{font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);font-weight:700;margin-bottom:0.5rem;}
+.fg input,.fg select,.fg textarea{
+  background:transparent;border:none;outline:none;
+  color:var(--ink);
+  font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:400;
+  padding:4px 0;width:100%;
+  -webkit-appearance:none;border-radius:0;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--paper3);font-style:italic;}
+.fg textarea{resize:vertical;min-height:80px;}
+.fg select option{background:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.9rem;}
+.form-submit-row{padding:2rem 0;}
+.form-ok{display:none;background:rgba(26,92,53,0.06);border-left:3px solid var(--civ-green);padding:1rem 1.25rem;font-family:'Source Sans 3',sans-serif;color:var(--civ-green);font-size:0.85rem;margin-top:1rem;}
+
+/* ── FOOTER ─────────────────────────── */
+.site-footer{background:var(--ink);border-top:3px solid var(--gold);}
+.footer-main{max-width:1320px;margin:0 auto;padding:3rem 2.5rem;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
+.footer-brand .fl{font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--white);letter-spacing:5px;font-weight:400;margin-bottom:0.5rem;}
+.footer-brand .fs{font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;}
+.footer-flag{display:flex;gap:3px;margin-top:1rem;}
+.footer-flag span{width:4px;height:16px;}
+.footer-info{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.fi-block h5{font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);font-weight:600;margin-bottom:0.75rem;}
+.fi-block p,.fi-block a{font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.8;font-weight:300;text-decoration:none;}
+.fi-block a:hover{color:rgba(255,255,255,0.7);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:1.25rem 2.5rem;}
+.footer-bottom-inner{max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.2);letter-spacing:0.5px;}
+
+/* ── MULTILANG ───────────────────────── */
+.t{display:none;}.t.on{display:inline;}small.t.on{display:block;}
+.tb{display:none;}.tb.on{display:block;}
+
+/* ── HAMBURGER MENU ──────────────────── */
+.hamburger {
+  display:none;
+  flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;
+  padding:8px;margin-left:0.5rem;
+}
+.hamburger span {
+  display:block;width:22px;height:2px;
+  background:var(--ink);transition:all 0.3s;
+}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mobile-menu {
+  display:none;position:fixed;
+  top:72px;left:0;right:0;bottom:0;
+  background:var(--white);z-index:998;
+  overflow-y:auto;
+  border-top:2px solid var(--gold);
+  padding:1.5rem;
+}
+.mobile-menu.open{display:block;}
+.mm-item {
+  border-bottom:1px solid var(--rule);
+}
+.mm-link {
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:1.1rem 0;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.85rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--ink);background:none;border:none;cursor:pointer;text-align:left;
+}
+.mm-link:hover{color:var(--gold2);}
+.mm-sub {
+  display:none;padding:0 0 0.75rem 1rem;
+}
+.mm-sub.open{display:block;}
+.mm-sub a {
+  display:block;padding:0.65rem 0;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.78rem;color:var(--ink3);text-decoration:none;
+  border-bottom:1px solid var(--rule);
+}
+.mm-sub a:last-child{border-bottom:none;}
+.mm-sub a:hover{color:var(--gold2);}
+.mm-contact {
+  margin-top:1.5rem;
+  background:var(--ink);color:var(--white);
+  display:block;width:100%;padding:14px;text-align:center;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  border:none;cursor:pointer;
+}
+
+/* ── DESKTOP (>1024px) ───────────────── */
+/* Already defined above — no changes needed */
+
+/* ── TABLET iPad (768px–1024px) ─────── */
+@media(max-width:1024px){
+  /* Topbar */
+  .topbar-left{display:none;}
+  .lang-bar{margin-left:auto;}
+  /* Nav */
+  .nav-menu{display:none;}
+  .hamburger{display:flex;}
+  .nav-contact{display:none;}
+  /* Hero */
+  .hero{grid-template-columns:1fr;}
+  .hero-r{display:none;}
+  .hero-l{padding:4rem 3rem;}
+  .hero-akwaba{font-size:clamp(4rem,10vw,6rem);}
+  /* Content */
+  .cnt{padding:3rem 2rem;}
+  .pg-header{padding:3.5rem 2rem 2.5rem;}
+  .pg-header-inner{flex-direction:column;gap:1.5rem;}
+  /* Grids — 2 colonnes sur iPad */
+  .f-table{grid-template-columns:repeat(2,1fr);}
+  .f-col{border-right:none;border-bottom:1px solid var(--rule);}
+  .f-col:nth-child(odd){border-right:1px solid var(--rule);}
+  .f-col:last-child{grid-column:span 2;border-right:none;}
+  .prog-table{grid-template-columns:repeat(2,1fr);}
+  .prog-col{border-right:none;border-bottom:1px solid var(--rule);}
+  .prog-col:nth-child(odd){border-right:1px solid var(--rule);}
+  .prog-col:last-child{grid-column:span 2;border-right:none;}
+  /* Expert & Contact */
+  .expert-layout{grid-template-columns:1fr;}
+  .expert-card{position:static;display:grid;grid-template-columns:140px 1fr;gap:2rem;align-items:center;text-align:left;}
+  .expert-monogram{margin:0;}
+  .contact-layout{grid-template-columns:1fr;}
+  /* Footer */
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-info{grid-template-columns:repeat(3,1fr);}
+}
+
+/* ── MOBILE (< 768px) ────────────────── */
+@media(max-width:768px){
+  /* Topbar masqué sur mobile */
+  .topbar{display:none;}
+  /* Nav compacte */
+  nav{height:60px;}
+  .nav-inner{padding:0 1.25rem;}
+  .nav-logo-mark span{font-size:1.1rem;}
+  .nav-logo-mark small{display:none;}
+  .nav-divider{display:none;}
+  .mobile-menu{top:60px;}
+  /* Hero plein écran mobile */
+  .hero{min-height:auto;}
+  .hero-l{padding:3rem 1.25rem 3.5rem 1.75rem;}
+  .hero-akwaba{font-size:clamp(3.5rem,18vw,5.5rem);}
+  .hero-akwaba-sub{font-size:1rem;}
+  .hero-statement{font-size:0.9rem;line-height:1.8;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary,.btn-outline{width:100%;text-align:center;padding:14px;}
+  /* Page headers */
+  .pg-header{padding:2.5rem 1.25rem 2rem;}
+  .pg-header-inner{flex-direction:column;gap:1rem;}
+  .pg-title{font-size:clamp(1.8rem,7vw,2.5rem);}
+  /* Content */
+  .cnt{padding:2rem 1.25rem;}
+  /* Grids — 1 colonne sur mobile */
+  .f-table{grid-template-columns:1fr;}
+  .f-col{border-right:none !important;border-bottom:1px solid var(--rule);grid-column:span 1 !important;}
+  .prog-table{grid-template-columns:1fr;}
+  .prog-col{border-right:none !important;border-bottom:1px solid var(--rule);grid-column:span 1 !important;}
+  /* Slides */
+  .slide-box{margin-bottom:2rem;}
+  /* Expert */
+  .expert-layout{grid-template-columns:1fr;}
+  .expert-card{display:flex;flex-direction:column;align-items:center;text-align:center;position:static;padding:2rem 1.5rem;}
+  .expert-monogram{margin:0 auto 1.5rem;}
+  .expert-name{font-size:2rem;}
+  /* Contact */
+  .contact-layout{grid-template-columns:1fr;gap:2.5rem;}
+  .contact-info h2{font-size:1.5rem;}
+  .btn-dark,.btn-light{width:100%;text-align:center;}
+  /* Nav buttons */
+  .nav-btns{flex-direction:column-reverse;}
+  .nav-btns button{width:100%;text-align:center;}
+  /* Footer */
+  .footer-main{padding:2rem 1.25rem;gap:1.5rem;}
+  .footer-info{grid-template-columns:1fr;}
+  .footer-bottom{padding:1rem 1.25rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span class="t on" data-l="fr">Formation Pré-départ & Post-arrivée</span>
+      <span class="t" data-l="en">Pre-departure & Post-arrival Training</span>
+      <span class="t" data-l="de">Vor- und Nachreiseschulung</span>
+      <span>·</span>
+      <span class="t on" data-l="fr">Côte d'Ivoire · Analyse Pays</span>
+      <span class="t" data-l="en">Côte d'Ivoire · Country Analysis</span>
+      <span class="t" data-l="de">Côte d'Ivoire · Länderanalyse</span>
+    </div>
+    <div class="lang-bar">
+      <button class="lb on" onclick="setLang('fr')">Français</button>
+      <button class="lb" onclick="setLang('en')">English</button>
+      <button class="lb" onclick="setLang('de')">Deutsch</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="go('accueil')">
+      <div class="nav-logo-mark">
+        <span>AICDI</span>
+        <small class="t on" data-l="fr">Analyse Pays · Côte d'Ivoire</small><small class="t" data-l="en">Country Analysis · CIV</small><small class="t" data-l="de">Länderanalyse · CIV</small>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-flag">
+        <span style="background:#B85C1E"></span>
+        <span style="background:#E8E4D8"></span>
+        <span style="background:#1A5C35"></span>
+      </div>
+    </div>
+    <div class="nav-menu">
+      <div class="nitem"><button class="nlink" onclick="go('accueil')"><span class="t on" data-l="fr">Accueil</span><span class="t" data-l="en">Home</span><span class="t" data-l="de">Start</span></button></div>
+      <div class="nitem"><button class="nlink" onclick="go('formations')"><span class="t on" data-l="fr">Formations</span><span class="t" data-l="en">Trainings</span><span class="t" data-l="de">Schulungen</span></button></div>
+      <div class="nitem">
+        <button class="nlink"><span class="t on" data-l="fr">Programme</span><span class="t" data-l="en">Curriculum</span><span class="t" data-l="de">Programm</span> <span class="arr">▼</span></button>
+        <div class="drop">
+          <a href="#" onclick="go('programme')"><span class="drop-num">—</span><span class="t on" data-l="fr">Vue d'ensemble</span><span class="t" data-l="en">Overview</span><span class="t" data-l="de">Überblick</span></a>
+          <a href="#" onclick="go('j1')"><span class="drop-num">J.1</span><span class="t on" data-l="fr">Histoire & Politique</span><span class="t" data-l="en">History & Politics</span><span class="t" data-l="de">Geschichte & Politik</span></a>
+          <a href="#" onclick="go('j2')"><span class="drop-num">J.2</span><span class="t on" data-l="fr">Économie & Société</span><span class="t" data-l="en">Economy & Society</span><span class="t" data-l="de">Wirtschaft & Gesellschaft</span></a>
+          <a href="#" onclick="go('j3')"><span class="drop-num">J.3</span><span class="t on" data-l="fr">Développement & Terrain</span><span class="t" data-l="en">Development & Field</span><span class="t" data-l="de">Entwicklung & Terrain</span></a>
+          <a href="#" onclick="go('nego')"><span class="drop-num">M+</span><span class="t on" data-l="fr">Négociation culturelle</span><span class="t" data-l="en">Cultural negotiation</span><span class="t" data-l="de">Kulturelle Verhandlung</span></a>
+          <a href="#" onclick="go('bonus')"><span class="drop-num">B+</span>Sport, Culture & <span class="t on" data-l="fr">Tourisme</span><span class="t" data-l="en">Tourism</span><span class="t" data-l="de">Tourismus</span></a>
+        </div>
+      </div>
+      <div class="nitem"><button class="nlink" onclick="go('expert')">Expert</button></div>
+    <div class="nitem"><button class="nlink" onclick="go('tarifs')"><span class="t on" data-l="fr">Tarifs</span><span class="t" data-l="en">Fees</span><span class="t" data-l="de">Tarife</span></button></div>
+    </div>
+    <button class="nav-contact" onclick="go('contact')"><span class="t on" data-l="fr">Nous contacter</span><span class="t" data-l="en">Contact us</span><span class="t" data-l="de">Kontakt</span></button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-item"><button class="mm-link" onclick="go('accueil');closeMenu()"><span class="t on" data-l="fr">Accueil</span><span class="t" data-l="en">Home</span><span class="t" data-l="de">Start</span></button></div>
+  <div class="mm-item"><button class="mm-link" onclick="go('formations');closeMenu()"><span class="t on" data-l="fr">Formations</span><span class="t" data-l="en">Trainings</span><span class="t" data-l="de">Schulungen</span></button></div>
+  <div class="mm-item">
+    <button class="mm-link" onclick="toggleSub('sub-prog')"><span class="t on" data-l="fr">Programme</span><span class="t" data-l="en">Curriculum</span><span class="t" data-l="de">Programm</span> ▾</button>
+    <div class="mm-sub" id="sub-prog">
+      <a href="#" onclick="go('programme');closeMenu()"><span class="t on" data-l="fr">Vue d'ensemble</span><span class="t" data-l="en">Overview</span><span class="t" data-l="de">Überblick</span></a>
+      <a href="#" onclick="go('j1');closeMenu()"><span class="t on" data-l="fr">Jour 1 — Histoire & Politique</span><span class="t" data-l="en">Day 1 — History & Politics</span><span class="t" data-l="de">Tag 1 — Geschichte & Politik</span></a>
+      <a href="#" onclick="go('j2');closeMenu()"><span class="t on" data-l="fr">Jour 2 — Économie & Société</span><span class="t" data-l="en">Day 2 — Economy & Society</span><span class="t" data-l="de">Tag 2 — Wirtschaft & Gesellschaft</span></a>
+      <a href="#" onclick="go('j3');closeMenu()"><span class="t on" data-l="fr">Jour 3 — Développement & Terrain</span><span class="t" data-l="en">Day 3 — Development & Field</span><span class="t" data-l="de">Tag 3 — Entwicklung & Terrain</span></a>
+      <a href="#" onclick="go('nego');closeMenu()"><span class="t on" data-l="fr">Négociation culturelle</span><span class="t" data-l="en">Cultural negotiation</span><span class="t" data-l="de">Kulturelle Verhandlung</span></a>
+      <a href="#" onclick="go('bonus');closeMenu()">Bonus — Sport & Culture</a>
+    </div>
+  </div>
+  <div class="mm-item"><button class="mm-link" onclick="go('expert');closeMenu()">Expert</button></div>
+  <div class="mm-item"><button class="mm-link" onclick="go('tarifs');closeMenu()"><span class="t on" data-l="fr">Tarifs</span><span class="t" data-l="en">Fees</span><span class="t" data-l="de">Tarife</span></button></div>
+  <button class="mm-contact" onclick="go('contact');closeMenu()"><span class="t on" data-l="fr">Nous contacter</span><span class="t" data-l="en">Contact us</span><span class="t" data-l="de">Kontakt aufnehmen</span></button>
+  <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;gap:0.5rem;">
+    <button onclick="setLang('fr')" style="flex:1;padding:10px;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1px;border:1px solid var(--rule);background:none;cursor:pointer;">FR</button>
+    <button onclick="setLang('en')" style="flex:1;padding:10px;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1px;border:1px solid var(--rule);background:none;cursor:pointer;">EN</button>
+    <button onclick="setLang('de')" style="flex:1;padding:10px;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1px;border:1px solid var(--rule);background:none;cursor:pointer;">DE</button>
+  </div>
+</div>
+
+<!-- ═══ ACCUEIL ═══ -->
+<div class="page active" id="pg-accueil">
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-overline"><span class="t on" data-l="fr">Formation · Analyse Pays · Côte d'Ivoire</span><span class="t" data-l="en">Training · Country Analysis · Côte d'Ivoire</span><span class="t" data-l="de">Schulung · Länderanalyse · Côte d'Ivoire</span></div>
+    <div class="hero-akwaba">AKWABA</div>
+    <p class="hero-akwaba-sub"><span class="t on" data-l="fr">Bienvenue en Côte d'Ivoire</span><span class="t" data-l="en">Welcome to Côte d'Ivoire</span><span class="t" data-l="de">Willkommen in der Côte d'Ivoire</span></p>
+    <p class="hero-baoulé"><span class="t on" data-l="fr">« Akwaba » — Bienvenue en Baoulé, langue du peuple Akan</span><span class="t" data-l="en">« Akwaba » — Welcome in Baoulé, language of the Akan people</span><span class="t" data-l="de">« Akwaba » — Willkommen auf Baoulé, Sprache des Akan-Volkes</span></p>
+    <p class="hero-statement"><span class="t on" data-l="fr">Une formation professionnelle de référence conçue pour les diplomates, organisations internationales et institutions souhaitant opérer avec efficacité et sensibilité culturelle en Côte d'Ivoire.</span><span class="t" data-l="en">A leading professional training programme designed for diplomats, international organisations and institutions seeking to operate with effectiveness and cultural sensitivity in Côte d'Ivoire.</span><span class="t" data-l="de">Ein führendes professionelles Schulungsprogramm für Diplomaten, internationale Organisationen und Institutionen.</span></p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="go('formations')"><span class="t on" data-l="fr">Découvrir les formations</span><span class="t" data-l="en">Explore our programmes</span><span class="t" data-l="de">Programme entdecken</span></button>
+      <button class="btn-outline" onclick="go('programme')"><span class="t on" data-l="fr">Voir le programme</span><span class="t" data-l="en">View curriculum</span><span class="t" data-l="de">Programm ansehen</span></button>
+    </div>
+  </div>
+  <div class="hero-r">
+    <p class="hero-r-label"><span class="t on" data-l="fr">Publics concernés</span><span class="t" data-l="en">Target audiences</span><span class="t" data-l="de">Zielgruppen</span></p>
+    <h2 class="hero-r-title"><span class="t on" data-l="fr">Cette formation s'adresse aux acteurs internationaux opérant en Côte d'Ivoire</span><span class="t" data-l="en">This training is designed for international actors operating in Côte d'Ivoire</span><span class="t" data-l="de">Diese Schulung richtet sich an internationale Akteure in der Côte d'Ivoire</span></h2>
+    <div class="audience-list">
+      <div class="aud-row"><div class="aud-n">I</div><div class="aud-text"><h4><span class="t on" data-l="fr">Ambassades & Corps diplomatique</span><span class="t" data-l="en">Embassies & Diplomatic corps</span><span class="t" data-l="de">Botschaften & Diplomatisches Korps</span></h4><p><span class="t on" data-l="fr">Personnels en poste ou en préparation de mission</span><span class="t" data-l="en">Staff posted or preparing for mission</span><span class="t" data-l="de">Personal im Einsatz oder Missionsvorbereitung</span></p></div><span class="aud-arr">→</span></div>
+      <div class="aud-row"><div class="aud-n">II</div><div class="aud-text"><h4><span class="t on" data-l="fr">Organisations Internationales</span><span class="t" data-l="en">International Organizations</span><span class="t" data-l="de">Internationale Organisationen</span></h4><p><span class="t on" data-l="fr">ONU, Banque Mondiale, UE, UA et agences affiliées</span><span class="t" data-l="en">UN, World Bank, EU, AU and affiliated agencies</span><span class="t" data-l="de">UN, Weltbank, EU, AU und angegliederte Organisationen</span></p></div><span class="aud-arr">→</span></div>
+      <div class="aud-row"><div class="aud-n">III</div><div class="aud-text"><h4><span class="t on" data-l="fr">ONG & Organisations de développement</span><span class="t" data-l="en">NGOs & Development organizations</span><span class="t" data-l="de">NGOs & Entwicklungsorganisationen</span></h4><p><span class="t on" data-l="fr">Équipes de terrain et responsables de programmes</span><span class="t" data-l="en">Field teams and programme managers</span><span class="t" data-l="de">Feldteams und Programmverantwortliche</span></p></div><span class="aud-arr">→</span></div>
+      <div class="aud-row"><div class="aud-n">IV</div><div class="aud-text"><h4><span class="t on" data-l="fr">Entreprises & Investisseurs</span><span class="t" data-l="en">Companies & Investors</span><span class="t" data-l="de">Unternehmen & Investoren</span></h4><p><span class="t on" data-l="fr">Cadres en mobilité internationale vers la Côte d'Ivoire</span><span class="t" data-l="en">Executives on international mobility to Côte d'Ivoire</span><span class="t" data-l="de">Führungskräfte mit internationalem Einsatz</span></p></div><span class="aud-arr">→</span></div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div>
+    <div class="footer-info">
+      <div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Expert en coopération internationale</span><span class="t" data-l="en">International cooperation expert</span><span class="t" data-l="de">Experte für internationale Zusammenarbeit</span></p></div>
+      <div class="fi-block"><h5><span class="t on" data-l="fr">Localisation</span><span class="t" data-l="en">Location</span><span class="t" data-l="de">Standort</span></h5><p><span class="t on" data-l="fr">Basé en Allemagne<br>Europe & Afrique de l'Ouest</span><span class="t" data-l="en">Based in Germany<br>Europe & West Africa</span><span class="t" data-l="de">Sitz in Deutschland<br>Europa & Westafrika</span></p></div>
+      <div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com<br>Zoom · Teams · Google Meet</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div>
+</footer>
+</div>
+
+<!-- ═══ FORMATIONS ═══ -->
+<div class="page" id="pg-formations">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Nos formations</span><span class="t" data-l="en">Our training programmes</span><span class="t" data-l="de">Unsere Schulungsprogramme</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Trois formats adaptés à <em>vos besoins</em></span><span class="t" data-l="en">Three formats tailored to <em>your needs</em></span><span class="t" data-l="de">Drei Formate für <em>Ihre Bedürfnisse</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">Chaque programme est conçu pour répondre aux contraintes opérationnelles et organisationnelles de votre institution.</span><span class="t" data-l="en">Each programme is designed to meet the operational and organisational constraints of your institution.</span><span class="t" data-l="de">Jedes Programm ist auf die betrieblichen Anforderungen Ihrer Institution zugeschnitten.</span></p></div></div>
+<div class="cnt">
+  <div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQYdqcBSTyXXi8j5A78P4Gtj_KC1PrNhRpdJRhopY85PkzFfo6a9LJNgdmCF3xcCTBdEtQfg7FH9aCM/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div>
+  <div class="f-table">
+    <div class="f-col fc1"><div class="f-num">01</div><div class="f-badge"><span class="t on" data-l="fr">Présentiel</span><span class="t" data-l="en">In-person</span><span class="t" data-l="de">Präsenz</span></div><h3 class="f-title"><span class="t on" data-l="fr">Formation Intensive — 3 Jours</span><span class="t" data-l="en">Intensive Training — 3 Days</span><span class="t" data-l="de">Intensivschulung — 3 Tage</span></h3><p class="f-desc"><span class="t on" data-l="fr">Immersion complète avec ateliers pratiques, études de cas et interactions avec des acteurs ivoiriens. Format recommandé pour les équipes en pré-départ.</span><span class="t" data-l="en">Full immersion with practical workshops, case studies and interactions with Ivorian stakeholders. Recommended format for pre-departure teams.</span><span class="t" data-l="de">Vollständige Immersion mit Workshops und Fallstudien. Empfohlenes Format für Teams vor dem Einsatz.</span></p><div class="f-specs"><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span class="t on" data-l="fr">3 jours consécutifs</span><span class="t" data-l="en">3 consecutive days</span><span class="t" data-l="de">3 aufeinanderfolgende Tage</span></div><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Groupe</span><span class="t" data-l="en">Group</span><span class="t" data-l="de">Gruppe</span></span><span class="t on" data-l="fr">Jusqu'à 12 participants</span><span class="t" data-l="en">Up to 12 participants</span><span class="t" data-l="de">Bis zu 12 Teilnehmer</span></div><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Lieu</span><span class="t" data-l="en">Location</span><span class="t" data-l="de">Ort</span></span><span class="t on" data-l="fr">Abidjan ou Europe</span><span class="t" data-l="en">Abidjan or Europe</span><span class="t" data-l="de">Abidjan oder Europa</span></div></div></div>
+    <div class="f-col fc2"><div class="f-num">02</div><div class="f-badge"><span class="t on" data-l="fr">Visio</span><span class="t" data-l="en">Online</span><span class="t" data-l="de">Online</span></div><h3 class="f-title"><span class="t on" data-l="fr">Formation en Ligne — 5 Sessions</span><span class="t" data-l="en">Online Training — 5 Sessions</span><span class="t" data-l="de">Online-Schulung — 5 Sitzungen</span></h3><p class="f-desc"><span class="t on" data-l="fr">Formation structurée à distance avec supports de haute qualité. Idéale pour les équipes dispersées géographiquement ou en post-arrivée.</span><span class="t" data-l="en">Structured remote training with high-quality materials. Ideal for geographically dispersed teams or post-arrival situations.</span><span class="t" data-l="de">Strukturierte Fernschulung mit hochwertigen Materialien. Ideal für geografisch verteilte Teams.</span></p><div class="f-specs"><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span class="t on" data-l="fr">5 sessions de 2 heures</span><span class="t" data-l="en">5 sessions of 2 hours</span><span class="t" data-l="de">5 Sitzungen à 2 Stunden</span></div><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Accès</span><span class="t" data-l="en">Access</span><span class="t" data-l="de">Zugang</span></span><span class="t on" data-l="fr">Mondial — Zoom/Teams</span><span class="t" data-l="en">Global — Zoom/Teams</span><span class="t" data-l="de">Weltweit — Zoom/Teams</span></div><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Inclus</span><span class="t" data-l="en">Included</span><span class="t" data-l="de">Inklusive</span></span><span class="t on" data-l="fr">Supports PDF & enregistrements</span><span class="t" data-l="en">PDF materials & recordings</span><span class="t" data-l="de">PDF-Unterlagen & Aufzeichnungen</span></div></div></div>
+    <div class="f-col fc3"><div class="f-num">03</div><div class="f-badge"><span class="t on" data-l="fr">Sur mesure</span><span class="t" data-l="en">Tailored</span><span class="t" data-l="de">Maßgeschneidert</span></div><h3 class="f-title"><span class="t on" data-l="fr">Programme Personnalisé</span><span class="t" data-l="en">Customized Programme</span><span class="t" data-l="de">Individuelles Programm</span></h3><p class="f-desc"><span class="t on" data-l="fr">Programme entièrement conçu selon les besoins, le secteur et le contexte d'intervention spécifique de votre organisation.</span><span class="t" data-l="en">Programme entirely designed according to your organisation's specific needs, sector and operational context.</span><span class="t" data-l="de">Programm vollständig nach den spezifischen Bedürfnissen Ihrer Organisation konzipiert.</span></p><div class="f-specs"><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span class="t on" data-l="fr">Flexible — selon besoins</span><span class="t" data-l="en">Flexible — as required</span><span class="t" data-l="de">Flexibel — nach Bedarf</span></div><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span class="t on" data-l="fr">Présentiel ou en ligne</span><span class="t" data-l="en">In-person or online</span><span class="t" data-l="de">Präsenz oder online</span></div><div class="f-spec"><span class="f-spec-label"><span class="t on" data-l="fr">Tarif</span><span class="t" data-l="en">Fee</span><span class="t" data-l="de">Preis</span></span><span class="t on" data-l="fr">Devis sur demande</span><span class="t" data-l="en">Quote on request</span><span class="t" data-l="de">Angebot auf Anfrage</span></div></div></div>
+  </div>
+  <div style="margin-top:2.5rem;text-align:center"><button class="btn-dark" onclick="go('contact')"><span class="t on" data-l="fr">Demander un devis</span><span class="t" data-l="en">Request a quote</span><span class="t" data-l="de">Angebot anfragen</span></button></div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<!-- ═══ PROGRAMME ═══ -->
+<div class="page" id="pg-programme">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Vue d'ensemble</span><span class="t" data-l="en">Curriculum overview</span><span class="t" data-l="de">Programmüberblick</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Le programme <em>complet</em></span><span class="t" data-l="en">The complete <em>curriculum</em></span><span class="t" data-l="de">Das vollständige <em>Programm</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">Trois jours pour maîtriser les dimensions essentielles de la Côte d'Ivoire contemporaine.</span><span class="t" data-l="en">Three days to master the essential dimensions of contemporary Côte d'Ivoire.</span><span class="t" data-l="de">Drei Tage, um die wesentlichen Dimensionen zu meistern.</span></p></div></div>
+<div class="cnt">
+  <div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSb2giibv_Evc5b5ESoH75upgnAj-Rw8WUEI4QeK_62hDy9NlyJWRhBSKNC7sdUW-AV_6FMBm5jXXhH/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div>
+  <div class="prog-table">
+    <div class="prog-col pc1" onclick="go('j1')"><div class="prog-day-tag"><span class="t on" data-l="fr">Jour 1</span><span class="t" data-l="en">Day 1</span><span class="t" data-l="de">Tag 1</span></div><h3 class="prog-title"><span class="t on" data-l="fr">Histoire & Politique</span><span class="t" data-l="en">History & Politics</span><span class="t" data-l="de">Geschichte & Politik</span></h3><div class="prog-items"><div class="prog-item"><span class="t on" data-l="fr">Histoire de la Côte d'Ivoire</span><span class="t" data-l="en">History of Côte d'Ivoire</span><span class="t" data-l="de">Geschichte der Côte d'Ivoire</span></div><div class="prog-item"><span class="t on" data-l="fr">Paysage politique & institutions</span><span class="t" data-l="en">Political landscape & institutions</span><span class="t" data-l="de">Politische Landschaft & Institutionen</span></div><div class="prog-item"><span class="t on" data-l="fr">Géopolitique régionale</span><span class="t" data-l="en">Regional geopolitics</span><span class="t" data-l="de">Regionale Geopolitik</span></div></div></div>
+    <div class="prog-col pc2" onclick="go('j2')"><div class="prog-day-tag"><span class="t on" data-l="fr">Jour 2</span><span class="t" data-l="en">Day 2</span><span class="t" data-l="de">Tag 2</span></div><h3 class="prog-title"><span class="t on" data-l="fr">Économie & Société</span><span class="t" data-l="en">Economy & Society</span><span class="t" data-l="de">Wirtschaft & Gesellschaft</span></h3><div class="prog-items"><div class="prog-item"><span class="t on" data-l="fr">Économie ivoirienne & cacao</span><span class="t" data-l="en">Ivorian economy & cocoa</span><span class="t" data-l="de">Ivorische Wirtschaft & Kakao</span></div><div class="prog-item"><span class="t on" data-l="fr">Éducation & Santé</span><span class="t" data-l="en">Education & Health</span><span class="t" data-l="de">Bildung & Gesundheit</span></div><div class="prog-item"><span class="t on" data-l="fr">Société & Codes culturels</span><span class="t" data-l="en">Society & Cultural codes</span><span class="t" data-l="de">Gesellschaft & Kulturelle Codes</span></div><div class="prog-item"><span class="t on" data-l="fr">Médias ivoiriens</span><span class="t" data-l="en">Ivorian media</span><span class="t" data-l="de">Ivorische Medien</span></div></div></div>
+    <div class="prog-col pc3" onclick="go('j3')"><div class="prog-day-tag"><span class="t on" data-l="fr">Jour 3</span><span class="t" data-l="en">Day 3</span><span class="t" data-l="de">Tag 3</span></div><h3 class="prog-title"><span class="t on" data-l="fr">Développement & Terrain</span><span class="t" data-l="en">Development & Field</span><span class="t" data-l="de">Entwicklung & Terrain</span></h3><div class="prog-items"><div class="prog-item"><span class="t on" data-l="fr">Développement & Coopération</span><span class="t" data-l="en">Development & Cooperation</span><span class="t" data-l="de">Entwicklung & Zusammenarbeit</span></div><div class="prog-item"><span class="t on" data-l="fr">Environnement & Climat</span><span class="t" data-l="en">Environment & Climate</span><span class="t" data-l="de">Umwelt & Klima</span></div><div class="prog-item"><span class="t on" data-l="fr">ONG & Société civile</span><span class="t" data-l="en">NGOs & Civil society</span><span class="t" data-l="de">NGOs & Zivilgesellschaft</span></div><div class="prog-item"><span class="t on" data-l="fr">Vie de terrain — Abidjan</span><span class="t" data-l="en">Field life — Abidjan</span><span class="t" data-l="de">Leben vor Ort — Abidjan</span></div></div></div>
+  </div>
+  <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
+    <button class="btn-light" onclick="go('nego')"><span class="t on" data-l="fr">+ Négociation culturelle</span><span class="t" data-l="en">+ Cultural negotiation</span><span class="t" data-l="de">+ Kulturelle Verhandlung</span></button>
+    <button class="btn-light" onclick="go('bonus')">+ Sport & Culture</button>
+  </div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<!-- ═══ JOUR 1 ═══ -->
+<div class="page" id="pg-j1">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Jour 1 · Module</span><span class="t" data-l="en">Day 1 · Module</span><span class="t" data-l="de">Tag 1 · Modul</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Histoire & <em>Politique</em></span><span class="t" data-l="en">History & <em>Politics</em></span><span class="t" data-l="de">Geschichte & <em>Politik</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">Les fondements historiques et le paysage politique pour une compréhension profonde de la Côte d'Ivoire contemporaine.</span><span class="t" data-l="en">Historical foundations and political landscape for a deep understanding of contemporary Côte d'Ivoire.</span><span class="t" data-l="de">Historische Grundlagen und politische Landschaft für ein tiefes Verständnis.</span></p></div></div>
+<div class="cnt">
+  <div class="module-block"><div class="module-tag mt1"><span class="t on" data-l="fr">Jour 1 · Module 1</span><span class="t" data-l="en">Day 1 · Module 1</span><span class="t" data-l="de">Tag 1 · Modul 1</span></div><h2 class="module-title"><span class="t on" data-l="fr">Histoire de la Côte d'Ivoire</span><span class="t" data-l="en">History of Côte d'Ivoire</span><span class="t" data-l="de">Geschichte der Côte d'Ivoire</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRM53P7PA0nWM-x7j3T_bx5qnufLq6l0xY9fzeD47X5R8-xXhVpqwzyz_DFMrnAglxUquDchjE9lROv/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <hr class="module-rule">
+  <div class="module-block"><div class="module-tag mt1"><span class="t on" data-l="fr">Jour 1 · Module 2</span><span class="t" data-l="en">Day 1 · Module 2</span><span class="t" data-l="de">Tag 1 · Modul 2</span></div><h2 class="module-title"><span class="t on" data-l="fr">Paysage politique & institutions</span><span class="t" data-l="en">Political landscape & institutions</span><span class="t" data-l="de">Politische Landschaft & Institutionen</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSIF7k9yFor-aG8z_NcbshjUB9w1RprQt-_MkG0nXUh4KesL7WRtdtRCZRN8tuCmT7um9_wL6JnSdsR/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <div class="nav-btns"><button class="btn-light" onclick="go('programme')">← <span class="t on" data-l="fr">Programme</span><span class="t" data-l="en">Curriculum</span><span class="t" data-l="de">Programm</span></button><button class="btn-dark" onclick="go('j2')"><span class="t on" data-l="fr">Jour 2 →</span><span class="t" data-l="en">Day 2 →</span><span class="t" data-l="de">Tag 2 →</span></button></div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<!-- ═══ JOUR 2 ═══ -->
+<div class="page" id="pg-j2">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Jour 2 · Modules</span><span class="t" data-l="en">Day 2 · Modules</span><span class="t" data-l="de">Tag 2 · Module</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Économie, Société <em>& Éducation</em></span><span class="t" data-l="en">Economy, Society <em>& Education</em></span><span class="t" data-l="de">Wirtschaft, Gesellschaft <em>& Bildung</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">Les piliers économiques et sociaux structurant la Côte d'Ivoire contemporaine.</span><span class="t" data-l="en">The economic and social pillars structuring contemporary Côte d'Ivoire.</span><span class="t" data-l="de">Die wirtschaftlichen und sozialen Grundlagen der modernen Côte d'Ivoire.</span></p></div></div>
+<div class="cnt">
+  <div class="module-block"><div class="module-tag mt2"><span class="t on" data-l="fr">Jour 2 · Module 1</span><span class="t" data-l="en">Day 2 · Module 1</span><span class="t" data-l="de">Tag 2 · Modul 1</span></div><h2 class="module-title"><span class="t on" data-l="fr">Économie ivoirienne</span><span class="t" data-l="en">Ivorian economy</span><span class="t" data-l="de">Ivorische Wirtschaft</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQTiy7pfU_oapXHrsmCjzG9MrANayBDgXz4rDr1huB0X4a9omzLgonPNkDCPr21svRG39TILRh4RDDZ/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <hr class="module-rule">
+  <div class="module-block"><div class="module-tag mt2"><span class="t on" data-l="fr">Jour 2 · Module 2</span><span class="t" data-l="en">Day 2 · Module 2</span><span class="t" data-l="de">Tag 2 · Modul 2</span></div><h2 class="module-title"><span class="t on" data-l="fr">Éducation & Santé</span><span class="t" data-l="en">Education & Health</span><span class="t" data-l="de">Bildung & Gesundheit</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTbzQ3uARnedRU_-_JSz3C-rFO_XuMNaiCtwSZUH6MhiRLKrtL2X0oajMEGMgNR5MJ53dwx6ZTz_5RR/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <hr class="module-rule">
+  <div class="module-block"><div class="module-tag mt2"><span class="t on" data-l="fr">Jour 2 · Module 3</span><span class="t" data-l="en">Day 2 · Module 3</span><span class="t" data-l="de">Tag 2 · Modul 3</span></div><h2 class="module-title"><span class="t on" data-l="fr">Société & Codes culturels</span><span class="t" data-l="en">Society & Cultural codes</span><span class="t" data-l="de">Gesellschaft & Kulturelle Codes</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSrqcM1pvxnNEvpk4szjY41cS50pFHHLmoJOrIj3LE8WHmwdGWJ40rO80w3sClZlQUtn1NwvIhaJH8D/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <hr class="module-rule">
+  <div class="module-block"><div class="module-tag mt2"><span class="t on" data-l="fr">Jour 2 · Module 4</span><span class="t" data-l="en">Day 2 · Module 4</span><span class="t" data-l="de">Tag 2 · Modul 4</span></div><h2 class="module-title"><span class="t on" data-l="fr">Médias ivoiriens</span><span class="t" data-l="en">Ivorian media</span><span class="t" data-l="de">Ivorische Medien</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSqwJawbzrevokGIKn-5JEYdGHEpW6u_S2T6SBFTwYukPP44tVbG0eBGALEAgChsOvo9D89c3F7BCCi/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <div class="nav-btns"><button class="btn-light" onclick="go('j1')">← <span class="t on" data-l="fr">Jour 1</span><span class="t" data-l="en">Day 1</span><span class="t" data-l="de">Tag 1</span></button><button class="btn-dark" onclick="go('j3')"><span class="t on" data-l="fr">Jour 3 →</span><span class="t" data-l="en">Day 3 →</span><span class="t" data-l="de">Tag 3 →</span></button></div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<!-- ═══ JOUR 3 ═══ -->
+<div class="page" id="pg-j3">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Jour 3 · Modules</span><span class="t" data-l="en">Day 3 · Modules</span><span class="t" data-l="de">Tag 3 · Module</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Développement, Terrain <em>& Coopération</em></span><span class="t" data-l="en">Development, Field <em>& Cooperation</em></span><span class="t" data-l="de">Entwicklung, Terrain <em>& Kooperation</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">Les dimensions opérationnelles pour agir efficacement sur le terrain ivoirien.</span><span class="t" data-l="en">Operational dimensions for acting effectively in the Ivorian field.</span><span class="t" data-l="de">Operative Dimensionen für einen effektiven Einsatz vor Ort.</span></p></div></div>
+<div class="cnt">
+  <div class="module-block"><div class="module-tag mt3"><span class="t on" data-l="fr">Jour 3 · Module 1</span><span class="t" data-l="en">Day 3 · Module 1</span><span class="t" data-l="de">Tag 3 · Modul 1</span></div><h2 class="module-title"><span class="t on" data-l="fr">Développement & Coopération internationale</span><span class="t" data-l="en">Development & International cooperation</span><span class="t" data-l="de">Entwicklung & Internationale Zusammenarbeit</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSb-dvdtH7ifJVsWtb7EL_MTWWCxTxwc5idKH4lfXeWxblEeOi2XHOx6TBuaBHYUiyaciTGL4gcCTOD/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <hr class="module-rule">
+  <div class="module-block"><div class="module-tag mt3"><span class="t on" data-l="fr">Jour 3 · Module 2</span><span class="t" data-l="en">Day 3 · Module 2</span><span class="t" data-l="de">Tag 3 · Modul 2</span></div><h2 class="module-title"><span class="t on" data-l="fr">Environnement & Enjeux climatiques</span><span class="t" data-l="en">Environment & Climate challenges</span><span class="t" data-l="de">Umwelt & Klimafragen</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTsCx7xYmO0Uh_YkyNzuHK1ryVPkArmYaaFeBP4mtlHteB1FuTLxxbku28ZjGKS2UhyhtOb6a64GM7w/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <hr class="module-rule">
+  <div class="module-block"><div class="module-tag mt3"><span class="t on" data-l="fr">Jour 3 · Module 3</span><span class="t" data-l="en">Day 3 · Module 3</span><span class="t" data-l="de">Tag 3 · Modul 3</span></div><h2 class="module-title"><span class="t on" data-l="fr">ONG & Société civile</span><span class="t" data-l="en">NGOs & Civil society</span><span class="t" data-l="de">NGOs & Zivilgesellschaft</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQNFxuo3CpE-p574uJ9E66X-XPeSF3KsDEpP-6CJX6AptFOfREjG-YhmhpwcqmDYn9Pz0GnMXIZF7xH/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <hr class="module-rule">
+  <div class="module-block"><div class="module-tag mt3"><span class="t on" data-l="fr">Jour 3 · Module 4</span><span class="t" data-l="en">Day 3 · Module 4</span><span class="t" data-l="de">Tag 3 · Modul 4</span></div><h2 class="module-title"><span class="t on" data-l="fr">Vie de terrain — Abidjan</span><span class="t" data-l="en">Field life — Abidjan</span><span class="t" data-l="de">Leben vor Ort — Abidjan</span></h2><div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTsqvWR8ouEZuJh49ZV2EjfhOxA9g-Pq3BE-d-kF8-H9LGHuzuAUmhgXq9YpTGCV1jzRZUJuo-6m1mQ/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div></div>
+  <div class="nav-btns"><button class="btn-light" onclick="go('j2')">← <span class="t on" data-l="fr">Jour 2</span><span class="t" data-l="en">Day 2</span><span class="t" data-l="de">Tag 2</span></button><button class="btn-dark" onclick="go('nego')"><span class="t on" data-l="fr">Négociation →</span><span class="t" data-l="en">Negotiation →</span><span class="t" data-l="de">Verhandlung →</span></button></div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<!-- ═══ NÉGOCIATION ═══ -->
+<div class="page" id="pg-nego">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Module spécial</span><span class="t" data-l="en">Special module</span><span class="t" data-l="de">Sondermodul</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Négociation <em>culturelle</em></span><span class="t" data-l="en">Cultural <em>negotiation</em></span><span class="t" data-l="de">Kulturelle <em>Verhandlung</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">Les clés pour négocier avec efficacité selon les groupes ethniques et culturels ivoiriens.</span><span class="t" data-l="en">The keys to negotiating effectively according to Ivorian ethnic and cultural groups.</span><span class="t" data-l="de">Die Schlüssel zur effektiven Verhandlung im ivorischen Kontext.</span></p></div></div>
+<div class="cnt">
+  <div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTkDUX7ZHV7_gCiyOSlWc6mzRaJHZDvvfYr8iSL5AFetfRTsrDS3AEJtGpYx2vt_r46yHUkvPXFEDyB/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div>
+  <div class="nav-btns"><button class="btn-light" onclick="go('j3')">← <span class="t on" data-l="fr">Jour 3</span><span class="t" data-l="en">Day 3</span><span class="t" data-l="de">Tag 3</span></button><button class="btn-dark" onclick="go('bonus')">Bonus →</button></div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<!-- ═══ BONUS ═══ -->
+<div class="page" id="pg-bonus">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow">Bonus</p><h1 class="pg-title"><span class="t on" data-l="fr">Sport, Culture <em>& Tourisme</em></span><span class="t" data-l="en">Sport, Culture <em>& Tourism</em></span><span class="t" data-l="de">Sport, Kultur <em>& Tourismus</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">La dimension culturelle, sportive et touristique pour une immersion complète.</span><span class="t" data-l="en">The cultural, sporting and touristic dimension for complete immersion.</span><span class="t" data-l="de">Die kulturelle, sportliche und touristische Dimension.</span></p></div></div>
+<div class="cnt">
+  <div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQDrWyxjTI2dDL_CtulXR1lNGSmbJdS_acFTasH0tHoiQoTORmY2qgsu-5QaE8Nvxm9bXwQZg66SBe1/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe></div>
+  <div class="nav-btns"><button class="btn-light" onclick="go('nego')">← <span class="t on" data-l="fr">Négociation</span><span class="t" data-l="en">Negotiation</span><span class="t" data-l="de">Verhandlung</span></button><button class="btn-dark" onclick="go('contact')"><span class="t on" data-l="fr">Nous contacter →</span><span class="t" data-l="en">Contact us →</span><span class="t" data-l="de">Kontakt →</span></button></div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<!-- ═══ EXPERT ═══ -->
+<div class="page" id="pg-expert">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Votre formateur</span><span class="t" data-l="en">Your trainer</span><span class="t" data-l="de">Ihr Trainer</span></p><h1 class="pg-title"><span class="t on" data-l="fr">L'<em>expert</em></span><span class="t" data-l="en">The <em>expert</em></span><span class="t" data-l="de">Der <em>Experte</em></span></h1></div></div></div>
+<div class="cnt">
+  <div class="expert-layout">
+    <div>
+      <div class="expert-card">
+        <div class="expert-monogram">FV</div>
+        <div class="e-stat"><div class="e-n">15+</div><div class="e-l"><span class="t on" data-l="fr">Années d'expérience</span><span class="t" data-l="en">Years of experience</span><span class="t" data-l="de">Jahre Erfahrung</span></div></div>
+        <div class="e-stat"><div class="e-n">2</div><div class="e-l"><span class="t on" data-l="fr">Continents</span><span class="t" data-l="en">Continents</span><span class="t" data-l="de">Kontinente</span></div></div>
+        <div class="e-stat"><div class="e-n">3</div><div class="e-l"><span class="t on" data-l="fr">Langues de travail</span><span class="t" data-l="en">Working languages</span><span class="t" data-l="de">Arbeitssprachen</span></div></div>
+      </div>
+    </div>
+    <div>
+      <h1 class="expert-name">Franck Albert Vanié</h1>
+      <p class="expert-title"><span class="t on" data-l="fr">Expert en coopération internationale</span><span class="t" data-l="en">International cooperation expert</span><span class="t" data-l="de">Experte für internationale Zusammenarbeit</span></p>
+      <div class="expert-rule"></div>
+      <p class="expert-bio"><span class="t on" data-l="fr">Basé en Allemagne, Franck Albert Vanié accompagne depuis plus de 15 ans les diplomates, organisations internationales et institutions dans leur préparation opérationnelle à la Côte d'Ivoire et à l'Afrique de l'Ouest. Son expertise couvre les dimensions historiques, politiques, économiques, sociales et pratiques de la vie ivoirienne. Fort d'une expérience terrain entre l'Europe et l'Afrique, il conçoit chaque formation en fonction des besoins spécifiques, du secteur et du contexte d'intervention de ses clients.</span><span class="t" data-l="en">Based in Germany, Franck Albert Vanié has been supporting diplomats, international organisations and institutions for over 15 years in their operational preparation for Côte d'Ivoire and West Africa. His expertise covers the historical, political, economic, social and practical dimensions of Ivorian life. Drawing on extensive field experience across Europe and Africa, he designs each training according to the specific needs, sector and operational context of his clients.</span><span class="t" data-l="de">Mit Sitz in Deutschland begleitet Franck Albert Vanié seit über 15 Jahren Diplomaten, internationale Organisationen und Institutionen bei ihrer operativen Vorbereitung für die Côte d'Ivoire und Westafrika. Seine Expertise umfasst die historischen, politischen, wirtschaftlichen, sozialen und praktischen Dimensionen des ivorischen Lebens.</span></p>
+      <div class="expert-tags">
+        <span class="etag"><span class="t on" data-l="fr">Coopération internationale</span><span class="t" data-l="en">International cooperation</span><span class="t" data-l="de">Internationale Zusammenarbeit</span></span>
+        <span class="etag">Côte d'Ivoire</span>
+        <span class="etag"><span class="t on" data-l="fr">Basé en Allemagne</span><span class="t" data-l="en">Based in Germany</span><span class="t" data-l="de">Sitz in Deutschland</span></span>
+        <span class="etag">ONG & <span class="t on" data-l="fr">Diplomatie</span><span class="t" data-l="en">Diplomacy</span><span class="t" data-l="de">Diplomatie</span></span>
+        <span class="etag"><span class="t on" data-l="fr">Analyse pays</span><span class="t" data-l="en">Country analysis</span><span class="t" data-l="de">Länderanalyse</span></span>
+        <span class="etag"><span class="t on" data-l="fr">Afrique de l'Ouest</span><span class="t" data-l="en">West Africa</span><span class="t" data-l="de">Westafrika</span></span>
+      </div>
+      <button class="btn-dark" onclick="go('contact')"><span class="t on" data-l="fr">Prendre contact</span><span class="t" data-l="en">Get in touch</span><span class="t" data-l="de">Kontakt aufnehmen</span></button>
+    </div>
+  </div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Expert en coopération internationale</span><span class="t" data-l="en">International cooperation expert</span><span class="t" data-l="de">Experte</span></p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Localisation</span><span class="t" data-l="en">Location</span><span class="t" data-l="de">Standort</span></h5><p><span class="t on" data-l="fr">Basé en Allemagne<br>Europe & Afrique de l'Ouest</span><span class="t" data-l="en">Based in Germany<br>Europe & West Africa</span><span class="t" data-l="de">Sitz in Deutschland<br>Europa & Westafrika</span></p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com<br>Zoom · Teams · Google Meet</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div></footer>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="page" id="pg-contact">
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Demande de formation</span><span class="t" data-l="en">Training enquiry</span><span class="t" data-l="de">Schulungsanfrage</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Démarrons votre <em>formation</em></span><span class="t" data-l="en">Let's start your <em>training</em></span><span class="t" data-l="de">Starten wir Ihre <em>Schulung</em></span></h1></div></div></div>
+<div class="cnt">
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h2><span class="t on" data-l="fr">Prêt à préparer votre équipe ?</span><span class="t" data-l="en">Ready to prepare your team?</span><span class="t" data-l="de">Bereit, Ihr Team vorzubereiten?</span></h2>
+      <p><span class="t on" data-l="fr">Remplissez le formulaire et nous vous répondrons dans les 24 heures ouvrées pour discuter de votre projet de formation et vous soumettre une proposition personnalisée.</span><span class="t" data-l="en">Complete the form and we will respond within 24 business hours to discuss your training project and submit a personalised proposal.</span><span class="t" data-l="de">Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Arbeitsstunden mit einem personalisierten Angebot.</span></p>
+      <div class="contact-items">
+        <div class="contact-item"><div><div class="ci-label">Email</div><div class="ci-val">contact@aicdi-formation.com</div></div></div>
+        <div class="contact-item"><div><div class="ci-label"><span class="t on" data-l="fr">Localisation</span><span class="t" data-l="en">Location</span><span class="t" data-l="de">Standort</span></div><div class="ci-val"><span class="t on" data-l="fr">Basé en Allemagne · Europe & Afrique</span><span class="t" data-l="en">Based in Germany · Europe & Africa</span><span class="t" data-l="de">Sitz in Deutschland · Europa & Afrika</span></div></div></div>
+        <div class="contact-item"><div><div class="ci-label"><span class="t on" data-l="fr">Visioconférence</span><span class="t" data-l="en">Video conference</span><span class="t" data-l="de">Videokonferenz</span></div><div class="ci-val">Zoom · Microsoft Teams · Google Meet</div></div></div>
+        <div class="contact-item"><div><div class="ci-label"><span class="t on" data-l="fr">Délai de réponse</span><span class="t" data-l="en">Response time</span><span class="t" data-l="de">Antwortzeit</span></div><div class="ci-val"><span class="t on" data-l="fr">Sous 24 heures ouvrées</span><span class="t" data-l="en">Within 24 business hours</span><span class="t" data-l="de">Innerhalb von 24 Arbeitsstunden</span></div></div></div>
+      </div>
+    </div>
+    <form class="cform" onsubmit="sendForm(event)">
+      <div class="fg"><label><span class="t on" data-l="fr">Nom et prénom</span><span class="t" data-l="en">Full name</span><span class="t" data-l="de">Vor- und Nachname</span></label><input type="text" required placeholder="Jean Dupont"></div>
+      <div class="fg"><label><span class="t on" data-l="fr">Adresse électronique</span><span class="t" data-l="en">Email address</span><span class="t" data-l="de">E-Mail-Adresse</span></label><input type="email" required placeholder="jean.dupont@organisation.org"></div>
+      <div class="fg"><label><span class="t on" data-l="fr">Organisation</span><span class="t" data-l="en">Organisation</span><span class="t" data-l="de">Organisation</span></label><input type="text" placeholder="Ambassade, ONG, Institution..."></div>
+      <div class="fg">
+        <label><span class="t on" data-l="fr">Type d'organisation</span><span class="t" data-l="en">Organisation type</span><span class="t" data-l="de">Organisationstyp</span></label>
+        <select>
+          <option value=""><span class="t on" data-l="fr">Sélectionner...</span><span class="t" data-l="en">Select...</span><span class="t" data-l="de">Auswählen...</span></option>
+          <option><span class="t on" data-l="fr">Ambassade / Mission diplomatique</span><span class="t" data-l="en">Embassy / Diplomatic mission</span><span class="t" data-l="de">Botschaft / Diplomatische Mission</span></option>
+          <option><span class="t on" data-l="fr">Organisation internationale (ONU, BM, UE…)</span><span class="t" data-l="en">International organization (UN, WB, EU…)</span><span class="t" data-l="de">Internationale Organisation (UN, WB, EU…)</span></option>
+          <option>ONG / NGO</option>
+          <option><span class="t on" data-l="fr">Entreprise privée</span><span class="t" data-l="en">Private company</span><span class="t" data-l="de">Privatunternehmen</span></option>
+          <option><span class="t on" data-l="fr">Institution académique / Think tank</span><span class="t" data-l="en">Academic institution / Think tank</span><span class="t" data-l="de">Akademische Institution / Think Tank</span></option>
+          <option><span class="t on" data-l="fr">Autre</span><span class="t" data-l="en">Other</span><span class="t" data-l="de">Andere</span></option>
+        </select>
+      </div>
+      <div class="fg">
+        <label><span class="t on" data-l="fr">Programme souhaité</span><span class="t" data-l="en">Desired programme</span><span class="t" data-l="de">Gewünschtes Programm</span></label>
+        <select>
+          <option value=""><span class="t on" data-l="fr">Sélectionner...</span><span class="t" data-l="en">Select...</span><span class="t" data-l="de">Auswählen...</span></option>
+          <option><span class="t on" data-l="fr">Présentiel — Formation intensive 3 jours</span><span class="t" data-l="en">In-person — 3-day intensive training</span><span class="t" data-l="de">Präsenz — 3-tägige Intensivschulung</span></option>
+          <option><span class="t on" data-l="fr">En ligne — 5 sessions de visioconférence</span><span class="t" data-l="en">Online — 5 video conference sessions</span><span class="t" data-l="de">Online — 5 Videokonferenzsitzungen</span></option>
+          <option><span class="t on" data-l="fr">Sur mesure — Programme personnalisé</span><span class="t" data-l="en">Tailored — Customized programme</span><span class="t" data-l="de">Maßgeschneidert — Individuelles Programm</span></option>
+          <option><span class="t on" data-l="fr">À définir ensemble</span><span class="t" data-l="en">To be defined together</span><span class="t" data-l="de">Gemeinsam zu definieren</span></option>
+        </select>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Décrivez votre contexte institutionnel, vos objectifs de formation et votre calendrier souhaité..."></textarea></div>
+      <div class="form-submit-row"><button type="submit" class="btn-dark"><span class="t on" data-l="fr">Soumettre ma demande</span><span class="t" data-l="en">Submit my enquiry</span><span class="t" data-l="de">Anfrage einreichen</span></button></div>
+      <div class="form-ok" id="formOk">✓ &nbsp;<span class="t on" data-l="fr">Votre demande a été transmise avec succès. Nous vous répondons sous 24 heures ouvrées.</span><span class="t" data-l="en">Your enquiry has been submitted successfully. We will respond within 24 business hours.</span><span class="t" data-l="de">Ihre Anfrage wurde erfolgreich übermittelt. Wir antworten innerhalb von 24 Arbeitsstunden.</span></div>
+    </form>
+  </div>
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Expert en coopération internationale</span><span class="t" data-l="en">International cooperation expert</span><span class="t" data-l="de">Experte für internationale Zusammenarbeit</span></p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Localisation</span><span class="t" data-l="en">Location</span><span class="t" data-l="de">Standort</span></h5><p><span class="t on" data-l="fr">Basé en Allemagne<br>Europe & Afrique de l'Ouest</span><span class="t" data-l="en">Based in Germany<br>Europe & West Africa</span><span class="t" data-l="de">Sitz in Deutschland<br>Europa & Westafrika</span></p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com<br>Zoom · Teams · Google Meet</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div></footer>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const t=document.getElementById('pg-'+id);
+  if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+}
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const m=document.getElementById('mobileMenu');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow='';
+}
+function toggleSub(id){
+  document.getElementById(id).classList.toggle('open');
+}
+function setLang(l){
+  document.querySelectorAll('.t').forEach(e=>{
+    e.classList.remove('on');
+    if(e.getAttribute('data-l')===l)e.classList.add('on');
+  });
+  document.querySelectorAll('.lb').forEach(b=>{
+    b.classList.remove('on');
+    const t=b.textContent.trim();
+    if(t==='Français'&&l==='fr'||t==='English'&&l==='en'||t==='Deutsch'&&l==='de'||t.toLowerCase()===l)b.classList.add('on');
+  });
+}
+function sendForm(e){
+  e.preventDefault();
+  const ok=document.getElementById('formOk');
+  ok.style.display='block';
+  e.target.reset();
+  setTimeout(()=>ok.style.display='none',8000);
+}
+document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+</script>
+
+<!-- ═══ PAGE TARIFS ═══ -->
+<div class="page" id="pg-tarifs">
+<div class="pg-header">
+  <div class="pg-header-inner">
+    <div>
+      <p class="pg-eyebrow"><span class="t on" data-l="fr">Investissement</span><span class="t" data-l="en">Investment</span><span class="t" data-l="de">Investition</span></p>
+      <h1 class="pg-title"><span class="t on" data-l="fr">Nos <em>tarifs</em></span><span class="t" data-l="en">Our <em>fees</em></span><span class="t" data-l="de">Unsere <em>Tarife</em></span></h1>
+    </div>
+    <p class="pg-desc"><span class="t on" data-l="fr">Des formations limitées à 10 participants pour garantir la qualité des échanges et la personnalisation du programme.</span><span class="t" data-l="en">Trainings limited to 10 participants to guarantee the quality of exchanges and programme customisation.</span><span class="t" data-l="de">Schulungen auf 10 Teilnehmer begrenzt, um die Qualität der Diskussionen und die Programmindividualisierung zu gewährleisten.</span></p>
+  </div>
+</div>
+<div class="cnt">
+
+  <!-- Note premium -->
+  <div style="background:var(--paper);border-left:4px solid var(--gold);padding:1.25rem 1.75rem;margin-bottom:3rem;display:flex;align-items:flex-start;gap:1rem;">
+    <span style="font-size:1.2rem;margin-top:2px;">💡</span>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink2);line-height:1.8;font-weight:300;">
+      <span class="t on" data-l="fr"><strong>Sessions limitées à 10 participants.</strong> Ce choix délibéré garantit des échanges approfondis, une adaptation au contexte de chaque participant et une qualité d'enseignement comparable aux standards des grandes institutions internationales.</span>
+      <span class="t" data-l="en"><strong>Sessions limited to 10 participants.</strong> This deliberate choice guarantees in-depth exchanges, adaptation to each participant's context and teaching quality comparable to the standards of major international institutions.</span>
+      <span class="t" data-l="de"><strong>Sitzungen auf 10 Teilnehmer begrenzt.</strong> Diese bewusste Entscheidung gewährleistet vertiefte Diskussionen, Anpassung an den Kontext jedes Teilnehmers und eine Unterrichtsqualität nach den Standards großer internationaler Institutionen.</span>
+    </p>
+  </div>
+
+  <!-- Tableau tarifs -->
+  <div style="border:1px solid var(--rule);overflow:hidden;">
+
+    <!-- Header tableau -->
+    <div style="display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1.5fr;background:var(--ink);color:var(--white);">
+      <div style="padding:1.25rem 1.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
+        <span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span>
+      </div>
+      <div style="padding:1.25rem 1.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-left:1px solid rgba(255,255,255,0.1);">
+        <span class="t on" data-l="fr">Groupe (max 10)</span><span class="t" data-l="en">Group (max 10)</span><span class="t" data-l="de">Gruppe (max. 10)</span>
+      </div>
+      <div style="padding:1.25rem 1.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-left:1px solid rgba(255,255,255,0.1);">
+        <span class="t on" data-l="fr">Individuel</span><span class="t" data-l="en">Individual</span><span class="t" data-l="de">Einzelperson</span>
+      </div>
+      <div style="padding:1.25rem 1.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-left:1px solid rgba(255,255,255,0.1);">
+        <span class="t on" data-l="fr">Sur mesure</span><span class="t" data-l="en">Tailored</span><span class="t" data-l="de">Maßgeschneidert</span>
+      </div>
+    </div>
+
+    <!-- Ligne 1 — Présentiel -->
+    <div style="display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1.5fr;border-top:1px solid var(--rule);background:var(--white);">
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+          <span style="background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;"><span class="t on" data-l="fr">Présentiel</span><span class="t" data-l="en">In-person</span><span class="t" data-l="de">Präsenz</span></span>
+        </div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;"><span class="t on" data-l="fr">Formation intensive — 3 jours</span><span class="t" data-l="en">Intensive training — 3 days</span><span class="t" data-l="de">Intensivschulung — 3 Tage</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Abidjan ou Europe · Supports inclus</span><span class="t" data-l="en">Abidjan or Europe · Materials included</span><span class="t" data-l="de">Abidjan oder Europa · Unterlagen inklusive</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:700;">6 000€</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--gold2);font-weight:500;margin-top:2px;"><span class="t on" data-l="fr">à partir de</span><span class="t" data-l="en">from</span><span class="t" data-l="de">ab</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;margin-top:4px;"><span class="t on" data-l="fr">jusqu'à 8 000€</span><span class="t" data-l="en">up to 8,000€</span><span class="t" data-l="de">bis 8.000€</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:700;">1 800€</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--gold2);font-weight:500;margin-top:2px;"><span class="t on" data-l="fr">à partir de</span><span class="t" data-l="en">from</span><span class="t" data-l="de">ab</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;margin-top:4px;"><span class="t on" data-l="fr">jusqu'à 2 500€</span><span class="t" data-l="en">up to 2,500€</span><span class="t" data-l="de">bis 2.500€</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;display:flex;align-items:center;">
+        <div>
+          <div style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:400;font-style:italic;"><span class="t on" data-l="fr">Sur devis</span><span class="t" data-l="en">On request</span><span class="t" data-l="de">Auf Anfrage</span></div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;margin-top:4px;"><span class="t on" data-l="fr">Selon contexte & durée</span><span class="t" data-l="en">Based on context & duration</span><span class="t" data-l="de">Je nach Kontext & Dauer</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ligne 2 — Visio -->
+    <div style="display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1.5fr;border-top:1px solid var(--rule);background:var(--paper);">
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+          <span style="background:var(--civ-green);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;"><span class="t on" data-l="fr">En ligne</span><span class="t" data-l="en">Online</span><span class="t" data-l="de">Online</span></span>
+        </div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;"><span class="t on" data-l="fr">Formation visio — 5 sessions Zoom</span><span class="t" data-l="en">Online training — 5 Zoom sessions</span><span class="t" data-l="de">Online-Schulung — 5 Zoom-Sitzungen</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Accès mondial · 2h par session · Même valeur, zéro transport</span><span class="t" data-l="en">Global access · 2h per session · Same value, zero travel</span><span class="t" data-l="de">Weltweiter Zugang · 2h pro Sitzung · Gleicher Wert, kein Transport</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:700;">6 000€</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--gold2);font-weight:500;margin-top:2px;"><span class="t on" data-l="fr">= présentiel</span><span class="t" data-l="en">= in-person rate</span><span class="t" data-l="de">= Präsenzpreis</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;margin-top:4px;"><span class="t on" data-l="fr">jusqu'à 8 000€</span><span class="t" data-l="en">up to 8,000€</span><span class="t" data-l="de">bis 8.000€</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:700;">1 800€</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--gold2);font-weight:500;margin-top:2px;"><span class="t on" data-l="fr">= présentiel</span><span class="t" data-l="en">= in-person rate</span><span class="t" data-l="de">= Präsenzpreis</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;margin-top:4px;"><span class="t on" data-l="fr">jusqu'à 2 500€</span><span class="t" data-l="en">up to 2,500€</span><span class="t" data-l="de">bis 2.500€</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;display:flex;align-items:center;">
+        <div>
+          <div style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:400;font-style:italic;"><span class="t on" data-l="fr">Sur devis</span><span class="t" data-l="en">On request</span><span class="t" data-l="de">Auf Anfrage</span></div>
+          <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;margin-top:4px;"><span class="t on" data-l="fr">Selon contexte & durée</span><span class="t" data-l="en">Based on context & duration</span><span class="t" data-l="de">Je nach Kontext & Dauer</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ligne 3 — Module -->
+    <div style="display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1.5fr;border-top:1px solid var(--rule);background:var(--white);">
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+          <span style="background:var(--gold);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;"><span class="t on" data-l="fr">Module</span><span class="t" data-l="en">Module</span><span class="t" data-l="de">Modul</span></span>
+        </div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;"><span class="t on" data-l="fr">Module thématique — demi-journée</span><span class="t" data-l="en">Thematic module — half-day</span><span class="t" data-l="de">Thematisches Modul — Halbtag</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Un thème au choix · 3h · Présentiel ou visio</span><span class="t" data-l="en">One theme of your choice · 3h · In-person or online</span><span class="t" data-l="de">Ein Thema nach Wahl · 3h · Präsenz oder online</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:700;">1 200€</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--gold2);font-weight:500;margin-top:2px;"><span class="t on" data-l="fr">à partir de</span><span class="t" data-l="en">from</span><span class="t" data-l="de">ab</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;margin-top:4px;"><span class="t on" data-l="fr">jusqu'à 2 000€</span><span class="t" data-l="en">up to 2,000€</span><span class="t" data-l="de">bis 2.000€</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;border-right:1px solid var(--rule);display:flex;align-items:center;">
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:400;font-style:italic;"><span class="t on" data-l="fr">Sur devis</span><span class="t" data-l="en">On request</span><span class="t" data-l="de">Auf Anfrage</span></div>
+      </div>
+      <div style="padding:1.75rem 1.5rem;display:flex;align-items:center;">
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:400;font-style:italic;"><span class="t on" data-l="fr">Sur devis</span><span class="t" data-l="en">On request</span><span class="t" data-l="de">Auf Anfrage</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Note bas de tableau -->
+  <div style="margin-top:1.5rem;display:flex;gap:2rem;flex-wrap:wrap;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);font-weight:300;">
+      <span class="t on" data-l="fr">* Tarifs hors taxes · Frais de déplacement en sus · Devis personnalisé sur demande</span>
+      <span class="t" data-l="en">* Fees excluding taxes · Travel expenses additional · Personalised quote on request</span>
+      <span class="t" data-l="de">* Preise zzgl. MwSt. · Reisekosten extra · Individuelles Angebot auf Anfrage</span>
+    </p>
+  </div>
+
+  <!-- Ce qui est inclus -->
+  <div style="margin-top:3.5rem;">
+    <h2 style="font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--ink);font-weight:400;margin-bottom:2rem;">
+      <span class="t on" data-l="fr">Ce qui est <em style="color:var(--gold2)">inclus</em></span>
+      <span class="t" data-l="en">What is <em style="color:var(--gold2)">included</em></span>
+      <span class="t" data-l="de">Was ist <em style="color:var(--gold2)">inbegriffen</em></span>
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);">
+      <div style="background:var(--white);padding:2rem 1.75rem;">
+        <div style="font-size:1.5rem;margin-bottom:1rem;">📚</div>
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Supports de formation</span><span class="t" data-l="en">Training materials</span><span class="t" data-l="de">Schulungsunterlagen</span></h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;font-weight:300;"><span class="t on" data-l="fr">Toutes les présentations en PDF, bibliographie sélective et ressources complémentaires.</span><span class="t" data-l="en">All presentations in PDF, selective bibliography and additional resources.</span><span class="t" data-l="de">Alle Präsentationen als PDF, Auswahlbibliographie und zusätzliche Ressourcen.</span></p>
+      </div>
+      <div style="background:var(--white);padding:2rem 1.75rem;">
+        <div style="font-size:1.5rem;margin-bottom:1rem;">🎯</div>
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Personnalisation</span><span class="t" data-l="en">Customisation</span><span class="t" data-l="de">Individualisierung</span></h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;font-weight:300;"><span class="t on" data-l="fr">Adaptation du programme au secteur et au contexte d'intervention de votre organisation.</span><span class="t" data-l="en">Programme adaptation to your organisation's sector and operational context.</span><span class="t" data-l="de">Programmanpassung an den Sektor und Einsatzkontext Ihrer Organisation.</span></p>
+      </div>
+      <div style="background:var(--white);padding:2rem 1.75rem;">
+        <div style="font-size:1.5rem;margin-bottom:1rem;">💬</div>
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Suivi post-formation</span><span class="t" data-l="en">Post-training follow-up</span><span class="t" data-l="de">Nachbetreuung</span></h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;font-weight:300;"><span class="t on" data-l="fr">Session de questions-réponses 30 jours après la formation.</span><span class="t" data-l="en">Q&A session 30 days after the training.</span><span class="t" data-l="de">Frage-und-Antwort-Sitzung 30 Tage nach der Schulung.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:3rem;padding:3rem;background:var(--ink);text-align:center;">
+    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--white);font-weight:400;margin-bottom:0.75rem;">
+      <span class="t on" data-l="fr">Prêt à former votre équipe ?</span>
+      <span class="t" data-l="en">Ready to train your team?</span>
+      <span class="t" data-l="de">Bereit, Ihr Team zu schulen?</span>
+    </h3>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:2rem;font-weight:300;">
+      <span class="t on" data-l="fr">Nous vous répondons sous 24 heures ouvrées avec une proposition personnalisée.</span>
+      <span class="t" data-l="en">We respond within 24 business hours with a personalised proposal.</span>
+      <span class="t" data-l="de">Wir antworten innerhalb von 24 Arbeitsstunden mit einem personalisierten Angebot.</span>
+    </p>
+    <button class="btn-primary" onclick="go('contact')" style="background:var(--gold);color:var(--ink);">
+      <span class="t on" data-l="fr">Demander un devis</span>
+      <span class="t" data-l="en">Request a quote</span>
+      <span class="t" data-l="de">Angebot anfragen</span>
+    </button>
+  </div>
+
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Analyse Pays Côte d'Ivoire</span><span class="t" data-l="en">Country Analysis Côte d'Ivoire</span><span class="t" data-l="de">Länderanalyse Côte d'Ivoire</span></div><div class="footer-flag"><span style="background:#B85C1E"></span><span style="background:rgba(255,255,255,0.15)"></span><span style="background:#1A5C35"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié</p></div><div class="fi-block"><h5>Contact</h5><p>contact@aicdi-formation.com</p></div><div class="fi-block"><h5><span class="t on" data-l="fr">Langues</span><span class="t" data-l="en">Languages</span><span class="t" data-l="de">Sprachen</span></h5><p>Français · English · Deutsch</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+</body>
+</html>
