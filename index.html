@@ -683,134 +683,8 @@ nav {
 }
 
 /* ═══════════════════════════════════
-   MOBILE OPTIMIZATIONS
+   MOBILE OPTIMIZATIONS — Complete Fix
    ═══════════════════════════════════ */
-
-/* Hide slides on mobile, show button instead */
-@media(max-width:768px){
-
-  /* Slides → open in new tab button */
-  .slide-frame {
-    position: relative;
-  }
-  .slide-frame iframe {
-    display: none;
-  }
-  .slide-mobile-btn {
-    display: flex !important;
-  }
-
-  /* Programme cards - fix overflow */
-  .prog-table {
-    grid-template-columns: 1fr !important;
-  }
-  .prog-col {
-    border-right: none !important;
-    border-bottom: 1px solid var(--rule) !important;
-  }
-
-  /* Vision 2 col -> 1 col */
-  .vision-2col {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Pays grid 4col -> 2col */
-  .pays-grid {
-    grid-template-columns: repeat(2,1fr) !important;
-  }
-
-  /* Tarifs table - stack on mobile */
-  .tarifs-table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .tarifs-table-wrap table {
-    min-width: 600px;
-  }
-
-  /* Formation programmes grid */
-  .prog-programmes {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Roadmap grid -> 1 col */
-  .roadmap-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Strategic alignment -> 2 col */
-  .strategic-grid {
-    grid-template-columns: repeat(2,1fr) !important;
-  }
-
-  /* Trust grid -> 2 col */
-  .trust-grid {
-    grid-template-columns: repeat(2,1fr) !important;
-  }
-
-  /* Contact layout */
-  .contact-layout {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Expert layout */
-  .expert-layout {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Page header */
-  .pg-header-inner {
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-
-  /* Hero */
-  .hero {
-    grid-template-columns: 1fr !important;
-    min-height: auto !important;
-  }
-  .hero-r { display: none !important; }
-  .hero-l { padding: 3rem 1.5rem 3.5rem 2rem !important; }
-  .hero-akwaba { font-size: clamp(4rem,18vw,6rem) !important; }
-  .hero-btns { flex-direction: column !important; }
-  .btn-primary, .btn-outline { width: 100% !important; text-align: center !important; padding: 14px !important; }
-
-  /* Content padding */
-  .cnt { padding: 2rem 1.25rem !important; }
-  .pg-header { padding: 2.5rem 1.25rem 2rem !important; }
-
-  /* Nav buttons */
-  .nav-btns { flex-direction: column-reverse !important; }
-  .nav-btns button { width: 100% !important; text-align: center !important; }
-
-  /* Footer */
-  .footer-main { 
-    grid-template-columns: 1fr !important;
-    padding: 2rem 1.25rem !important;
-    gap: 1.5rem !important;
-  }
-  .footer-info { grid-template-columns: 1fr !important; }
-
-  /* Formations table */
-  .f-table { grid-template-columns: 1fr !important; }
-  .f-col { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
-
-  /* Programme page days */
-  .pd3 { grid-template-columns: 1fr !important; }
-  .prog-col { border-right: none !important; }
-
-  /* Expert card */
-  .expert-layout { grid-template-columns: 1fr !important; gap: 2rem !important; }
-  .expert-card { position: static !important; display: grid !important; grid-template-columns: 120px 1fr !important; gap: 1.5rem !important; align-items: start !important; text-align: left !important; }
-  .expert-av { margin: 0 !important; width: 80px !important; height: 80px !important; font-size: 2.5rem !important; }
-
-  /* Impressum grid */
-  .impressum-grid { grid-template-columns: 1fr !important; }
-
-  /* Btn full width on mobile */
-  .btn-dark, .btn-light { width: 100% !important; text-align: center !important; }
-
-}
 
 /* Slide mobile button - hidden on desktop */
 .slide-mobile-btn {
@@ -826,29 +700,155 @@ nav {
 }
 .slide-mobile-btn h4 {
   font-family: 'Libre Baskerville', serif;
-  font-size: 1rem;
-  color: var(--ink);
-  font-weight: 700;
+  font-size: 1rem; color: var(--ink); font-weight: 700;
 }
 .slide-mobile-btn p {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.82rem;
-  color: var(--ink3);
-  font-weight: 300;
+  font-size: 0.82rem; color: var(--ink3); font-weight: 300;
 }
 .slide-mobile-btn a {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--ink); color: var(--white);
   padding: 12px 24px;
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+
+/* ── TABLET (768px - 1024px) ─────── */
+@media(max-width:1024px){
+  .nm{display:none;}
+  .hamburger{display:flex;}
+  nav{height:60px;}
+  .hero{grid-template-columns:1fr;}
+  .hero-r{display:none;}
+  .hero-l{padding:4rem 2rem;}
+  .f-table,.prog-table{grid-template-columns:1fr;}
+  .f-col,.prog-col{border-right:none;border-bottom:1px solid var(--rule);}
+  .expert-layout,.contact-layout,.clayout{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-info{grid-template-columns:repeat(3,1fr);}
+}
+
+/* ── MOBILE (max 768px) ─────────── */
+@media(max-width:768px){
+
+  /* NAV */
+  nav{height:56px;}
+  .nav-inner{padding:0 1rem;}
+  .nav-logo-mark span{font-size:1rem;}
+  .nav-logo-mark small{display:none;}
+  .nav-divider{display:none;}
+  .mobile-menu{top:56px;}
+  .hamburger{display:flex;}
+  .nm{display:none;}
+
+  /* HERO */
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-r{display:none;}
+  .hero-l{padding:2.5rem 1.25rem 3rem 1.75rem;}
+  .hero-akwaba{font-size:clamp(3.5rem,18vw,5rem);}
+  .hero-akwaba-sub,.hero-sub{font-size:1rem;}
+  .hero-statement,.hero-pitch{font-size:0.9rem;line-height:1.8;}
+  .hero-btns,.hact{flex-direction:column;}
+  .btn-primary,.btn-outline,.btn-w,.btn-ol{width:100%;text-align:center;padding:14px;}
+
+  /* CONTENT */
+  .cnt{padding:1.75rem 1rem;}
+  .pg-header{padding:2rem 1rem 1.5rem;}
+  .pg-header-inner{flex-direction:column;gap:1rem;}
+  .pg-title{font-size:clamp(1.6rem,7vw,2.2rem);}
+
+  /* ── FORMATIONS GRID → 1 colonne ── */
+  .f-table{
+    grid-template-columns: 1fr !important;
+    gap: 0;
+  }
+  .f-col{
+    border-right: none !important;
+    border-bottom: 1px solid var(--rule) !important;
+    padding: 1.75rem 1.25rem !important;
+  }
+
+  /* ── PROGRAMMES GRID → 1 colonne ── */
+  .prog-table{
+    grid-template-columns: 1fr !important;
+  }
+  .prog-col{
+    border-right: none !important;
+    border-bottom: 1px solid var(--rule) !important;
+  }
+
+  /* ── TOUTES LES GRILLES INLINE → 1 colonne ── */
+  div[style*="grid-template-columns:repeat(3"],
+  div[style*="grid-template-columns: repeat(3"],
+  div[style*="grid-template-columns:repeat(4"],
+  div[style*="grid-template-columns: repeat(4"],
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr"]{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Exceptions - garder 2 colonnes pour petites cartes */
+  .pays-grid,
+  div[style*="grid-template-columns:repeat(4,1fr)"][style*="margin-bottom:2.5rem"]{
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* ── SLIDES → bouton mobile ── */
+  .slide-frame iframe{display:none !important;}
+  .slide-mobile-btn{display:flex !important;}
+
+  /* ── TABLEAUX TARIFS → scroll horizontal ── */
+  .tarifs-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+  /* ── EXPERT ── */
+  .expert-layout{grid-template-columns:1fr !important;gap:2rem !important;}
+  .expert-card{position:static !important;display:block !important;text-align:center !important;}
+
+  /* ── CONTACT ── */
+  .contact-layout,.clayout{grid-template-columns:1fr !important;gap:2rem !important;}
+
+  /* ── FOOTER ── */
+  .footer-main{grid-template-columns:1fr !important;padding:1.75rem 1rem !important;gap:1.5rem !important;}
+  .footer-info{grid-template-columns:1fr !important;}
+  .footer-bottom{padding:1rem;}
+
+  /* ── BOUTONS ── */
+  .btn-dark,.btn-light,.bg,.bo{width:100% !important;text-align:center !important;display:block !important;}
+  .nav-btns{flex-direction:column-reverse !important;}
+  .hero-cta,.hact{flex-direction:column !important;}
+
+  /* ── IMPRESSION / IMPRESSUM ── */
+  div[style*="grid-template-columns:200px 1fr"]{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── VISION ALIGNEMENT 4 col → 2 col ── */
+  div[style*="grid-template-columns:repeat(4,1fr)"][style*="gap:2rem"]{
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* ── TRUST GRID → 2 colonnes ── */
+  div[style*="grid-template-columns:repeat(3,1fr)"][style*="gap:1px"]{
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* ── FINANCE GRID → 1 col ── */
+  div[style*="grid-template-columns:repeat(5,1fr)"]{
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* ── TARIFS TABLE HEADER → masquer colonnes ── */
+  .tarifs-table-wrap table thead th:nth-child(4),
+  .tarifs-table-wrap table tbody td:nth-child(4){
+    display:none;
+  }
+
+  /* Pays grid keep 2 col */
+  .pays-grid{grid-template-columns:repeat(2,1fr) !important;}
+
 }
 
 </style>
