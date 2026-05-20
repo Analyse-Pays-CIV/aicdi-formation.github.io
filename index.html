@@ -681,6 +681,176 @@ nav {
   .footer-info{grid-template-columns:1fr;}
   .footer-bottom{padding:1rem 1.25rem;}
 }
+
+/* ═══════════════════════════════════
+   MOBILE OPTIMIZATIONS
+   ═══════════════════════════════════ */
+
+/* Hide slides on mobile, show button instead */
+@media(max-width:768px){
+
+  /* Slides → open in new tab button */
+  .slide-frame {
+    position: relative;
+  }
+  .slide-frame iframe {
+    display: none;
+  }
+  .slide-mobile-btn {
+    display: flex !important;
+  }
+
+  /* Programme cards - fix overflow */
+  .prog-table {
+    grid-template-columns: 1fr !important;
+  }
+  .prog-col {
+    border-right: none !important;
+    border-bottom: 1px solid var(--rule) !important;
+  }
+
+  /* Vision 2 col -> 1 col */
+  .vision-2col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Pays grid 4col -> 2col */
+  .pays-grid {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* Tarifs table - stack on mobile */
+  .tarifs-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tarifs-table-wrap table {
+    min-width: 600px;
+  }
+
+  /* Formation programmes grid */
+  .prog-programmes {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Roadmap grid -> 1 col */
+  .roadmap-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Strategic alignment -> 2 col */
+  .strategic-grid {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* Trust grid -> 2 col */
+  .trust-grid {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+
+  /* Contact layout */
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Expert layout */
+  .expert-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Page header */
+  .pg-header-inner {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .hero-r { display: none !important; }
+  .hero-l { padding: 3rem 1.5rem 3.5rem 2rem !important; }
+  .hero-akwaba { font-size: clamp(4rem,18vw,6rem) !important; }
+  .hero-btns { flex-direction: column !important; }
+  .btn-primary, .btn-outline { width: 100% !important; text-align: center !important; padding: 14px !important; }
+
+  /* Content padding */
+  .cnt { padding: 2rem 1.25rem !important; }
+  .pg-header { padding: 2.5rem 1.25rem 2rem !important; }
+
+  /* Nav buttons */
+  .nav-btns { flex-direction: column-reverse !important; }
+  .nav-btns button { width: 100% !important; text-align: center !important; }
+
+  /* Footer */
+  .footer-main { 
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1.25rem !important;
+    gap: 1.5rem !important;
+  }
+  .footer-info { grid-template-columns: 1fr !important; }
+
+  /* Formations table */
+  .f-table { grid-template-columns: 1fr !important; }
+  .f-col { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
+
+  /* Programme page days */
+  .pd3 { grid-template-columns: 1fr !important; }
+  .prog-col { border-right: none !important; }
+
+  /* Expert card */
+  .expert-layout { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .expert-card { position: static !important; display: grid !important; grid-template-columns: 120px 1fr !important; gap: 1.5rem !important; align-items: start !important; text-align: left !important; }
+  .expert-av { margin: 0 !important; width: 80px !important; height: 80px !important; font-size: 2.5rem !important; }
+
+  /* Impressum grid */
+  .impressum-grid { grid-template-columns: 1fr !important; }
+
+  /* Btn full width on mobile */
+  .btn-dark, .btn-light { width: 100% !important; text-align: center !important; }
+
+}
+
+/* Slide mobile button - hidden on desktop */
+.slide-mobile-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule2);
+  text-align: center;
+}
+.slide-mobile-btn h4 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+.slide-mobile-btn p {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.82rem;
+  color: var(--ink3);
+  font-weight: 300;
+}
+.slide-mobile-btn a {
+  background: var(--ink);
+  color: var(--white);
+  padding: 12px 24px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 </style>
 </head>
 <body>
@@ -817,10 +987,10 @@ nav {
       <div style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);background:rgba(184,92,30,0.08);padding:3px 10px;display:inline-block;margin-bottom:1rem;"><span class="t on" data-l="fr">Pré-départ</span><span class="t" data-l="en">Pre-departure</span><span class="t" data-l="de">Vor der Abreise</span></div>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;line-height:1.2;"><span class="t on" data-l="fr">Analyse Pays</span><span class="t" data-l="en">Country Analysis</span><span class="t" data-l="de">Länderanalyse</span></h3>
       <div style="font-size:0.68rem;letter-spacing:2px;color:var(--gold2);font-weight:700;margin-bottom:1rem;">AP</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;font-weight:300;"><span class="t on" data-l="fr">Analyse approfondie historique, politique, économique, socio-environnementale et culturelle du pays de destination. Permet un haut degré d'anticipation et d'intégration professionnelle et personnelle.</span><span class="t" data-l="en">In-depth historical, political, economic, socio-environmental and cultural analysis of the destination country. Enables a high degree of anticipation and professional integration.</span><span class="t" data-l="de">Eingehende historische, politische, wirtschaftliche und kulturelle Analyse des Ziellandes.</span></p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem;font-weight:400;"><span class="t on" data-l="fr">Analyse approfondie historique, politique, économique, socio-environnementale et culturelle du pays de destination. Permet un haut degré d'anticipation et d'intégration professionnelle et personnelle.</span><span class="t" data-l="en">In-depth historical, political, economic, socio-environmental and cultural analysis of the destination country. Enables a high degree of anticipation and professional integration.</span><span class="t" data-l="de">Eingehende historische, politische, wirtschaftliche und kulturelle Analyse des Ziellandes.</span></p>
       <div style="display:flex;flex-direction:column;gap:0.4rem;">
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span style="color:var(--ink);">3 à 6 <span class="t on" data-l="fr">jours</span><span class="t" data-l="en">days</span><span class="t" data-l="de">Tage</span></span></div>
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Présentiel / Visio</span><span class="t" data-l="en">In-person / Online</span><span class="t" data-l="de">Präsenz / Online</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span style="color:var(--ink);">3 à 6 <span class="t on" data-l="fr">jours</span><span class="t" data-l="en">days</span><span class="t" data-l="de">Tage</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Présentiel / Visio</span><span class="t" data-l="en">In-person / Online</span><span class="t" data-l="de">Präsenz / Online</span></span></div>
         <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Groupe cible</span><span class="t" data-l="en">Target group</span><span class="t" data-l="de">Zielgruppe</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Diplomates, fonctionnaires</span><span class="t" data-l="en">Diplomats, officials</span><span class="t" data-l="de">Diplomaten, Beamte</span></span></div>
       </div>
     </div>
@@ -831,10 +1001,10 @@ nav {
       <div style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-green);background:rgba(26,92,53,0.08);padding:3px 10px;display:inline-block;margin-bottom:1rem;"><span class="t on" data-l="fr">Pré-départ</span><span class="t" data-l="en">Pre-departure</span><span class="t" data-l="de">Vor der Abreise</span></div>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;line-height:1.2;"><span class="t on" data-l="fr">Analyse Régionale</span><span class="t" data-l="en">Regional Analysis</span><span class="t" data-l="de">Regionalanalyse</span></h3>
       <div style="font-size:0.68rem;letter-spacing:2px;color:var(--gold2);font-weight:700;margin-bottom:1rem;">AR</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;font-weight:300;"><span class="t on" data-l="fr">Pour les membres de bureaux, missions et délégations régionales. Connaissances transversales entre pays voisins, analyse et anticipation des événements politiques, économiques et sécuritaires de la région.</span><span class="t" data-l="en">For members of regional offices, missions and delegations. Cross-border knowledge, analysis and anticipation of political, economic and security events in the region.</span><span class="t" data-l="de">Für Mitglieder regionaler Büros, Missionen und Delegationen. Länderübergreifendes Wissen und Analyse regionaler Ereignisse.</span></p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem;font-weight:400;"><span class="t on" data-l="fr">Pour les membres de bureaux, missions et délégations régionales. Connaissances transversales entre pays voisins, analyse et anticipation des événements politiques, économiques et sécuritaires de la région.</span><span class="t" data-l="en">For members of regional offices, missions and delegations. Cross-border knowledge, analysis and anticipation of political, economic and security events in the region.</span><span class="t" data-l="de">Für Mitglieder regionaler Büros, Missionen und Delegationen. Länderübergreifendes Wissen und Analyse regionaler Ereignisse.</span></p>
       <div style="display:flex;flex-direction:column;gap:0.4rem;">
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span style="color:var(--ink);">3 à 6 <span class="t on" data-l="fr">jours</span><span class="t" data-l="en">days</span><span class="t" data-l="de">Tage</span></span></div>
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Présentiel / Visio</span><span class="t" data-l="en">In-person / Online</span><span class="t" data-l="de">Präsenz / Online</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span style="color:var(--ink);">3 à 6 <span class="t on" data-l="fr">jours</span><span class="t" data-l="en">days</span><span class="t" data-l="de">Tage</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Présentiel / Visio</span><span class="t" data-l="en">In-person / Online</span><span class="t" data-l="de">Präsenz / Online</span></span></div>
         <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Groupe cible</span><span class="t" data-l="en">Target group</span><span class="t" data-l="de">Zielgruppe</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Délégations régionales</span><span class="t" data-l="en">Regional delegations</span><span class="t" data-l="de">Regionale Delegationen</span></span></div>
       </div>
     </div>
@@ -845,10 +1015,10 @@ nav {
       <div style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);background:rgba(155,125,46,0.08);padding:3px 10px;display:inline-block;margin-bottom:1rem;"><span class="t on" data-l="fr">Post-arrivée</span><span class="t" data-l="en">Post-arrival</span><span class="t" data-l="de">Nach der Ankunft</span></div>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;line-height:1.2;"><span class="t on" data-l="fr">Orientation & Immersion Pays Hôtes</span><span class="t" data-l="en">Host Country Orientation & Immersion</span><span class="t" data-l="de">Orientierung & Immersion im Gastland</span></h3>
       <div style="font-size:0.68rem;letter-spacing:2px;color:var(--gold2);font-weight:700;margin-bottom:1rem;">OIPH</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;font-weight:300;"><span class="t on" data-l="fr">Pour expatriés déjà sur place ou sur le point de partir. Met l'accent sur le développement personnel, interpersonnel et les compétences interculturelles dans le contexte professionnel et social spécifique au pays hôte.</span><span class="t" data-l="en">For expatriates already in place or about to leave. Focuses on personal, interpersonal development and intercultural skills in the professional and social context of the host country.</span><span class="t" data-l="de">Für bereits vor Ort befindliche oder abreisende Expatriates. Schwerpunkt auf persönlicher und interkultureller Entwicklung.</span></p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem;font-weight:400;"><span class="t on" data-l="fr">Pour expatriés déjà sur place ou sur le point de partir. Met l'accent sur le développement personnel, interpersonnel et les compétences interculturelles dans le contexte professionnel et social spécifique au pays hôte.</span><span class="t" data-l="en">For expatriates already in place or about to leave. Focuses on personal, interpersonal development and intercultural skills in the professional and social context of the host country.</span><span class="t" data-l="de">Für bereits vor Ort befindliche oder abreisende Expatriates. Schwerpunkt auf persönlicher und interkultureller Entwicklung.</span></p>
       <div style="display:flex;flex-direction:column;gap:0.4rem;">
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span style="color:var(--ink);">3 à 6 <span class="t on" data-l="fr">jours</span><span class="t" data-l="en">days</span><span class="t" data-l="de">Tage</span></span></div>
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Présentiel / Visio</span><span class="t" data-l="en">In-person / Online</span><span class="t" data-l="de">Präsenz / Online</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Durée</span><span class="t" data-l="en">Duration</span><span class="t" data-l="de">Dauer</span></span><span style="color:var(--ink);">3 à 6 <span class="t on" data-l="fr">jours</span><span class="t" data-l="en">days</span><span class="t" data-l="de">Tage</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Présentiel / Visio</span><span class="t" data-l="en">In-person / Online</span><span class="t" data-l="de">Präsenz / Online</span></span></div>
         <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Groupe cible</span><span class="t" data-l="en">Target group</span><span class="t" data-l="de">Zielgruppe</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Expatriés & familles</span><span class="t" data-l="en">Expatriates & families</span><span class="t" data-l="de">Expatriates & Familien</span></span></div>
       </div>
     </div>
@@ -859,9 +1029,9 @@ nav {
       <div style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink2);background:rgba(26,26,46,0.06);padding:3px 10px;display:inline-block;margin-bottom:1rem;"><span class="t on" data-l="fr">Spécialisation</span><span class="t" data-l="en">Specialisation</span><span class="t" data-l="de">Spezialisierung</span></div>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;line-height:1.2;"><span class="t on" data-l="fr">Diplomatie & Négociation</span><span class="t" data-l="en">Diplomacy & Negotiation</span><span class="t" data-l="de">Diplomatie & Verhandlung</span></h3>
       <div style="font-size:0.68rem;letter-spacing:2px;color:var(--gold2);font-weight:700;margin-bottom:1rem;">D&N</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;font-weight:300;"><span class="t on" data-l="fr">Compétences en négociation internationale et interculturelle avec les États, gouvernements, agences étatiques et partenaires au développement. Simulations et mises en situation réelles.</span><span class="t" data-l="en">International and intercultural negotiation skills with states, governments, agencies and development partners. Simulations and real-world scenarios.</span><span class="t" data-l="de">Internationale und interkulturelle Verhandlungskompetenzen mit Staaten, Regierungen und Entwicklungspartnern.</span></p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem;font-weight:400;"><span class="t on" data-l="fr">Compétences en négociation internationale et interculturelle avec les États, gouvernements, agences étatiques et partenaires au développement. Simulations et mises en situation réelles.</span><span class="t" data-l="en">International and intercultural negotiation skills with states, governments, agencies and development partners. Simulations and real-world scenarios.</span><span class="t" data-l="de">Internationale und interkulturelle Verhandlungskompetenzen mit Staaten, Regierungen und Entwicklungspartnern.</span></p>
       <div style="display:flex;flex-direction:column;gap:0.4rem;">
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Individuel ou groupe</span><span class="t" data-l="en">Individual or group</span><span class="t" data-l="de">Einzeln oder Gruppe</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Individuel ou groupe</span><span class="t" data-l="en">Individual or group</span><span class="t" data-l="de">Einzeln oder Gruppe</span></span></div>
         <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Groupe cible</span><span class="t" data-l="en">Target group</span><span class="t" data-l="de">Zielgruppe</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Diplomates & coopérants</span><span class="t" data-l="en">Diplomats & cooperation staff</span><span class="t" data-l="de">Diplomaten & Kooperationspersonal</span></span></div>
       </div>
     </div>
@@ -872,9 +1042,9 @@ nav {
       <div style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);background:rgba(184,92,30,0.08);padding:3px 10px;display:inline-block;margin-bottom:1rem;"><span class="t on" data-l="fr">Spécialisation</span><span class="t" data-l="en">Specialisation</span><span class="t" data-l="de">Spezialisierung</span></div>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--ink);font-weight:700;margin-bottom:0.4rem;line-height:1.2;"><span class="t on" data-l="fr">Compétences Interculturelles</span><span class="t" data-l="en">Intercultural Competences</span><span class="t" data-l="de">Interkulturelle Kompetenzen</span></h3>
       <div style="font-size:0.68rem;letter-spacing:2px;color:var(--gold2);font-weight:700;margin-bottom:1rem;">CI</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;font-weight:300;"><span class="t on" data-l="fr">Simulation des chocs interculturels, analyse des aprioris et préjugés pour renforcer l'efficacité interculturelle. Compétences internationales et nationales pour opérer en contexte multiculturel.</span><span class="t" data-l="en">Simulation of intercultural shocks, analysis of preconceptions and prejudices to strengthen intercultural effectiveness. International and national skills for operating in multicultural contexts.</span><span class="t" data-l="de">Simulation interkultureller Schocks und Analyse von Vorurteilen zur Stärkung der interkulturellen Wirksamkeit.</span></p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem;font-weight:400;"><span class="t on" data-l="fr">Simulation des chocs interculturels, analyse des aprioris et préjugés pour renforcer l'efficacité interculturelle. Compétences internationales et nationales pour opérer en contexte multiculturel.</span><span class="t" data-l="en">Simulation of intercultural shocks, analysis of preconceptions and prejudices to strengthen intercultural effectiveness. International and national skills for operating in multicultural contexts.</span><span class="t" data-l="de">Simulation interkultureller Schocks und Analyse von Vorurteilen zur Stärkung der interkulturellen Wirksamkeit.</span></p>
       <div style="display:flex;flex-direction:column;gap:0.4rem;">
-        <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Atelier ou séminaire</span><span class="t" data-l="en">Workshop or seminar</span><span class="t" data-l="de">Workshop oder Seminar</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--rule);font-family:'Source Sans 3',sans-serif;font-size:0.78rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Format</span><span class="t" data-l="en">Format</span><span class="t" data-l="de">Format</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Atelier ou séminaire</span><span class="t" data-l="en">Workshop or seminar</span><span class="t" data-l="de">Workshop oder Seminar</span></span></div>
         <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;"><span style="color:var(--ink3);font-weight:600;"><span class="t on" data-l="fr">Sur mesure</span><span class="t" data-l="en">Tailored</span><span class="t" data-l="de">Maßgeschneidert</span></span><span style="color:var(--ink);"><span class="t on" data-l="fr">Selon profil</span><span class="t" data-l="en">According to profile</span><span class="t" data-l="de">Nach Profil</span></span></div>
       </div>
     </div>
@@ -891,7 +1061,7 @@ nav {
   </div>
   <div style="margin-top:3rem;background:var(--paper);border:1px solid var(--rule);padding:2rem 2.5rem;">
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1.75rem;"><span class="t on" data-l="fr">Ils nous font confiance</span><span class="t" data-l="en">They trust us</span><span class="t" data-l="de">Sie vertrauen uns</span></p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);">
+    <div class="trust-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);">
 
       <div style="background:var(--white);padding:1.25rem 1.5rem;">
         <div style="font-size:1.1rem;margin-bottom:0.5rem;">🇩🇪</div>
@@ -1221,7 +1391,7 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
   </div>
 
   <!-- Tableau tarifs -->
-  <div style="border:1px solid var(--rule);overflow:hidden;">
+  <div class="tarifs-table-wrap" style="border:1px solid var(--rule);overflow:hidden;">
 
     <!-- Header tableau -->
     <div style="display:grid;grid-template-columns:2fr 1.5fr 1.5fr 1.5fr;background:var(--ink);color:var(--white);">
@@ -1333,7 +1503,7 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
       <span class="t" data-l="en">What is <em style="color:var(--gold2)">included</em></span>
       <span class="t" data-l="de">Was ist <em style="color:var(--gold2)">inbegriffen</em></span>
     </h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);">
+    <div class="trust-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);">
       <div style="background:var(--white);padding:2rem 1.75rem;">
         <div style="font-size:1.5rem;margin-bottom:1rem;">📚</div>
         <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Supports de formation</span><span class="t" data-l="en">Training materials</span><span class="t" data-l="de">Schulungsunterlagen</span></h4>
@@ -1498,7 +1668,7 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 <div class="cnt">
 
   <!-- Problème -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+  <div class="vision-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
     <div style="background:var(--white);padding:2.5rem;">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:1rem;"><span class="t on" data-l="fr">Le problème</span><span class="t" data-l="en">The problem</span><span class="t" data-l="de">Das Problem</span></p>
       <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:700;margin-bottom:1rem;line-height:1.3;"><span class="t on" data-l="fr">Les équipes internationales sont insuffisamment préparées</span><span class="t" data-l="en">International teams are insufficiently prepared</span><span class="t" data-l="de">Internationale Teams sind unzureichend vorbereitet</span></h2>
@@ -1523,7 +1693,7 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 
   <!-- Roadmap 3 phases -->
   <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--ink);font-weight:400;margin-bottom:1.5rem;"><span class="t on" data-l="fr">Feuille de route</span><span class="t" data-l="en">Roadmap</span><span class="t" data-l="de">Fahrplan</span></h2>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+  <div class="roadmap-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
 
     <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--civ-orange);">
       <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">01</div>
@@ -1566,7 +1736,7 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
   <!-- Alignement stratégique -->
   <div style="background:var(--paper);border:1px solid var(--rule);padding:2.5rem;margin-bottom:3rem;">
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1.5rem;"><span class="t on" data-l="fr">Alignement stratégique</span><span class="t" data-l="en">Strategic alignment</span><span class="t" data-l="de">Strategische Ausrichtung</span></p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+    <div class="strategic-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
       <div style="text-align:center;">
         <div style="font-size:2rem;margin-bottom:0.75rem;">🇪🇺</div>
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">Priorités UE</span><span class="t" data-l="en">EU priorities</span><span class="t" data-l="de">EU-Prioritäten</span></div>
@@ -1621,7 +1791,7 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 
   <!-- UEMOA -->
   <h2 style="font-family:'Libre Baskerville',serif;font-size:1.25rem;color:var(--ink);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:10px;"><span style="background:var(--gold);color:var(--white);font-size:0.62rem;letter-spacing:2px;padding:4px 10px;font-family:'Source Sans 3',sans-serif;">UEMOA</span><span class="t on" data-l="fr">Union Économique et Monétaire Ouest-Africaine · 8 pays</span><span class="t" data-l="en">West African Economic and Monetary Union · 8 countries</span><span class="t" data-l="de">Westafrikanische Wirtschafts- und Währungsunion · 8 Länder</span></h2>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.5rem;">
+  <div class="pays-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.5rem;">
     <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇮</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Côte d'Ivoire</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--civ-green);font-weight:700;letter-spacing:2px;margin-top:4px;">✓ ACTIF</div></div>
     <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇸🇳</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Sénégal</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--gold2);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">EN COURS</span><span class="t" data-l="en">IN PROGRESS</span><span class="t" data-l="de">IN ARBEIT</span></div></div>
     <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇧🇯</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Bénin</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
