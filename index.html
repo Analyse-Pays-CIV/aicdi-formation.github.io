@@ -735,7 +735,9 @@ nav {
           <a href="AICDI_Catalogue_2024-2025.pdf" download="AICDI_Catalogue_2024-2025.pdf" style="border-top:1px solid var(--rule);margin-top:4px;padding-top:12px;color:var(--gold2);font-weight:600;"><span class="drop-num">📄</span><span class="t on" data-l="fr">Télécharger le catalogue</span><span class="t" data-l="en">Download catalogue</span><span class="t" data-l="de">Katalog herunterladen</span></a>
         </div>
       </div>
-      <div class="nitem"><button class="nlink" onclick="go('expert')">Expert</button></div>
+      <div class="nitem"><button class="nlink" onclick="go('vision')"><span class="t on" data-l="fr">Vision</span><span class="t" data-l="en">Vision</span><span class="t" data-l="de">Vision</span></button></div>
+    <div class="nitem"><button class="nlink" onclick="go('pays')"><span class="t on" data-l="fr">Pays</span><span class="t" data-l="en">Countries</span><span class="t" data-l="de">Länder</span></button></div>
+    <div class="nitem"><button class="nlink" onclick="go('expert')">Expert</button></div>
     <div class="nitem"><button class="nlink" onclick="go('tarifs')"><span class="t on" data-l="fr">Tarifs</span><span class="t" data-l="en">Fees</span><span class="t" data-l="de">Tarife</span></button></div>
     </div>
     <button class="nav-contact" onclick="go('contact')"><span class="t on" data-l="fr">Nous contacter</span><span class="t" data-l="en">Contact us</span><span class="t" data-l="de">Kontakt</span></button>
@@ -761,6 +763,8 @@ nav {
       <a href="AICDI_Catalogue_2024-2025.pdf" download="AICDI_Catalogue_2024-2025.pdf" style="color:var(--gold2);font-weight:600;border-top:1px solid var(--rule);margin-top:4px;padding-top:10px;">📄 <span class="t on" data-l="fr">Télécharger le catalogue</span><span class="t" data-l="en">Download catalogue</span><span class="t" data-l="de">Katalog herunterladen</span></a>
     </div>
   </div>
+  <div class="mm-item"><button class="mm-link" onclick="go('vision');closeMenu()"><span class="t on" data-l="fr">Notre Vision</span><span class="t" data-l="en">Our Vision</span><span class="t" data-l="de">Unsere Vision</span></button></div>
+  <div class="mm-item"><button class="mm-link" onclick="go('pays');closeMenu()"><span class="t on" data-l="fr">Pays couverts</span><span class="t" data-l="en">Countries</span><span class="t" data-l="de">Länder</span></button></div>
   <div class="mm-item"><button class="mm-link" onclick="go('expert');closeMenu()">Expert</button></div>
   <div class="mm-item"><button class="mm-link" onclick="go('tarifs');closeMenu()"><span class="t on" data-l="fr">Tarifs</span><span class="t" data-l="en">Fees</span><span class="t" data-l="de">Tarife</span></button></div>
   <div class="mm-item"><button class="mm-link" onclick="go('impressum');closeMenu()">Impressum</button></div>
@@ -1475,6 +1479,172 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 
   <div style="text-align:center">
     <button class="btn-light" onclick="go('accueil')">← <span class="t on" data-l="fr">Retour à l'accueil</span><span class="t" data-l="en">Back to home</span><span class="t" data-l="de">Zurück zur Startseite</span></button>
+  </div>
+
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Académie Ivoirienne pour la Coopération et le Développement International</span><span class="t" data-l="en">Ivorian Academy for International Cooperation and Development</span><span class="t" data-l="de">Ivorische Akademie für internationale Zusammenarbeit</span></div><div class="footer-flag"><span style="background:#E8722A"></span><span style="background:rgba(255,255,255,0.7)"></span><span style="background:#1A8A45"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Fondateur · Expert en coopération internationale</span><span class="t" data-l="en">Founder · International cooperation expert</span><span class="t" data-l="de">Gründer · Experte für internationale Zusammenarbeit</span></p></div><div class="fi-block"><h5>🇩🇪 <span class="t on" data-l="fr">Bureau Allemagne</span><span class="t" data-l="en">Germany Office</span><span class="t" data-l="de">Büro Deutschland</span></h5><p>Burgackerweg 4<br>79104 Freiburg im Breisgau<br>+49 (0) 761 55 44 82</p></div><div class="fi-block"><h5>🇨🇮 <span class="t on" data-l="fr">Bureau Abidjan</span><span class="t" data-l="en">Abidjan Office</span><span class="t" data-l="de">Büro Abidjan</span></h5><p>Bd Cité du Port, Villa 46<br>ABATTA Cocody · Abidjan<br>+225 05 03 60 57 25</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Ivoire Consulting · Franck Albert Vanié · <button onclick="go('impressum')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">Impressum</button> · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div></footer>
+</div>
+
+
+<!-- ═══ PAGE VISION ═══ -->
+<div class="page" id="pg-vision">
+<div class="pg-header"><div class="pg-header-inner">
+  <div>
+    <p class="pg-eyebrow"><span class="t on" data-l="fr">Notre vision 2030</span><span class="t" data-l="en">Our vision 2030</span><span class="t" data-l="de">Unsere Vision 2030</span></p>
+    <h1 class="pg-title"><span class="t on" data-l="fr">Africa–Europe Skills <em>& Mobility Hub</em></span><span class="t" data-l="en">Africa–Europe Skills <em>& Mobility Hub</em></span><span class="t" data-l="de">Africa–Europe Skills <em>& Mobility Hub</em></span></h1>
+  </div>
+  <p class="pg-desc"><span class="t on" data-l="fr">Construire la plateforme de référence pour la préparation et l'accompagnement des mobilités professionnelles entre l'Europe et l'Afrique.</span><span class="t" data-l="en">Building the reference platform for the preparation and support of professional mobility between Europe and Africa.</span><span class="t" data-l="de">Aufbau der Referenzplattform für die Vorbereitung und Begleitung beruflicher Mobilität zwischen Europa und Afrika.</span></p>
+</div></div>
+<div class="cnt">
+
+  <!-- Problème -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="background:var(--white);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:1rem;"><span class="t on" data-l="fr">Le problème</span><span class="t" data-l="en">The problem</span><span class="t" data-l="de">Das Problem</span></p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:700;margin-bottom:1rem;line-height:1.3;"><span class="t on" data-l="fr">Les équipes internationales sont insuffisamment préparées</span><span class="t" data-l="en">International teams are insufficiently prepared</span><span class="t" data-l="de">Internationale Teams sind unzureichend vorbereitet</span></h2>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem;">
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span><span class="t on" data-l="fr">Incompréhensions interculturelles fréquentes</span><span class="t" data-l="en">Frequent intercultural misunderstandings</span><span class="t" data-l="de">Häufige interkulturelle Missverständnisse</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span><span class="t on" data-l="fr">Mauvaise adaptation au contexte local</span><span class="t" data-l="en">Poor adaptation to local context</span><span class="t" data-l="de">Schlechte Anpassung an den lokalen Kontext</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span><span class="t on" data-l="fr">Perte d'efficacité opérationnelle</span><span class="t" data-l="en">Loss of operational effectiveness</span><span class="t" data-l="de">Verlust der operativen Wirksamkeit</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span><span class="t on" data-l="fr">Échecs de projets de coopération</span><span class="t" data-l="en">Cooperation project failures</span><span class="t" data-l="de">Scheitern von Kooperationsprojekten</span></div>
+      </div>
+    </div>
+    <div style="background:var(--ink);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);opacity:0.6;margin-bottom:1rem;"><span class="t on" data-l="fr">La solution AICDI</span><span class="t" data-l="en">The AICDI solution</span><span class="t" data-l="de">Die AICDI-Lösung</span></p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:1rem;line-height:1.3;"><span class="t on" data-l="fr">Préparer et accompagner avant, pendant et après la mission</span><span class="t" data-l="en">Prepare and support before, during and after the mission</span><span class="t" data-l="de">Vorbereitung und Begleitung vor, während und nach der Mission</span></h2>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem;">
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.7);"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><span class="t on" data-l="fr">Programmes structurés d'analyse pays</span><span class="t" data-l="en">Structured country analysis programmes</span><span class="t" data-l="de">Strukturierte Länderanalyseprogramme</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.7);"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><span class="t on" data-l="fr">Compétences interculturelles opérationnelles</span><span class="t" data-l="en">Operational intercultural competences</span><span class="t" data-l="de">Operative interkulturelle Kompetenzen</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.7);"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><span class="t on" data-l="fr">Réseau d'experts locaux multi-pays</span><span class="t" data-l="en">Multi-country local expert network</span><span class="t" data-l="de">Lokales Expertennetzwerk in mehreren Ländern</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.7);"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><span class="t on" data-l="fr">Plateforme digitale en développement</span><span class="t" data-l="en">Digital platform in development</span><span class="t" data-l="de">Digitale Plattform in Entwicklung</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Roadmap 3 phases -->
+  <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--ink);font-weight:400;margin-bottom:1.5rem;"><span class="t on" data-l="fr">Feuille de route</span><span class="t" data-l="en">Roadmap</span><span class="t" data-l="de">Fahrplan</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+
+    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--civ-orange);">
+      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">01</div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Phase actuelle · 2025</span><span class="t" data-l="en">Current phase · 2025</span><span class="t" data-l="de">Aktuelle Phase · 2025</span></div>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:700;margin-bottom:1rem;"><span class="t on" data-l="fr">Structuration du cabinet</span><span class="t" data-l="en">Cabinet structuring</span><span class="t" data-l="de">Strukturierung des Kabinetts</span></h3>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);">✓</span><span class="t on" data-l="fr">Site AICDI en ligne</span><span class="t" data-l="en">AICDI website online</span><span class="t" data-l="de">AICDI-Website online</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);">✓</span><span class="t on" data-l="fr">Offre de formation structurée</span><span class="t" data-l="en">Structured training offer</span><span class="t" data-l="de">Strukturiertes Schulungsangebot</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);">✓</span><span class="t on" data-l="fr">2 bureaux — Freiburg & Abidjan</span><span class="t" data-l="en">2 offices — Freiburg & Abidjan</span><span class="t" data-l="de">2 Büros — Freiburg & Abidjan</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Réseau consultants en cours</span><span class="t" data-l="en">Consultant network in progress</span><span class="t" data-l="de">Beraternetzwerk im Aufbau</span></div>
+      </div>
+    </div>
+
+    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--gold);">
+      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">02</div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Phase 2 · 2026</span><span class="t" data-l="en">Phase 2 · 2026</span><span class="t" data-l="de">Phase 2 · 2026</span></div>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:700;margin-bottom:1rem;"><span class="t on" data-l="fr">Expansion régionale</span><span class="t" data-l="en">Regional expansion</span><span class="t" data-l="de">Regionale Expansion</span></h3>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Déploiement UEMOA — 8 pays</span><span class="t" data-l="en">UEMOA deployment — 8 countries</span><span class="t" data-l="de">UEMOA-Einsatz — 8 Länder</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Déploiement CEMAC — 6 pays</span><span class="t" data-l="en">CEMAC deployment — 6 countries</span><span class="t" data-l="de">CEMAC-Einsatz — 6 Länder</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Formateurs locaux par pays</span><span class="t" data-l="en">Local trainers per country</span><span class="t" data-l="de">Lokale Trainer pro Land</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Partenariats institutionnels UE</span><span class="t" data-l="en">EU institutional partnerships</span><span class="t" data-l="de">EU-institutionelle Partnerschaften</span></div>
+      </div>
+    </div>
+
+    <div style="background:var(--ink);padding:2.5rem;border-top:3px solid var(--civ-green);">
+      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(255,255,255,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">03</div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Vision 2030</span><span class="t" data-l="en">Vision 2030</span><span class="t" data-l="de">Vision 2030</span></div>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--white);font-weight:700;margin-bottom:1rem;">Africa–Europe Skills & Mobility Hub</h3>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Plateforme digitale multi-pays</span><span class="t" data-l="en">Multi-country digital platform</span><span class="t" data-l="de">Digitale Multi-Länder-Plattform</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">100+ clients / an</span><span class="t" data-l="en">100+ clients / year</span><span class="t" data-l="de">100+ Kunden / Jahr</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Marketplace d'experts Afrique-Europe</span><span class="t" data-l="en">Africa-Europe expert marketplace</span><span class="t" data-l="de">Afrika-Europa-Expertenmarktplatz</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.6);display:flex;gap:8px;"><span style="color:var(--gold);">→</span><span class="t on" data-l="fr">Financement UE / consortium</span><span class="t" data-l="en">EU financing / consortium</span><span class="t" data-l="de">EU-Finanzierung / Konsortium</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Alignement stratégique -->
+  <div style="background:var(--paper);border:1px solid var(--rule);padding:2.5rem;margin-bottom:3rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1.5rem;"><span class="t on" data-l="fr">Alignement stratégique</span><span class="t" data-l="en">Strategic alignment</span><span class="t" data-l="de">Strategische Ausrichtung</span></p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🇪🇺</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">Priorités UE</span><span class="t" data-l="en">EU priorities</span><span class="t" data-l="de">EU-Prioritäten</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Coopération & développement</span><span class="t" data-l="en">Cooperation & development</span><span class="t" data-l="de">Zusammenarbeit & Entwicklung</span></div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🌍</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">UEMOA · CEMAC</span><span class="t" data-l="en">UEMOA · CEMAC</span><span class="t" data-l="de">UEMOA · CEMAC</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">14 pays cibles</span><span class="t" data-l="en">14 target countries</span><span class="t" data-l="de">14 Zielländer</span></div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">GIZ · KAS · FES</span><span class="t" data-l="en">GIZ · KAS · FES</span><span class="t" data-l="de">GIZ · KAS · FES</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Partenaires institutionnels</span><span class="t" data-l="en">Institutional partners</span><span class="t" data-l="de">Institutionelle Partner</span></div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">💻</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">Hub numérique</span><span class="t" data-l="en">Digital hub</span><span class="t" data-l="de">Digitaler Hub</span></div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Scalabilité & impact</span><span class="t" data-l="en">Scalability & impact</span><span class="t" data-l="de">Skalierbarkeit & Wirkung</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;">
+    <button class="btn-dark" onclick="go('pays')"><span class="t on" data-l="fr">Voir les pays couverts →</span><span class="t" data-l="en">View covered countries →</span><span class="t" data-l="de">Abgedeckte Länder ansehen →</span></button>
+  </div>
+
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Académie Ivoirienne pour la Coopération et le Développement International</span><span class="t" data-l="en">Ivorian Academy for International Cooperation and Development</span><span class="t" data-l="de">Ivorische Akademie für internationale Zusammenarbeit</span></div><div class="footer-flag"><span style="background:#E8722A"></span><span style="background:rgba(255,255,255,0.7)"></span><span style="background:#1A8A45"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Fondateur · Expert en coopération internationale</span><span class="t" data-l="en">Founder · International cooperation expert</span><span class="t" data-l="de">Gründer · Experte für internationale Zusammenarbeit</span></p></div><div class="fi-block"><h5>🇩🇪 <span class="t on" data-l="fr">Bureau Allemagne</span><span class="t" data-l="en">Germany Office</span><span class="t" data-l="de">Büro Deutschland</span></h5><p>Burgackerweg 4<br>79104 Freiburg im Breisgau<br>+49 (0) 761 55 44 82</p></div><div class="fi-block"><h5>🇨🇮 <span class="t on" data-l="fr">Bureau Abidjan</span><span class="t" data-l="en">Abidjan Office</span><span class="t" data-l="de">Büro Abidjan</span></h5><p>Bd Cité du Port, Villa 46<br>ABATTA Cocody · Abidjan<br>+225 05 03 60 57 25</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Ivoire Consulting · Franck Albert Vanié · <button onclick="go('impressum')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">Impressum</button> · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div></footer>
+</div>
+
+<!-- ═══ PAGE PAYS COUVERTS ═══ -->
+<div class="page" id="pg-pays">
+<div class="pg-header"><div class="pg-header-inner">
+  <div>
+    <p class="pg-eyebrow"><span class="t on" data-l="fr">Couverture géographique</span><span class="t" data-l="en">Geographic coverage</span><span class="t" data-l="de">Geografische Abdeckung</span></p>
+    <h1 class="pg-title"><span class="t on" data-l="fr">Pays <em>couverts</em></span><span class="t" data-l="en">Covered <em>countries</em></span><span class="t" data-l="de">Abgedeckte <em>Länder</em></span></h1>
+  </div>
+  <p class="pg-desc"><span class="t on" data-l="fr">AICDI opère en Côte d'Ivoire et développe son réseau dans les zones UEMOA et CEMAC.</span><span class="t" data-l="en">AICDI operates in Côte d'Ivoire and is developing its network across the UEMOA and CEMAC zones.</span><span class="t" data-l="de">AICDI ist in der Côte d'Ivoire tätig und baut sein Netzwerk in den UEMOA- und CEMAC-Zonen aus.</span></p>
+</div></div>
+<div class="cnt">
+
+  <!-- Pays actif -->
+  <div style="background:var(--ink);padding:2rem 2.5rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:0.5rem;"><span class="t on" data-l="fr">Pays opérationnel</span><span class="t" data-l="en">Operational country</span><span class="t" data-l="de">Operatives Land</span></p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.8rem;color:var(--white);font-weight:700;">🇨🇮 Côte d'Ivoire</h2>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:0.5rem;"><span class="t on" data-l="fr">Bureau Abidjan · Formateurs certifiés · 20 ans d'expérience</span><span class="t" data-l="en">Abidjan office · Certified trainers · 20 years experience</span><span class="t" data-l="de">Büro Abidjan · Zertifizierte Trainer · 20 Jahre Erfahrung</span></p>
+    </div>
+    <button class="btn-primary" onclick="go('contact')" style="background:var(--gold);color:var(--ink);"><span class="t on" data-l="fr">Former en CIV</span><span class="t" data-l="en">Train in CIV</span><span class="t" data-l="de">In CIV schulen</span></button>
+  </div>
+
+  <!-- UEMOA -->
+  <h2 style="font-family:'Libre Baskerville',serif;font-size:1.25rem;color:var(--ink);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:10px;"><span style="background:var(--gold);color:var(--white);font-size:0.62rem;letter-spacing:2px;padding:4px 10px;font-family:'Source Sans 3',sans-serif;">UEMOA</span><span class="t on" data-l="fr">Union Économique et Monétaire Ouest-Africaine · 8 pays</span><span class="t" data-l="en">West African Economic and Monetary Union · 8 countries</span><span class="t" data-l="de">Westafrikanische Wirtschafts- und Währungsunion · 8 Länder</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.5rem;">
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇮</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Côte d'Ivoire</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--civ-green);font-weight:700;letter-spacing:2px;margin-top:4px;">✓ ACTIF</div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇸🇳</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Sénégal</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--gold2);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">EN COURS</span><span class="t" data-l="en">IN PROGRESS</span><span class="t" data-l="de">IN ARBEIT</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇧🇯</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Bénin</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇹🇬</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Togo</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇧🇫</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Burkina Faso</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇲🇱</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Mali</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇳🇪</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Niger</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇬🇼</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Guinée-Bissau</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2027</span><span class="t" data-l="en">PLANNED 2027</span><span class="t" data-l="de">GEPLANT 2027</span></div></div>
+  </div>
+
+  <!-- CEMAC -->
+  <h2 style="font-family:'Libre Baskerville',serif;font-size:1.25rem;color:var(--ink);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:10px;"><span style="background:var(--civ-green);color:var(--white);font-size:0.62rem;letter-spacing:2px;padding:4px 10px;font-family:'Source Sans 3',sans-serif;">CEMAC</span><span class="t on" data-l="fr">Communauté Économique et Monétaire de l'Afrique Centrale · 6 pays</span><span class="t" data-l="en">Economic and Monetary Community of Central Africa · 6 countries</span><span class="t" data-l="de">Wirtschafts- und Währungsgemeinschaft Zentralafrikas · 6 Länder</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇲</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Cameroun</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--gold2);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">EN COURS</span><span class="t" data-l="en">IN PROGRESS</span><span class="t" data-l="de">IN ARBEIT</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇩</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Congo RDC</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇬🇦</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Gabon</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2026</span><span class="t" data-l="en">PLANNED 2026</span><span class="t" data-l="de">GEPLANT 2026</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇬</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Congo</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2027</span><span class="t" data-l="en">PLANNED 2027</span><span class="t" data-l="de">GEPLANT 2027</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇹🇩</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Tchad</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2027</span><span class="t" data-l="en">PLANNED 2027</span><span class="t" data-l="de">GEPLANT 2027</span></div></div>
+    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇫</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Centrafrique</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;"><span class="t on" data-l="fr">PRÉVU 2027</span><span class="t" data-l="en">PLANNED 2027</span><span class="t" data-l="de">GEPLANT 2027</span></div></div>
+  </div>
+
+  <div style="text-align:center;">
+    <button class="btn-dark" onclick="go('contact')"><span class="t on" data-l="fr">Nous contacter pour votre pays →</span><span class="t" data-l="en">Contact us for your country →</span><span class="t" data-l="de">Kontaktieren Sie uns für Ihr Land →</span></button>
   </div>
 
 </div>
