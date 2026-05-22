@@ -898,7 +898,8 @@ nav {
     </div>
     <div class="nav-menu">
       <div class="nitem"><button class="nlink" onclick="go('accueil')"><span class="t on" data-l="fr">Accueil</span><span class="t" data-l="en">Home</span><span class="t" data-l="de">Start</span></button></div>
-      <div class="nitem"><button class="nlink" onclick="go('quoi')"><span class="t on" data-l="fr">Nos actions</span><span class="t" data-l="en">Our work</span><span class="t" data-l="de">Unsere Arbeit</span></button></div>
+      <div class="nitem"><button class="nlink" onclick="go('diagnostic')"><span class="t on" data-l="fr">Test préparation</span><span class="t" data-l="en">Readiness test</span><span class="t" data-l="de">Bereitschaftstest</span></button></div>
+    <div class="nitem"><button class="nlink" onclick="go('quoi')"><span class="t on" data-l="fr">Nos actions</span><span class="t" data-l="en">Our work</span><span class="t" data-l="de">Unsere Arbeit</span></button></div>
     <div class="nitem"><button class="nlink" onclick="go('formations')"><span class="t on" data-l="fr">Formations</span><span class="t" data-l="en">Trainings</span><span class="t" data-l="de">Schulungen</span></button></div>
       <div class="nitem">
         <button class="nlink"><span class="t on" data-l="fr">Programme</span><span class="t" data-l="en">Curriculum</span><span class="t" data-l="de">Programm</span> <span class="arr">▼</span></button>
@@ -2438,6 +2439,314 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 </div>
 <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Académie Ivoirienne pour la Coopération et le Développement International</span><span class="t" data-l="en">Ivorian Academy for International Cooperation and Development</span><span class="t" data-l="de">Ivorische Akademie für internationale Zusammenarbeit</span></div><div class="footer-flag"><span style="background:#E8722A"></span><span style="background:rgba(255,255,255,0.7)"></span><span style="background:#1A8A45"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Fondateur · Expert en coopération internationale</span><span class="t" data-l="en">Founder · International cooperation expert</span><span class="t" data-l="de">Gründer · Experte für internationale Zusammenarbeit</span></p></div><div class="fi-block"><h5>🇩🇪 <span class="t on" data-l="fr">Bureau Allemagne</span><span class="t" data-l="en">Germany Office</span><span class="t" data-l="de">Büro Deutschland</span></h5><p>Burgackerweg 4 · 79104 Freiburg im Breisgau<br>Tél : +49 (0) 761 55 44 82<br>Tél + WhatsApp : +49 177 6926372</p></div><div class="fi-block"><h5>🇨🇮 <span class="t on" data-l="fr">Bureau Abidjan</span><span class="t" data-l="en">Abidjan Office</span><span class="t" data-l="de">Büro Abidjan</span></h5><p>Bd Cité du Port, Villa 46<br>ABATTA Cocody · Abidjan<br>Tél + WhatsApp : +225 05 03 60 57 25</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Ivoire Consulting · Franck Albert Vanié · <button onclick="go('impressum')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">Impressum</button> · <button onclick="go('cgv')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">CGV</button> · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div></footer>
 </div>
+
+
+<!-- ═══ PAGE AUTO-DIAGNOSTIC ═══ -->
+<div class="page" id="pg-diagnostic">
+<div class="pg-header"><div class="pg-header-inner">
+  <div>
+    <p class="pg-eyebrow"><span class="t on" data-l="fr">Test interactif · 3 minutes</span><span class="t" data-l="en">Interactive test · 3 minutes</span><span class="t" data-l="de">Interaktiver Test · 3 Minuten</span></p>
+    <h1 class="pg-title"><span class="t on" data-l="fr">Êtes-vous <em>prêt</em> pour votre mission ?</span><span class="t" data-l="en">Are you <em>ready</em> for your mission?</span><span class="t" data-l="de">Sind Sie <em>bereit</em> für Ihre Mission?</span></h1>
+  </div>
+  <p class="pg-desc"><span class="t on" data-l="fr">10 questions pour évaluer votre niveau de préparation à une mission en Côte d'Ivoire ou en Afrique de l'Ouest. Résultat immédiat avec recommandation personnalisée.</span><span class="t" data-l="en">10 questions to assess your level of preparation for a mission in Côte d'Ivoire or West Africa. Immediate result with personalised recommendation.</span><span class="t" data-l="de">10 Fragen zur Einschätzung Ihrer Vorbereitungsstufe für eine Mission in der Côte d'Ivoire oder Westafrika. Sofortiges Ergebnis mit persönlicher Empfehlung.</span></p>
+</div></div>
+<div class="cnt">
+
+<div id="quiz-container">
+  <!-- Progress bar -->
+  <div style="background:var(--rule);height:4px;margin-bottom:2.5rem;border-radius:2px;">
+    <div id="quiz-progress" style="background:var(--civ-orange);height:4px;width:0%;border-radius:2px;transition:width 0.4s ease;"></div>
+  </div>
+  <div id="quiz-step" style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-bottom:2rem;">
+    <span class="t on" data-l="fr">Question <span id="q-num">1</span> sur 10</span>
+    <span class="t" data-l="en">Question <span class="q-num-en">1</span> of 10</span>
+    <span class="t" data-l="de">Frage <span class="q-num-de">1</span> von 10</span>
+  </div>
+
+  <div id="quiz-question" style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:400;line-height:1.5;margin-bottom:2rem;min-height:80px;"></div>
+
+  <div id="quiz-answers" style="display:flex;flex-direction:column;gap:0.75rem;"></div>
+
+  <div id="quiz-nav" style="display:flex;gap:1rem;margin-top:2rem;justify-content:flex-end;">
+    <button id="quiz-prev" onclick="quizPrev()" style="display:none;background:var(--paper);border:1px solid var(--rule);padding:10px 24px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:1px;cursor:pointer;color:var(--ink2);">← <span class="t on" data-l="fr">Précédent</span><span class="t" data-l="en">Previous</span><span class="t" data-l="de">Zurück</span></button>
+  </div>
+</div>
+
+<!-- Résultat -->
+<div id="quiz-result" style="display:none;">
+  <div id="result-box"></div>
+  <div style="text-align:center;margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <button class="btn-dark" onclick="go('contact')"><span class="t on" data-l="fr">Demander un devis →</span><span class="t" data-l="en">Request a quote →</span><span class="t" data-l="de">Angebot anfragen →</span></button>
+    <button class="btn-light" onclick="quizRestart()"><span class="t on" data-l="fr">Recommencer le test</span><span class="t" data-l="en">Restart the test</span><span class="t" data-l="de">Test neu starten</span></button>
+  </div>
+</div>
+
+</div>
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Académie Ivoirienne pour la Coopération et le Développement International</span><span class="t" data-l="en">Ivorian Academy for International Cooperation and Development</span><span class="t" data-l="de">Ivorische Akademie für internationale Zusammenarbeit</span></div><div class="footer-flag"><span style="background:#E8722A"></span><span style="background:rgba(255,255,255,0.7)"></span><span style="background:#1A8A45"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Fondateur · Expert en coopération internationale</span></p></div><div class="fi-block"><h5>🇩🇪 Bureau Allemagne</h5><p>Burgackerweg 4 · 79104 Freiburg im Breisgau<br>Tél : +49 (0) 761 55 44 82<br>Tél + WhatsApp : +49 177 6926372</p></div><div class="fi-block"><h5>🇨🇮 Bureau Abidjan</h5><p>Bd Cité du Port, Villa 46<br>ABATTA Cocody · Abidjan<br>Tél + WhatsApp : +225 05 03 60 57 25</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Ivoire Consulting · Franck Albert Vanié</span></div></div></footer>
+</div>
+
+<script>
+// ═══ AUTO-DIAGNOSTIC QUIZ ═══
+const quizData = [
+  {
+    q_fr: "Connaissez-vous les principales ethnies de Côte d'Ivoire et leurs zones géographiques ?",
+    q_en: "Do you know the main ethnic groups of Côte d'Ivoire and their geographical areas?",
+    q_de: "Kennen Sie die wichtigsten ethnischen Gruppen der Côte d'Ivoire und ihre geografischen Gebiete?",
+    answers_fr: ["Oui, très bien", "Quelques notions", "Non, pas du tout"],
+    answers_en: ["Yes, very well", "Some notions", "No, not at all"],
+    answers_de: ["Ja, sehr gut", "Einige Kenntnisse", "Nein, gar nicht"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Savez-vous comment saluer correctement un supérieur hiérarchique ivoirien ?",
+    q_en: "Do you know how to correctly greet an Ivorian superior?",
+    q_de: "Wissen Sie, wie man einen ivorischen Vorgesetzten korrekt begrüßt?",
+    answers_fr: ["Oui, avec les codes précis", "J'ai une idée générale", "Non, je ne sais pas"],
+    answers_en: ["Yes, with precise codes", "I have a general idea", "No, I don't know"],
+    answers_de: ["Ja, mit genauen Codes", "Ich habe eine allgemeine Idee", "Nein, ich weiß es nicht"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Connaissez-vous la différence entre le secteur public et privé en termes de négociation en CIV ?",
+    q_en: "Do you know the difference between the public and private sector in terms of negotiation in CIV?",
+    q_de: "Kennen Sie den Unterschied zwischen öffentlichem und privatem Sektor bei Verhandlungen in CIV?",
+    answers_fr: ["Oui, clairement", "Vaguement", "Non"],
+    answers_en: ["Yes, clearly", "Vaguely", "No"],
+    answers_de: ["Ja, klar", "Vage", "Nein"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Êtes-vous capable d'identifier le vrai décideur dans une administration ivoirienne ?",
+    q_en: "Are you able to identify the real decision-maker in an Ivorian administration?",
+    q_de: "Können Sie den echten Entscheidungsträger in einer ivorischen Verwaltung identifizieren?",
+    answers_fr: ["Oui, j'ai les méthodes", "Je pense pouvoir le faire", "Non, je ne sais pas comment"],
+    answers_en: ["Yes, I have the methods", "I think I can do it", "No, I don't know how"],
+    answers_de: ["Ja, ich kenne die Methoden", "Ich denke, ich kann es", "Nein, ich weiß nicht wie"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Connaissez-vous le rôle du 'palabre' dans la culture de négociation ivoirienne ?",
+    q_en: "Do you know the role of the 'palaver' in Ivorian negotiation culture?",
+    q_de: "Kennen Sie die Rolle des 'Palavers' in der ivorischen Verhandlungskultur?",
+    answers_fr: ["Oui, c'est fondamental", "J'en ai entendu parler", "Non, jamais"],
+    answers_en: ["Yes, it's fundamental", "I've heard about it", "No, never"],
+    answers_de: ["Ja, es ist grundlegend", "Ich habe davon gehört", "Nein, noch nie"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Savez-vous ce que signifie donner ou recevoir avec la main gauche en Côte d'Ivoire ?",
+    q_en: "Do you know what it means to give or receive with the left hand in Côte d'Ivoire?",
+    q_de: "Wissen Sie, was es bedeutet, in der Côte d'Ivoire mit der linken Hand zu geben oder zu empfangen?",
+    answers_fr: ["Oui, c'est très important", "Je crois que c'est mal vu", "Non, je ne savais pas"],
+    answers_en: ["Yes, it's very important", "I think it's frowned upon", "No, I didn't know"],
+    answers_de: ["Ja, es ist sehr wichtig", "Ich glaube, es wird missbilligt", "Nein, das wusste ich nicht"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Connaissez-vous les principaux partenaires au développement actifs en Côte d'Ivoire ?",
+    q_en: "Do you know the main active development partners in Côte d'Ivoire?",
+    q_de: "Kennen Sie die wichtigsten aktiven Entwicklungspartner in der Côte d'Ivoire?",
+    answers_fr: ["Oui, GIZ, BAD, UE, AFD...", "Quelques-uns", "Non"],
+    answers_en: ["Yes, GIZ, ADB, EU, AFD...", "A few", "No"],
+    answers_de: ["Ja, GIZ, AfDB, EU, AFD...", "Einige", "Nein"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Avez-vous des connaissances sur la situation sécuritaire et politique actuelle en CIV ?",
+    q_en: "Do you have knowledge of the current security and political situation in CIV?",
+    q_de: "Haben Sie Kenntnisse über die aktuelle Sicherheits- und politische Lage in CIV?",
+    answers_fr: ["Oui, je suis la situation", "Quelques informations générales", "Non, pas du tout"],
+    answers_en: ["Yes, I follow the situation", "Some general information", "No, not at all"],
+    answers_de: ["Ja, ich verfolge die Lage", "Einige allgemeine Informationen", "Nein, gar nicht"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Savez-vous comment gérer un retard de réunion sans créer de tension avec votre interlocuteur ivoirien ?",
+    q_en: "Do you know how to handle a meeting delay without creating tension with your Ivorian counterpart?",
+    q_de: "Wissen Sie, wie Sie eine Besprechungsverzögerung ohne Spannungen mit Ihrem ivorischen Gesprächspartner handhaben?",
+    answers_fr: ["Oui, j'ai les codes", "Je pense m'adapter", "Non, ça m'inquiète"],
+    answers_en: ["Yes, I have the codes", "I think I can adapt", "No, it worries me"],
+    answers_de: ["Ja, ich kenne die Codes", "Ich denke, ich kann mich anpassen", "Nein, das beunruhigt mich"],
+    scores: [3, 1, 0]
+  },
+  {
+    q_fr: "Avez-vous déjà suivi une formation spécifique sur la Côte d'Ivoire ou l'Afrique de l'Ouest ?",
+    q_en: "Have you already completed specific training on Côte d'Ivoire or West Africa?",
+    q_de: "Haben Sie bereits eine spezifische Schulung zur Côte d'Ivoire oder Westafrika absolviert?",
+    answers_fr: ["Oui, une formation complète", "Une formation partielle", "Non, jamais"],
+    answers_en: ["Yes, a complete training", "Partial training", "No, never"],
+    answers_de: ["Ja, eine vollständige Schulung", "Teilweise Schulung", "Nein, noch nie"],
+    scores: [3, 1, 0]
+  }
+];
+
+let quizCurrent = 0;
+let quizScores = [];
+const lang = () => document.querySelector('.t.on[data-l]') ? (document.querySelector('.lang-btn.active') ? document.querySelector('.lang-btn.active').dataset.l : 'fr') : 'fr';
+
+function quizRender() {
+  const l = lang();
+  const q = quizData[quizCurrent];
+  document.getElementById('quiz-progress').style.width = ((quizCurrent) / quizData.length * 100) + '%';
+  document.getElementById('q-num').textContent = quizCurrent + 1;
+
+  const qText = l === 'en' ? q.q_en : l === 'de' ? q.q_de : q.q_fr;
+  document.getElementById('quiz-question').textContent = qText;
+
+  const answers = l === 'en' ? q.answers_en : l === 'de' ? q.answers_de : q.answers_fr;
+  const container = document.getElementById('quiz-answers');
+  container.innerHTML = '';
+  answers.forEach((ans, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = ans;
+    btn.style.cssText = `
+      background:${quizScores[quizCurrent] === q.scores[i] && quizScores[quizCurrent] !== undefined ? 'var(--ink)' : 'var(--white)'};
+      color:${quizScores[quizCurrent] === q.scores[i] && quizScores[quizCurrent] !== undefined ? 'var(--white)' : 'var(--ink2)'};
+      border:1px solid var(--rule2);
+      padding:1rem 1.5rem;
+      font-family:'Source Sans 3',sans-serif;
+      font-size:0.9rem;
+      font-weight:400;
+      text-align:left;
+      cursor:pointer;
+      transition:all 0.2s;
+      line-height:1.4;
+    `;
+    btn.onmouseover = () => { if(quizScores[quizCurrent] === undefined) btn.style.background = 'var(--paper)'; };
+    btn.onmouseout = () => { if(quizScores[quizCurrent] === undefined) btn.style.background = 'var(--white)'; };
+    btn.onclick = () => quizAnswer(q.scores[i]);
+    container.appendChild(btn);
+  });
+
+  document.getElementById('quiz-prev').style.display = quizCurrent > 0 ? 'block' : 'none';
+}
+
+function quizAnswer(score) {
+  quizScores[quizCurrent] = score;
+  setTimeout(() => {
+    if (quizCurrent < quizData.length - 1) {
+      quizCurrent++;
+      quizRender();
+    } else {
+      quizShowResult();
+    }
+  }, 400);
+}
+
+function quizPrev() {
+  if (quizCurrent > 0) { quizCurrent--; quizRender(); }
+}
+
+function quizShowResult() {
+  const total = quizScores.reduce((a,b) => a+b, 0);
+  const max = quizData.length * 3;
+  const pct = Math.round(total / max * 100);
+  const l = lang();
+
+  document.getElementById('quiz-progress').style.width = '100%';
+  document.getElementById('quiz-container').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'block';
+
+  let level, color, reco_fr, reco_en, reco_de, prog_fr, prog_en, prog_de;
+
+  if (pct >= 70) {
+    level = '🟢'; color = 'var(--civ-green)';
+    reco_fr = 'Vous avez de bonnes bases — approfondissez avec un module de spécialisation.';
+    reco_en = 'You have a good foundation — deepen with a specialisation module.';
+    reco_de = 'Sie haben eine gute Grundlage — vertiefen Sie mit einem Spezialisierungsmodul.';
+    prog_fr = 'Module D&N · CI recommandé'; prog_en = 'D&N · CI module recommended'; prog_de = 'D&N · CI Modul empfohlen';
+  } else if (pct >= 40) {
+    level = '🟡'; color = 'var(--gold)';
+    reco_fr = 'Vous avez quelques notions mais des lacunes importantes — une formation complète est conseillée.';
+    reco_en = 'You have some knowledge but important gaps — a complete training is advised.';
+    reco_de = 'Sie haben einige Kenntnisse, aber wichtige Lücken — eine vollständige Schulung wird empfohlen.';
+    prog_fr = 'Formation AP + OIPH recommandée'; prog_en = 'AP + OIPH training recommended'; prog_de = 'AP + OIPH Schulung empfohlen';
+  } else {
+    level = '🔴'; color = 'var(--civ-orange)';
+    reco_fr = 'Votre mission nécessite une préparation sérieuse — une formation complète est indispensable avant le départ.';
+    reco_en = 'Your mission requires serious preparation — complete training is essential before departure.';
+    reco_de = 'Ihre Mission erfordert ernsthafte Vorbereitung — eine vollständige Schulung ist vor der Abreise unerlässlich.';
+    prog_fr = 'Formation AP complète 3 jours urgente'; prog_en = 'Urgent 3-day AP complete training'; prog_de = 'Dringende 3-tägige vollständige AP-Schulung';
+  }
+
+  const reco = l === 'en' ? reco_en : l === 'de' ? reco_de : reco_fr;
+  const prog = l === 'en' ? prog_en : l === 'de' ? prog_de : prog_fr;
+  const score_label = l === 'en' ? 'Your score' : l === 'de' ? 'Ihr Ergebnis' : 'Votre score';
+  const reco_label = l === 'en' ? 'Our recommendation' : l === 'de' ? 'Unsere Empfehlung' : 'Notre recommandation';
+
+  document.getElementById('result-box').innerHTML = `
+    <div style="border:1px solid var(--rule);overflow:hidden;">
+      <div style="background:${color};padding:2rem;text-align:center;">
+        <div style="font-size:3rem;">${level}</div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:white;font-weight:700;line-height:1;">${pct}%</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-top:8px;">${score_label}</div>
+      </div>
+      <div style="padding:2rem 2.5rem;background:var(--white);">
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:${color};margin-bottom:0.75rem;">${reco_label}</p>
+        <p style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);line-height:1.6;margin-bottom:1.5rem;">${reco}</p>
+        <div style="background:var(--paper);border-left:3px solid ${color};padding:1rem 1.25rem;">
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);font-weight:600;">→ ${prog}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function quizRestart() {
+  quizCurrent = 0;
+  quizScores = [];
+  document.getElementById('quiz-container').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  quizRender();
+}
+
+// Init quiz when page shown
+const origGo = window.go;
+window.go = function(page) {
+  origGo(page);
+  if (page === 'diagnostic') { quizCurrent = 0; quizScores = []; quizRender(); }
+};
+</script>
+
+
+<script>
+function submitDevis() {
+  const name = document.getElementById('d-name').value;
+  const email = document.getElementById('d-email').value;
+  const institution = document.getElementById('d-institution').value;
+  const pays = document.getElementById('d-pays').value;
+  const programme = document.getElementById('d-programme').value;
+  const format = document.getElementById('d-format').value;
+  const participants = document.getElementById('d-participants').value;
+  const date = document.getElementById('d-date').value;
+  const message = document.getElementById('d-message').value;
+
+  if (!name || !email || !institution || !pays) {
+    alert('Merci de remplir les champs obligatoires (*)');
+    return;
+  }
+
+  const subject = encodeURIComponent('Demande de devis AICDI — ' + institution + ' — ' + programme);
+  const body = encodeURIComponent(
+    'Demande de devis AICDI\n\n' +
+    'Nom : ' + name + '\n' +
+    'Institution : ' + institution + '\n' +
+    'Email : ' + email + '\n' +
+    'Pays destination : ' + pays + '\n\n' +
+    'Programme souhaité : ' + programme + '\n' +
+    'Format : ' + format + '\n' +
+    'Participants : ' + participants + '\n' +
+    'Date souhaitée : ' + date + '\n\n' +
+    'Message : ' + message
+  );
+
+  window.location.href = 'mailto:contact@aicdi-formation.com?subject=' + subject + '&body=' + body;
+
+  document.getElementById('devis-step1').style.display = 'none';
+  document.getElementById('devis-step2').style.display = 'none';
+  document.getElementById('devis-confirm').style.display = 'block';
+}
+</script>
 
 </body>
 </html>
