@@ -863,6 +863,16 @@ nav {
   .cta-test-btn{width:100% !important;}
 }
 
+
+/* ── PUBLICS CONCERNÉS — visible sur mobile sous le hero ── */
+@media(max-width:1024px){
+  .hero-r { display: none !important; }
+  .hero-r-mobile { display: block !important; }
+}
+@media(min-width:1025px){
+  .hero-r-mobile { display: none !important; }
+}
+
 </style>
 </head>
 <body>
@@ -988,12 +998,102 @@ nav {
   </div>
 </section>
 
-<!-- CTA TEST PRÉPARATION -->
-<section style="background:var(--ink);padding:3rem 0;margin:0;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;flex-wrap:wrap;">
+
+<!-- PUBLICS CONCERNÉS — Mobile uniquement -->
+<div class="hero-r-mobile" style="display:none;background:var(--ink);padding:2rem;">
+  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">
+    <span class="t on" data-l="fr">Publics concernés</span>
+    <span class="t" data-l="en">Target audiences</span>
+    <span class="t" data-l="de">Zielgruppen</span>
+  </p>
+  <h2 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--white);font-weight:400;line-height:1.5;margin-bottom:1.5rem;font-style:italic;">
+    <span class="t on" data-l="fr">Leader africain de la formation dans le cadre de la mobilité professionnelle internationale</span>
+    <span class="t" data-l="en">African leader in training for international professional mobility</span>
+    <span class="t" data-l="de">Afrikanischer Marktführer in der Ausbildung für internationale Berufsmobilität</span>
+  </h2>
+  <div style="display:flex;flex-direction:column;gap:0;">
+
+    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">I</div>
+      <div style="flex:1;">
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
+          <span class="t on" data-l="fr">Ambassades & Corps diplomatique</span>
+          <span class="t" data-l="en">Embassies & Diplomatic corps</span>
+          <span class="t" data-l="de">Botschaften & Diplomatisches Korps</span>
+        </h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
+          <span class="t on" data-l="fr">Personnels en poste ou en préparation de mission</span>
+          <span class="t" data-l="en">Staff posted or preparing for mission</span>
+          <span class="t" data-l="de">Personal im Einsatz oder Missionsvorbereitung</span>
+        </p>
+      </div>
+      <span style="color:var(--gold);font-weight:700;">→</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">II</div>
+      <div style="flex:1;">
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
+          <span class="t on" data-l="fr">Organisations Internationales</span>
+          <span class="t" data-l="en">International Organizations</span>
+          <span class="t" data-l="de">Internationale Organisationen</span>
+        </h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
+          <span class="t on" data-l="fr">ONU, Banque Mondiale, UE, UA et agences affiliées</span>
+          <span class="t" data-l="en">UN, World Bank, EU, AU and affiliated agencies</span>
+          <span class="t" data-l="de">UN, Weltbank, EU, AU und angegliederte Organisationen</span>
+        </p>
+      </div>
+      <span style="color:var(--gold);font-weight:700;">→</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">III</div>
+      <div style="flex:1;">
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
+          <span class="t on" data-l="fr">ONG & Organisations de développement</span>
+          <span class="t" data-l="en">NGOs & Development organizations</span>
+          <span class="t" data-l="de">NGOs & Entwicklungsorganisationen</span>
+        </h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
+          <span class="t on" data-l="fr">Équipes de terrain et responsables de programmes</span>
+          <span class="t" data-l="en">Field teams and programme managers</span>
+          <span class="t" data-l="de">Feldteams und Programmverantwortliche</span>
+        </p>
+      </div>
+      <span style="color:var(--gold);font-weight:700;">→</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;">
+      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">IV</div>
+      <div style="flex:1;">
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
+          <span class="t on" data-l="fr">Entreprises & Investisseurs</span>
+          <span class="t" data-l="en">Companies & Investors</span>
+          <span class="t" data-l="de">Unternehmen & Investoren</span>
+        </h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
+          <span class="t on" data-l="fr">Cadres en mobilité internationale vers la Côte d'Ivoire</span>
+          <span class="t" data-l="en">Executives in international mobility to Côte d'Ivoire</span>
+          <span class="t" data-l="de">Führungskräfte in internationaler Mobilität nach Côte d'Ivoire</span>
+        </p>
+      </div>
+      <span style="color:var(--gold);font-weight:700;">→</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA TEST — HAUT DE PAGE -->
+<section style="background:var(--ink);padding:2.5rem 0;border-top:3px solid var(--gold);">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
     <div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Test gratuit · 3 minutes · Résultat immédiat</span><span class="t" data-l="en">Free test · 3 minutes · Immediate result</span><span class="t" data-l="de">Kostenloser Test · 3 Minuten · Sofortergebnis</span></p>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--white);font-weight:400;line-height:1.4;margin-bottom:0.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:0.75rem;">
+        <span class="t on" data-l="fr">Test gratuit · 3 minutes · Résultat immédiat</span>
+        <span class="t" data-l="en">Free test · 3 minutes · Immediate result</span>
+        <span class="t" data-l="de">Kostenloser Test · 3 Minuten · Sofortergebnis</span>
+      </p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--white);font-weight:400;line-height:1.4;margin-bottom:0.5rem;">
         <span class="t on" data-l="fr">🧪 Êtes-vous <em style="color:var(--gold-pale);">prêt</em> pour votre mission en Côte d'Ivoire ?</span>
         <span class="t" data-l="en">🧪 Are you <em style="color:var(--gold-pale);">ready</em> for your mission in Côte d'Ivoire?</span>
         <span class="t" data-l="de">🧪 Sind Sie <em style="color:var(--gold-pale);">bereit</em> für Ihre Mission in der Côte d'Ivoire?</span>
@@ -1001,16 +1101,16 @@ nav {
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;">
         <span class="t on" data-l="fr">10 questions · Score personnalisé · Recommandation de formation adaptée à votre profil</span>
         <span class="t" data-l="en">10 questions · Personalised score · Training recommendation adapted to your profile</span>
-        <span class="t" data-l="de">10 Fragen · Persönliches Ergebnis · Auf Ihr Profil zugeschnittene Schulungsempfehlung</span>
+        <span class="t" data-l="de">10 Fragen · Persönliches Ergebnis · Schulungsempfehlung für Ihr Profil</span>
       </p>
     </div>
-    <div>
+    <div style="text-align:center;">
       <button onclick="go('diagnostic')" style="background:var(--gold);color:var(--ink);padding:16px 32px;border:none;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;display:block;margin-bottom:8px;">
         <span class="t on" data-l="fr">Faire le test →</span>
         <span class="t" data-l="en">Take the test →</span>
         <span class="t" data-l="de">Test machen →</span>
       </button>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.35);text-align:center;letter-spacing:1px;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:1px;">
         <span class="t on" data-l="fr">Gratuit · Sans inscription</span>
         <span class="t" data-l="en">Free · No registration</span>
         <span class="t" data-l="de">Kostenlos · Ohne Anmeldung</span>
@@ -1018,6 +1118,9 @@ nav {
     </div>
   </div>
 </section>
+
+
+
 
 <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Académie Ivoirienne pour la Coopération et le Développement International</span><span class="t" data-l="en">Ivorian Academy for International Cooperation and Development</span><span class="t" data-l="de">Ivorische Akademie für internationale Zusammenarbeit</span></div><div class="footer-flag"><span style="background:#E8722A"></span><span style="background:rgba(255,255,255,0.7)"></span><span style="background:#1A8A45"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Fondateur · Expert en coopération internationale</span><span class="t" data-l="en">Founder · International cooperation expert</span><span class="t" data-l="de">Gründer · Experte für internationale Zusammenarbeit</span></p></div><div class="fi-block"><h5>🇩🇪 <span class="t on" data-l="fr">Bureau Allemagne</span><span class="t" data-l="en">Germany Office</span><span class="t" data-l="de">Büro Deutschland</span></h5><p>Burgackerweg 4 · 79104 Freiburg im Breisgau<br>Tél : +49 (0) 761 55 44 82<br>Tél + WhatsApp : +49 177 6926372</p></div><div class="fi-block"><h5>🇨🇮 <span class="t on" data-l="fr">Bureau Abidjan</span><span class="t" data-l="en">Abidjan Office</span><span class="t" data-l="de">Büro Abidjan</span></h5><p>Bd Cité du Port, Villa 46<br>ABATTA Cocody · Abidjan<br>Tél + WhatsApp : +225 05 03 60 57 25</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Ivoire Consulting · Franck Albert Vanié · <button onclick="go('impressum')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">Impressum</button> · <button onclick="go('cgv')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">CGV</button> · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div></footer>
 </div>
@@ -2481,16 +2584,16 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 
 <!-- ═══ PAGE AUTO-DIAGNOSTIC ═══ -->
 <div class="page" id="pg-diagnostic">
-<div class="pg-header"><div class="pg-header-inner">
+<div class="pg-header" style="padding:1.2rem 2rem 1rem;"><div class="pg-header-inner">
   <div>
-    <p class="pg-eyebrow"><span class="t on" data-l="fr">Test interactif · 3 minutes</span><span class="t" data-l="en">Interactive test · 3 minutes</span><span class="t" data-l="de">Interaktiver Test · 3 Minuten</span></p>
+    <p class="pg-eyebrow" style="margin-bottom:4px;"><span class="t on" data-l="fr">Test interactif · 3 minutes</span><span class="t" data-l="en">Interactive test · 3 minutes</span><span class="t" data-l="de">Interaktiver Test · 3 Minuten</span></p>
     <h1 class="pg-title"><span class="t on" data-l="fr">Êtes-vous <em>prêt</em> pour votre mission ?</span><span class="t" data-l="en">Are you <em>ready</em> for your mission?</span><span class="t" data-l="de">Sind Sie <em>bereit</em> für Ihre Mission?</span></h1>
   </div>
-  <p class="pg-desc"><span class="t on" data-l="fr">10 questions pour évaluer votre niveau de préparation à une mission en Côte d'Ivoire ou en Afrique de l'Ouest. Résultat immédiat avec recommandation personnalisée.</span><span class="t" data-l="en">10 questions to assess your level of preparation for a mission in Côte d'Ivoire or West Africa. Immediate result with personalised recommendation.</span><span class="t" data-l="de">10 Fragen zur Einschätzung Ihrer Vorbereitungsstufe für eine Mission in der Côte d'Ivoire oder Westafrika. Sofortiges Ergebnis mit persönlicher Empfehlung.</span></p>
+
 </div></div>
 <div class="cnt">
 
-<div id="quiz-container">
+<div id="quiz-container" style="padding-top:0;">
   <!-- Progress bar -->
   <div style="background:var(--rule);height:4px;margin-bottom:2.5rem;border-radius:2px;">
     <div id="quiz-progress" style="background:var(--civ-orange);height:4px;width:0%;border-radius:2px;transition:width 0.4s ease;"></div>
@@ -2527,94 +2630,94 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 // ═══ AUTO-DIAGNOSTIC QUIZ ═══
 const quizData = [
   {
-    q_fr: "Connaissez-vous les principales ethnies de Côte d'Ivoire et leurs zones géographiques ?",
-    q_en: "Do you know the main ethnic groups of Côte d'Ivoire and their geographical areas?",
-    q_de: "Kennen Sie die wichtigsten ethnischen Gruppen der Côte d'Ivoire und ihre geografischen Gebiete?",
-    answers_fr: ["Oui, très bien", "Quelques notions", "Non, pas du tout"],
-    answers_en: ["Yes, very well", "Some notions", "No, not at all"],
-    answers_de: ["Ja, sehr gut", "Einige Kenntnisse", "Nein, gar nicht"],
+    q_fr: "Quel est le principal mécanisme de décision politique informel en Côte d'Ivoire qui précède toute décision officielle majeure ?",
+    q_en: "What is the main informal political decision-making mechanism in Côte d'Ivoire that precedes any major official decision?",
+    q_de: "Was ist der wichtigste informelle politische Entscheidungsmechanismus in der Côte d'Ivoire, der jeder wichtigen offiziellen Entscheidung vorausgeht?",
+    answers_fr: ["Le palabre — consensus communautaire obligatoire avant toute décision", "Le vote à main levée en conseil des ministres", "La consultation directe du Chef de l'État uniquement"],
+    answers_en: ["The palaver — mandatory community consensus before any decision", "Show of hands vote in the council of ministers", "Direct consultation of the Head of State only"],
+    answers_de: ["Das Palavern — obligatorischer Gemeinschaftskonsens vor jeder Entscheidung", "Handzeichen-Abstimmung im Ministerrat", "Direkte Konsultation nur des Staatsoberhauptes"],
+    scores: [3, 0, 1]
+  },
+  {
+    q_fr: "Dans une administration ivoirienne, vous avez rendez-vous avec le Directeur Général. À votre arrivée, son adjoint vous reçoit à la place. Quelle est la bonne attitude ?",
+    q_en: "In an Ivorian administration, you have an appointment with the Director General. Upon arrival, his deputy receives you instead. What is the correct attitude?",
+    q_de: "In einer ivorischen Verwaltung haben Sie einen Termin mit dem Generaldirektor. Bei Ihrer Ankunft empfängt Sie stattdessen sein Stellvertreter. Was ist die richtige Haltung?",
+    answers_fr: ["Accepter avec courtoisie — l'adjoint a souvent plus de pouvoir réel que le titre ne l'indique", "Insister pour voir le Directeur Général — c'est lui qui décide", "Partir et replanifier — c'est un manque de respect"],
+    answers_en: ["Accept courteously — the deputy often has more real power than the title suggests", "Insist on seeing the Director General — he is the decision-maker", "Leave and reschedule — it is a sign of disrespect"],
+    answers_de: ["Höflich akzeptieren — der Stellvertreter hat oft mehr tatsächliche Macht als der Titel andeutet", "Auf ein Treffen mit dem Generaldirektor bestehen", "Gehen und neu terminieren — das ist mangelnder Respekt"],
+    scores: [3, 0, 1]
+  },
+  {
+    q_fr: "Vous négociez un contrat avec un partenaire ivoirien. Après 2 heures de discussion, il dit : 'C'est bien, nous allons voir.' Que signifie réellement cette réponse ?",
+    q_en: "You are negotiating a contract with an Ivorian partner. After 2 hours of discussion, he says: 'It's good, we will see.' What does this response actually mean?",
+    q_de: "Sie verhandeln einen Vertrag mit einem ivorischen Partner. Nach 2 Stunden Diskussion sagt er: 'Es ist gut, wir werden sehen.' Was bedeutet diese Antwort wirklich?",
+    answers_fr: ["Refus poli — il faut reprendre la négociation sur d'autres bases", "Accord de principe — la signature est imminente", "Indécision temporaire — relancer dans 24h"],
+    answers_en: ["Polite refusal — the negotiation must restart on different terms", "Agreement in principle — signature is imminent", "Temporary indecision — follow up in 24h"],
+    answers_de: ["Höfliche Ablehnung — die Verhandlung muss auf anderer Basis neu beginnen", "Grundsätzliche Einigung — die Unterzeichnung steht bevor", "Vorübergehende Unentschlossenheit — in 24h nachfassen"],
     scores: [3, 1, 0]
   },
   {
-    q_fr: "Savez-vous comment saluer correctement un supérieur hiérarchique ivoirien ?",
-    q_en: "Do you know how to correctly greet an Ivorian superior?",
-    q_de: "Wissen Sie, wie man einen ivorischen Vorgesetzten korrekt begrüßt?",
-    answers_fr: ["Oui, avec les codes précis", "J'ai une idée générale", "Non, je ne sais pas"],
-    answers_en: ["Yes, with precise codes", "I have a general idea", "No, I don't know"],
-    answers_de: ["Ja, mit genauen Codes", "Ich habe eine allgemeine Idee", "Nein, ich weiß es nicht"],
+    q_fr: "Lors d'une réunion officielle à Abidjan, vous devez remettre un document important à votre interlocuteur. Quelle est l'erreur fatale à éviter absolument ?",
+    q_en: "During an official meeting in Abidjan, you need to hand over an important document to your interlocutor. What is the fatal mistake to avoid absolutely?",
+    q_de: "Bei einem offiziellen Meeting in Abidjan müssen Sie Ihrem Gesprächspartner ein wichtiges Dokument übergeben. Was ist der unbedingt zu vermeidende fatale Fehler?",
+    answers_fr: ["Tendre le document de la main gauche — signe de profond irrespect culturel", "Tendre le document sans le mettre dans une chemise", "Ne pas se lever pour remettre le document"],
+    answers_en: ["Handing the document with the left hand — sign of deep cultural disrespect", "Handing the document without putting it in a folder", "Not standing up to hand over the document"],
+    answers_de: ["Das Dokument mit der linken Hand reichen — Zeichen tiefen kulturellen Respektmangels", "Das Dokument ohne Mappe übergeben", "Nicht aufstehen, um das Dokument zu übergeben"],
     scores: [3, 1, 0]
   },
   {
-    q_fr: "Connaissez-vous la différence entre le secteur public et privé en termes de négociation en CIV ?",
-    q_en: "Do you know the difference between the public and private sector in terms of negotiation in CIV?",
-    q_de: "Kennen Sie den Unterschied zwischen öffentlichem und privatem Sektor bei Verhandlungen in CIV?",
-    answers_fr: ["Oui, clairement", "Vaguement", "Non"],
-    answers_en: ["Yes, clearly", "Vaguely", "No"],
-    answers_de: ["Ja, klar", "Vage", "Nein"],
+    q_fr: "Quelle est la principale zone économique et le quartier des affaires institutionnelles d'Abidjan où se concentrent les ambassades et organisations internationales ?",
+    q_en: "What is the main economic zone and institutional business district of Abidjan where embassies and international organisations are concentrated?",
+    q_de: "Was ist die wichtigste Wirtschaftszone und das institutionelle Geschäftsviertel von Abidjan, wo Botschaften und internationale Organisationen konzentriert sind?",
+    answers_fr: ["Le Plateau — centre des affaires, ambassades et ministères", "Yopougon — le plus grand quartier populaire", "Marcory — zone industrielle principale"],
+    answers_en: ["Le Plateau — business centre, embassies and ministries", "Yopougon — the largest popular district", "Marcory — main industrial zone"],
+    answers_de: ["Le Plateau — Geschäftszentrum, Botschaften und Ministerien", "Yopougon — das größte Volksviertel", "Marcory — wichtigste Industriezone"],
+    scores: [3, 0, 1]
+  },
+  {
+    q_fr: "Vous êtes invité à un dîner chez un responsable ivoirien important. Le repas commence avec 45 minutes de retard. Quelle est l'interprétation correcte ?",
+    q_en: "You are invited to dinner at an important Ivorian official's home. The meal starts 45 minutes late. What is the correct interpretation?",
+    q_de: "Sie sind zum Abendessen bei einem wichtigen ivorischen Funktionär eingeladen. Das Essen beginnt 45 Minuten später. Was ist die korrekte Interpretation?",
+    answers_fr: ["C'est normal — le retard est une marque de statut social, pas un manque de respect", "C'est un manque de respect flagrant envers les invités", "Le responsable teste votre patience volontairement"],
+    answers_en: ["It is normal — the delay is a mark of social status, not a lack of respect", "It is a blatant lack of respect towards guests", "The official is deliberately testing your patience"],
+    answers_de: ["Das ist normal — die Verzögerung ist ein Zeichen sozialen Status, kein Mangel an Respekt", "Das ist ein eklatanter Mangel an Respekt gegenüber den Gästen", "Der Funktionär testet absichtlich Ihre Geduld"],
+    scores: [3, 0, 1]
+  },
+  {
+    q_fr: "Dans le contexte politique ivoirien, qu'est-ce que le 'réseau des ressortissants' et pourquoi est-il crucial pour tout projet de coopération ?",
+    q_en: "In the Ivorian political context, what is the 'network of nationals' and why is it crucial for any cooperation project?",
+    q_de: "Im ivorischen politischen Kontext, was ist das 'Netzwerk der Staatsangehörigen' und warum ist es für jedes Kooperationsprojekt entscheidend?",
+    answers_fr: ["Un réseau ethnique et régional d'influence qui conditionne l'accès aux décideurs et l'approbation des projets", "Une association d'expatriés ivoiriens à l'étranger", "Un organe officiel du Ministère des Affaires Étrangères"],
+    answers_en: ["An ethnic and regional influence network that conditions access to decision-makers and project approval", "An association of Ivorian expatriates abroad", "An official body of the Ministry of Foreign Affairs"],
+    answers_de: ["Ein ethnisches und regionales Einflussnetzwerk, das den Zugang zu Entscheidungsträgern und die Projektgenehmigung bedingt", "Ein Verband ivorischer Expatriates im Ausland", "Ein offizielles Organ des Außenministeriums"],
     scores: [3, 1, 0]
   },
   {
-    q_fr: "Êtes-vous capable d'identifier le vrai décideur dans une administration ivoirienne ?",
-    q_en: "Are you able to identify the real decision-maker in an Ivorian administration?",
-    q_de: "Können Sie den echten Entscheidungsträger in einer ivorischen Verwaltung identifizieren?",
-    answers_fr: ["Oui, j'ai les méthodes", "Je pense pouvoir le faire", "Non, je ne sais pas comment"],
-    answers_en: ["Yes, I have the methods", "I think I can do it", "No, I don't know how"],
-    answers_de: ["Ja, ich kenne die Methoden", "Ich denke, ich kann es", "Nein, ich weiß nicht wie"],
+    q_fr: "Un ministre ivoirien vous accorde 15 minutes d'entretien. Quelle est la stratégie de communication la plus efficace ?",
+    q_en: "An Ivorian minister grants you a 15-minute interview. What is the most effective communication strategy?",
+    q_de: "Ein ivorischer Minister gewährt Ihnen ein 15-minütiges Gespräch. Was ist die effektivste Kommunikationsstrategie?",
+    answers_fr: ["Commencer par les salutations et la reconnaissance de son rang — les 3 premières minutes sont protocolaires", "Aller directement au sujet — le temps est limité et les ministres apprécient l'efficacité", "Envoyer un document préalable et ne faire que valider les points"],
+    answers_en: ["Begin with greetings and recognition of his rank — the first 3 minutes are protocol", "Go straight to the subject — time is limited and ministers appreciate efficiency", "Send a document beforehand and only validate the points"],
+    answers_de: ["Mit Begrüßungen und Anerkennung seines Ranges beginnen — die ersten 3 Minuten sind protokollarisch", "Direkt zum Thema kommen — die Zeit ist begrenzt und Minister schätzen Effizienz", "Vorher ein Dokument senden und nur die Punkte bestätigen"],
+    scores: [3, 0, 1]
+  },
+  {
+    q_fr: "Quelle est la langue véhiculaire populaire parlée à Abidjan qui vous permettra de créer une complicité immédiate avec vos interlocuteurs locaux ?",
+    q_en: "What is the popular vehicular language spoken in Abidjan that will allow you to create immediate complicity with your local interlocutors?",
+    q_de: "Was ist die populäre Verkehrssprache in Abidjan, die es Ihnen ermöglicht, sofortige Verbundenheit mit Ihren lokalen Gesprächspartnern zu schaffen?",
+    answers_fr: ["Le nouchi — argot ivoirien mêlant français, dioula et expressions locales", "Le dioula — langue commerciale du nord", "Le baoulé — langue du groupe Akan majoritaire"],
+    answers_en: ["Nouchi — Ivorian slang mixing French, Dioula and local expressions", "Dioula — commercial language of the north", "Baoulé — language of the majority Akan group"],
+    answers_de: ["Nouchi — ivorischer Slang mit Französisch, Dioula und lokalen Ausdrücken", "Dioula — Handelssprache des Nordens", "Baoulé — Sprache der mehrheitlichen Akan-Gruppe"],
     scores: [3, 1, 0]
   },
   {
-    q_fr: "Connaissez-vous le rôle du 'palabre' dans la culture de négociation ivoirienne ?",
-    q_en: "Do you know the role of the 'palaver' in Ivorian negotiation culture?",
-    q_de: "Kennen Sie die Rolle des 'Palavers' in der ivorischen Verhandlungskultur?",
-    answers_fr: ["Oui, c'est fondamental", "J'en ai entendu parler", "Non, jamais"],
-    answers_en: ["Yes, it's fundamental", "I've heard about it", "No, never"],
-    answers_de: ["Ja, es ist grundlegend", "Ich habe davon gehört", "Nein, noch nie"],
-    scores: [3, 1, 0]
-  },
-  {
-    q_fr: "Savez-vous ce que signifie donner ou recevoir avec la main gauche en Côte d'Ivoire ?",
-    q_en: "Do you know what it means to give or receive with the left hand in Côte d'Ivoire?",
-    q_de: "Wissen Sie, was es bedeutet, in der Côte d'Ivoire mit der linken Hand zu geben oder zu empfangen?",
-    answers_fr: ["Oui, c'est très important", "Je crois que c'est mal vu", "Non, je ne savais pas"],
-    answers_en: ["Yes, it's very important", "I think it's frowned upon", "No, I didn't know"],
-    answers_de: ["Ja, es ist sehr wichtig", "Ich glaube, es wird missbilligt", "Nein, das wusste ich nicht"],
-    scores: [3, 1, 0]
-  },
-  {
-    q_fr: "Connaissez-vous les principaux partenaires au développement actifs en Côte d'Ivoire ?",
-    q_en: "Do you know the main active development partners in Côte d'Ivoire?",
-    q_de: "Kennen Sie die wichtigsten aktiven Entwicklungspartner in der Côte d'Ivoire?",
-    answers_fr: ["Oui, GIZ, BAD, UE, AFD...", "Quelques-uns", "Non"],
-    answers_en: ["Yes, GIZ, ADB, EU, AFD...", "A few", "No"],
-    answers_de: ["Ja, GIZ, AfDB, EU, AFD...", "Einige", "Nein"],
-    scores: [3, 1, 0]
-  },
-  {
-    q_fr: "Avez-vous des connaissances sur la situation sécuritaire et politique actuelle en CIV ?",
-    q_en: "Do you have knowledge of the current security and political situation in CIV?",
-    q_de: "Haben Sie Kenntnisse über die aktuelle Sicherheits- und politische Lage in CIV?",
-    answers_fr: ["Oui, je suis la situation", "Quelques informations générales", "Non, pas du tout"],
-    answers_en: ["Yes, I follow the situation", "Some general information", "No, not at all"],
-    answers_de: ["Ja, ich verfolge die Lage", "Einige allgemeine Informationen", "Nein, gar nicht"],
-    scores: [3, 1, 0]
-  },
-  {
-    q_fr: "Savez-vous comment gérer un retard de réunion sans créer de tension avec votre interlocuteur ivoirien ?",
-    q_en: "Do you know how to handle a meeting delay without creating tension with your Ivorian counterpart?",
-    q_de: "Wissen Sie, wie Sie eine Besprechungsverzögerung ohne Spannungen mit Ihrem ivorischen Gesprächspartner handhaben?",
-    answers_fr: ["Oui, j'ai les codes", "Je pense m'adapter", "Non, ça m'inquiète"],
-    answers_en: ["Yes, I have the codes", "I think I can adapt", "No, it worries me"],
-    answers_de: ["Ja, ich kenne die Codes", "Ich denke, ich kann mich anpassen", "Nein, das beunruhigt mich"],
-    scores: [3, 1, 0]
-  },
-  {
-    q_fr: "Avez-vous déjà suivi une formation spécifique sur la Côte d'Ivoire ou l'Afrique de l'Ouest ?",
-    q_en: "Have you already completed specific training on Côte d'Ivoire or West Africa?",
-    q_de: "Haben Sie bereits eine spezifische Schulung zur Côte d'Ivoire oder Westafrika absolviert?",
-    answers_fr: ["Oui, une formation complète", "Une formation partielle", "Non, jamais"],
-    answers_en: ["Yes, a complete training", "Partial training", "No, never"],
-    answers_de: ["Ja, eine vollständige Schulung", "Teilweise Schulung", "Nein, noch nie"],
-    scores: [3, 1, 0]
+    q_fr: "Lors d'un projet de coopération, votre homologue ivoirien vous demande un 'service personnel' avant de signer le contrat. Comment interprétez-vous cette demande ?",
+    q_en: "During a cooperation project, your Ivorian counterpart asks you for a 'personal favour' before signing the contract. How do you interpret this request?",
+    q_de: "Während eines Kooperationsprojekts bittet Sie Ihr ivorischer Counterpart um einen 'persönlichen Gefallen', bevor er den Vertrag unterzeichnet. Wie interpretieren Sie diese Bitte?",
+    answers_fr: ["C'est la notion de réciprocité — tout service crée une dette implicite qui scelle la relation professionnelle", "C'est une tentative de corruption à signaler immédiatement", "C'est un test de votre engagement personnel dans le projet"],
+    answers_en: ["It is the notion of reciprocity — every service creates an implicit debt that seals the professional relationship", "It is an attempted bribery to be reported immediately", "It is a test of your personal commitment to the project"],
+    answers_de: ["Es ist das Konzept der Gegenseitigkeit — jeder Dienst schafft eine implizite Schuld, die die Berufsbeziehung besiegelt", "Es ist ein Korruptionsversuch, der sofort gemeldet werden muss", "Es ist ein Test Ihres persönlichen Engagements im Projekt"],
+    scores: [3, 0, 1]
   }
 ];
 
@@ -2742,7 +2845,13 @@ function quizRestart() {
 const origGo = window.go;
 window.go = function(page) {
   origGo(page);
-  if (page === 'diagnostic') { quizCurrent = 0; quizScores = []; quizRender(); }
+  if (page === 'diagnostic') { 
+    quizCurrent = 0; quizScores = []; quizRender();
+    setTimeout(() => {
+      const qc = document.getElementById('quiz-container');
+      if(qc) qc.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  }
 };
 </script>
 
