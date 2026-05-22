@@ -857,6 +857,12 @@ nav {
 
 }
 
+
+@media(max-width:768px){
+  .cta-test-grid{grid-template-columns:1fr !important;}
+  .cta-test-btn{width:100% !important;}
+}
+
 </style>
 </head>
 <body>
@@ -981,6 +987,38 @@ nav {
     </div>
   </div>
 </section>
+
+<!-- CTA TEST PRÉPARATION -->
+<section style="background:var(--ink);padding:3rem 0;margin:0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;flex-wrap:wrap;">
+    <div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:0.75rem;"><span class="t on" data-l="fr">Test gratuit · 3 minutes · Résultat immédiat</span><span class="t" data-l="en">Free test · 3 minutes · Immediate result</span><span class="t" data-l="de">Kostenloser Test · 3 Minuten · Sofortergebnis</span></p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--white);font-weight:400;line-height:1.4;margin-bottom:0.5rem;">
+        <span class="t on" data-l="fr">🧪 Êtes-vous <em style="color:var(--gold-pale);">prêt</em> pour votre mission en Côte d'Ivoire ?</span>
+        <span class="t" data-l="en">🧪 Are you <em style="color:var(--gold-pale);">ready</em> for your mission in Côte d'Ivoire?</span>
+        <span class="t" data-l="de">🧪 Sind Sie <em style="color:var(--gold-pale);">bereit</em> für Ihre Mission in der Côte d'Ivoire?</span>
+      </h2>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;">
+        <span class="t on" data-l="fr">10 questions · Score personnalisé · Recommandation de formation adaptée à votre profil</span>
+        <span class="t" data-l="en">10 questions · Personalised score · Training recommendation adapted to your profile</span>
+        <span class="t" data-l="de">10 Fragen · Persönliches Ergebnis · Auf Ihr Profil zugeschnittene Schulungsempfehlung</span>
+      </p>
+    </div>
+    <div>
+      <button onclick="go('diagnostic')" style="background:var(--gold);color:var(--ink);padding:16px 32px;border:none;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;display:block;margin-bottom:8px;">
+        <span class="t on" data-l="fr">Faire le test →</span>
+        <span class="t" data-l="en">Take the test →</span>
+        <span class="t" data-l="de">Test machen →</span>
+      </button>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.35);text-align:center;letter-spacing:1px;">
+        <span class="t on" data-l="fr">Gratuit · Sans inscription</span>
+        <span class="t" data-l="en">Free · No registration</span>
+        <span class="t" data-l="de">Kostenlos · Ohne Anmeldung</span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="fl">AICDI</div><div class="fs"><span class="t on" data-l="fr">Académie Ivoirienne pour la Coopération et le Développement International</span><span class="t" data-l="en">Ivorian Academy for International Cooperation and Development</span><span class="t" data-l="de">Ivorische Akademie für internationale Zusammenarbeit</span></div><div class="footer-flag"><span style="background:#E8722A"></span><span style="background:rgba(255,255,255,0.7)"></span><span style="background:#1A8A45"></span></div></div><div class="footer-info"><div class="fi-block"><h5>Expert</h5><p>Franck Albert Vanié<br><span class="t on" data-l="fr">Fondateur · Expert en coopération internationale</span><span class="t" data-l="en">Founder · International cooperation expert</span><span class="t" data-l="de">Gründer · Experte für internationale Zusammenarbeit</span></p></div><div class="fi-block"><h5>🇩🇪 <span class="t on" data-l="fr">Bureau Allemagne</span><span class="t" data-l="en">Germany Office</span><span class="t" data-l="de">Büro Deutschland</span></h5><p>Burgackerweg 4 · 79104 Freiburg im Breisgau<br>Tél : +49 (0) 761 55 44 82<br>Tél + WhatsApp : +49 177 6926372</p></div><div class="fi-block"><h5>🇨🇮 <span class="t on" data-l="fr">Bureau Abidjan</span><span class="t" data-l="en">Abidjan Office</span><span class="t" data-l="de">Büro Abidjan</span></h5><p>Bd Cité du Port, Villa 46<br>ABATTA Cocody · Abidjan<br>Tél + WhatsApp : +225 05 03 60 57 25</p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><span class="footer-copy">© 2025 AICDI · Ivoire Consulting · Franck Albert Vanié · <button onclick="go('impressum')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">Impressum</button> · <button onclick="go('cgv')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">CGV</button> · <span class="t on" data-l="fr">Tous droits réservés</span><span class="t" data-l="en">All rights reserved</span><span class="t" data-l="de">Alle Rechte vorbehalten</span></span></div></div></footer>
 </div>
 
