@@ -531,7 +531,7 @@ nav {
 .footer-brand .fs{font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:2px;text-transform:uppercase;}
 .footer-flag{display:flex;gap:3px;margin-top:1rem;}
 .footer-flag span{width:4px;height:16px;}
-.footer-info{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
 .fi-block h5{font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;margin-bottom:0.75rem;}
 .fi-block p,.fi-block a{font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.8);line-height:1.8;font-weight:400;text-decoration:none;}
 .fi-block a:hover{color:rgba(255,255,255,0.7);}
@@ -635,7 +635,7 @@ nav {
   .contact-layout{grid-template-columns:1fr;}
   /* Footer */
   .footer-main{grid-template-columns:1fr;gap:2rem;}
-  .footer-info{grid-template-columns:repeat(3,1fr);}
+  .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
 }
 
 /* ── MOBILE (< 768px) ────────────────── */
@@ -684,7 +684,7 @@ nav {
   .nav-btns button{width:100%;text-align:center;}
   /* Footer */
   .footer-main{padding:2rem 1.25rem;gap:1.5rem;}
-  .footer-info{grid-template-columns:1fr;}
+  .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
   .footer-bottom{padding:1rem 1.25rem;}
 }
 
@@ -734,11 +734,12 @@ nav {
   .f-col,.prog-col{border-right:none;border-bottom:1px solid var(--rule);}
   .expert-layout,.contact-layout,.clayout{grid-template-columns:1fr;}
   .footer-main{grid-template-columns:1fr;gap:2rem;}
-  .footer-info{grid-template-columns:repeat(3,1fr);}
+  .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
 }
 
 /* ── MOBILE (max 768px) ─────────── */
 @media(max-width:768px){
+  .footer-info{grid-template-columns:1fr !important;gap:1.5rem !important;}
 
   /* NAV */
   nav{height:56px;}
@@ -818,7 +819,7 @@ nav {
 
   /* ── FOOTER ── */
   .footer-main{grid-template-columns:1fr !important;padding:1.75rem 1rem !important;gap:1.5rem !important;}
-  .footer-info{grid-template-columns:1fr !important;}
+  .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
   .footer-bottom{padding:1rem;}
 
   /* ── BOUTONS ── */
@@ -873,6 +874,15 @@ nav {
   .hero-r-mobile { display: none !important; }
 }
 
+
+/* ── LANGUAGE FIX — force hide inactive ── */
+span.t { display: none !important; }
+span.t.on { display: inline !important; }
+div.t { display: none !important; }
+div.t.on { display: block !important; }
+p.t { display: none !important; }
+p.t.on { display: inline !important; }
+
 </style>
 </head>
 <body>
@@ -922,7 +932,7 @@ nav {
         <div class="drop">
           <a href="#" onclick="go('programme')"><span class="drop-num">—</span><span class="t on" data-l="fr">Vue d'ensemble</span><span class="t" data-l="en">Overview</span><span class="t" data-l="de">Überblick</span></a>
           <a href="#" onclick="go('j1')"><span class="drop-num">J.1</span><span class="t on" data-l="fr">Histoire & Politique</span><span class="t" data-l="en">History & Politics</span><span class="t" data-l="de">Geschichte & Politik</span></a>
-          <a href="#" onclick="go('j2')"><span class="drop-num">J.2</span><span class="t on" data-l="fr">Économie & Société</span><span class="t" data-l="en">Economy & Society</span><span class="t" data-l="de">Wirtschaft & Gesellschaft</span></a>
+          <a href="#" onclick="go('j2')"><span class="drop-num">J.2</span><span class="t on" data-l="fr">Valeurs, Culture & Société</span><span class="t" data-l="en">Economy & Society</span><span class="t" data-l="de">Wirtschaft & Gesellschaft</span></a>
           <a href="#" onclick="go('j3')"><span class="drop-num">J.3</span><span class="t on" data-l="fr">Développement & Terrain</span><span class="t" data-l="en">Development & Field</span><span class="t" data-l="de">Entwicklung & Terrain</span></a>
           <a href="#" onclick="go('nego')"><span class="drop-num">M+</span><span class="t on" data-l="fr">Négociation culturelle</span><span class="t" data-l="en">Cultural negotiation</span><span class="t" data-l="de">Kulturelle Verhandlung</span></a>
           <a href="#" onclick="go('bonus')"><span class="drop-num">B+</span>Sport, Culture & <span class="t on" data-l="fr">Tourisme</span><span class="t" data-l="en">Tourism</span><span class="t" data-l="de">Tourismus</span></a>
@@ -999,91 +1009,6 @@ nav {
 </section>
 
 
-<!-- PUBLICS CONCERNÉS — Mobile uniquement -->
-<div class="hero-r-mobile" style="display:none;background:var(--ink);padding:2rem;">
-  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">
-    <span class="t on" data-l="fr">Publics concernés</span>
-    <span class="t" data-l="en">Target audiences</span>
-    <span class="t" data-l="de">Zielgruppen</span>
-  </p>
-  <h2 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--white);font-weight:400;line-height:1.5;margin-bottom:1.5rem;font-style:italic;">
-    <span class="t on" data-l="fr">Leader africain de la formation dans le cadre de la mobilité professionnelle internationale</span>
-    <span class="t" data-l="en">African leader in training for international professional mobility</span>
-    <span class="t" data-l="de">Afrikanischer Marktführer in der Ausbildung für internationale Berufsmobilität</span>
-  </h2>
-  <div style="display:flex;flex-direction:column;gap:0;">
-
-    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">I</div>
-      <div style="flex:1;">
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
-          <span class="t on" data-l="fr">Ambassades & Corps diplomatique</span>
-          <span class="t" data-l="en">Embassies & Diplomatic corps</span>
-          <span class="t" data-l="de">Botschaften & Diplomatisches Korps</span>
-        </h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
-          <span class="t on" data-l="fr">Personnels en poste ou en préparation de mission</span>
-          <span class="t" data-l="en">Staff posted or preparing for mission</span>
-          <span class="t" data-l="de">Personal im Einsatz oder Missionsvorbereitung</span>
-        </p>
-      </div>
-      <span style="color:var(--gold);font-weight:700;">→</span>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">II</div>
-      <div style="flex:1;">
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
-          <span class="t on" data-l="fr">Organisations Internationales</span>
-          <span class="t" data-l="en">International Organizations</span>
-          <span class="t" data-l="de">Internationale Organisationen</span>
-        </h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
-          <span class="t on" data-l="fr">ONU, Banque Mondiale, UE, UA et agences affiliées</span>
-          <span class="t" data-l="en">UN, World Bank, EU, AU and affiliated agencies</span>
-          <span class="t" data-l="de">UN, Weltbank, EU, AU und angegliederte Organisationen</span>
-        </p>
-      </div>
-      <span style="color:var(--gold);font-weight:700;">→</span>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">III</div>
-      <div style="flex:1;">
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
-          <span class="t on" data-l="fr">ONG & Organisations de développement</span>
-          <span class="t" data-l="en">NGOs & Development organizations</span>
-          <span class="t" data-l="de">NGOs & Entwicklungsorganisationen</span>
-        </h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
-          <span class="t on" data-l="fr">Équipes de terrain et responsables de programmes</span>
-          <span class="t" data-l="en">Field teams and programme managers</span>
-          <span class="t" data-l="de">Feldteams und Programmverantwortliche</span>
-        </p>
-      </div>
-      <span style="color:var(--gold);font-weight:700;">→</span>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:1rem;padding:1rem 0;">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--gold);font-weight:700;min-width:28px;">IV</div>
-      <div style="flex:1;">
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--white);font-weight:700;margin-bottom:2px;">
-          <span class="t on" data-l="fr">Entreprises & Investisseurs</span>
-          <span class="t" data-l="en">Companies & Investors</span>
-          <span class="t" data-l="de">Unternehmen & Investoren</span>
-        </h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;">
-          <span class="t on" data-l="fr">Cadres en mobilité internationale vers la Côte d'Ivoire</span>
-          <span class="t" data-l="en">Executives in international mobility to Côte d'Ivoire</span>
-          <span class="t" data-l="de">Führungskräfte in internationaler Mobilität nach Côte d'Ivoire</span>
-        </p>
-      </div>
-      <span style="color:var(--gold);font-weight:700;">→</span>
-    </div>
-
-  </div>
-</div>
-
 <!-- CTA TEST — HAUT DE PAGE -->
 <section style="background:var(--ink);padding:2.5rem 0;border-top:3px solid var(--gold);">
   <div style="max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
@@ -1119,6 +1044,51 @@ nav {
   </div>
 </section>
 
+<!-- ═══ ALIGNEMENT STRATÉGIQUE ═══ -->
+<section style="background:var(--paper);padding:2.5rem 0;border-top:1px solid var(--rule);">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1.5rem;text-align:center;">
+      <span class="t on" data-l="fr">Alignement stratégique</span>
+      <span class="t" data-l="en">Strategic alignment</span>
+      <span class="t" data-l="de">Strategische Ausrichtung</span>
+    </p>
+    <div class="strategic-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🇪🇺</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">
+          <span class="t on" data-l="fr">Priorités UE</span><span class="t" data-l="en">EU priorities</span><span class="t" data-l="de">EU-Prioritäten</span>
+        </div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;">
+          <span class="t on" data-l="fr">Coopération &amp; développement</span><span class="t" data-l="en">Cooperation &amp; development</span><span class="t" data-l="de">Zusammenarbeit &amp; Entwicklung</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🌍</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">UEMOA · CEMAC</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;">
+          <span class="t on" data-l="fr">14 pays cibles</span><span class="t" data-l="en">14 target countries</span><span class="t" data-l="de">14 Zielländer</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">GIZ · KAS · FES</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;">
+          <span class="t on" data-l="fr">Partenaires institutionnels</span><span class="t" data-l="en">Institutional partners</span><span class="t" data-l="de">Institutionelle Partner</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">💻</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">
+          <span class="t on" data-l="fr">Hub numérique</span><span class="t" data-l="en">Digital hub</span><span class="t" data-l="de">Digitaler Hub</span>
+        </div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);font-weight:300;">
+          <span class="t on" data-l="fr">Scalabilité &amp; impact</span><span class="t" data-l="en">Scalability &amp; impact</span><span class="t" data-l="de">Skalierbarkeit &amp; Wirkung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -1144,7 +1114,7 @@ nav {
   <div style="background:var(--ink);padding:2rem 2.5rem;margin-bottom:2.5rem;">
     <p style="font-family:'Source Sans 3',sans-serif;font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.9;font-weight:400;max-width:700px;">
       <span class="t on" data-l="fr">Depuis plus de 20 ans, l'AICDI prépare les diplomates, coopérants et fonctionnaires internationaux à exercer leur mission en Côte d'Ivoire et en Afrique de l'Ouest. Voici des exemples concrets de nos interventions.</span>
-      <span class="t" data-l="en">For over 20 years, AICDI has been preparing diplomats, development workers and international civil servants to carry out their missions in Côte d'Ivoire and West Africa. Here are concrete examples of our interventions.</span>
+      <span class="t" data-l="en">For over 20 years, Franck Albert Vanié has been preparing diplomats, development workers and international civil servants to carry out their missions in Côte d'Ivoire and West Africa. Here are concrete examples of our interventions.</span>
       <span class="t" data-l="de">Seit mehr als 20 Jahren bereitet AICDI Diplomaten, Entwicklungshelfer und internationale Beamte auf ihre Missionen in der Côte d'Ivoire und Westafrika vor. Hier sind konkrete Beispiele unserer Einsätze.</span>
     </p>
   </div>
@@ -1303,7 +1273,7 @@ nav {
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
           <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);line-height:1.6;">
             <span style="color:var(--gold2);font-weight:700;flex-shrink:0;">→</span>
-            <span><span class="t on" data-l="fr"><strong>Gérer les retards</strong> — "l'heure africaine" n'est pas un mythe : c'est un code social précis qu'il faut décrypter et intégrer</span><span class="t" data-l="en"><strong>Managing delays</strong> — "African time" is not a myth: it is a precise social code that must be decoded and integrated</span><span class="t" data-l="de"><strong>Verzögerungen managen</strong> — "Afrikanische Zeit" ist kein Mythos: Es ist ein präziser Sozialcode, der entschlüsselt werden muss</span></span>
+            <span><span class="t on" data-l="fr"><strong>Gérer les retards</strong> — Comprendre les perceptions locales du temps, des priorités et des engagements professionnels</span><span class="t" data-l="en"><strong>Managing delays</strong> — Understanding local perceptions of time, priorities and professional commitments</span><span class="t" data-l="de"><strong>Verzögerungen managen</strong> — Lokale Wahrnehmungen von Zeit, Prioritäten und beruflichen Verpflichtungen verstehen</span></span>
           </div>
           <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink2);line-height:1.6;">
             <span style="color:var(--gold2);font-weight:700;flex-shrink:0;">→</span>
@@ -1447,7 +1417,7 @@ nav {
 </div>
 
 <div class="page" id="pg-formations">
-<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Catalogue des formations 2026-2028</span><span class="t" data-l="en">Training catalogue 2024-2025</span><span class="t" data-l="de">Schulungskatalog 2024-2025</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Nos <em>formations</em></span><span class="t" data-l="en">Our <em>trainings</em></span><span class="t" data-l="de">Unsere <em>Schulungen</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">L'AICDI vous prépare et vous outille afin d'acquérir les compétences en négociation internationale et interculturelle essentielles pour réussir à l'étranger — avant votre départ, à votre arrivée, ou en cours de mission.</span><span class="t" data-l="en">AICDI prepares and equips you with the international and intercultural negotiation skills essential for success abroad — before departure, upon arrival, or during your mission.</span><span class="t" data-l="de">AICDI bereitet Sie auf die internationalen und interkulturellen Verhandlungskompetenzen vor — vor der Abreise, bei der Ankunft oder während Ihrer Mission.</span></p></div></div>
+<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow"><span class="t on" data-l="fr">Catalogue des formations 2026-2028</span><span class="t" data-l="en">Training catalogue 2024-2025</span><span class="t" data-l="de">Schulungskatalog 2024-2025</span></p><h1 class="pg-title"><span class="t on" data-l="fr">Nos <em>formations</em></span><span class="t" data-l="en">Our <em>trainings</em></span><span class="t" data-l="de">Unsere <em>Schulungen</em></span></h1></div><p class="pg-desc"><span class="t on" data-l="fr">L'AICDI vous prépare et vous outille afin d'acquérir les compétences en négociation internationale et interculturelle essentielles pour réussir à l'étranger — avant votre départ, à votre arrivée, ou en cours de mission.</span><span class="t" data-l="en">AICDI prepares and equips you with the international and intercultural negotiation skills essential for success abroad — before departure, upon arrival, or during your mission.</span><span class="t" data-l="de">Franck Albert Vanié bereitet Sie auf die internationalen und interkulturellen Verhandlungskompetenzen vor — vor der Abreise, bei der Ankunft oder während Ihrer Mission.</span></p></div></div>
 <div class="cnt">
   <div class="slide-box"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQYdqcBSTyXXi8j5A78P4Gtj_KC1PrNhRpdJRhopY85PkzFfo6a9LJNgdmCF3xcCTBdEtQfg7FH9aCM/embed?start=false&loop=false&delayms=3000&rm=minimal" allowfullscreen></iframe></div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem;">
@@ -2143,7 +2113,24 @@ nav {
 function go(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const t=document.getElementById('pg-'+id);
-  if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+  if(t){
+    t.classList.add('active');
+    window.scrollTo({top:0,behavior:'instant'});
+    // Quiz init
+    if(id === 'diagnostic' && typeof quizData !== 'undefined'){
+      quizCurrent = 0; quizScores = [];
+      for(let i=quizData.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [quizData[i],quizData[j]]=[quizData[j],quizData[i]];
+      }
+      quizData.forEach(q=>{
+        const c=q.answers_fr.map((a,i)=>({fr:q.answers_fr[i],en:q.answers_en[i],de:q.answers_de[i],score:q.scores[i]}));
+        for(let i=c.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[c[i],c[j]]=[c[j],c[i]];}
+        q.answers_fr=c.map(x=>x.fr);q.answers_en=c.map(x=>x.en);q.answers_de=c.map(x=>x.de);q.scores=c.map(x=>x.score);
+      });
+      quizRender();
+    }
+  }
 }
 function toggleMenu(){
   const h=document.getElementById('hamburger');
@@ -2551,32 +2538,7 @@ document.querySelectorAll('.drop a').forEach(a=>a.addEventListener('click',e=>e.
 
   </div>
 
-  <!-- Alignement stratégique -->
-  <div style="background:var(--paper);border:1px solid var(--rule);padding:2.5rem;margin-bottom:3rem;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1.5rem;"><span class="t on" data-l="fr">Alignement stratégique</span><span class="t" data-l="en">Strategic alignment</span><span class="t" data-l="de">Strategische Ausrichtung</span></p>
-    <div class="strategic-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
-      <div style="text-align:center;">
-        <div style="font-size:2rem;margin-bottom:0.75rem;">🇪🇺</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">Priorités UE</span><span class="t" data-l="en">EU priorities</span><span class="t" data-l="de">EU-Prioritäten</span></div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:0.72rem;color:var(--ink3);font-weight:400;"><span class="t on" data-l="fr">Coopération & développement</span><span class="t" data-l="en">Cooperation & development</span><span class="t" data-l="de">Zusammenarbeit & Entwicklung</span></div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2rem;margin-bottom:0.75rem;">🌍</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">UEMOA · CEMAC</span><span class="t" data-l="en">UEMOA · CEMAC</span><span class="t" data-l="de">UEMOA · CEMAC</span></div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:0.72rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">14 pays cibles</span><span class="t" data-l="en">14 target countries</span><span class="t" data-l="de">14 Zielländer</span></div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">GIZ · KAS · FES</span><span class="t" data-l="en">GIZ · KAS · FES</span><span class="t" data-l="de">GIZ · KAS · FES</span></div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:0.72rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Partenaires institutionnels</span><span class="t" data-l="en">Institutional partners</span><span class="t" data-l="de">Institutionelle Partner</span></div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2rem;margin-bottom:0.75rem;">💻</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);margin-bottom:4px;"><span class="t on" data-l="fr">Hub numérique</span><span class="t" data-l="en">Digital hub</span><span class="t" data-l="de">Digitaler Hub</span></div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:0.72rem;color:var(--ink3);font-weight:300;"><span class="t on" data-l="fr">Scalabilité & impact</span><span class="t" data-l="en">Scalability & impact</span><span class="t" data-l="de">Skalierbarkeit & Wirkung</span></div>
-      </div>
-    </div>
-  </div>
+
 
   <div style="text-align:center;">
     <button class="btn-dark" onclick="go('pays')"><span class="t on" data-l="fr">Voir les pays couverts →</span><span class="t" data-l="en">View covered countries →</span><span class="t" data-l="de">Abgedeckte Länder ansehen →</span></button>
@@ -3215,37 +3177,7 @@ function quizRestart() {
 }
 
 // Init quiz when page shown
-const origGo = window.go;
-window.go = function(page) {
-  origGo(page);
-  if (page === 'diagnostic') { 
-    quizCurrent = 0; quizScores = []; 
-    // Shuffle question order
-    for (let i = quizData.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
-    }
-    // Shuffle answers for each question
-    quizData.forEach(q => {
-      const combined = q.answers_fr.map((a, i) => ({
-        fr: q.answers_fr[i], en: q.answers_en[i], de: q.answers_de[i], score: q.scores[i]
-      }));
-      for (let i = combined.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [combined[i], combined[j]] = [combined[j], combined[i]];
-      }
-      q.answers_fr = combined.map(c => c.fr);
-      q.answers_en = combined.map(c => c.en);
-      q.answers_de = combined.map(c => c.de);
-      q.scores = combined.map(c => c.score);
-    });
-    quizRender();
-    setTimeout(() => {
-      const qc = document.getElementById('quiz-container');
-      if(qc) qc.scrollIntoView({behavior:'smooth', block:'start'});
-    }, 100);
-  }
-};
+
 </script>
 
 
