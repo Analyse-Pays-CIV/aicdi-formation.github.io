@@ -66,7 +66,8 @@ body {
   border-left:1px solid rgba(255,255,255,0.08);
 }
 .lb:first-child{border-left:none;}
-.lb.on,.lb:hover{color:var(--white);}
+.lb.on{color:var(--white);background:rgba(155,125,46,0.4);border-radius:2px;}
+.lb:hover{color:var(--white);}
 
 nav {
   position:sticky;top:0;z-index:999;
@@ -1044,40 +1045,7 @@ p.t.on { display: inline !important; }
   </div>
 </section>
 
-<!-- CTA TEST — HAUT DE PAGE -->
-<section style="background:var(--ink);padding:2.5rem 0;border-top:3px solid var(--gold);">
-  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
-    <div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:0.75rem;">
-        <span class="t on" data-l="fr">Test gratuit · 3 minutes · Résultat immédiat</span>
-        <span class="t" data-l="en">Free test · 3 minutes · Immediate result</span>
-        <span class="t" data-l="de">Kostenloser Test · 3 Minuten · Sofortergebnis</span>
-      </p>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--white);font-weight:400;line-height:1.4;margin-bottom:0.5rem;">
-        <span class="t on" data-l="fr">🧪 Êtes-vous <em style="color:var(--gold-pale);">prêt</em> pour votre mission en Côte d'Ivoire ?</span>
-        <span class="t" data-l="en">🧪 Are you <em style="color:var(--gold-pale);">ready</em> for your mission in Côte d'Ivoire?</span>
-        <span class="t" data-l="de">🧪 Sind Sie <em style="color:var(--gold-pale);">bereit</em> für Ihre Mission in der Côte d'Ivoire?</span>
-      </h2>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;">
-        <span class="t on" data-l="fr">10 questions · Score personnalisé · Recommandation de formation adaptée à votre profil</span>
-        <span class="t" data-l="en">10 questions · Personalised score · Training recommendation adapted to your profile</span>
-        <span class="t" data-l="de">10 Fragen · Persönliches Ergebnis · Schulungsempfehlung für Ihr Profil</span>
-      </p>
-    </div>
-    <div style="text-align:center;">
-      <button onclick="go('diagnostic')" style="background:var(--gold);color:var(--ink);padding:16px 32px;border:none;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;display:block;margin-bottom:8px;">
-        <span class="t on" data-l="fr">Faire le test →</span>
-        <span class="t" data-l="en">Take the test →</span>
-        <span class="t" data-l="de">Test machen →</span>
-      </button>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:1px;">
-        <span class="t on" data-l="fr">Gratuit · Sans inscription</span>
-        <span class="t" data-l="en">Free · No registration</span>
-        <span class="t" data-l="de">Kostenlos · Ohne Anmeldung</span>
-      </p>
-    </div>
-  </div>
-</section>
+
 </div>
 
 <!-- ═══ FORMATIONS ═══ -->
