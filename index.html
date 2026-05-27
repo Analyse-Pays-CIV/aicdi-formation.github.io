@@ -235,14 +235,14 @@ nav {
 }
 .btn-primary:hover{background:var(--gold-pale);}
 .btn-outline {
-  border:1px solid rgba(255,255,255,0.2);
-  color:rgba(255,255,255,0.85);
+  border:1px solid var(--ink);
+  color:var(--ink);
   padding:12px 28px;
   font-family:'Source Sans 3',sans-serif;
-  font-size:0.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
   background:none;cursor:pointer;transition:all 0.2s;
 }
-.btn-outline:hover{border-color:var(--gold);color:rgba(240,230,200,0.9);}
+.btn-outline:hover{background:var(--ink);color:var(--white);border-color:var(--ink);}
 
 .hero-r {
   background:var(--paper);
@@ -894,6 +894,25 @@ div.t.on { display: block !important; }
 p.t { display: none !important; }
 p.t.on { display: inline !important; }
 
+/* ── FORMATIONS — mobile breathing ── */
+@media (max-width: 768px) {
+  #pg-formations .cnt { padding: 2rem 1.25rem !important; }
+  #pg-formations .cnt > div { margin-bottom: 2.5rem !important; }
+  #pg-formations div[style*="margin-bottom:1.5rem;overflow"] { margin-bottom: 2rem !important; }
+  #pg-formations div[style*="margin-bottom:3rem"] { margin-bottom: 2.5rem !important; }
+  #pg-formations div[style*="grid-template-columns:1fr 1fr"] { display: block !important; }
+  #pg-formations div[style*="grid-template-columns:1fr 1fr"] > div { margin-bottom: 1px; }
+  #pg-formations div[style*="display:flex;gap:1rem;flex-wrap:wrap"] { flex-direction: column !important; }
+  #pg-formations div[style*="display:flex;gap:1rem;flex-wrap:wrap"] button { width: 100% !important; padding: 16px 20px !important; }
+  #pg-formations div[style*="gap:0.6rem"] > div,
+  #pg-formations div[style*="gap:0.5rem"] > div { margin-bottom: 0.5rem; }
+  #pg-formations div[style*="gap:0.75rem"] > div { margin-bottom: 0.65rem; }
+  #pg-formations div[style*="padding:2rem;background"] { padding: 1.5rem 1.25rem !important; }
+  #pg-formations div[style*="padding:1.75rem;background"] { padding: 1.5rem 1.25rem !important; }
+  #pg-formations div[style*="padding:2.5rem"] { padding: 1.75rem 1.25rem !important; }
+  #pg-formations div[style*="display:grid;grid-template-columns:1fr 1fr;gap:2rem"] { display: block !important; }
+  #pg-formations div[style*="display:grid;grid-template-columns:1fr 1fr;gap:2rem"] > div:first-child { margin-bottom: 1.5rem; }
+}
 </style>
 </head>
 <body data-lang="fr">
@@ -1687,109 +1706,141 @@ p.t.on { display: inline !important; }
 <div class="page" id="pg-programme">
 <div class="pg-header"><div class="pg-header-inner">
   <div>
-    <p class="pg-eyebrow">Vue d'ensemble</p>
-    <h1 class="pg-title">Le <em>programme</em> complet</h1>
+    <p class="pg-eyebrow">Parcours opérationnel</p>
+    <h1 class="pg-title">Programme · <em>Préparation mission</em></h1>
   </div>
-  <p class="pg-desc">3 jours pour maîtriser les dimensions essentielles de la Côte d'Ivoire contemporaine — histoire, cultures, économie, terrain.</p>
+  <p class="pg-desc">Parcours de renforcement des capacités destiné aux professionnels amenés à intervenir en Afrique de l'Ouest dans des contextes diplomatiques, institutionnels et internationaux.</p>
 </div></div>
 <div class="cnt">
 
-  <!-- 3 JOURS -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+  <!-- 3 PHASES -->
+  <div style="display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
 
-    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--civ-orange);">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.75rem;">Jour 1</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Comprendre la Côte d'Ivoire</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;margin-bottom:1.25rem;">Histoire, géopolitique, économie, institutions. Lecture stratégique du territoire pour anticiper les enjeux de votre mission.</p>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);font-weight:700;">→</span>Histoire politique post-indépendance</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);font-weight:700;">→</span>Économie : cacao, pétrole, services</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);font-weight:700;">→</span>Institutions & acteurs clés 2026</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);font-weight:700;">→</span>Risques & opportunités</div>
+    <!-- PHASE 1 -->
+    <div style="background:var(--white);padding:2.5rem;border-left:4px solid var(--civ-orange);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.6rem;">Phase 1 · Analyse pays</p>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Comprendre l'environnement de mission</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.8;margin-bottom:1.25rem;">Identifier les dynamiques politiques, institutionnelles et sociales du terrain ivoirien.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Capacités renforcées</p>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Lecture du paysage politique et institutionnel</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Identification des acteurs clés et réseaux d'influence</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Anticipation des risques et dynamiques régionales</div>
       </div>
     </div>
 
-    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--gold);">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Jour 2</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Valeurs, Culture & Société</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;margin-bottom:1.25rem;">Les 60+ groupes ethniques, les religions, les codes sociaux. Ce que vous devez savoir pour travailler efficacement avec les Ivoiriens.</p>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);font-weight:700;">→</span>Familles culturelles Akan, Krou, Mandé</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);font-weight:700;">→</span>Codes de respect et de hiérarchie</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);font-weight:700;">→</span>Communication indirecte & non-verbale</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);font-weight:700;">→</span>Religion, temps et rapport à l'autorité</div>
+    <!-- PHASE 2 -->
+    <div style="background:var(--ink);padding:2.5rem;border-left:4px solid var(--gold);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.6rem;">Phase 2 · Codes relationnels</p>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;">Décrypter les codes locaux</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1.25rem;">Maîtriser les codes sociaux, culturels et relationnels pour opérer efficacement sur le terrain.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">Capacités renforcées</p>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Communication implicite et interprétation des signaux</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Codes de statut, hiérarchie et respect</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Rapport au temps et aux processus de décision</div>
       </div>
     </div>
 
-    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--civ-green);">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-green);margin-bottom:0.75rem;">Jour 3</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Terrain & Pratique professionnelle</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;margin-bottom:1.25rem;">Application concrète : management, négociation, protocole, réseaux institutionnels. Simulations et études de cas réels.</p>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-green);font-weight:700;">→</span>Négociation culturelle ivoirienne</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-green);font-weight:700;">→</span>Leadership interculturel</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-green);font-weight:700;">→</span>Réseaux & protocole diplomatique</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-green);font-weight:700;">→</span>Cas pratiques & jeux de rôle</div>
+    <!-- PHASE 3 -->
+    <div style="background:var(--paper);padding:2.5rem;border-left:4px solid var(--civ-green);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-green);margin-bottom:0.6rem;">Phase 3 · Préparation terrain</p>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Sécuriser les interactions opérationnelles</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.8;margin-bottom:1.25rem;">Préparer les interactions professionnelles sensibles à travers des mises en situation réelles.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Capacités renforcées</p>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Négociation et gestion des situations sensibles</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Protocole institutionnel et réseaux locaux</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Simulations avec retour personnalisé</div>
       </div>
     </div>
+
   </div>
 
   <!-- 5 PROGRAMMES -->
   <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--ink);font-weight:400;margin-bottom:0.5rem;">Les 5 <em style="color:var(--gold2);">programmes</em></h2>
-  <div style="width:40px;height:2px;background:var(--gold);margin-bottom:2rem;"></div>
+  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);margin-bottom:1.5rem;">Chaque programme cible une phase spécifique de la mission.</p>
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
     <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--civ-orange);">
       <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">AP</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Analyse Pays</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);">Pré-départ</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Analyse Pays</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Pré-départ</div>
     </div>
     <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--gold);">
       <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold2);margin-bottom:0.5rem;">AR</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Analyse Régionale</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);">Pré-départ régional</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Analyse Régionale</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Pré-départ régional</div>
     </div>
     <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--civ-green);">
       <div style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--civ-green);margin-bottom:0.5rem;">OIPH</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Orientation & Immersion</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);">Post-arrivée</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Orientation & Immersion</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Post-arrivée</div>
     </div>
     <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--civ-orange);">
       <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">D&N</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Diplomatie & Négo.</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:var(--ink3);">Spécialisation</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Diplomatie & Négo.</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Spécialisation</div>
     </div>
     <div style="background:var(--ink);padding:1.5rem;text-align:center;border-top:3px solid var(--gold);">
       <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;">CI</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;color:var(--white);margin-bottom:4px;">Compétences Interculturelles</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);">Spécialisation</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:4px;">Compétences Interculturelles</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.55);">Spécialisation</div>
     </div>
   </div>
 
   <!-- FORMATS -->
-  <div style="background:var(--paper2);border:1px solid var(--rule);padding:2.5rem;margin-bottom:3rem;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1.5rem;">Formats disponibles</p>
+  <div style="background:var(--paper);border:1px solid var(--rule);padding:2.5rem;margin-bottom:3rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1.5rem;">Modalités d'intervention</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
       <div>
-        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🏢</div>
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;">Présentiel</h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);">Abidjan ou Europe · Immersion totale · Groupe max. 10</p>
+        <div style="font-size:1.4rem;margin-bottom:0.6rem;">🏢</div>
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">Présentiel</h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;">Abidjan ou Europe · Groupe max. 10 · Immersion totale</p>
       </div>
       <div>
-        <div style="font-size:1.5rem;margin-bottom:0.5rem;">💻</div>
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;">Visioconférence</h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);">5 sessions Zoom · 2h chacune · Accès mondial</p>
+        <div style="font-size:1.4rem;margin-bottom:0.6rem;">💻</div>
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">Visioconférence</h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;">5 sessions · 2h chacune · Accès mondial</p>
       </div>
       <div>
-        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🎯</div>
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;">Module ½ journée</h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);">Thème ciblé · 3h · Présentiel ou visio</p>
+        <div style="font-size:1.4rem;margin-bottom:0.6rem;">🎯</div>
+        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">Module ciblé</h4>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;">½ journée · Thème spécifique · Présentiel ou visio</p>
       </div>
     </div>
   </div>
 
+  <!-- SITUATIONS RÉELLES -->
+  <div style="background:var(--ink);padding:2.5rem;margin-bottom:3rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Ancrage terrain</p>
+    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;">Situations réelles &amp; mises en situation</h3>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1.5rem;">Les modules s'appuient sur des situations concrètes rencontrées dans le cadre de missions internationales en Côte d'Ivoire et en Afrique de l'Ouest.</p>
+    <div style="display:flex;flex-direction:column;gap:0.85rem;">
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Simulations de négociation</div>
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Réunions institutionnelles</div>
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Gestion des situations sensibles</div>
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Interactions avec partenaires locaux</div>
+    </div>
+  </div>
+
+  <!-- APPROCHE SUR MESURE -->
+  <div style="background:var(--paper);border:1px solid var(--rule);padding:2.5rem;margin-bottom:2.5rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Personnalisation</p>
+    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Approche sur mesure</h3>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;">Chaque intervention est adaptée :</p>
+    <div style="display:flex;flex-direction:column;gap:0.85rem;">
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Au profil des participants</div>
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Au contexte de mission</div>
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Au niveau de responsabilité</div>
+      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Aux enjeux du terrain</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
   <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-    <button class="btn-primary" onclick="go('tarifs')">Voir les tarifs →</button>
-    <button class="btn-outline" onclick="go('contact')">Demander un devis</button>
+    <button class="btn-primary" onclick="go('contact')">Préparer votre mission →</button>
+    <button class="btn-outline" onclick="go('formations')">Recevoir le programme</button>
+    <button onclick="go('diagnostic')" style="background:transparent;color:var(--ink3);border:1px solid var(--rule);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Testez votre niveau</button>
   </div>
 
 </div>
