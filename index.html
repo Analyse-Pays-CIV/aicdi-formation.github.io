@@ -948,7 +948,7 @@ p.t.on { display: inline !important; }
     </div>
     <div class="nav-menu">
       <div class="nitem"><button class="nlink" onclick="go(&#39;accueil&#39;)">Accueil</button></div>
-      <div class="nitem"><button class="nlink" onclick="go(&#39;diagnostic&#39;)">Test préparation</button></div>
+      <div class="nitem"><button class="nlink" onclick="go(&#39;diagnostic&#39;)">Testez votre niveau</button></div>
     <div class="nitem"><button class="nlink" onclick="go(&#39;quoi&#39;)">Nos actions</button></div>
     <div class="nitem"><button class="nlink" onclick="go(&#39;formations&#39;)">Formations</button></div>
       <div class="nitem">
@@ -1255,8 +1255,8 @@ p.t.on { display: inline !important; }
       <button onclick="go('contact')" style="background:var(--ink);color:var(--white);padding:15px 32px;border:none;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;">
         Organiser un échange préparatoire →
       </button>
-      <button onclick="go('diagnostic')" style="background:transparent;color:var(--ink);border:1px solid var(--rule);padding:15px 32px;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;">
-        Évaluer vos besoins terrain
+      <button onclick="go('diagnostic')" style="background:rgba(155,125,46,0.15);color:var(--gold2);border:1px solid rgba(155,125,46,0.4);padding:15px 32px;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;">
+        Testez votre niveau
       </button>
     </div>
   </div>
@@ -2476,108 +2476,187 @@ p.t.on { display: inline !important; }
 <div class="page" id="pg-tarifs">
 <div class="pg-header"><div class="pg-header-inner">
   <div>
-    <p class="pg-eyebrow">Investissement</p>
-    <h1 class="pg-title">Nos <em>tarifs</em></h1>
+    <p class="pg-eyebrow">Modalités d'intervention</p>
+    <h1 class="pg-title">Formats <em>d'intervention</em></h1>
   </div>
-  <p class="pg-desc">Sessions limitées à 10 participants. Un investissement ciblé pour un impact maximum sur votre équipe.</p>
+  <p class="pg-desc">Des formats flexibles adaptés aux contextes de mission, aux profils des participants et aux contraintes opérationnelles.</p>
 </div></div>
 <div class="cnt">
 
-  <!-- 3 CARTES TARIFS -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:1.5rem;">
-
-    <!-- Présentiel -->
-    <div style="background:var(--white);padding:2.5rem;position:relative;border-top:4px solid var(--civ-orange);">
-      <span style="display:inline-block;background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;margin-bottom:1.25rem;">Présentiel</span>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;">Formation intensive — 3 jours</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);margin-bottom:2rem;">Abidjan ou Europe · Supports inclus</p>
-      <div style="border-top:1px solid var(--rule);padding-top:1.5rem;margin-bottom:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;">Groupe (max 10)</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;font-weight:700;color:var(--ink);line-height:1;">6 000€ <span style="font-size:1rem;color:var(--ink3);font-weight:400;font-style:italic;">— 8 000€</span></div>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--gold2);margin-top:3px;">HT</p>
-      </div>
-      <div style="border-top:1px solid var(--rule);padding-top:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;">Individuel</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:1.6rem;font-weight:700;color:var(--ink);line-height:1;">1 800€ <span style="font-size:0.9rem;color:var(--ink3);font-weight:400;font-style:italic;">— 2 500€</span></div>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--gold2);margin-top:3px;">HT</p>
-      </div>
-    </div>
-
-    <!-- En ligne POPULAIRE -->
-    <div style="background:var(--ink);padding:2.5rem;position:relative;border-top:4px solid var(--gold);">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;">
-        <span style="display:inline-block;background:var(--gold);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;">En ligne</span>
-        <span style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:3px 8px;">Populaire</span>
-      </div>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;line-height:1.3;">Formation visio — 5 sessions Zoom</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.7);margin-bottom:2rem;">Accès mondial · 2h/session · Zéro déplacement</p>
-      <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;margin-bottom:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:0.4rem;">Groupe (max 10)</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;font-weight:700;color:var(--white);line-height:1;">6 000€ <span style="font-size:1rem;color:rgba(255,255,255,0.85);font-weight:400;font-style:italic;">— 8 000€</span></div>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--gold-pale);margin-top:3px;">HT</p>
-      </div>
-      <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:0.4rem;">Individuel</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:1.6rem;font-weight:700;color:var(--white);line-height:1;">1 800€ <span style="font-size:0.9rem;color:rgba(255,255,255,0.85);font-weight:400;font-style:italic;">— 2 500€</span></div>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--gold-pale);margin-top:3px;">HT</p>
-      </div>
-    </div>
-
-    <!-- Module -->
-    <div style="background:var(--paper2);padding:2.5rem;border-top:4px solid var(--civ-green);">
-      <span style="display:inline-block;background:var(--civ-green);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;margin-bottom:1.25rem;">Module</span>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;line-height:1.3;">Module thématique — ½ journée</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);margin-bottom:2rem;">Thème ciblé · 3h · Présentiel ou visio</p>
-      <div style="border-top:1px solid var(--rule);padding-top:1.5rem;margin-bottom:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;">Groupe (max 10)</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;font-weight:700;color:var(--ink);line-height:1;">1 200€ <span style="font-size:1rem;color:var(--ink3);font-weight:400;font-style:italic;">— 2 000€</span></div>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--gold2);margin-top:3px;">HT</p>
-      </div>
-      <div style="border-top:1px solid var(--rule);padding-top:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;">Individuel</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:400;font-style:italic;color:var(--ink);">Sur devis</div>
-      </div>
-    </div>
+  <!-- INTRO -->
+  <div style="background:var(--ink);padding:2.5rem 3rem;margin-bottom:3rem;border-left:4px solid var(--gold);">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.9);line-height:1.85;">
+      Chaque intervention est conçue selon le profil des participants, le niveau de responsabilité et les enjeux opérationnels du terrain. Les formats ci-dessous constituent des bases de travail — chaque dispositif est ajusté au contexte de mission.
+    </p>
   </div>
 
-  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:var(--ink3);margin-bottom:3rem;">
-    * Tarifs hors taxes · TVA 0% pour clients B2B UE (reverse charge) et hors UE · Frais de déplacement en sus · Devis personnalisé sur demande
-  </p>
+  <!-- 3 FORMATS -->
+  <div style="display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+
+    <!-- Présentiel -->
+    <div style="background:var(--white);padding:2.5rem 3rem;border-left:4px solid var(--civ-orange);">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">Format 01</p>
+          <h3 style="font-family:'Libre Baskerville',serif;font-size:1.15rem;font-weight:700;color:var(--ink);">Présentiel</h3>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);margin-top:0.3rem;">Format intensif · Immersion totale</p>
+        </div>
+        <div style="flex-shrink:0;">
+          <span style="background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;">3 jours · 18h</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Modalités</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>3 jours · 6h/jour · 18h total</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Abidjan ou Europe</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Groupe (max. 10) ou individuel</div>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Contexte d'application</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Préparation pré-départ intensive</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Équipes en déploiement imminent</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);line-height:1.6;"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Extension possible en format fractionné selon le contexte de mission et les contraintes opérationnelles.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Distanciel -->
+    <div style="background:var(--ink);padding:2.5rem 3rem;border-left:4px solid var(--gold);">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;">Format 02</p>
+          <h3 style="font-family:'Libre Baskerville',serif;font-size:1.15rem;font-weight:700;color:var(--white);">Distanciel</h3>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:0.3rem;">Flexibilité institutionnelle · Accès mondial</p>
+        </div>
+        <div style="flex-shrink:0;">
+          <span style="background:var(--gold);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;">5 sessions · 3h30</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">Modalités</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.8);"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>5 sessions interactives · 3h30 chacune</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.8);"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Zoom ou Microsoft Teams</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.8);"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Groupe (max. 10) ou accompagnement individuel</div>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">Contexte d'application</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.8);"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Professionnels en activité</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.8);"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Contraintes géographiques ou d'agenda</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.8);"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Préparation de missions à distance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module ciblé -->
+    <div style="background:var(--paper);padding:2.5rem 3rem;border-left:4px solid var(--civ-green);">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-green);margin-bottom:0.5rem;">Format 03</p>
+          <h3 style="font-family:'Libre Baskerville',serif;font-size:1.15rem;font-weight:700;color:var(--ink);">Module ciblé</h3>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);margin-top:0.3rem;">Besoin précis · Mission spécifique</p>
+        </div>
+        <div style="flex-shrink:0;">
+          <span style="background:var(--civ-green);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;">½ journée · 3h30</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Modalités</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>½ journée thématique · 3h30</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Format présentiel ou distanciel</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Individuel ou petit groupe</div>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Contexte d'application</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Point d'entrée avant mission</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Renforcement d'une compétence ciblée</div>
+            <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Complément d'un programme en cours</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
   <!-- CE QUI EST INCLUS -->
   <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);font-weight:400;margin-bottom:0.5rem;">Ce qui est <em style="color:var(--gold2);">inclus</em></h2>
   <div style="width:40px;height:2px;background:var(--gold);margin-bottom:2rem;"></div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
     <div style="background:var(--white);padding:2rem;">
-      <div style="font-size:1.5rem;margin-bottom:0.75rem;">📚</div>
-      <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;">Supports PDF</h4>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.7;">Présentations, bibliographie sélective et ressources complémentaires.</p>
+      <div style="font-size:1.4rem;margin-bottom:0.75rem;">📋</div>
+      <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;">Supports de mission</h4>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.75;">Présentations, fiches pratiques et ressources adaptées au contexte d'intervention.</p>
     </div>
     <div style="background:var(--white);padding:2rem;">
-      <div style="font-size:1.5rem;margin-bottom:0.75rem;">🎯</div>
-      <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;">Personnalisation</h4>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.7;">Programme adapté au secteur et au contexte de votre organisation.</p>
+      <div style="font-size:1.4rem;margin-bottom:0.75rem;">🎯</div>
+      <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;">Adaptation au profil</h4>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.75;">Contenu ajusté au niveau de responsabilité, au secteur et au contexte de mission.</p>
     </div>
     <div style="background:var(--white);padding:2rem;">
-      <div style="font-size:1.5rem;margin-bottom:0.75rem;">💬</div>
-      <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;">Suivi 30 jours</h4>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.7;">Session Q&A 30 jours après l'intervention. Vos questions terrain, nos réponses.</p>
+      <div style="font-size:1.4rem;margin-bottom:0.75rem;">💬</div>
+      <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;">Suivi post-intervention</h4>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.75;">Session Q&A 30 jours après l'intervention. Questions terrain, retours d'expérience.</p>
     </div>
     <div style="background:var(--white);padding:2rem;">
-      <div style="font-size:1.5rem;margin-bottom:0.75rem;">📜</div>
+      <div style="font-size:1.4rem;margin-bottom:0.75rem;">📜</div>
       <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;">Attestation AICDI</h4>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.7;">Attestation de renforcement des capacités remise à chaque participant à l'issue du programme.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.75;">Attestation de renforcement des capacités remise à l'issue du programme.</p>
     </div>
+  </div>
+
+  <!-- APPROCHE SUR MESURE -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+
+    <div style="background:var(--paper);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Personnalisation</p>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:1.25rem;">Approche sur mesure</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.8;margin-bottom:1.25rem;">Chaque intervention est adaptée :</p>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Au profil des participants</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Au contexte de mission</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Au niveau de responsabilité</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Aux enjeux du terrain</div>
+      </div>
+    </div>
+
+    <div style="background:var(--ink);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;opacity:0.8;">Conditions &amp; confidentialité</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.9);line-height:1.85;margin-bottom:1.25rem;">Les modalités et conditions d'intervention sont définies selon le contexte, le format et les besoins spécifiques.</p>
+      <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;">
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.9);line-height:1.85;font-style:italic;">Interventions menées avec un haut niveau de confidentialité.</p>
+      </div>
+    </div>
+
   </div>
 
   <!-- CTA -->
   <div style="background:var(--ink);padding:3rem;text-align:center;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1rem;opacity:1;">Réponse sous 24h ouvrées</p>
-    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--white);font-weight:400;margin-bottom:0.75rem;">Prêt à former votre équipe ?</h3>
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:2rem;">Nous vous proposons une offre personnalisée adaptée à votre budget et à vos objectifs.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <button class="btn-primary" onclick="go('contact')">Demander un devis →</button>
-      <button style="background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;" onclick="go('formations')">Consulter les programmes</button>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1rem;opacity:0.8;">Réponse sous 24h ouvrées</p>
+    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--white);font-weight:400;margin-bottom:0.75rem;">Préparez votre mission</h3>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75;">Proposition personnalisée selon votre contexte et vos contraintes opérationnelles.</p>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.875rem;max-width:380px;margin:0 auto;">
+      <button onclick="go('contact')" style="width:100%;background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:18px 28px;">
+        Préparer votre mission →
+      </button>
+      <button onclick="go('contact')" style="width:100%;background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.35);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;">
+        Organiser un échange préparatoire
+      </button>
+      <button onclick="go('diagnostic')" style="width:100%;background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">
+        Testez votre niveau
+      </button>
     </div>
   </div>
 
