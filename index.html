@@ -902,22 +902,39 @@ p.t.on { display: inline !important; }
   #pg-contact div[style*="grid-template-columns:1fr 1fr"] > div { margin-bottom: 0 !important; }
   #pg-contact input, #pg-contact select, #pg-contact textarea {
     font-size: 1rem !important;
-    padding: 0.9rem 1rem !important;
-    margin-bottom: 0 !important;
-    min-height: 48px;
+    padding: 1rem 1rem !important;
+    min-height: 52px;
+    line-height: 1.5;
+  }
+  #pg-contact select {
+    min-height: 54px !important;
+    padding-top: 0.9rem !important;
+    padding-bottom: 0.9rem !important;
+  }
+  #pg-contact textarea {
+    min-height: 130px !important;
+    padding: 1rem !important;
   }
   #pg-contact label {
-    font-size: 0.72rem !important;
-    margin-bottom: 0.6rem !important;
+    font-size: 0.75rem !important;
+    margin-bottom: 0.65rem !important;
+    margin-top: 0.25rem !important;
     display: block;
+    letter-spacing: 0.5px;
   }
-  #pg-contact div[style*="margin-bottom:1.25rem"] { margin-bottom: 1.5rem !important; }
-  #pg-contact div[style*="margin-bottom:0.75rem"] { margin-bottom: 1rem !important; }
-  #pg-contact button[style*="width:100%"] { min-height: 52px; font-size: 0.82rem !important; }
+  #pg-contact div[style*="margin-bottom:1.25rem"] { margin-bottom: 1.75rem !important; }
+  #pg-contact div[style*="margin-bottom:0.75rem"] { margin-bottom: 1.25rem !important; }
+  #pg-contact div[style*="margin-bottom:1.5rem"] { margin-bottom: 2rem !important; }
+  #pg-contact .btn-primary, #pg-contact button[style*="width:100%"] {
+    min-height: 56px !important;
+    font-size: 0.85rem !important;
+    padding: 16px 20px !important;
+  }
   #pg-contact div[style*="grid-template-columns:1fr 1fr;gap:0.75rem"] { display: block !important; }
-  #pg-contact div[style*="grid-template-columns:1fr 1fr;gap:0.75rem"] > div { margin-bottom: 1.25rem; }
+  #pg-contact div[style*="grid-template-columns:1fr 1fr;gap:0.75rem"] > div { margin-bottom: 1.5rem; }
+  #pg-contact div[style*="grid-template-columns:1fr 1fr;gap:1rem"] { display: block !important; }
+  #pg-contact div[style*="grid-template-columns:1fr 1fr;gap:1rem"] > div { margin-bottom: 0; }
 }
-</style>
 @media (max-width: 768px) {
   #pg-formations .cnt { padding: 2rem 1.25rem !important; }
   #pg-formations .cnt > div { margin-bottom: 2.5rem !important; }
@@ -1041,10 +1058,9 @@ p.t.on { display: inline !important; }
     <p class="hero-statement">Analyse politique, décryptage des environnements locaux et préparation humaine.<br>Un dispositif institutionnel et confidentiel.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="go('contact')">Organiser un échange préparatoire</button>
-      <button class="btn-outline" onclick="go('diagnostic')">Testez votre niveau</button>
+      <button onclick="go('diagnostic')" style="background:rgba(255,255,255,0.08);color:var(--white);border:1px solid rgba(255,255,255,0.35);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;transition:all 0.2s;">Testez votre niveau</button>
     </div>
-    <button onclick="go('diagnostic')" style="background:none;border:none;cursor:pointer;font-family:'Libre Baskerville',serif;font-size:0.88rem;font-style:italic;color:rgba(240,230,200,0.75);letter-spacing:0.5px;margin-top:1.25rem;padding:0;text-align:left;display:block;">→ Testez votre niveau</button>
-    <div style="display:flex;gap:2.5rem;margin-top:1.25rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+    <div style="display:flex;gap:2.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <div>
         <div style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--gold-pale);line-height:1;">20+</div>
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Ans d'expérience</div>
