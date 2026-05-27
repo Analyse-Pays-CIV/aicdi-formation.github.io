@@ -52,13 +52,13 @@ body {
 }
 .topbar-left {
   font-size:0.7rem;letter-spacing:1.5px;
-  color:rgba(255,255,255,0.4);font-weight:300;
+  color:rgba(255,255,255,0.7);font-weight:300;
 }
-.topbar-left span { color:rgba(255,255,255,0.6); margin:0 8px; }
+.topbar-left span { color:rgba(255,255,255,0.85); margin:0 8px; }
 .lang-bar { display:flex;gap:0; }
 .lb {
   background:none;border:none;
-  color:rgba(255,255,255,0.4);
+  color:rgba(255,255,255,0.7);
   padding:0 10px;height:36px;
   font-family:'Source Sans 3',sans-serif;
   font-size:0.68rem;font-weight:500;letter-spacing:1.5px;
@@ -201,20 +201,20 @@ nav {
 .hero-akwaba-sub {
   font-family:'Libre Baskerville',serif;
   font-size:1.15rem;font-style:italic;
-  color:rgba(240,230,200,0.55);
-  margin-bottom:0.5rem;
+  color:rgba(240,230,200,0.85);
+  margin-bottom:0.85rem;
   position:relative;z-index:1;font-weight:400;
 }
 .hero-baoulé {
   font-family:'Source Sans 3',sans-serif;
   font-size:0.68rem;letter-spacing:2.5px;text-transform:uppercase;
-  color:rgba(240,230,200,0.65);
+  color:rgba(240,230,200,0.8);
   margin-bottom:3rem;
   position:relative;z-index:1;
 }
 .hero-statement {
   font-size:1rem;
-  color:rgba(255,255,255,0.6);
+  color:rgba(255,255,255,0.85);
   line-height:1.9;font-weight:300;
   max-width:420px;
   margin-bottom:3.5rem;
@@ -236,7 +236,7 @@ nav {
 .btn-primary:hover{background:var(--gold-pale);}
 .btn-outline {
   border:1px solid rgba(255,255,255,0.2);
-  color:rgba(255,255,255,0.65);
+  color:rgba(255,255,255,0.85);
   padding:12px 28px;
   font-family:'Source Sans 3',sans-serif;
   font-size:0.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;
@@ -529,7 +529,7 @@ nav {
 .site-footer{background:#0F1520;border-top:3px solid var(--gold);}
 .footer-main{max-width:1320px;margin:0 auto;padding:3rem 2.5rem;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
 .footer-brand .fl{font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--white);letter-spacing:5px;font-weight:400;margin-bottom:0.5rem;}
-.footer-brand .fs{font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:2px;text-transform:uppercase;}
+.footer-brand .fs{font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.85);letter-spacing:2px;text-transform:uppercase;}
 .footer-flag{display:flex;gap:3px;margin-top:1rem;}
 .footer-flag span{width:4px;height:16px;}
 .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
@@ -538,7 +538,7 @@ nav {
 .fi-block a:hover{color:rgba(255,255,255,0.7);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:1.25rem 2.5rem;}
 .footer-bottom-inner{max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.footer-copy{font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);letter-spacing:0.5px;}
+.footer-copy{font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);letter-spacing:0.5px;}
 
 /* ── MULTILANG ───────────────────────── */
 .t{display:none;}.t.on{display:inline;}small.t.on{display:block;}
@@ -657,7 +657,7 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
   nav{height:60px;}
   .nav-inner{padding:0 1.25rem;}
   .nav-logo-mark span{font-size:1.1rem;}
-  .nav-logo-mark small{display:none;}
+  .nav-logo-mark small{font-size:0.62rem;color:rgba(255,255,255,0.85);letter-spacing:1px;display:block;margin-top:1px;}
   .nav-divider{display:none;}
   .mobile-menu{top:60px;}
   /* Hero plein écran mobile */
@@ -665,7 +665,7 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
   .hero-l{padding:3rem 1.25rem 3.5rem 1.75rem;}
   .hero-akwaba{font-size:clamp(3.5rem,18vw,5.5rem);}
   .hero-akwaba-sub{font-size:1rem;}
-  .hero-statement{font-size:0.9rem;line-height:1.8;}
+  .hero-statement{font-size:0.9rem;line-height:1.85;color:rgba(255,255,255,0.88);max-width:520px;}
   .hero-btns{flex-direction:column;}
   .btn-primary,.btn-outline{width:100%;text-align:center;padding:14px;}
   /* Page headers */
@@ -756,7 +756,7 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
   nav{height:56px;}
   .nav-inner{padding:0 1rem;}
   .nav-logo-mark span{font-size:1rem;}
-  .nav-logo-mark small{display:none;}
+  .nav-logo-mark small{font-size:0.62rem;color:rgba(255,255,255,0.85);letter-spacing:1px;display:block;margin-top:1px;}
   .nav-divider{display:none;}
   .mobile-menu{top:56px;}
   .hamburger{display:flex;}
@@ -918,7 +918,7 @@ p.t.on { display: inline !important; }
     <div class="nav-brand" onclick="go(&#39;accueil&#39;)">
       <div class="nav-logo-mark">
         <span>AICDI</span>
-        Académie Ivoirienne · 20 ans
+        <small>Ivoire Consulting</small>
       </div>
       <div class="nav-divider"></div>
       <div class="nav-flag">
@@ -1004,19 +1004,19 @@ p.t.on { display: inline !important; }
     <div style="display:flex;gap:2.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <div>
         <div style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--gold-pale);line-height:1;">20</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Ans d'expérience</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Ans d'expérience</div>
       </div>
       <div>
         <div style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--gold-pale);line-height:1;">5</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Programmes</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Programmes</div>
       </div>
       <div>
         <div style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--gold-pale);line-height:1;">3</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Langues</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Langues</div>
       </div>
       <div>
         <div style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--gold-pale);line-height:1;">2</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Bureaux</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Bureaux</div>
       </div>
     </div>
   </div>
@@ -1070,7 +1070,7 @@ p.t.on { display: inline !important; }
       <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--white);font-weight:400;line-height:1.4;margin-bottom:0.5rem;">
         🧪 Êtes-vous <em style="color:var(--gold-pale);">prêt</em> pour votre mission en Côte d'Ivoire ?
       </h2>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.7;">
         10 questions · Score personnalisé · Recommandation de formation adaptée à votre profil
       </p>
     </div>
@@ -1078,7 +1078,7 @@ p.t.on { display: inline !important; }
       <button onclick="go('diagnostic')" style="background:var(--gold);color:var(--ink);padding:16px 32px;border:none;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;display:block;margin-bottom:8px;">
         Faire le test →
       </button>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:1px;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.85);letter-spacing:1px;">
         Gratuit · Sans inscription
       </p>
     </div>
@@ -1255,13 +1255,13 @@ p.t.on { display: inline !important; }
       </div>
       <div style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.3rem;">Pré-départ</p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Pré-départ</p>
           <h3 style="font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--white);font-weight:700;">Analyse Pays</h3>
         </div>
         <div style="text-align:right;flex-shrink:0;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Durée : <strong style="color:var(--gold-pale);">3 à 6 jours</strong></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Format : <strong style="color:var(--gold-pale);">Présentiel / Visio</strong></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Public : <strong style="color:var(--gold-pale);">Diplomates, fonctionnaires</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Durée : <strong style="color:var(--gold-pale);">3 à 6 jours</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Format : <strong style="color:var(--gold-pale);">Présentiel / Visio</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Public : <strong style="color:var(--gold-pale);">Diplomates, fonctionnaires</strong></p>
         </div>
       </div>
     </div>
@@ -1285,13 +1285,13 @@ p.t.on { display: inline !important; }
       </div>
       <div style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.3rem;">Pré-départ régional</p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Pré-départ régional</p>
           <h3 style="font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--white);font-weight:700;">Analyse Régionale</h3>
         </div>
         <div style="text-align:right;flex-shrink:0;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Durée : <strong style="color:var(--gold-pale);">3 à 6 jours</strong></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Format : <strong style="color:var(--gold-pale);">Présentiel / Visio</strong></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Public : <strong style="color:var(--gold-pale);">Missions régionales & délégations</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Durée : <strong style="color:var(--gold-pale);">3 à 6 jours</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Format : <strong style="color:var(--gold-pale);">Présentiel / Visio</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Public : <strong style="color:var(--gold-pale);">Missions régionales & délégations</strong></p>
         </div>
       </div>
     </div>
@@ -1315,13 +1315,13 @@ p.t.on { display: inline !important; }
       </div>
       <div style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.3rem;">Post-arrivée</p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Post-arrivée</p>
           <h3 style="font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--white);font-weight:700;">Orientation & Immersion Pays Hôtes</h3>
         </div>
         <div style="text-align:right;flex-shrink:0;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Durée : <strong style="color:var(--gold-pale);">3 à 6 jours</strong></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Format : <strong style="color:var(--gold-pale);">Présentiel / Visio</strong></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4);">Public : <strong style="color:var(--gold-pale);">Expatriés sur place ou affectés</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Durée : <strong style="color:var(--gold-pale);">3 à 6 jours</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Format : <strong style="color:var(--gold-pale);">Présentiel / Visio</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.7);">Public : <strong style="color:var(--gold-pale);">Expatriés sur place ou affectés</strong></p>
         </div>
       </div>
     </div>
@@ -1346,7 +1346,7 @@ p.t.on { display: inline !important; }
           <span style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--white);">D&N</span>
         </div>
         <div style="padding:1.25rem 1.5rem;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.3rem;">Spécialisation</p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Spécialisation</p>
           <h3 style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--white);font-weight:700;">Diplomatie & Négociation</h3>
         </div>
       </div>
@@ -1362,7 +1362,7 @@ p.t.on { display: inline !important; }
           <span style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold-pale);">CI</span>
         </div>
         <div style="padding:1.25rem 1.5rem;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.3rem;">Spécialisation</p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Spécialisation</p>
           <h3 style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--white);font-weight:700;">Compétences Interculturelles</h3>
         </div>
       </div>
@@ -1376,9 +1376,9 @@ p.t.on { display: inline !important; }
   <!-- CATALOGUE PDF -->
   <div style="background:var(--ink);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem;">
     <div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;opacity:0.7;">Catalogue officiel</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;opacity:1;">Catalogue officiel</p>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--white);font-weight:400;">AICDI — Catalogue des formations 2026–2028</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Ivoire Consulting · Franck Albert Vanié · Freiburg & Abidjan</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:0.3rem;">Ivoire Consulting · Franck Albert Vanié · Freiburg & Abidjan</p>
     </div>
     <a href="AICDI_Catalogue_2026-2028.pdf" download style="background:var(--gold);color:var(--ink);padding:14px 28px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap;">
       ↓ Télécharger le catalogue
@@ -1472,7 +1472,7 @@ p.t.on { display: inline !important; }
     <div style="background:var(--ink);padding:1.5rem;text-align:center;border-top:3px solid var(--gold);">
       <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;">CI</div>
       <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;color:var(--white);margin-bottom:4px;">Compétences Interculturelles</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.45);">Spécialisation</div>
+      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);">Spécialisation</div>
     </div>
   </div>
 
@@ -1872,19 +1872,19 @@ p.t.on { display: inline !important; }
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.1);margin-top:1rem;">
           <div style="background:rgba(255,255,255,0.04);padding:1rem;text-align:center;">
             <div style="font-family:'Libre Baskerville',serif;font-size:1.8rem;font-weight:700;color:var(--gold-pale);line-height:1;">20</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Ans d'exp.</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Ans d'exp.</div>
           </div>
           <div style="background:rgba(255,255,255,0.04);padding:1rem;text-align:center;">
             <div style="font-family:'Libre Baskerville',serif;font-size:1.8rem;font-weight:700;color:var(--gold-pale);line-height:1;">2</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Continents</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Continents</div>
           </div>
           <div style="background:rgba(255,255,255,0.04);padding:1rem;text-align:center;">
             <div style="font-family:'Libre Baskerville',serif;font-size:1.8rem;font-weight:700;color:var(--gold-pale);line-height:1;">3</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Langues</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Langues</div>
           </div>
           <div style="background:rgba(255,255,255,0.04);padding:1rem;text-align:center;">
             <div style="font-family:'Libre Baskerville',serif;font-size:1.8rem;font-weight:700;color:var(--gold-pale);line-height:1;">5</div>
-            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Programmes</div>
+            <div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:3px;">Programmes</div>
           </div>
         </div>
       </div>
@@ -1915,27 +1915,27 @@ p.t.on { display: inline !important; }
 
   <!-- CLIENTS -->
   <div style="background:var(--ink);padding:2.5rem;margin-bottom:3rem;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1.5rem;text-align:center;opacity:0.7;">Clients & institutions partenaires</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1.5rem;text-align:center;opacity:1;">Clients & institutions partenaires</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.12);">
       <div style="background:rgba(255,255,255,0.04);padding:1.5rem;text-align:center;">
         <div style="font-size:1.8rem;margin-bottom:0.5rem;">🇩🇪</div>
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:4px;">BMZ</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);">Ministère Fédéral de la Coopération</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);">Ministère Fédéral de la Coopération</div>
       </div>
       <div style="background:rgba(255,255,255,0.04);padding:1.5rem;text-align:center;">
         <div style="font-size:1.8rem;margin-bottom:0.5rem;">🌐</div>
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:4px;">Auswärtiges Amt</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);">Ministère des Affaires Étrangères</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);">Ministère des Affaires Étrangères</div>
       </div>
       <div style="background:rgba(255,255,255,0.04);padding:1.5rem;text-align:center;">
         <div style="font-size:1.8rem;margin-bottom:0.5rem;">📚</div>
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:4px;">Goethe-Institut</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);">Institut culturel allemand</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);">Institut culturel allemand</div>
       </div>
       <div style="background:rgba(255,255,255,0.04);padding:1.5rem;text-align:center;">
         <div style="font-size:1.8rem;margin-bottom:0.5rem;">🤝</div>
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:4px;">GIZ · KAS · FES · DAAD</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);">Agences & fondations</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.7);">Agences & fondations</div>
       </div>
     </div>
   </div>
@@ -2038,7 +2038,7 @@ p.t.on { display: inline !important; }
       <h2 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--ink);font-weight:700;margin-bottom:1.5rem;">Nos bureaux</h2>
 
       <div style="background:var(--ink);padding:1.5rem;margin-bottom:1rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);font-weight:700;margin-bottom:0.75rem;opacity:0.7;">🇩🇪 Bureau Allemagne</p>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);font-weight:700;margin-bottom:0.75rem;opacity:1;">🇩🇪 Bureau Allemagne</p>
         <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.9;">
           Burgackerweg 4<br>
           D-79104 Freiburg im Breisgau<br>
@@ -2049,7 +2049,7 @@ p.t.on { display: inline !important; }
       </div>
 
       <div style="background:var(--ink);padding:1.5rem;margin-bottom:1.5rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);font-weight:700;margin-bottom:0.75rem;opacity:0.7;">🇨🇮 Bureau Abidjan</p>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);font-weight:700;margin-bottom:0.75rem;opacity:1;">🇨🇮 Bureau Abidjan</p>
         <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.9;">
           Bd Cité du Port, rue près Synatrésor<br>
           Villa 46, ABATTA Cocody<br>
@@ -2119,15 +2119,15 @@ p.t.on { display: inline !important; }
         <span style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:3px 8px;">Populaire</span>
       </div>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;line-height:1.3;">Formation visio — 5 sessions Zoom</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:2rem;">Accès mondial · 2h/session · Zéro déplacement</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.7);margin-bottom:2rem;">Accès mondial · 2h/session · Zéro déplacement</p>
       <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;margin-bottom:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;">Groupe (max 10)</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;font-weight:700;color:var(--white);line-height:1;">6 000€ <span style="font-size:1rem;color:rgba(255,255,255,0.35);font-weight:400;font-style:italic;">— 8 000€</span></div>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:0.4rem;">Groupe (max 10)</p>
+        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;font-weight:700;color:var(--white);line-height:1;">6 000€ <span style="font-size:1rem;color:rgba(255,255,255,0.85);font-weight:400;font-style:italic;">— 8 000€</span></div>
         <p style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--gold-pale);margin-top:3px;">HT</p>
       </div>
       <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;">Individuel</p>
-        <div style="font-family:'Libre Baskerville',serif;font-size:1.6rem;font-weight:700;color:var(--white);line-height:1;">1 800€ <span style="font-size:0.9rem;color:rgba(255,255,255,0.35);font-weight:400;font-style:italic;">— 2 500€</span></div>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:0.4rem;">Individuel</p>
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.6rem;font-weight:700;color:var(--white);line-height:1;">1 800€ <span style="font-size:0.9rem;color:rgba(255,255,255,0.85);font-weight:400;font-style:italic;">— 2 500€</span></div>
         <p style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--gold-pale);margin-top:3px;">HT</p>
       </div>
     </div>
@@ -2181,12 +2181,12 @@ p.t.on { display: inline !important; }
 
   <!-- CTA -->
   <div style="background:var(--ink);padding:3rem;text-align:center;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1rem;opacity:0.7;">Réponse sous 24h ouvrées</p>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1rem;opacity:1;">Réponse sous 24h ouvrées</p>
     <h3 style="font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--white);font-weight:400;margin-bottom:0.75rem;">Prêt à former votre équipe ?</h3>
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.45);margin-bottom:2rem;">Nous vous proposons une offre personnalisée adaptée à votre budget et à vos objectifs.</p>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:2rem;">Nous vous proposons une offre personnalisée adaptée à votre budget et à vos objectifs.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
       <button class="btn-primary" onclick="go('contact')">Demander un devis →</button>
-      <button style="background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;" onclick="go('formations')">Voir les formations</button>
+      <button style="background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;" onclick="go('formations')">Voir les formations</button>
     </div>
   </div>
 
@@ -2249,13 +2249,13 @@ p.t.on { display: inline !important; }
   <!-- PROBLÈME / SOLUTION -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
     <div style="background:var(--ink);padding:2.5rem;">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:0.75rem;">Le problème</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Le problème</p>
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.25rem;">Les équipes internationales sont insuffisamment préparées</h3>
       <div style="display:flex;flex-direction:column;gap:0.75rem;">
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Incompréhensions interculturelles fréquentes</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Mauvaise adaptation au contexte local</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Perte d'efficacité opérationnelle</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Échecs de projets de coopération</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Incompréhensions interculturelles fréquentes</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Mauvaise adaptation au contexte local</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Perte d'efficacité opérationnelle</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Échecs de projets de coopération</div>
       </div>
     </div>
     <div style="background:var(--white);padding:2.5rem;border-left:4px solid var(--gold);">
@@ -2276,7 +2276,7 @@ p.t.on { display: inline !important; }
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
     <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--civ-orange);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">01</div>
+      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.05);font-weight:700;line-height:1;margin-bottom:0.5rem;">01</div>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.75rem;">Phase actuelle · 2025–2026</p>
       <h4 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:1rem;">Structuration du cabinet</h4>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
@@ -2287,7 +2287,7 @@ p.t.on { display: inline !important; }
       </div>
     </div>
     <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--gold);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">02</div>
+      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.05);font-weight:700;line-height:1;margin-bottom:0.5rem;">02</div>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Phase 2 · 2027</p>
       <h4 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:1rem;">Expansion régionale</h4>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
@@ -2299,12 +2299,12 @@ p.t.on { display: inline !important; }
     </div>
     <div style="background:var(--ink);padding:2.5rem;border-top:3px solid var(--civ-green);">
       <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(255,255,255,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">03</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:0.75rem;">Vision 2030</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Vision 2030</p>
       <h4 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:1rem;">Africa–Europe Skills Hub</h4>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.5);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>Plateforme digitale multi-pays</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.5);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>100+ clients / an</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.5);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>Financement UE / consortium</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>Plateforme digitale multi-pays</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>100+ clients / an</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>Financement UE / consortium</div>
       </div>
     </div>
   </div>
@@ -2334,7 +2334,7 @@ p.t.on { display: inline !important; }
     <div>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:0.5rem;">Pays opérationnel</p>
       <h2 style="font-family:'Libre Baskerville',serif;font-size:1.8rem;color:var(--white);font-weight:700;">🇨🇮 Côte d'Ivoire</h2>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;">Bureau Abidjan · Formateurs certifiés · 20 ans d'expérience</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);margin-top:0.5rem;">Bureau Abidjan · Formateurs certifiés · 20 ans d'expérience</p>
     </div>
     <button class="btn-primary" onclick="go('contact')">Demander une formation en CIV →</button>
   </div>
@@ -2494,8 +2494,8 @@ p.t.on { display: inline !important; }
   <div class="footer-bottom">
     <div class="footer-bottom-inner">
       <span class="footer-copy">© 2026 AICDI · Ivoire Consulting · Franck Albert Vanié · 
-        <button onclick="go(&#39;impressum&#39;)" style="background:none;border:none;cursor:pointer;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">Impressum</button> · 
-        <button onclick="go(&#39;cgv&#39;)" style="background:none;border:none;cursor:pointer;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:underline;">CGV</button> · 
+        <button onclick="go(&#39;impressum&#39;)" style="background:none;border:none;cursor:pointer;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);text-decoration:underline;">Impressum</button> · 
+        <button onclick="go(&#39;cgv&#39;)" style="background:none;border:none;cursor:pointer;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);text-decoration:underline;">CGV</button> · 
         Tous droits réservés
         
         
