@@ -894,7 +894,30 @@ div.t.on { display: block !important; }
 p.t { display: none !important; }
 p.t.on { display: inline !important; }
 
-/* ── FORMATIONS — mobile breathing ── */
+/* ── CONTACT — mobile form ── */
+@media (max-width: 768px) {
+  #pg-contact .cnt { padding: 2rem 1.25rem !important; }
+  #pg-contact div[style*="grid-template-columns:1fr 360px"] { display: block !important; }
+  #pg-contact div[style*="grid-template-columns:1fr 1fr"] { display: block !important; }
+  #pg-contact div[style*="grid-template-columns:1fr 1fr"] > div { margin-bottom: 0 !important; }
+  #pg-contact input, #pg-contact select, #pg-contact textarea {
+    font-size: 1rem !important;
+    padding: 0.9rem 1rem !important;
+    margin-bottom: 0 !important;
+    min-height: 48px;
+  }
+  #pg-contact label {
+    font-size: 0.72rem !important;
+    margin-bottom: 0.6rem !important;
+    display: block;
+  }
+  #pg-contact div[style*="margin-bottom:1.25rem"] { margin-bottom: 1.5rem !important; }
+  #pg-contact div[style*="margin-bottom:0.75rem"] { margin-bottom: 1rem !important; }
+  #pg-contact button[style*="width:100%"] { min-height: 52px; font-size: 0.82rem !important; }
+  #pg-contact div[style*="grid-template-columns:1fr 1fr;gap:0.75rem"] { display: block !important; }
+  #pg-contact div[style*="grid-template-columns:1fr 1fr;gap:0.75rem"] > div { margin-bottom: 1.25rem; }
+}
+</style>
 @media (max-width: 768px) {
   #pg-formations .cnt { padding: 2rem 1.25rem !important; }
   #pg-formations .cnt > div { margin-bottom: 2.5rem !important; }
@@ -1018,7 +1041,7 @@ p.t.on { display: inline !important; }
     <p class="hero-statement">Analyse politique, décryptage des environnements locaux et préparation humaine.<br>Un dispositif institutionnel et confidentiel.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="go('contact')">Organiser un échange préparatoire</button>
-      <button class="btn-outline" onclick="go('formations')">Évaluer vos besoins terrain</button>
+      <button class="btn-outline" onclick="go('diagnostic')">Testez votre niveau</button>
     </div>
     <button onclick="go('diagnostic')" style="background:none;border:none;cursor:pointer;font-family:'Libre Baskerville',serif;font-size:0.88rem;font-style:italic;color:rgba(240,230,200,0.75);letter-spacing:0.5px;margin-top:1.25rem;padding:0;text-align:left;display:block;">→ Testez votre niveau</button>
     <div style="display:flex;gap:2.5rem;margin-top:1.25rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
@@ -2561,6 +2584,9 @@ p.t.on { display: inline !important; }
           </div>
         </div>
       </div>
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);">
+        <button onclick="goContact('Demander un devis')" style="background:transparent;color:var(--civ-orange);border:1px solid var(--civ-orange);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">Demander un devis →</button>
+      </div>
     </div>
 
     <!-- Distanciel -->
@@ -2593,6 +2619,9 @@ p.t.on { display: inline !important; }
           </div>
         </div>
       </div>
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">
+        <button onclick="goContact('Demander un devis')" style="background:transparent;color:var(--gold-pale);border:1px solid rgba(155,125,46,0.5);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">Demander un devis →</button>
+      </div>
     </div>
 
     <!-- Module ciblé -->
@@ -2624,6 +2653,9 @@ p.t.on { display: inline !important; }
             <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Complément d'un programme en cours</div>
           </div>
         </div>
+      </div>
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);">
+        <button onclick="goContact('Demander un devis')" style="background:transparent;color:var(--civ-green);border:1px solid var(--civ-green);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">Demander un devis →</button>
       </div>
     </div>
 
