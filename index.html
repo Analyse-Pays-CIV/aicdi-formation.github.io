@@ -2500,16 +2500,16 @@ p.t.on { display: inline !important; }
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
         <div style="margin-bottom:1.25rem;">
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Programme souhaité</label>
-          <select id="f-prog" name="programme" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;">
-            <option value="">—</option>
-            <option>AP — Analyse Pays</option>
-            <option>AR — Analyse Régionale</option>
-            <option>OIPH — Orientation &amp; Immersion</option>
-            <option>D&amp;N — Diplomatie &amp; Négociation</option>
-            <option>CI — Compétences Interculturelles</option>
-            <option>Programme sur mesure</option>
-          </select>
+          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.75rem;">Programme(s) souhaité(s)</label>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AP — Analyse Pays" style="width:16px;height:16px;accent-color:var(--gold2);cursor:pointer;flex-shrink:0;">AP — Analyse Pays</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AR — Analyse Régionale" style="width:16px;height:16px;accent-color:var(--gold2);cursor:pointer;flex-shrink:0;">AR — Analyse Régionale</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="OIPH — Orientation &amp; Immersion" style="width:16px;height:16px;accent-color:var(--gold2);cursor:pointer;flex-shrink:0;">OIPH — Orientation &amp; Immersion</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="D&amp;N — Diplomatie &amp; Négociation" style="width:16px;height:16px;accent-color:var(--gold2);cursor:pointer;flex-shrink:0;">D&amp;N — Diplomatie &amp; Négociation</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="CI — Compétences Interculturelles" style="width:16px;height:16px;accent-color:var(--gold2);cursor:pointer;flex-shrink:0;">CI — Compétences Interculturelles</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="LI — Leadership interculturel &amp; coordination terrain" style="width:16px;height:16px;accent-color:var(--gold2);cursor:pointer;flex-shrink:0;">LI — Leadership interculturel &amp; coordination terrain</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="Programme sur mesure" style="width:16px;height:16px;accent-color:var(--gold2);cursor:pointer;flex-shrink:0;">Programme sur mesure</label>
+          </div>
         </div>
         <div style="margin-bottom:1.25rem;">
           <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Nombre de participants</label>
@@ -3260,7 +3260,8 @@ function sendDevis() {
   var org      = document.getElementById('f-org').value.trim();
   var type     = document.getElementById('f-type').value;
   var motif    = document.getElementById('f-motif') ? document.getElementById('f-motif').value : '';
-  var prog     = document.getElementById('f-prog').value;
+  var progBoxes = document.querySelectorAll('input[name="programme"]:checked');
+  var prog = Array.from(progBoxes).map(function(cb){ return cb.value; }).join(', ') || '—';
   var nb       = document.getElementById('f-nb').value;
   var msg      = document.getElementById('f-msg').value.trim();
 
@@ -3310,10 +3311,11 @@ function sendDevis() {
         var el = document.getElementById(id);
         if (el) el.value = '';
       });
-      ['f-civilite','f-titre','f-type','f-motif','f-prog','f-nb'].forEach(function(id) {
+      ['f-civilite','f-titre','f-type','f-motif','f-nb'].forEach(function(id) {
         var el = document.getElementById(id);
         if (el) el.selectedIndex = 0;
       });
+      document.querySelectorAll('input[name="programme"]').forEach(function(cb){ cb.checked = false; });
     } else {
       alert('Une erreur est survenue. Merci de nous contacter directement à contact@aicdi-formation.com');
     }
@@ -3337,6 +3339,9 @@ function goContact(motif) {
         }
       }
     }
+    // scroll to contact
+    var pg = document.getElementById('pg-contact');
+    if (pg) pg.scrollIntoView({behavior:'smooth'});
   }, 100);
 }
 
