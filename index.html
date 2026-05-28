@@ -2526,7 +2526,7 @@ p.t.on { display: inline !important; }
         <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Message & contexte de votre demande</label>
         <textarea id="f-msg" name="message" rows="4" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;resize:vertical;min-height:120px;"></textarea>
       </div>
-      <button class="btn-primary" style="width:100%;" onclick="sendDevis()">Envoyer la demande →</button>
+      <button id="btn-send" class="btn-primary" style="width:100%;" onclick="sendDevis()">Envoyer la demande →</button>
       <div id="form-ok" style="display:none;background:rgba(26,92,53,0.08);border-left:3px solid var(--civ-green);padding:1rem 1.25rem;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--civ-green);margin-top:1rem;">
         ✓ Votre demande a été envoyée. Nous vous répondrons sous 24 heures ouvrées.
       </div>
@@ -3254,35 +3254,74 @@ function setLang(l) {
 // ─── CONTACT FORM ───
 function sendDevis() {
   var civilite = document.getElementById('f-civilite') ? document.getElementById('f-civilite').value : '';
-  var titre = document.getElementById('f-titre') ? document.getElementById('f-titre').value : '';
-  var name = document.getElementById('f-name').value;
-  var email = document.getElementById('f-email').value;
-  var org = document.getElementById('f-org').value;
-  var type = document.getElementById('f-type').value;
-  var motif = document.getElementById('f-motif') ? document.getElementById('f-motif').value : '';
-  var prog = document.getElementById('f-prog').value;
-  var nb = document.getElementById('f-nb').value;
-  var msg = document.getElementById('f-msg').value;
+  var titre    = document.getElementById('f-titre') ? document.getElementById('f-titre').value : '';
+  var name     = document.getElementById('f-name').value.trim();
+  var email    = document.getElementById('f-email').value.trim();
+  var org      = document.getElementById('f-org').value.trim();
+  var type     = document.getElementById('f-type').value;
+  var motif    = document.getElementById('f-motif') ? document.getElementById('f-motif').value : '';
+  var prog     = document.getElementById('f-prog').value;
+  var nb       = document.getElementById('f-nb').value;
+  var msg      = document.getElementById('f-msg').value.trim();
+
   if (!name || !email) {
     alert('Veuillez renseigner votre nom et votre adresse email.');
     return;
   }
-  var subject = encodeURIComponent('Demande AICDI — ' + (motif || org || name));
-  var body = encodeURIComponent(
-    'Civilité : ' + civilite + '\n' +
-    'Titre : ' + titre + '\n' +
-    'Nom : ' + name + '\n' +
-    'Email : ' + email + '\n' +
-    'Organisation : ' + org + '\n' +
-    'Type : ' + type + '\n' +
-    'Motif : ' + motif + '\n' +
-    'Programme : ' + prog + '\n' +
-    'Participants : ' + nb + '\n\n' +
-    'Message :\n' + msg
-  );
-  window.location.href = 'mailto:contact@aicdi-formation.com?subject=' + subject + '&body=' + body;
-  var ok = document.getElementById('form-ok');
-  if (ok) ok.style.display = 'block';
+  if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
+    alert('Veuillez saisir une adresse email valide.');
+    return;
+  }
+
+  // Disable button
+  var btn = document.getElementById('btn-send');
+  if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
+
+  // Build FormSubmit payload
+  var formData = new FormData();
+  formData.append('_to', 'contact@aicdi-formation.com');
+  formData.append('_replyto', email);
+  formData.append('_subject', 'Demande AICDI — ' + (motif || org || name));
+  formData.append('_template', 'table');
+  formData.append('_captcha', 'false');
+  formData.append('Civilité', civilite);
+  formData.append('Titre', titre);
+  formData.append('Nom', name);
+  formData.append('Email', email);
+  formData.append('Organisation', org);
+  formData.append('Type_organisation', type);
+  formData.append('Motif', motif);
+  formData.append('Programme', prog);
+  formData.append('Participants', nb);
+  formData.append('Message', msg);
+
+  fetch('https://formsubmit.co/contact@aicdi-formation.com', {
+    method: 'POST',
+    body: formData
+  })
+  .then(function(res) {
+    if (res.ok) {
+      // Show success
+      var ok = document.getElementById('form-ok');
+      if (ok) ok.style.display = 'block';
+      // Clear form
+      ['f-name','f-email','f-org','f-msg'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      ['f-civilite','f-titre','f-type','f-motif','f-prog','f-nb'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.selectedIndex = 0;
+      });
+    } else {
+      alert('Une erreur est survenue. Merci de nous contacter directement à contact@aicdi-formation.com');
+    }
+    if (btn) { btn.disabled = false; btn.textContent = 'Envoyer la demande →'; }
+  })
+  .catch(function() {
+    alert('Erreur réseau. Merci de nous contacter directement à contact@aicdi-formation.com');
+    if (btn) { btn.disabled = false; btn.textContent = 'Envoyer la demande →'; }
+  });
 }
 
 function goContact(motif) {
