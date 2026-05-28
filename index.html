@@ -3279,15 +3279,15 @@ function sendDevis() {
 
   // Build FormSubmit payload
   var formData = new FormData();
-  formData.append('_to', 'contact@aicdi-formation.com');
   formData.append('_replyto', email);
   formData.append('_subject', 'Demande AICDI — ' + (motif || org || name));
   formData.append('_template', 'table');
   formData.append('_captcha', 'false');
+  formData.append('_autoresponse', 'Votre demande a bien été reçue. Nous reviendrons vers vous dans les meilleurs délais. — AICDI / Ivoire Consulting');
+  formData.append('name', name);
+  formData.append('email', email);
   formData.append('Civilité', civilite);
   formData.append('Titre', titre);
-  formData.append('Nom', name);
-  formData.append('Email', email);
   formData.append('Organisation', org);
   formData.append('Type_organisation', type);
   formData.append('Motif', motif);
