@@ -666,7 +666,8 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
   .hero-akwaba{font-size:clamp(3.5rem,18vw,5.5rem);}
   .hero-akwaba-sub{font-size:1rem;}
   .hero-statement{font-size:0.9rem;line-height:1.85;color:rgba(255,255,255,0.88);max-width:520px;}
-  .hero-btns{flex-direction:column;}
+  .hero-btns{flex-direction:column;gap:0.875rem;}
+  .hero-btns button{width:100%;text-align:center;padding:16px 20px !important;min-height:52px;}
   .btn-primary,.btn-outline{width:100%;text-align:center;padding:14px;}
   /* Page headers */
   .pg-header{padding:2.5rem 1.25rem 2rem;}
@@ -2806,88 +2807,80 @@ p.t.on { display: inline !important; }
 <div class="page" id="pg-vision">
 <div class="pg-header"><div class="pg-header-inner">
   <div>
-    <p class="pg-eyebrow">Notre vision 2030</p>
-    <h1 class="pg-title">Africa–Europe Skills <em>&amp; Mobility Hub</em></h1>
+    <p class="pg-eyebrow">Perspective stratégique</p>
+    <h1 class="pg-title"><em>Vision</em></h1>
   </div>
-  <p class="pg-desc">Construire la plateforme de référence pour la préparation et l'accompagnement des mobilités professionnelles entre l'Europe et l'Afrique.</p>
+  <p class="pg-desc">AICDI s'inscrit dans une dynamique de coopération, de mobilité professionnelle et de renforcement des capacités entre l'Europe et l'Afrique de l'Ouest.</p>
 </div></div>
 <div class="cnt">
 
-  <!-- PROBLÈME / SOLUTION -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
-    <div style="background:var(--ink);padding:2.5rem;">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Le problème</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.25rem;">Les équipes internationales sont insuffisamment préparées</h3>
-      <div style="display:flex;flex-direction:column;gap:0.75rem;">
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Incompréhensions interculturelles fréquentes</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Mauvaise adaptation au contexte local</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Perte d'efficacité opérationnelle</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.85);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">→</span>Échecs de projets de coopération</div>
-      </div>
+  <!-- INTRO -->
+  <div style="background:var(--ink);border-left:4px solid var(--gold);padding:2.5rem 3rem;margin-bottom:3rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.9);line-height:1.9;">
+      L'objectif est de contribuer à une meilleure préparation des missions internationales à travers l'analyse des contextes locaux, l'accompagnement des acteurs engagés sur le terrain et le développement progressif de dispositifs adaptés aux réalités régionales.
+    </p>
+  </div>
+
+  <!-- HUB -->
+  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="background:var(--ink);padding:2rem 2.5rem;border-top:3px solid var(--gold);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;opacity:0.8;">Vision à moyen terme</p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--white);">Africa–Europe Skills &amp; Mobility Hub</h2>
     </div>
-    <div style="background:var(--white);padding:2.5rem;border-left:4px solid var(--gold);">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">La solution AICDI</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:1.25rem;">Préparer et accompagner avant, pendant et après la mission</h3>
-      <div style="display:flex;flex-direction:column;gap:0.75rem;">
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">✓</span>Programmes structurés d'analyse pays</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">✓</span>Compétences interculturelles opérationnelles</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">✓</span>Réseau de formateurs multilingues multi-pays</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">✓</span>Plateforme digitale Africa–Europe en développement</div>
-      </div>
+    <div style="background:var(--white);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">La vision à moyen terme d'AICDI est de structurer un hub de référence pour la préparation, l'accompagnement et le renforcement des capacités liés aux mobilités professionnelles entre l'Europe et l'Afrique.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">Ce hub vise à faciliter la préparation des missions, la compréhension des environnements locaux et l'adaptation des professionnels engagés dans des contextes internationaux.</p>
     </div>
   </div>
 
-  <!-- ROADMAP 3 PHASES -->
-  <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--ink);font-weight:400;margin-bottom:0.5rem;">Feuille de <em style="color:var(--gold2);">route</em></h2>
-  <div style="width:40px;height:2px;background:var(--gold);margin-bottom:2rem;"></div>
 
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
-    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--civ-orange);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.05);font-weight:700;line-height:1;margin-bottom:0.5rem;">01</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.75rem;">Phase actuelle · 2025–2026</p>
-      <h4 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:1rem;">Structuration du cabinet</h4>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);">✓</span>Site AICDI en ligne</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);">✓</span>5 programmes structurés</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);">✓</span>2 bureaux — Freiburg & Abidjan</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--civ-orange);">✓</span>Catalogue 2026–2028 publié</div>
-      </div>
+  <!-- DIGITALISATION -->
+  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="background:var(--paper);padding:2rem 2.5rem;border-top:3px solid var(--civ-orange);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">Évolution des dispositifs</p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--ink);">Digitalisation progressive</h2>
     </div>
-    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--gold);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(26,26,46,0.05);font-weight:700;line-height:1;margin-bottom:0.5rem;">02</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Phase 2 · 2027</p>
-      <h4 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:1rem;">Expansion régionale</h4>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span>Déploiement UEMOA — 8 pays</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span>Déploiement CEMAC — 6 pays</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span>Partenariats institutionnels UE</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:var(--ink3);display:flex;gap:8px;"><span style="color:var(--gold);">→</span>Réseau de formateurs locaux</div>
-      </div>
-    </div>
-    <div style="background:var(--ink);padding:2.5rem;border-top:3px solid var(--civ-green);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:3rem;color:rgba(255,255,255,0.06);font-weight:700;line-height:1;margin-bottom:0.5rem;">03</div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Vision 2030</p>
-      <h4 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:1rem;">Africa–Europe Skills Hub</h4>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>Plateforme digitale multi-pays</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>100+ clients / an</div>
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:var(--gold-pale);">→</span>Financement UE / consortium</div>
-      </div>
+    <div style="background:var(--white);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">AICDI souhaite développer progressivement des dispositifs digitaux permettant de structurer les parcours, de capitaliser les contenus et de faciliter l'accès à distance aux programmes de renforcement des capacités.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">Cette évolution doit permettre d'élargir l'impact des interventions tout en conservant une approche adaptée aux profils, aux missions et aux contextes de terrain.</p>
     </div>
   </div>
 
-  <div style="text-align:center;">
-    <button class="btn-primary" onclick="go('pays')">Voir les pays couverts →</button>
+
+  <!-- DÉPLOIEMENT RÉGIONAL -->
+  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="background:var(--ink);padding:2rem 2.5rem;border-top:3px solid var(--civ-green);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;opacity:0.8;">Ancrage territorial</p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--white);">Déploiement régional</h2>
+    </div>
+    <div style="background:var(--white);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">La vision d'AICDI s'inscrit dans une logique de développement régional, avec une attention particulière portée à l'Afrique de l'Ouest, aux dynamiques de l'Union économique et monétaire ouest-africaine, aux pays voisins de la Côte d'Ivoire et aux passerelles avec l'Afrique centrale.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">L'objectif est de construire progressivement une approche adaptée aux réalités politiques, économiques, institutionnelles et humaines des différents contextes régionaux.</p>
+    </div>
+  </div>
+
+
+  <!-- PARTENARIATS -->
+  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="background:var(--paper);padding:2rem 2.5rem;border-top:3px solid var(--gold);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.5rem;">Coopération institutionnelle</p>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--ink);">Partenariats stratégiques</h2>
+    </div>
+    <div style="background:var(--white);padding:2.5rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">Le développement de cette vision repose sur une approche collaborative avec des partenaires institutionnels, techniques et opérationnels.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">AICDI souhaite construire des coopérations permettant de renforcer les contenus, développer les outils, élargir l'accès aux dispositifs et accompagner la montée en capacité des acteurs engagés entre l'Europe et l'Afrique.</p>
+    </div>
+  </div>
+
+
+  <!-- STRUCTURE PORTEUSE -->
+  <div style="border-top:1px solid var(--rule);padding-top:2rem;margin-bottom:1rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.6rem;">Structure porteuse</p>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.8;">AICDI est développé dans le cadre des activités de Ivoire Consulting, entreprise basée en Allemagne spécialisée dans l'accompagnement interculturel, l'analyse pays et la préparation de missions internationales.</p>
   </div>
 
 </div>
-</div>
-
-
-
-
-<!-- ═══ PAGE PAYS COUVERTS ═══ -->
-<div class="page" id="pg-pays">
+</div>id="pg-pays">
 <div class="pg-header"><div class="pg-header-inner">
   <div>
     <p class="pg-eyebrow">Couverture géographique</p>
@@ -3024,7 +3017,7 @@ p.t.on { display: inline !important; }
 <footer id="global-footer" class="site-footer">
   <div class="footer-main">
     <div class="footer-brand">
-      <div class="fl">AICDI</div>
+      <div class="fl" onclick="go('accueil')" style="cursor:pointer;">AICDI</div>
       <div class="fs">
         Académie Ivoirienne pour la Coopération et le Développement International
         
