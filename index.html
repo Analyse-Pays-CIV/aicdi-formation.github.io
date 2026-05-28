@@ -56,17 +56,9 @@ body {
 }
 .topbar-left span { color:rgba(255,255,255,0.85); margin:0 8px; }
 .lang-bar { display:flex;gap:0; }
-.lb {
-  background:none;border:none;
-  color:rgba(255,255,255,0.7);
-  padding:0 10px;height:36px;
-  font-family:'Source Sans 3',sans-serif;
-  font-size:0.68rem;font-weight:500;letter-spacing:1.5px;
-  cursor:pointer;transition:color 0.2s;
-  border-left:1px solid rgba(255,255,255,0.08);
-}
+.lb{display:none;}
 .lb:first-child{border-left:none;}
-.lb.on{color:var(--white);background:rgba(155,125,46,0.4);border-radius:2px;}
+.lb.on{display:none;}
 .lb:hover{color:var(--white);}
 
 nav {
@@ -193,7 +185,7 @@ nav {
 .hero-akwaba {
   font-family:'Libre Baskerville',Georgia,serif;
   font-size:clamp(4.5rem,8vw,7.5rem);
-  font-weight:400;color:var(--white);
+  font-weight:400;color:var(--gold-pale);
   line-height:0.9;letter-spacing:2px;
   margin-bottom:1.5rem;
   position:relative;z-index:1;
@@ -201,7 +193,7 @@ nav {
 .hero-akwaba-sub {
   font-family:'Libre Baskerville',serif;
   font-size:1.15rem;font-style:italic;
-  color:rgba(240,230,200,0.85);
+  color:rgba(255,255,255,0.92);
   margin-bottom:0.85rem;
   position:relative;z-index:1;font-weight:400;
 }
@@ -965,9 +957,7 @@ p.t.on { display: inline !important; }
       Académie Ivoirienne pour la Coopération et le Développement International · Côte d'Ivoire
     </div>
     <div class="lang-bar">
-      <button class="lb on" onclick="setLang(&#39;fr&#39;)">Français</button>
-      <button class="lb" onclick="setLang(&#39;en&#39;)">English</button>
-      <button class="lb" onclick="setLang(&#39;de&#39;)">Deutsch</button>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.75);text-transform:uppercase;">Français</span>
     </div>
   </div>
 </div>
@@ -1040,11 +1030,7 @@ p.t.on { display: inline !important; }
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;impressum&#39;);closeMenu()">Impressum</button></div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;cgv&#39;);closeMenu()">CGV</button></div>
   <button class="mm-contact" onclick="go(&#39;contact&#39;);closeMenu()">Nous contacter</button>
-  <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;gap:0.5rem;">
-    <button onclick="setLang(&#39;fr&#39;)" style="flex:1;padding:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1px;border:1px solid var(--rule);background:none;cursor:pointer;">FR</button>
-    <button onclick="setLang(&#39;en&#39;)" style="flex:1;padding:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1px;border:1px solid var(--rule);background:none;cursor:pointer;">EN</button>
-    <button onclick="setLang(&#39;de&#39;)" style="flex:1;padding:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1px;border:1px solid var(--rule);background:none;cursor:pointer;">DE</button>
-  </div>
+  
 </div>
 
 <!-- ═══ ACCUEIL ═══ -->
@@ -1052,8 +1038,8 @@ p.t.on { display: inline !important; }
 <section class="hero">
   <div class="hero-l">
     <div class="hero-overline">Préparation stratégique · Missions internationales · Afrique de l'Ouest</div>
+    <p class="hero-akwaba-sub" style="margin-bottom:0.5rem;">Académie Ivoirienne pour la Coopération et le Développement International</p>
     <div class="hero-akwaba">AKWABA</div>
-    <p class="hero-akwaba-sub">Académie Ivoirienne pour la Coopération et le Développement International</p>
     <p class="hero-baoulé">« Akwaba » — Bienvenue en Baoulé, langue du peuple Akan · Côte d'Ivoire</p>
     <h1 class="hero-statement" style="font-size:1.55rem;font-family:'Libre Baskerville',serif;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:0.75rem;">Préparez vos missions en Afrique de l'Ouest</h1>
     <p class="hero-statement">Analyse politique, décryptage des environnements locaux et préparation humaine.<br>Un dispositif institutionnel et confidentiel.</p>
@@ -2815,122 +2801,117 @@ p.t.on { display: inline !important; }
 <div class="cnt">
 
   <!-- INTRO -->
-  <div style="background:var(--ink);border-left:4px solid var(--gold);padding:2.5rem 3rem;margin-bottom:3rem;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.9);line-height:1.9;">
-      L'objectif est de contribuer à une meilleure préparation des missions internationales à travers l'analyse des contextes locaux, l'accompagnement des acteurs engagés sur le terrain et le développement progressif de dispositifs adaptés aux réalités régionales.
-    </p>
+  <div style="background:var(--ink);border-left:4px solid var(--gold);padding:2.5rem;margin-bottom:3rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.9);line-height:1.9;">L'objectif est de contribuer à une meilleure préparation des missions internationales à travers l'analyse des contextes locaux, l'accompagnement des acteurs engagés sur le terrain et le développement progressif de dispositifs adaptés aux réalités régionales.</p>
   </div>
 
   <!-- HUB -->
-  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+  <div style="border:1px solid var(--rule);margin-bottom:2.5rem;">
     <div style="background:var(--ink);padding:2rem 2.5rem;border-top:3px solid var(--gold);">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;opacity:0.8;">Vision à moyen terme</p>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--white);">Africa–Europe Skills &amp; Mobility Hub</h2>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--white);">Africa–Europe Skills &amp; Mobility Hub</h2>
     </div>
     <div style="background:var(--white);padding:2.5rem;">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">La vision à moyen terme d'AICDI est de structurer un hub de référence pour la préparation, l'accompagnement et le renforcement des capacités liés aux mobilités professionnelles entre l'Europe et l'Afrique.</p>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">Ce hub vise à faciliter la préparation des missions, la compréhension des environnements locaux et l'adaptation des professionnels engagés dans des contextes internationaux.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">La vision à moyen terme d'AICDI est de structurer un hub de référence pour la préparation, l'accompagnement et le renforcement des capacités liés aux mobilités professionnelles entre l'Europe et l'Afrique.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;">Ce hub vise à faciliter la préparation des missions, la compréhension des environnements locaux et l'adaptation des professionnels engagés dans des contextes internationaux.</p>
     </div>
   </div>
-
 
   <!-- DIGITALISATION -->
-  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+  <div style="border:1px solid var(--rule);margin-bottom:2.5rem;">
     <div style="background:var(--paper);padding:2rem 2.5rem;border-top:3px solid var(--civ-orange);">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">Évolution des dispositifs</p>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--ink);">Digitalisation progressive</h2>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--ink);">Digitalisation progressive</h2>
     </div>
     <div style="background:var(--white);padding:2.5rem;">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">AICDI souhaite développer progressivement des dispositifs digitaux permettant de structurer les parcours, de capitaliser les contenus et de faciliter l'accès à distance aux programmes de renforcement des capacités.</p>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">Cette évolution doit permettre d'élargir l'impact des interventions tout en conservant une approche adaptée aux profils, aux missions et aux contextes de terrain.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">AICDI souhaite développer progressivement des dispositifs digitaux permettant de structurer les parcours, de capitaliser les contenus et de faciliter l'accès à distance aux programmes de renforcement des capacités.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;">Cette évolution doit permettre d'élargir l'impact des interventions tout en conservant une approche adaptée aux profils, aux missions et aux contextes de terrain.</p>
     </div>
   </div>
-
 
   <!-- DÉPLOIEMENT RÉGIONAL -->
-  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+  <div style="border:1px solid var(--rule);margin-bottom:2.5rem;">
     <div style="background:var(--ink);padding:2rem 2.5rem;border-top:3px solid var(--civ-green);">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;opacity:0.8;">Ancrage territorial</p>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--white);">Déploiement régional</h2>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--white);">Déploiement régional</h2>
     </div>
     <div style="background:var(--white);padding:2.5rem;">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">La vision d'AICDI s'inscrit dans une logique de développement régional, avec une attention particulière portée à l'Afrique de l'Ouest, aux dynamiques de l'Union économique et monétaire ouest-africaine, aux pays voisins de la Côte d'Ivoire et aux passerelles avec l'Afrique centrale.</p>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">L'objectif est de construire progressivement une approche adaptée aux réalités politiques, économiques, institutionnelles et humaines des différents contextes régionaux.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">La vision d'AICDI s'inscrit dans une logique de développement régional, avec une attention particulière portée à l'Afrique de l'Ouest, aux dynamiques de l'UEMOA, aux pays voisins de la Côte d'Ivoire et aux passerelles avec l'Afrique centrale.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;">L'objectif est de construire progressivement une approche adaptée aux réalités politiques, économiques, institutionnelles et humaines des différents contextes régionaux.</p>
     </div>
   </div>
-
 
   <!-- PARTENARIATS -->
-  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+  <div style="border:1px solid var(--rule);margin-bottom:2.5rem;">
     <div style="background:var(--paper);padding:2rem 2.5rem;border-top:3px solid var(--gold);">
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.5rem;">Coopération institutionnelle</p>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;color:var(--ink);">Partenariats stratégiques</h2>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--ink);">Partenariats stratégiques</h2>
     </div>
     <div style="background:var(--white);padding:2.5rem;">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">Le développement de cette vision repose sur une approche collaborative avec des partenaires institutionnels, techniques et opérationnels.</p>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;">AICDI souhaite construire des coopérations permettant de renforcer les contenus, développer les outils, élargir l'accès aux dispositifs et accompagner la montée en capacité des acteurs engagés entre l'Europe et l'Afrique.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;margin-bottom:1rem;">Le développement de cette vision repose sur une approche collaborative avec des partenaires institutionnels, techniques et opérationnels.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;">AICDI souhaite construire des coopérations permettant de renforcer les contenus, développer les outils, élargir l'accès aux dispositifs et accompagner la montée en capacité des acteurs engagés entre l'Europe et l'Afrique.</p>
     </div>
   </div>
 
+  <!-- CTA -->
+  <div style="background:var(--ink);padding:3rem;text-align:center;margin-bottom:3rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1rem;opacity:0.8;">Prochaine étape</p>
+    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--white);font-weight:400;margin-bottom:2rem;">Préparez votre mission dès maintenant</h3>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.875rem;max-width:380px;margin:0 auto;">
+      <button onclick="go('contact')" style="width:100%;background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:18px 28px;">Préparer votre mission →</button>
+      <button onclick="go('contact')" style="width:100%;background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.35);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;">Organiser un échange préparatoire</button>
+      <button onclick="go('diagnostic')" style="width:100%;background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Testez votre niveau</button>
+    </div>
+  </div>
 
   <!-- STRUCTURE PORTEUSE -->
-  <div style="border-top:1px solid var(--rule);padding-top:2rem;margin-bottom:1rem;">
+  <div style="border-top:1px solid var(--rule);padding-top:2rem;">
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.6rem;">Structure porteuse</p>
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.8;">AICDI est développé dans le cadre des activités de Ivoire Consulting, entreprise basée en Allemagne spécialisée dans l'accompagnement interculturel, l'analyse pays et la préparation de missions internationales.</p>
   </div>
 
 </div>
+</div>
+
+</div>
 </div>id="pg-pays">
 <div class="pg-header"><div class="pg-header-inner">
   <div>
-    <p class="pg-eyebrow">Couverture géographique</p>
-    <h1 class="pg-title">Pays <em>couverts</em></h1>
+    <p class="pg-eyebrow">Ancrage territorial</p>
+    <h1 class="pg-title">Couverture <em>géographique</em></h1>
   </div>
-  <p class="pg-desc">AICDI opère en Côte d'Ivoire et développe son réseau dans les zones UEMOA et CEMAC.</p>
+  <p class="pg-desc">Une présence opérationnelle en Afrique de l'Ouest et une perspective de développement régional progressif.</p>
 </div></div>
 <div class="cnt">
 
-  <div style="background:var(--ink);padding:2rem 2.5rem;margin-bottom:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-    <div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:0.5rem;">Pays opérationnel</p>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.8rem;color:var(--white);font-weight:700;">🇨🇮 Côte d'Ivoire</h2>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);margin-top:0.5rem;">Bureau Abidjan · Formateurs certifiés · 20 ans d'expérience</p>
+  <!-- BASE OPÉRATIONNELLE -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+
+    <div style="background:var(--ink);padding:2.5rem;border-top:3px solid var(--gold);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;opacity:0.8;">Base opérationnelle</p>
+      <div style="font-size:2rem;margin-bottom:0.75rem;">🇨🇮</div>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:1.25rem;">Côte d'Ivoire · Abidjan</h2>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.85;">Abidjan constitue aujourd'hui le principal point d'ancrage du développement du hub AICDI pour les activités liées à la préparation des missions internationales et aux dynamiques régionales.</p>
     </div>
-    <button class="btn-primary" onclick="go('contact')">Organiser une intervention en CIV →</button>
+
+    <div style="background:var(--paper);padding:2.5rem;border-top:3px solid var(--civ-green);">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Dynamiques régionales</p>
+      <div style="font-size:2rem;margin-bottom:0.75rem;">🌍</div>
+      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:1.25rem;">Afrique de l'Ouest &amp; Centrale</h2>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.85;margin-bottom:1.25rem;">AICDI développe progressivement des coopérations, des partenariats et des perspectives d'intervention dans les espaces régionaux :</p>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>UEMOA</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Afrique de l'Ouest anglophone</div>
+        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>CEMAC</div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- UEMOA -->
-  <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-    <span style="background:var(--gold);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;flex-shrink:0;">UEMOA</span>
-    <h2 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:700;">Union Économique et Monétaire Ouest-Africaine · 8 pays</h2>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.5rem;">
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇮</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Côte d'Ivoire</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--civ-green);font-weight:700;letter-spacing:2px;margin-top:4px;">✓ ACTIF</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇸🇳</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Sénégal</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--gold2);font-weight:700;letter-spacing:2px;margin-top:4px;">EN COURS</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇧🇯</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Bénin</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇹🇬</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Togo</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇧🇫</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Burkina Faso</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇲🇱</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Mali</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇳🇪</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Niger</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇬🇼</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Guinée-Bissau</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-  </div>
-
-  <!-- CEMAC -->
-  <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-    <span style="background:var(--civ-green);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;flex-shrink:0;">CEMAC</span>
-    <h2 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:700;">Communauté Économique de l'Afrique Centrale · 6 pays</h2>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇲</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Cameroun</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--gold2);font-weight:700;letter-spacing:2px;margin-top:4px;">EN COURS</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇩</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Congo RDC</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇬🇦</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Gabon</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇬</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Congo</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇹🇩</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Tchad</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-    <div style="background:var(--white);padding:1.5rem;text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🇨🇫</div><div style="font-family:'Libre Baskerville',serif;font-size:0.9rem;color:var(--ink);font-weight:700;">Centrafrique</div><div style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;color:var(--ink3);font-weight:700;letter-spacing:2px;margin-top:4px;">PRÉVU 2027</div></div>
-  </div>
-
-  <div style="text-align:center;">
-    <button class="btn-dark" onclick="go('contact')">Nous contacter pour votre pays →</button>
+  <!-- CTA -->
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+    <button class="btn-primary" onclick="go('contact')">Organiser un échange préparatoire →</button>
+    <button class="btn-outline" onclick="go('formations')">Consulter les programmes</button>
   </div>
 
 </div>
@@ -3102,18 +3083,8 @@ function toggleSub(id) {
 
 // ─── LANGUAGE ───
 function setLang(l) {
-  document.body.setAttribute('data-lang', l);
-  document.querySelectorAll('.t').forEach(function(e) {
-    e.classList.remove('on');
-    if (e.getAttribute('data-l') === l) e.classList.add('on');
-  });
-  document.querySelectorAll('.lb, .lang-btn').forEach(function(b) {
-    b.classList.remove('active');
-    var t = b.textContent.trim().toLowerCase();
-    if (t === l || (t === 'fr' && l === 'fr') || (t === 'en' && l === 'en') || (t === 'de' && l === 'de')) {
-      b.classList.add('active');
-    }
-  });
+  // Multilingue désactivé — version française uniquement
+  // La version allemande sera dans index-de.html
 }
 
 // ─── CONTACT FORM ───
