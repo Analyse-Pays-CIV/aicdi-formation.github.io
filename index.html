@@ -3283,7 +3283,8 @@ function sendDevis() {
   formData.append('_subject', 'Demande AICDI — ' + (motif || org || name));
   formData.append('_template', 'table');
   formData.append('_captcha', 'false');
-  formData.append('_autoresponse', 'Votre demande a bien été reçue. Nous reviendrons vers vous dans les meilleurs délais. — AICDI / Ivoire Consulting');
+  formData.append('_autoresponse', 'Madame, Monsieur,\n\nNous avons bien reçu votre demande et nous vous en remercions.\n\nVotre dossier est en cours de traitement. Nous reviendrons vers vous sous 24h ouvrées avec les informations demandées.\n\nEn attendant, vous pouvez consulter notre catalogue des programmes 2026–2028 :\nhttps://aicdi-formation.com/AICDI_Catalogue_2026-2028.pdf\n\nCordialement,\nAICDI / Ivoire Consulting');
+  formData.append('_cc', email);
   formData.append('name', name);
   formData.append('email', email);
   formData.append('Civilité', civilite);
