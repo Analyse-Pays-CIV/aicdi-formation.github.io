@@ -3562,34 +3562,41 @@ function sendDevis() {
   formData.append('Participants', nb);
   formData.append('Message', msg);
 
-  fetch('https://formsubmit.co/contact@aicdi-formation.com', {
-    method: 'POST',
-    body: formData
-  })
-  .then(function(res) {
-    if (res.ok) {
-      // Show success
-      var ok = document.getElementById('form-ok');
-      if (ok) ok.style.display = 'block';
-      // Clear form
-      ['f-name','f-email','f-org','f-msg'].forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.value = '';
-      });
-      ['f-civilite','f-titre','f-type','f-motif','f-nb'].forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.selectedIndex = 0;
-      });
-      document.querySelectorAll('input[name="programme"]').forEach(function(cb){ cb.checked = false; });
-    } else {
-      alert('Une erreur est survenue. Merci de nous contacter directement à contact@aicdi-formation.com');
-    }
-    if (btn) { btn.disabled = false; btn.textContent = 'Envoyer la demande →'; }
-  })
-  .catch(function() {
-    alert('Erreur réseau. Merci de nous contacter directement à contact@aicdi-formation.com');
-    if (btn) { btn.disabled = false; btn.textContent = 'Envoyer la demande →'; }
-  });
+  // Création d'un formulaire HTML temporaire pour contourner les blocages CORS
+  var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://formsubmit.co/contact@aicdi-formation.com';
+  form.style.display = 'none';
+
+  var fields = {
+    '_replyto': email,
+    '_subject': 'Demande AICDI — ' + (motif || org || name),
+    '_template': 'table',
+    '_captcha': 'false',
+    '_autoresponse': 'Madame, Monsieur,\n\nNous avons bien reçu votre demande et nous vous en remercions.\n\nNous reviendrons vers vous sous 24h ouvrées.\n\nCatalogue : https://aicdi-formation.com/AICDI_Catalogue_2026-2028.pdf\n\nCordialement,\nAICDI / Ivoire Consulting',
+    '_next': 'https://aicdi-formation.com/#merci',
+    'name': name,
+    'email': email,
+    'Civilite': civilite,
+    'Titre': titre,
+    'Organisation': org,
+    'Type_organisation': type,
+    'Motif': motif,
+    'Programme': prog,
+    'Participants': nb,
+    'Message': msg
+  };
+
+  for (var key in fields) {
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = fields[key];
+    form.appendChild(input);
+  }
+
+  document.body.appendChild(form);
+  form.submit();
 }
 
 function goContact(motif) {
