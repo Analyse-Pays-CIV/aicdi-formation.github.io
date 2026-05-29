@@ -1044,7 +1044,13 @@ p.t.on { display: inline !important; }
       </div>
       <div class="nitem"><button class="nlink" onclick="go(&#39;vision&#39;)">Vision</button></div>
     <div class="nitem"><button class="nlink" onclick="go(&#39;pays&#39;)">Pays</button></div>
-    <div class="nitem"><button class="nlink" onclick="go(&#39;expert&#39;)">Expert</button></div>
+    <div class="nitem">
+        <button class="nlink">Expert <span class="arr">▼</span></button>
+        <div class="drop">
+          <a href="#" onclick="go('expert')"><span class="drop-num">—</span>L'expert</a>
+          <a href="#" onclick="go('references')"><span class="drop-num">—</span>Références &amp; Expérience</a>
+        </div>
+      </div>
     <div class="nitem"><button class="nlink" onclick="go(&#39;tarifs&#39;)">Tarifs</button></div>
     </div>
     <button class="nav-contact" onclick="go(&#39;contact&#39;)">Nous contacter</button>
@@ -1074,6 +1080,9 @@ p.t.on { display: inline !important; }
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;vision&#39;);closeMenu()">Notre Vision</button></div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;pays&#39;);closeMenu()">Pays couverts</button></div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;expert&#39;);closeMenu()">Expert</button></div>
+  <div class="mm-item" style="padding-left:1rem;border-left:2px solid rgba(155,125,46,0.3);margin-left:1rem;">
+    <button class="mm-link" style="font-size:0.78rem;color:rgba(255,255,255,0.7);" onclick="go(&#39;references&#39;);closeMenu()">→ Références &amp; Expérience</button>
+  </div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;tarifs&#39;);closeMenu()">Tarifs</button></div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;impressum&#39;);closeMenu()">Mentions légales</button> · 
         <button onclick="go('privacy')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.75);text-decoration:underline;">Politique de confidentialité</button></div>
