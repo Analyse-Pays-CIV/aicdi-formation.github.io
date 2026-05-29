@@ -1047,7 +1047,7 @@ p.t.on { display: inline !important; }
     <div class="nitem">
         <button class="nlink">Expert <span class="arr">▼</span></button>
         <div class="drop">
-          <a href="#" onclick="go('expert')"><span class="drop-num">—</span>L'expert</a>
+          <a href="#" onclick="go('expert')"><span class="drop-num">—</span>L'Expert</a>
           <a href="#" onclick="go('references')"><span class="drop-num">—</span>Références &amp; Expérience</a>
         </div>
       </div>
@@ -1079,9 +1079,12 @@ p.t.on { display: inline !important; }
   </div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;vision&#39;);closeMenu()">Notre Vision</button></div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;pays&#39;);closeMenu()">Pays couverts</button></div>
-  <div class="mm-item"><button class="mm-link" onclick="go(&#39;expert&#39;);closeMenu()">Expert</button></div>
-  <div class="mm-item" style="padding-left:1.25rem;border-left:2px solid rgba(155,125,46,0.4);margin-left:1rem;margin-top:-4px;">
-    <button class="mm-link" style="font-size:0.8rem;color:rgba(255,255,255,0.75);padding:0.5rem 0;" onclick="go(&#39;references&#39;);closeMenu()">→ Références &amp; Expérience</button>
+  <div class="mm-item">
+    <button class="mm-link" onclick="toggleSub(&#39;sub-expert&#39;)">Expert ▾</button>
+    <div class="mm-sub" id="sub-expert">
+      <a href="#" onclick="go(&#39;expert&#39;);closeMenu()">L'Expert</a>
+      <a href="#" onclick="go(&#39;references&#39;);closeMenu()">Références &amp; Expérience</a>
+    </div>
   </div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;tarifs&#39;);closeMenu()">Tarifs</button></div>
   <button class="mm-contact" onclick="go(&#39;contact&#39;);closeMenu()">Nous contacter</button>
