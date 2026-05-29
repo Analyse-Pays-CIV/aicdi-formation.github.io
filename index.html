@@ -891,29 +891,27 @@ p.t.on { display: inline !important; }
 
 /* ── ACCUEIL HERO — mobile ── */
 @media (max-width: 768px) {
+  html, body { overflow-x: hidden !important; }
   #pg-accueil { overflow-x: hidden !important; }
   .hero { flex-direction: column !important; min-height: auto !important; padding: 2.5rem 1.5rem !important; overflow: hidden !important; box-sizing: border-box !important; width: 100% !important; }
   .hero-l { width: 100% !important; max-width: 100% !important; padding: 0 !important; box-sizing: border-box !important; text-align: center !important; }
-  .hero-overline { text-align: center !important; }
-  .hero-akwaba { text-align: center !important; }
-  .hero-akwaba-sub { text-align: center !important; }
-  .hero-baoulé { text-align: center !important; }
-  .h1-hero { text-align: center !important; }
-  .hero-sub { text-align: center !important; }
-  .hero-btns { align-items: center !important; }
-  #pg-accueil div[style*="display:flex;gap:2.5rem"] { justify-content: center !important; gap: 1rem !important; flex-wrap: wrap !important; }
-  #pg-accueil button[onclick*="diagnostic"][style*="padding:0"] { text-align: center !important; width: 100% !important; }
   .hero-r { display: none !important; }
-  .hero-akwaba { font-size: 3rem !important; margin-bottom: 0.75rem !important; letter-spacing: 2px !important; }
-  .hero-akwaba-sub { font-size: 0.88rem !important; margin-bottom: 0.5rem !important; }
-  .hero-baoulé { font-size: 0.72rem !important; margin-bottom: 1.25rem !important; }
-  .hero-overline { font-size: 0.58rem !important; margin-bottom: 0.75rem !important; letter-spacing: 1.5px !important; }
-  .h1-hero { font-size: 1.35rem !important; line-height: 1.4 !important; margin-bottom: 0.75rem !important; }
-  .hero-sub { font-size: 0.85rem !important; line-height: 1.7 !important; margin-bottom: 1.5rem !important; }
-  .hero-btns { flex-direction: column !important; gap: 0.875rem !important; width: 100% !important; }
-  .hero-btns button { width: 100% !important; padding: 16px 20px !important; min-height: 52px !important; box-sizing: border-box !important; white-space: normal !important; }
-  #pg-accueil div[style*="display:flex;gap:2.5rem"] { gap: 1rem !important; flex-wrap: wrap !important; }
-  #pg-accueil div[style*="display:flex;gap:2.5rem"] > div { min-width: 70px; }
+  .hero-overline { font-size: 0.58rem !important; letter-spacing: 1.5px !important; text-align: center !important; }
+  .hero-akwaba { font-size: 3rem !important; margin-bottom: 0.75rem !important; letter-spacing: 2px !important; text-align: center !important; }
+  .hero-akwaba-sub { font-size: 0.88rem !important; margin-bottom: 0.5rem !important; text-align: center !important; }
+  .hero-baoulé { font-size: 0.72rem !important; margin-bottom: 1.25rem !important; text-align: center !important; }
+  .h1-hero { font-size: 1.35rem !important; line-height: 1.4 !important; margin-bottom: 0.75rem !important; text-align: center !important; }
+  .hero-sub { font-size: 0.85rem !important; line-height: 1.7 !important; margin-bottom: 1.5rem !important; text-align: center !important; }
+  .hero-btns { flex-direction: column !important; gap: 0.875rem !important; width: 100% !important; align-items: stretch !important; }
+  .hero-btns button { width: 100% !important; padding: 16px 20px !important; min-height: 52px !important; box-sizing: border-box !important; white-space: normal !important; text-align: center !important; }
+  #pg-accueil div[style*="display:flex;gap:2.5rem"] { gap: 1rem !important; flex-wrap: wrap !important; justify-content: center !important; }
+  /* Discretion block */
+  #pg-accueil div[style*="align-items:center;justify-content:space-between"] { flex-direction: column !important; gap: 2rem !important; align-items: stretch !important; }
+  #pg-accueil h2[style*="font-size:1.6rem"], #pg-accueil h2[style*="font-size:1.8rem"] { font-size: 1.2rem !important; line-height: 1.4 !important; }
+  #pg-accueil p[style*="max-width:520px"] { max-width: 100% !important; }
+  /* CTA final buttons */
+  #pg-accueil div[style*="flex-direction:column;gap:0.75rem;align-items:flex-end"] { align-items: stretch !important; width: 100% !important; }
+  #pg-accueil div[style*="flex-direction:column;gap:0.75rem;align-items:flex-end"] button { width: 100% !important; box-sizing: border-box !important; padding: 16px 20px !important; min-height: 52px !important; white-space: normal !important; }
 }
 
 /* ── EXPERT — mobile ── */
@@ -2485,7 +2483,7 @@ p.t.on { display: inline !important; }
         <div style="margin-bottom:1.25rem;">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;">
             <div>
-              <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Civilité</label>
+              <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Civilité *</label>
               <select id="f-civilite" name="civilite" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;">
                 <option value="">—</option>
                 <option value="M.">M.</option>
@@ -2518,7 +2516,7 @@ p.t.on { display: inline !important; }
           <input type="text" id="f-org" name="organisation" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;">
         </div>
         <div style="margin-bottom:1.25rem;">
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Type d'organisation</label>
+          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Type d'organisation *</label>
           <select id="f-type" name="type_organisation" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;">
             <option value="">Sélectionner…</option>
             <option>Ambassade / Mission diplomatique</option>
@@ -2560,7 +2558,7 @@ p.t.on { display: inline !important; }
           </div>
         </div>
         <div style="margin-bottom:1.25rem;">
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Nombre de participants</label>
+          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Nombre de participants *</label>
           <select id="f-nb" name="participants" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;">
             <option value="">—</option>
             <option>1 personne</option>
@@ -3313,12 +3311,49 @@ function sendDevis() {
   var nb       = document.getElementById('f-nb').value;
   var msg      = document.getElementById('f-msg').value.trim();
 
-  if (!name || !email) {
-    alert('Veuillez renseigner votre nom et votre adresse email.');
-    return;
+  var org      = document.getElementById('f-org').value.trim();
+  var type     = document.getElementById('f-type').value;
+  var motif    = document.getElementById('f-motif') ? document.getElementById('f-motif').value : '';
+  var nb       = document.getElementById('f-nb').value;
+
+  // Validation — tous les champs sauf Titre
+  var errors = false;
+  function showErr(id, msg) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var existing = el.parentNode.querySelector('.field-error');
+    if (existing) existing.remove();
+    var err = document.createElement('p');
+    err.className = 'field-error';
+    err.style.cssText = "font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:#c0392b;margin:4px 0 0 0;";
+    err.textContent = msg;
+    el.parentNode.appendChild(err);
+    el.style.borderColor = '#c0392b';
+    errors = true;
   }
-  if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
-    alert('Veuillez saisir une adresse email valide.');
+  function clearErr(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var existing = el.parentNode.querySelector('.field-error');
+    if (existing) existing.remove();
+    el.style.borderColor = '';
+  }
+  // Clear previous errors
+  ['f-civilite','f-name','f-email','f-org','f-type','f-motif','f-nb','f-msg'].forEach(clearErr);
+
+  if (!civilite) showErr('f-civilite', 'Ce champ est requis.');
+  if (!name) showErr('f-name', 'Ce champ est requis.');
+  if (!email) showErr('f-email', 'Ce champ est requis.');
+  else if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) showErr('f-email', 'Adresse email invalide.');
+  if (!org) showErr('f-org', 'Ce champ est requis.');
+  if (!type) showErr('f-type', 'Ce champ est requis.');
+  if (!motif) showErr('f-motif', 'Ce champ est requis.');
+  if (!nb) showErr('f-nb', 'Ce champ est requis.');
+  if (!msg) showErr('f-msg', 'Ce champ est requis.');
+
+  if (errors) {
+    var firstErr = document.querySelector('.field-error');
+    if (firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
     return;
   }
 
