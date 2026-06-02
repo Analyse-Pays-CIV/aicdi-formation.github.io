@@ -4096,6 +4096,7 @@ function sendDevis() {
   var progBoxes = document.querySelectorAll('input[name="programme"]:checked');
   var prog = Array.from(progBoxes).map(function(cb){return cb.value;}).join(', ')||'-';
 
+  // Validation
   var ok = true;
   function fe(id,elId){ var d=document.getElementById(id); if(d)d.style.display='block'; var e=document.getElementById(elId); if(e)e.style.borderColor='#c0392b'; ok=false; }
   function fc(id,elId){ var d=document.getElementById(id); if(d)d.style.display='none';  var e=document.getElementById(elId); if(e)e.style.borderColor=''; }
@@ -4111,6 +4112,11 @@ function sendDevis() {
   fc('err-contexte','f-contexte'); if(!ctx)  fe('err-contexte','f-contexte');
   if(!ok){ document.querySelector('#pg-contact .cnt').scrollIntoView({behavior:'smooth'}); return; }
 
+  // Désactiver le bouton
+  var btn = document.getElementById('btn-send');
+  if(btn){ btn.disabled=true; btn.textContent='Envoi en cours...'; }
+
+  // Préparer le fallback mailto
   var nl = '%0A';
   var sujet = encodeURIComponent('Demande AICDI - ' + org + ' - ' + motif);
   var corps = 'NOUVELLE DEMANDE AICDI' + nl
@@ -4132,8 +4138,33 @@ function sendDevis() {
     + '=================================' + nl
     + 'Envoye depuis aicdi-formation.com';
 
-  window.location.href = 'mailto:contact@aicdi-formation.com?subject=' + sujet + '&body=' + corps;
-  setTimeout(function(){ aicdiPopShow(); }, 1200);
+  var mailtoLink = 'mailto:contact@aicdi-formation.com?subject=' + sujet + '&body=' + corps;
+
+  // MÉTHODE 1 : Google Apps Script (réseaux institutionnels, pas de client email)
+  var payload = JSON.stringify({
+    civilite:civ, titre:tit, nom:name, fonction:fn,
+    email:email, organisation:org, telephone:tel,
+    type_org:type, motif:motif, programmes:prog,
+    participants:nb, contexte:ctx
+  });
+
+  fetch('https://script.google.com/macros/s/AKfycbw3Zon9S5MlmWC4CRDm6c6IhTo3-J1eIE-G0fbetGRlpTuAk1IwW_LdC3GUOq90UriD/exec', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: payload,
+    mode: 'no-cors'
+  })
+  .then(function() {
+    // no-cors ne retourne pas de réponse lisible — on considère OK
+    aicdiPopShow();
+    if(btn){ btn.disabled=false; btn.textContent='Envoyer la demande →'; }
+  })
+  .catch(function() {
+    // MÉTHODE 2 : mailto fallback si fetch échoue
+    window.location.href = mailtoLink;
+    setTimeout(function(){ aicdiPopShow(); }, 1200);
+    if(btn){ btn.disabled=false; btn.textContent='Envoyer la demande →'; }
+  });
 }
 
 
