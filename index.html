@@ -4090,9 +4090,8 @@ function sendDevis() {
   var nb   = (document.getElementById('f-nb')||{}).value;
   var ctx  = (document.getElementById('f-contexte')||{}).value.trim();
   var progBoxes = document.querySelectorAll('input[name="programme"]:checked');
-  var prog = Array.from(progBoxes).map(function(cb){return cb.value;}).join(', ')||'—';
+  var prog = Array.from(progBoxes).map(function(cb){return cb.value;}).join(', ')||'-';
 
-  // Validation
   var ok = true;
   function fe(id,elId){ var d=document.getElementById(id); if(d)d.style.display='block'; var e=document.getElementById(elId); if(e)e.style.borderColor='#c0392b'; ok=false; }
   function fc(id,elId){ var d=document.getElementById(id); if(d)d.style.display='none';  var e=document.getElementById(elId); if(e)e.style.borderColor=''; }
@@ -4108,59 +4107,29 @@ function sendDevis() {
   fc('err-contexte','f-contexte'); if(!ctx)  fe('err-contexte','f-contexte');
   if(!ok){ document.querySelector('#pg-contact .cnt').scrollIntoView({behavior:'smooth'}); return; }
 
-  // Construction du corps de l'email
-  var sujet = 'Demande AICDI — ' + org + ' — ' + motif;
-  var corps =
-    'NOUVELLE DEMANDE AICDI' +
-    '
-=================================' +
-    '
-' +
-    '
-Civilite     : ' + civ +
-    '
-Titre        : ' + tit +
-    '
-Nom          : ' + name +
-    '
-Fonction     : ' + fn +
-    '
-Email        : ' + email +
-    '
-Organisation : ' + org +
-    '
-Telephone    : ' + tel +
-    '
-Type org.    : ' + type +
-    '
-Motif        : ' + motif +
-    '
-Programme(s) : ' + prog +
-    '
-Participants : ' + nb +
-    '
-' +
-    '
-CONTEXTE DE MISSION' +
-    '
--------------------' +
-    '
-' + ctx +
-    '
-' +
-    '
-=================================' +
-    '
-Envoye depuis aicdi-formation.com';
+  var nl = '%0A';
+  var sujet = encodeURIComponent('Demande AICDI - ' + org + ' - ' + motif);
+  var corps = 'NOUVELLE DEMANDE AICDI' + nl
+    + '=================================' + nl + nl
+    + 'Civilite     : ' + encodeURIComponent(civ) + nl
+    + 'Titre        : ' + encodeURIComponent(tit) + nl
+    + 'Nom          : ' + encodeURIComponent(name) + nl
+    + 'Fonction     : ' + encodeURIComponent(fn) + nl
+    + 'Email        : ' + encodeURIComponent(email) + nl
+    + 'Organisation : ' + encodeURIComponent(org) + nl
+    + 'Telephone    : ' + encodeURIComponent(tel) + nl
+    + 'Type org.    : ' + encodeURIComponent(type) + nl
+    + 'Motif        : ' + encodeURIComponent(motif) + nl
+    + 'Programme(s) : ' + encodeURIComponent(prog) + nl
+    + 'Participants : ' + encodeURIComponent(nb) + nl + nl
+    + 'CONTEXTE DE MISSION' + nl
+    + '-------------------' + nl
+    + encodeURIComponent(ctx) + nl + nl
+    + '=================================' + nl
+    + 'Envoye depuis aicdi-formation.com';
 
-  // Ouvrir le client email avec tout pré-rempli
-  window.location.href =
-    'mailto:contact@aicdi-formation.com' +
-    '?subject=' + encodeURIComponent(sujet) +
-    '&body='    + encodeURIComponent(corps);
-
-  // Afficher le popup de confirmation
-  setTimeout(function(){ aicdiPopShow(); }, 1000);
+  window.location.href = 'mailto:contact@aicdi-formation.com?subject=' + sujet + '&body=' + corps;
+  setTimeout(function(){ aicdiPopShow(); }, 1200);
 }
 
 
