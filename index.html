@@ -101,7 +101,7 @@ nav {
   color:var(--ink3);
   font-family:'Source Sans 3',sans-serif;
   font-size:0.68rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;
-  padding:0 0.6rem;height:68px;
+  padding:0 0.45rem;height:68px;
   background:none;border:none;cursor:pointer;
   transition:color 0.2s;white-space:nowrap;
   border-bottom:2px solid transparent;
@@ -141,11 +141,11 @@ nav {
 }
 .nav-contact {
   background:var(--ink);color:var(--white);
-  padding:7px 12px;
+  padding:6px 10px;
   font-family:'Source Sans 3',sans-serif;
-  font-size:0.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  font-size:0.62rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;
   border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:background 0.2s;
-  margin-left:0.5rem;white-space:nowrap;flex-shrink:0;
+  margin-left:0.25rem;white-space:nowrap;flex-shrink:0;
 }
 .nav-contact:hover{background:var(--gold2);}
 
@@ -153,7 +153,7 @@ nav {
 .page{display:none;}
 .page.active{display:block;}
 /* Footer always visible */
-#global-footer{display:block!important;}
+#global-footer{display:block!important;visibility:visible!important;opacity:1!important;}
 
 /* ── HERO ───────────────────────────────── */
 .hero {
@@ -608,7 +608,7 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
 
 /* ── TABLET iPad (768px–1024px) ─────── */
 @media(max-width:1024px){
-  /* Topbar */
+/* Topbar */
   .topbar-left{display:none;}
   .lang-bar{margin-left:auto;}
   /* Nav */
@@ -641,15 +641,28 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
   /* Footer */
   .footer-main{grid-template-columns:1fr;gap:2rem;}
   .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
-}
+.nm{display:none;}
+  .hamburger{display:flex;}
+  nav{height:60px;}
+  .hero{grid-template-columns:1fr;}
+  .hero-r{display:none;}
+  .hero-l{padding:4rem 2rem;}
+  .f-table,.prog-table{grid-template-columns:1fr;}
+  .f-col,.prog-col{border-right:none;border-bottom:1px solid var(--rule);}
+  .expert-layout,.contact-layout,.clayout{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
+.hero-r { display: none !important; }
+  .hero-r-mobile { display: block !important; }
+}}
 
 /* ── MOBILE (< 768px) ────────────────── */
 @media(max-width:768px){
-  /* Topbar masqué sur mobile */
+/* Topbar masqué sur mobile */
   .topbar{display:none;}
   /* Nav compacte */
   nav{height:60px;}
-  .nav-inner{padding:0 1.25rem;}
+  .nav-inner{padding:0 1.25rem;display:flex;align-items:center;justify-content:space-between;width:100%;box-sizing:border-box;}
   .nav-logo-mark span{font-size:1.1rem;}
   .nav-logo-mark small{font-size:0.62rem;color:rgba(255,255,255,0.85);letter-spacing:1px;display:block;margin-top:1px;}
   .nav-divider{display:none;}
@@ -692,60 +705,7 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
   .footer-main{padding:2rem 1.25rem;gap:1.5rem;}
   .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
   .footer-bottom{padding:1rem 1.25rem;}
-}
-
-/* ═══════════════════════════════════
-   MOBILE OPTIMIZATIONS — Complete Fix
-   ═══════════════════════════════════ */
-
-/* Slide mobile button - hidden on desktop */
-.slide-mobile-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 2.5rem 1.5rem;
-  background: var(--paper);
-  border: 1px solid var(--rule2);
-  text-align: center;
-}
-.slide-mobile-btn h4 {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1rem; color: var(--ink); font-weight: 700;
-}
-.slide-mobile-btn p {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.82rem; color: var(--ink3); font-weight: 300;
-}
-.slide-mobile-btn a {
-  background: var(--ink); color: var(--white);
-  padding: 12px 24px;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase;
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-
-/* ── TABLET (768px - 1024px) ─────── */
-@media(max-width:1024px){
-  .nm{display:none;}
-  .hamburger{display:flex;}
-  nav{height:60px;}
-  .hero{grid-template-columns:1fr;}
-  .hero-r{display:none;}
-  .hero-l{padding:4rem 2rem;}
-  .f-table,.prog-table{grid-template-columns:1fr;}
-  .f-col,.prog-col{border-right:none;border-bottom:1px solid var(--rule);}
-  .expert-layout,.contact-layout,.clayout{grid-template-columns:1fr;}
-  .footer-main{grid-template-columns:1fr;gap:2rem;}
-  .footer-info{display:grid;grid-template-columns:1.2fr 1.5fr 1.5fr;gap:2.5rem;}
-}
-
-/* ── MOBILE (max 768px) ─────────── */
-@media(max-width:768px){
-  .footer-info{grid-template-columns:1fr !important;gap:1.5rem !important;}
+.footer-info{grid-template-columns:1fr !important;gap:1.5rem !important;}
 
   /* NAV */
   nav{height:56px;}
@@ -863,21 +823,60 @@ body[data-lang="de"] .tb[data-l="de"] { display:block; }
 
   /* Pays grid keep 2 col */
   .pays-grid{grid-template-columns:repeat(2,1fr) !important;}
-
-}
-
-
-@media(max-width:768px){
-  .cta-test-grid{grid-template-columns:1fr !important;}
+.cta-test-grid{grid-template-columns:1fr !important;}
   .cta-test-btn{width:100% !important;}
+#pg-contact .cnt>div{grid-template-columns:1fr!important;}
+  #pg-contact div[style*="grid-template-columns:120px"]{grid-template-columns:1fr 1fr!important;}
+  #pg-contact div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
+  #pg-contact div[style*="grid-template-columns:1fr 200px"]{grid-template-columns:1fr!important;}
+}}
+
+/* ═══════════════════════════════════
+   MOBILE OPTIMIZATIONS — Complete Fix
+   ═══════════════════════════════════ */
+
+/* Slide mobile button - hidden on desktop */
+.slide-mobile-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule2);
+  text-align: center;
 }
+.slide-mobile-btn h4 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem; color: var(--ink); font-weight: 700;
+}
+.slide-mobile-btn p {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.82rem; color: var(--ink3); font-weight: 300;
+}
+.slide-mobile-btn a {
+  background: var(--ink); color: var(--white);
+  padding: 12px 24px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+
+/* ── TABLET (768px - 1024px) ─────── */
+
+
+/* ── MOBILE (max 768px) ─────────── */
+
+
+
+
 
 
 /* ── PUBLICS CONCERNÉS — visible sur mobile sous le hero ── */
-@media(max-width:1024px){
-  .hero-r { display: none !important; }
-  .hero-r-mobile { display: block !important; }
-}
+
 @media(min-width:1025px){
   .hero-r-mobile { display: none !important; }
 }
@@ -950,12 +949,7 @@ p.t.on { display: inline !important; }
   #pg-catalogue div[style*="display:flex;flex-wrap:wrap"] a { width: 100% !important; box-sizing: border-box !important; text-align: center !important; justify-content: center !important; }
 }
 
-@media(max-width:768px){
-  #pg-contact .cnt>div{grid-template-columns:1fr!important;}
-  #pg-contact div[style*="grid-template-columns:120px"]{grid-template-columns:1fr 1fr!important;}
-  #pg-contact div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
-  #pg-contact div[style*="grid-template-columns:1fr 200px"]{grid-template-columns:1fr!important;}
-}
+
 /* ── CONTACT — mobile form ── */
 @media (max-width: 768px) {
   #pg-contact .cnt { padding: 2rem 1.25rem !important; }
@@ -3009,181 +3003,172 @@ p.t.on { display: inline !important; }
   <p class="pg-desc">Réponse sous 24 heures ouvrées avec une proposition personnalisée et un devis adapté.</p>
 </div></div>
 <div class="cnt">
-  <div style="display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start;">
 
-    <!-- ══ FORMULAIRE ══ -->
+  <!-- ══ COORDONNÉES COMPACT ══ -->
+  <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem;padding:1.5rem 2rem;background:var(--ink);border-top:3px solid var(--gold);">
     <div>
-      <h2 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;color:var(--ink);font-weight:400;margin-bottom:1.5rem;letter-spacing:0.5px;">Votre demande</h2>
-
-      <!-- Ligne 1 : Civilité + Titre + Nom -->
-      <div style="display:grid;grid-template-columns:120px 140px 1fr;gap:0.75rem;margin-bottom:1rem;">
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Civilité *</label>
-          <select id="f-civilite" name="civilite" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-            <option value="">—</option>
-            <option>M.</option><option>Mme</option><option>Non précisé</option>
-          </select>
-          <div id="err-civilite" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Titre <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.68rem;color:var(--ink3);">(optionnel)</span></label>
-          <select id="f-titre" name="titre" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-            <option value="">—</option>
-            <option>Dr</option><option>Prof.</option><option>Amb.</option><option>Me</option>
-          </select>
-        </div>
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Nom et prénom *</label>
-          <input type="text" id="f-name" name="nom" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-          <div id="err-name" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-      </div>
-
-      <!-- Ligne 2 : Fonction + Email -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Fonction *</label>
-          <input type="text" id="f-fonction" name="fonction" placeholder="Ex : Responsable de programme, Expert..." style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-          <div id="err-fonction" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Adresse électronique *</label>
-          <input type="email" id="f-email" name="email" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-          <div id="err-email" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-      </div>
-
-      <!-- Ligne 3 : Organisation + Téléphone -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Organisation *</label>
-          <input type="text" id="f-org" name="organisation" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-          <div id="err-org" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Téléphone professionnel *</label>
-          <input type="tel" id="f-tel" name="telephone" placeholder="+49 · +33 · +225..." style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-          <div id="err-tel" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-      </div>
-
-      <!-- Ligne 4 : Type d'organisation + Motif -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Type d'organisation *</label>
-          <select id="f-type" name="type_organisation" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-            <option value="">—</option>
-            <option>Ambassade</option>
-            <option>Organisation internationale</option>
-            <option>Agence de coopération</option>
-            <option>Université</option>
-            <option>Fondation</option>
-            <option>ONG</option>
-            <option>Administration publique</option>
-            <option>Entreprise</option>
-            <option>Autre</option>
-          </select>
-          <div id="err-type" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Motif de la demande *</label>
-          <select id="f-motif" name="motif" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-            <option value="">—</option>
-            <option>Préparer une prise de fonction ou une mission</option>
-            <option>Demander un devis</option>
-            <option>Organiser une préparation pour une équipe</option>
-            <option>Mettre en place plusieurs sessions</option>
-            <option>Demander une préparation sur mesure</option>
-            <option>Autre demande</option>
-          </select>
-          <div id="err-motif" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-      </div>
-
-      <!-- Ligne 5 : Programmes + Participants -->
-      <div style="display:grid;grid-template-columns:1fr 200px;gap:0.75rem;margin-bottom:1rem;">
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Programme(s) souhaité(s)</label>
-          <div style="display:flex;flex-direction:column;gap:0.4rem;padding:0.75rem 0.875rem;border:1px solid var(--rule);background:var(--white);">
-            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AP — Analyse Pays" style="accent-color:var(--ink);"> Analyse Pays</label>
-            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AR — Analyse Régionale" style="accent-color:var(--ink);"> Analyse Régionale</label>
-            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="OIPH — Orientation & Immersion Pays Hôtes" style="accent-color:var(--ink);"> Orientation &amp; Immersion Pays Hôtes</label>
-            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="D&N — Diplomatie & Négociation" style="accent-color:var(--ink);"> Diplomatie &amp; Négociation</label>
-            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="CI — Compétences Interculturelles" style="accent-color:var(--ink);"> Compétences Interculturelles</label>
-            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="LI — Leadership interculturel & coordination terrain" style="accent-color:var(--ink);"> Leadership interculturel &amp; coordination terrain</label>
-            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="Programme sur mesure" style="accent-color:var(--ink);"> Sur mesure</label>
-          </div>
-        </div>
-        <div>
-          <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Participants *</label>
-          <select id="f-nb" name="participants" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;">
-            <option value="">—</option>
-            <option>1 personne</option>
-            <option>2 à 5 personnes</option>
-            <option>6 à 10 personnes</option>
-            <option>Plus de 10 personnes</option>
-          </select>
-          <div id="err-nb" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-        </div>
-      </div>
-
-      <!-- Ligne 6 : Contexte -->
-      <div style="margin-bottom:1.25rem;">
-        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Contexte de la mission ou du programme *</label>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:var(--ink3);margin:0 0 0.4rem 0;font-style:italic;">Quelques lignes suffisent pour nous permettre d'évaluer votre demande.</p>
-        <textarea id="f-contexte" name="contexte" rows="4" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.65rem 0.875rem;outline:none;box-sizing:border-box;resize:vertical;min-height:100px;"></textarea>
-        <div id="err-contexte" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;margin-top:3px;">Requis</div>
-      </div>
-
-      <!-- FormSubmit hidden fields -->
-      <form id="aicdi-form" method="POST" action="https://formsubmit.co/contact@aicdi-formation.com" style="display:none;">
-        <input type="hidden" name="_replyto" id="h-replyto">
-        <input type="hidden" name="_subject" id="h-subject">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://aicdi-formation.com/#merci">
-        <input type="hidden" name="Civilite" id="h-civilite">
-        <input type="hidden" name="Titre" id="h-titre">
-        <input type="hidden" name="Nom" id="h-name">
-        <input type="hidden" name="Fonction" id="h-fonction">
-        <input type="hidden" name="Email" id="h-email">
-        <input type="hidden" name="Organisation" id="h-org">
-        <input type="hidden" name="Telephone" id="h-tel">
-        <input type="hidden" name="Type_organisation" id="h-type">
-        <input type="hidden" name="Motif" id="h-motif">
-        <input type="hidden" name="Programme" id="h-prog">
-        <input type="hidden" name="Participants" id="h-nb">
-        <input type="hidden" name="Contexte_mission" id="h-contexte">
-      </form>
-
-      <button id="btn-send" class="btn-primary" style="width:100%;margin-top:0.5rem;" onclick="sendDevis()">Envoyer la demande →</button>
-      <div id="form-ok"></div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.35rem;">🇩🇪 Allemagne</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.75);line-height:1.6;">+49 (0) 761 55 44 82 &nbsp;·&nbsp; <a href="https://wa.me/491776926372" style="color:var(--gold2);text-decoration:none;">WhatsApp +49 177 6926372</a></p>
     </div>
-
-    <!-- ══ SIDEBAR ══ -->
     <div>
-      <div style="background:var(--ink);padding:2rem 1.5rem;margin-bottom:1.5rem;">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1rem;">Nos bureaux</p>
-        <div style="margin-bottom:1.25rem;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold-pale);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;">🇩🇪 Bureau Allemagne</p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.65);line-height:1.7;">Burgackerweg 4<br>D-79104 Freiburg im Breisgau<br>Tél : <a href="tel:+497615544882" style="color:rgba(255,255,255,0.65);text-decoration:none;">+49 (0) 761 55 44 82</a><br>WhatsApp : <a href="https://wa.me/491776926372" style="color:rgba(255,255,255,0.65);text-decoration:none;">+49 177 6926372</a></p>
-        </div>
-        <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;margin-bottom:1.25rem;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold-pale);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;">🇨🇮 Bureau Abidjan</p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.65);line-height:1.7;">Bd Cité du Port, nº 46<br>ABATTA Cocody · Abidjan<br>WhatsApp : <a href="https://wa.me/2250503605725" style="color:rgba(255,255,255,0.65);text-decoration:none;">+225 05 03 60 57 25</a></p>
-        </div>
-        <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;">
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold-pale);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;">Contact</p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;margin-bottom:0.5rem;"><a href="mailto:contact@aicdi-formation.com" style="color:var(--gold2);text-decoration:none;">contact@aicdi-formation.com</a></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;"><a href="https://aicdi-formation.com" style="color:rgba(255,255,255,0.5);text-decoration:none;">aicdi-formation.com</a></p>
-        </div>
-      </div>
-      <div style="padding:1.25rem;border:1px solid var(--rule);background:var(--paper);">
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Demande urgente</p>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;">Pour une demande urgente, contactez-nous directement par WhatsApp :<br><a href="https://wa.me/491776926372" style="color:var(--gold2);font-weight:600;text-decoration:none;">+49 177 6926372 (DE)</a><br><a href="https://wa.me/2250503605725" style="color:var(--gold2);font-weight:600;text-decoration:none;">+225 05 03 60 57 25 (CI)</a></p>
-      </div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.35rem;">🇨🇮 Abidjan</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.75);line-height:1.6;"><a href="https://wa.me/2250503605725" style="color:var(--gold2);text-decoration:none;">WhatsApp +225 05 03 60 57 25</a></p>
+    </div>
+    <div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.35rem;">Email</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.75);line-height:1.6;"><a href="mailto:contact@aicdi-formation.com" style="color:var(--gold2);text-decoration:none;">contact@aicdi-formation.com</a></p>
     </div>
   </div>
+
+  <!-- ══ FORMULAIRE ══ -->
+  <div style="max-width:760px;">
+    <h2 style="font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--ink);font-weight:400;margin-bottom:2rem;letter-spacing:0.5px;border-bottom:1px solid var(--rule);padding-bottom:0.875rem;">Votre demande</h2>
+
+    <!-- Ligne 1 : Civilité + Titre + Nom -->
+    <div style="display:grid;grid-template-columns:110px 130px 1fr;gap:0.75rem;margin-bottom:1rem;">
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Civilité *</label>
+        <select id="f-civilite" name="civilite" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+          <option value="">—</option>
+          <option>M.</option><option>Mme</option><option>Non précisé</option>
+        </select>
+        <div id="err-civilite" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Titre <span style="font-weight:400;font-size:0.65rem;color:var(--ink3);">(opt.)</span></label>
+        <select id="f-titre" name="titre" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+          <option value="">—</option>
+          <option>Dr</option><option>Prof.</option><option>Amb.</option><option>Me</option>
+        </select>
+      </div>
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Nom et prénom *</label>
+        <input type="text" id="f-name" name="nom" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+        <div id="err-name" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+    </div>
+
+    <!-- Ligne 2 : Fonction + Email -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Fonction *</label>
+        <input type="text" id="f-fonction" name="fonction" placeholder="Responsable de programme, Expert..." style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+        <div id="err-fonction" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Adresse électronique *</label>
+        <input type="email" id="f-email" name="email" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+        <div id="err-email" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+    </div>
+
+    <!-- Ligne 3 : Organisation + Téléphone -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Organisation *</label>
+        <input type="text" id="f-org" name="organisation" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+        <div id="err-org" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Téléphone professionnel *</label>
+        <input type="tel" id="f-tel" name="telephone" placeholder="+49 · +33 · +225..." style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+        <div id="err-tel" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+    </div>
+
+    <!-- Ligne 4 : Type d'organisation + Motif -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Type d'organisation *</label>
+        <select id="f-type" name="type_organisation" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+          <option value="">—</option>
+          <option>Ambassade</option>
+          <option>Organisation internationale</option>
+          <option>Agence de coopération</option>
+          <option>Université</option>
+          <option>Fondation</option>
+          <option>ONG</option>
+          <option>Administration publique</option>
+          <option>Entreprise</option>
+          <option>Autre</option>
+        </select>
+        <div id="err-type" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Motif de la demande *</label>
+        <select id="f-motif" name="motif" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+          <option value="">—</option>
+          <option>Préparer une prise de fonction ou une mission</option>
+          <option>Demander un devis</option>
+          <option>Organiser une préparation pour une équipe</option>
+          <option>Mettre en place plusieurs sessions</option>
+          <option>Demander une préparation sur mesure</option>
+          <option>Autre demande</option>
+        </select>
+        <div id="err-motif" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+    </div>
+
+    <!-- Ligne 5 : Programmes + Participants -->
+    <div style="display:grid;grid-template-columns:1fr 180px;gap:0.75rem;margin-bottom:1rem;">
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Programme(s) souhaité(s)</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.25rem 1.25rem;padding:0.75rem 1rem;border:1px solid var(--rule);background:var(--white);">
+          <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AP — Analyse Pays" style="accent-color:var(--ink);"> Analyse Pays</label>
+          <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AR — Analyse Régionale" style="accent-color:var(--ink);"> Analyse Régionale</label>
+          <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="OIPH — Orientation & Immersion Pays Hôtes" style="accent-color:var(--ink);"> Orientation &amp; Immersion</label>
+          <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="D&N — Diplomatie & Négociation" style="accent-color:var(--ink);"> Diplomatie &amp; Négociation</label>
+          <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="CI — Compétences Interculturelles" style="accent-color:var(--ink);"> Compétences Interculturelles</label>
+          <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="LI — Leadership interculturel & coordination terrain" style="accent-color:var(--ink);"> Leadership interculturel</label>
+          <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="Programme sur mesure" style="accent-color:var(--ink);"> Sur mesure</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Participants *</label>
+        <select id="f-nb" name="participants" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;">
+          <option value="">—</option>
+          <option>1 personne</option>
+          <option>2 à 5 personnes</option>
+          <option>6 à 10 personnes</option>
+          <option>Plus de 10 personnes</option>
+        </select>
+        <div id="err-nb" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+      </div>
+    </div>
+
+    <!-- Ligne 6 : Contexte -->
+    <div style="margin-bottom:1.5rem;">
+      <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;">Contexte de la mission ou du programme *</label>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;color:var(--ink3);margin:0 0 0.4rem;font-style:italic;">Quelques lignes suffisent pour nous permettre d'évaluer votre demande.</p>
+      <textarea id="f-contexte" name="contexte" rows="4" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.6rem 0.75rem;outline:none;box-sizing:border-box;resize:vertical;min-height:90px;"></textarea>
+      <div id="err-contexte" style="display:none;color:#c0392b;font-family:'Source Sans 3',sans-serif;font-size:0.68rem;margin-top:3px;">Requis</div>
+    </div>
+
+    <!-- FormSubmit caché -->
+    <form id="aicdi-form" method="POST" action="https://formsubmit.co/contact@aicdi-formation.com" style="display:none;">
+      <input type="hidden" name="_replyto" id="h-replyto">
+      <input type="hidden" name="_subject" id="h-subject">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://aicdi-formation.com/#merci">
+      <input type="hidden" name="Civilite" id="h-civilite">
+      <input type="hidden" name="Titre" id="h-titre">
+      <input type="hidden" name="Nom" id="h-name">
+      <input type="hidden" name="Fonction" id="h-fonction">
+      <input type="hidden" name="Email" id="h-email">
+      <input type="hidden" name="Organisation" id="h-org">
+      <input type="hidden" name="Telephone" id="h-tel">
+      <input type="hidden" name="Type_organisation" id="h-type">
+      <input type="hidden" name="Motif" id="h-motif">
+      <input type="hidden" name="Programme" id="h-prog">
+      <input type="hidden" name="Participants" id="h-nb">
+      <input type="hidden" name="Contexte_mission" id="h-contexte">
+    </form>
+
+    <button id="btn-send" class="btn-primary" style="width:100%;margin-top:0.25rem;" onclick="sendDevis()">Envoyer la demande →</button>
+    <div id="form-ok"></div>
+  </div>
+
 </div>
 <div class="page" id="pg-tarifs">
 <div class="pg-header"><div class="pg-header-inner">
@@ -3806,7 +3791,7 @@ p.t.on { display: inline !important; }
       <span class="footer-copy">© 2026 AICDI · Ivoire Consulting · Franck Albert Vanié · Gewerbeanmeldung 01.12.2025 · 
         <button onclick="go(&#39;impressum&#39;)" style="background:none;border:none;cursor:pointer;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);text-decoration:underline;">Mentions légales</button> · 
         <button onclick="go('privacy')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);text-decoration:underline;">Politique de confidentialité</button> · 
-        <button onclick="go('cgv')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3&#39;,sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);text-decoration:underline;">CGV</button> · 
+        <button onclick="go('cgv')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);text-decoration:underline;">CGV</button> · 
         <button onclick="go('contact')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.75);text-decoration:underline;">Contact</button>
         Tous droits réservés
         
@@ -3830,7 +3815,7 @@ function go(id) {
   }
   var navBtn = document.getElementById('nav-' + id);
   if (navBtn) navBtn.classList.add('active');
-  if (id === 'diagnostic') initQuiz();
+  if (id === 'diagnostic') { setTimeout(initQuiz, 30); }
 }
 
 function toggleMenu() {
@@ -4058,12 +4043,12 @@ function initQuiz() {
   quizShuffled = quizData.slice();
   quizCurrent = 0;
   quizScores = [];
-  // Small delay to ensure DOM is ready after page switch
-  setTimeout(function() { renderQuiz(); }, 50);
+  renderQuiz();
 }
 
 function renderQuiz() {
   var q = quizShuffled[quizCurrent];
+  if (!q) return; // guard: quizShuffled vide ou non initialisé
   var pct = Math.round((quizCurrent / quizShuffled.length) * 100);
   var prog = document.getElementById('qprogress');
   if (prog) prog.style.width = pct + '%';
@@ -4079,11 +4064,7 @@ function renderQuiz() {
   }).join('');
 
   var container = document.getElementById('quiz-container');
-  if (!container || !container.offsetParent) {
-    // Page not visible yet, retry
-    setTimeout(renderQuiz, 100);
-    return;
-  }
+  if (!container) return;
   container.innerHTML =
     '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">'
     + '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#9B7D2E;">' + q.label + '</p>'
@@ -4166,12 +4147,8 @@ function showQuizResult() {
       + '<span style="color:#D4B96A;font-weight:700;flex-shrink:0;">—</span><span>' + r + '</span></div>';
   }).join('');
 
-  var container = document.getElementById('quiz-container');
-  if (!container || !container.offsetParent) {
-    // Page not visible yet, retry
-    setTimeout(renderQuiz, 100);
-    return;
-  }
+    var container = document.getElementById('quiz-container');
+  if (!container) return;
   container.innerHTML =
     '<div style="background:#1A1A2E;padding:2.5rem;margin-bottom:1.5rem;">'
     + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">'
