@@ -152,6 +152,8 @@ nav {
 /* ── PAGES ─────────────────────────────── */
 .page{display:none;}
 .page.active{display:block;}
+/* Footer always visible */
+#global-footer{display:block!important;}
 
 /* ── HERO ───────────────────────────────── */
 .hero {
@@ -3917,7 +3919,16 @@ function aicdiPopClose(){
   if(window.location.hash==='#merci'){
     go('contact');
     setTimeout(function(){aicdiPopShow();history.replaceState(null,'',window.location.pathname);},400);
+  } else if(window.location.hash==='#diagnostic'){
+    go('diagnostic');
   }
+  // Ensure quiz-container gets populated if page loads on diagnostic
+  window.addEventListener('load', function() {
+    var qc = document.getElementById('quiz-container');
+    if (qc && qc.innerHTML.trim() === '' && document.getElementById('pg-diagnostic').classList.contains('active')) {
+      initQuiz();
+    }
+  });
 })();
 function goContact(motif) {
   go('contact');
@@ -4047,7 +4058,8 @@ function initQuiz() {
   quizShuffled = quizData.slice();
   quizCurrent = 0;
   quizScores = [];
-  renderQuiz();
+  // Small delay to ensure DOM is ready after page switch
+  setTimeout(function() { renderQuiz(); }, 50);
 }
 
 function renderQuiz() {
@@ -4067,7 +4079,11 @@ function renderQuiz() {
   }).join('');
 
   var container = document.getElementById('quiz-container');
-  if (!container) return;
+  if (!container || !container.offsetParent) {
+    // Page not visible yet, retry
+    setTimeout(renderQuiz, 100);
+    return;
+  }
   container.innerHTML =
     '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">'
     + '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#9B7D2E;">' + q.label + '</p>'
@@ -4151,7 +4167,11 @@ function showQuizResult() {
   }).join('');
 
   var container = document.getElementById('quiz-container');
-  if (!container) return;
+  if (!container || !container.offsetParent) {
+    // Page not visible yet, retry
+    setTimeout(renderQuiz, 100);
+    return;
+  }
   container.innerHTML =
     '<div style="background:#1A1A2E;padding:2.5rem;margin-bottom:1.5rem;">'
     + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">'
