@@ -141,11 +141,11 @@ nav {
 }
 .nav-contact {
   background:var(--ink);color:var(--white);
-  padding:9px 22px;
+  padding:8px 16px;
   font-family:'Source Sans 3',sans-serif;
-  font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  border:none;cursor:pointer;transition:background 0.2s;
-  margin-left:1rem;
+  font-size:0.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:background 0.2s;
+  margin-left:0.75rem;white-space:nowrap;flex-shrink:0;
 }
 .nav-contact:hover{background:var(--gold2);}
 
@@ -1006,6 +1006,35 @@ p.t.on { display: inline !important; }
   #pg-formations div[style*="display:grid;grid-template-columns:1fr 1fr;gap:2rem"] { display: block !important; }
   #pg-formations div[style*="display:grid;grid-template-columns:1fr 1fr;gap:2rem"] > div:first-child { margin-bottom: 1.5rem; }
 }
+
+/* ── POPUP CONFIRMATION ─────────────────── */
+#aicdi-popup-overlay {
+  display:none;position:fixed;inset:0;
+  background:rgba(26,26,46,0.75);
+  z-index:9000;align-items:center;justify-content:center;
+  padding:1.5rem;
+  backdrop-filter:blur(2px);
+}
+#aicdi-popup-overlay.active { display:flex; }
+#aicdi-popup-box {
+  background:var(--ink);
+  border-left:4px solid #C9A84C;
+  max-width:520px;width:100%;
+  padding:2.5rem 2rem 2rem 2rem;
+  position:relative;
+  animation:popupIn 0.25s ease;
+}
+@keyframes popupIn {
+  from { opacity:0; transform:translateY(-16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+#aicdi-popup-close {
+  position:absolute;top:1rem;right:1rem;
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,0.4);font-size:1.25rem;line-height:1;
+  transition:color 0.2s;
+}
+#aicdi-popup-close:hover { color:rgba(255,255,255,0.9); }
 </style>
 </head>
 <body data-lang="fr">
@@ -1014,7 +1043,7 @@ p.t.on { display: inline !important; }
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
-      Académie Ivoirienne pour la Coopération et le Développement International · Côte d'Ivoire
+      AICDI · Ivoire Consulting · Freiburg&nbsp;🇩🇪 · Abidjan&nbsp;🇨🇮
     </div>
     <div class="lang-bar">
       <span style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.75);text-transform:uppercase;">Français</span>
@@ -3100,32 +3129,9 @@ p.t.on { display: inline !important; }
         <textarea id="f-contexte" name="contexte" rows="4" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;resize:vertical;min-height:120px;"></textarea>
         <div class="field-error" id="err-contexte" style="display:none;color:#c0392b;font-size:0.75rem;margin-top:4px;">Ce champ est requis.</div>
       </div>
-      <div style="margin-bottom:1.5rem;">
-        <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.5rem;">Message complémentaire <span style="font-weight:400;font-size:0.68rem;text-transform:none;letter-spacing:0;">(optionnel)</span></label>
-        <textarea id="f-msg" name="message" rows="4" style="width:100%;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);background:var(--white);border:1px solid var(--rule);padding:0.75rem 1rem;outline:none;resize:vertical;min-height:120px;"></textarea>
-      </div>
+
       <button id="btn-send" class="btn-primary" style="width:100%;" onclick="sendDevis()">Envoyer la demande →</button>
-      <div id="form-ok" style="display:none;margin-top:1.5rem;">
-        <div style="background:var(--ink);border-left:4px solid #C9A84C;padding:2rem 2rem 1.75rem 2rem;position:relative;">
-          <!-- Titre -->
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
-            <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#C9A84C;border-radius:50%;flex-shrink:0;">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="#1A1A2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <p style="font-family:'Libre Baskerville',Georgia,serif;font-size:1rem;font-weight:400;color:#FFFFFF;margin:0;">Votre demande a bien été transmise.</p>
-          </div>
-          <!-- Corps -->
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.75);line-height:1.8;margin:0 0 1rem 0;">
-            Nous vous remercions pour votre prise de contact avec AICDI.<br>
-            L'équipe AICDI examinera votre demande et reviendra vers vous sous <strong style="color:#C9A84C;font-weight:600;">24 heures ouvrées</strong>.
-          </p>
-          <!-- Urgence -->
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7;margin:0;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
-            Si votre demande concerne une mission, un programme ou une intervention urgente, vous pouvez également nous écrire à&nbsp;
-            <a href="mailto:contact@aicdi-formation.com" style="color:#C9A84C;text-decoration:none;font-weight:600;">contact@aicdi-formation.com</a>
-          </p>
-        </div>
-      </div>
+      <div id="form-ok"></div>
     </div>
 
     <!-- COORDONNÉES -->
@@ -3971,22 +3977,36 @@ function sendDevis() {
   form.submit();
 }
 
-// ── Affichage confirmation après soumission FormSubmit ──
+// ── Popup confirmation AICDI ──
+function showAICDIPopup() {
+  var overlay = document.getElementById('aicdi-popup-overlay');
+  if (overlay) {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    // Auto-close after 8 secondes
+    setTimeout(closeAICDIPopupDirect, 8000);
+  }
+}
+function closeAICDIPopupDirect() {
+  var overlay = document.getElementById('aicdi-popup-overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+function closeAICDIPopup(e) {
+  if (e.target === document.getElementById('aicdi-popup-overlay')) {
+    closeAICDIPopupDirect();
+  }
+}
+// ── Détection retour FormSubmit (#merci) ──
 (function() {
   if (window.location.hash === '#merci') {
     go('contact');
     setTimeout(function() {
-      var ok = document.getElementById('form-ok');
-      if (ok) {
-        ok.style.display = 'block';
-        ok.scrollIntoView({behavior:'smooth', block:'center'});
-      }
-      // Masquer le formulaire et le bouton
-      var btn = document.getElementById('btn-send');
-      if (btn) btn.style.display = 'none';
-      // Clean URL
+      showAICDIPopup();
       history.replaceState(null, '', window.location.pathname);
-    }, 400);
+    }, 500);
   }
 })();
 
@@ -4241,4 +4261,29 @@ function showQuizResult() {
     + '<button onclick="initQuiz()" style="background:transparent;color:#1A1A2E;border:1px solid #E8E4DC;padding:14px 28px;cursor:pointer;font-family:var(--sans);font-size:0.78rem;">Recommencer</button>'
     + '</div>';
 }</script>
+
+<!-- ═══ POPUP CONFIRMATION ═══ -->
+<div id="aicdi-popup-overlay" onclick="closeAICDIPopup(event)">
+  <div id="aicdi-popup-box" role="dialog" aria-modal="true">
+    <button id="aicdi-popup-close" onclick="closeAICDIPopupDirect()" aria-label="Fermer">✕</button>
+    <!-- Icône + titre -->
+    <div style="display:flex;align-items:center;gap:0.875rem;margin-bottom:1.5rem;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:#C9A84C;border-radius:50%;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9l4 4L14.5 5" stroke="#1A1A2E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <p style="font-family:'Libre Baskerville',Georgia,serif;font-size:1.05rem;color:#FFFFFF;margin:0;line-height:1.4;">Votre demande a bien été transmise.</p>
+    </div>
+    <!-- Corps -->
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.72);line-height:1.85;margin:0 0 1.25rem 0;">
+      Nous vous remercions pour votre prise de contact avec AICDI.<br>
+      L'équipe AICDI examinera votre demande et reviendra vers vous sous&nbsp;<strong style="color:#C9A84C;">24&nbsp;heures ouvrées</strong>.
+    </p>
+    <!-- Urgence -->
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;">
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.75;margin:0;">
+        Si votre demande concerne une mission, un programme ou une intervention urgente, vous pouvez également nous écrire à&nbsp;<a href="mailto:contact@aicdi-formation.com" style="color:#C9A84C;text-decoration:none;font-weight:600;">contact@aicdi-formation.com</a>
+      </p>
+    </div>
+  </div>
+</div>
 </body></html>
