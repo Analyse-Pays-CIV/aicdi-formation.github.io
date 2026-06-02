@@ -4108,43 +4108,59 @@ function sendDevis() {
   fc('err-contexte','f-contexte'); if(!ctx)  fe('err-contexte','f-contexte');
   if(!ok){ document.querySelector('#pg-contact .cnt').scrollIntoView({behavior:'smooth'}); return; }
 
-  // Désactiver bouton
-  var btn = document.getElementById('btn-send');
-  if(btn){ btn.disabled=true; btn.textContent='Envoi en cours…'; }
+  // Construction du corps de l'email
+  var sujet = 'Demande AICDI — ' + org + ' — ' + motif;
+  var corps =
+    'NOUVELLE DEMANDE AICDI' +
+    '
+=================================' +
+    '
+' +
+    '
+Civilite     : ' + civ +
+    '
+Titre        : ' + tit +
+    '
+Nom          : ' + name +
+    '
+Fonction     : ' + fn +
+    '
+Email        : ' + email +
+    '
+Organisation : ' + org +
+    '
+Telephone    : ' + tel +
+    '
+Type org.    : ' + type +
+    '
+Motif        : ' + motif +
+    '
+Programme(s) : ' + prog +
+    '
+Participants : ' + nb +
+    '
+' +
+    '
+CONTEXTE DE MISSION' +
+    '
+-------------------' +
+    '
+' + ctx +
+    '
+' +
+    '
+=================================' +
+    '
+Envoye depuis aicdi-formation.com';
 
-  // Envoi Google Apps Script
-  var payload = JSON.stringify({
-    civilite:civ, titre:tit, nom:name, fonction:fn,
-    email:email, organisation:org, telephone:tel,
-    type_org:type, motif:motif, programmes:prog,
-    participants:nb, contexte:ctx
-  });
+  // Ouvrir le client email avec tout pré-rempli
+  window.location.href =
+    'mailto:contact@aicdi-formation.com' +
+    '?subject=' + encodeURIComponent(sujet) +
+    '&body='    + encodeURIComponent(corps);
 
-  fetch('https://script.google.com/macros/s/AKfycbw3Zon9S5MlmWC4CRDm6c6IhTo3-J1eIE-G0fbetGRlpTuAk1IwW_LdC3GUOq90UriD/exec', {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: payload
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(data){
-    if(data.status==='ok'){
-      aicdiPopShow();
-    } else {
-      alert('Une erreur est survenue. Merci de nous contacter directement : contact@aicdi-formation.com');
-    }
-  })
-  .catch(function(){
-    var mailBody = 'Civilite : '+civ+'\nNom : '+name+'\nFonction : '+fn
-      +'\nEmail : '+email+'\nOrganisation : '+org+'\nTelephone : '+tel
-      +'\nType : '+type+'\nMotif : '+motif+'\nProgrammes : '+prog
-      +'\nParticipants : '+nb+'\n\nContexte :\n'+ctx;
-    window.location.href = 'mailto:contact@aicdi-formation.com'
-      +'?subject='+encodeURIComponent('Demande AICDI — '+org)
-      +'&body='+encodeURIComponent(mailBody);
-  })
-  .finally(function(){
-    if(btn){ btn.disabled=false; btn.textContent='Envoyer la demande →'; }
-  });
+  // Afficher le popup de confirmation
+  setTimeout(function(){ aicdiPopShow(); }, 1000);
 }
 
 
