@@ -3398,7 +3398,7 @@ select.cform-input {
       </div>
 
       <!-- FormSubmit caché -->
-      <form id="aicdi-form" method="POST" action="https://formsubmit.co/contact@aicdi-formation.com" style="display:none;">
+      <form id="aicdi-form" method="POST" action="#" style="display:none;">
         <input type="hidden" name="_replyto" id="h-replyto">
         <input type="hidden" name="_subject" id="h-subject">
         <input type="hidden" name="_template" value="table">
@@ -4092,38 +4092,59 @@ function sendDevis() {
   var progBoxes = document.querySelectorAll('input[name="programme"]:checked');
   var prog = Array.from(progBoxes).map(function(cb){return cb.value;}).join(', ')||'—';
 
-  // ── Validation ──
+  // Validation
   var ok = true;
-  function fe(id,elId){
-    var d=document.getElementById(id); if(d)d.style.display='block';
-    var e=document.getElementById(elId); if(e)e.style.borderColor='#c0392b';
-    ok=false;
-  }
-  function fc(id,elId){
-    var d=document.getElementById(id); if(d)d.style.display='none';
-    var e=document.getElementById(elId); if(e)e.style.borderColor='';
-  }
-  fc('err-civilite','f-civilite'); if(!civ) fe('err-civilite','f-civilite');
+  function fe(id,elId){ var d=document.getElementById(id); if(d)d.style.display='block'; var e=document.getElementById(elId); if(e)e.style.borderColor='#c0392b'; ok=false; }
+  function fc(id,elId){ var d=document.getElementById(id); if(d)d.style.display='none';  var e=document.getElementById(elId); if(e)e.style.borderColor=''; }
+  fc('err-civilite','f-civilite'); if(!civ)  fe('err-civilite','f-civilite');
   fc('err-name','f-name');         if(!name) fe('err-name','f-name');
-  fc('err-fonction','f-fonction'); if(!fn) fe('err-fonction','f-fonction');
+  fc('err-fonction','f-fonction'); if(!fn)   fe('err-fonction','f-fonction');
   fc('err-email','f-email');       if(!email||!email.match(/^[^@]+@[^@]+\.[^@]+$/)) fe('err-email','f-email');
-  fc('err-org','f-org');           if(!org) fe('err-org','f-org');
-  fc('err-tel','f-tel');           if(!tel) fe('err-tel','f-tel');
+  fc('err-org','f-org');           if(!org)  fe('err-org','f-org');
+  fc('err-tel','f-tel');           if(!tel)  fe('err-tel','f-tel');
   fc('err-type','f-type');         if(!type) fe('err-type','f-type');
-  fc('err-motif','f-motif');       if(!motif) fe('err-motif','f-motif');
-  fc('err-nb','f-nb');             if(!nb) fe('err-nb','f-nb');
-  fc('err-contexte','f-contexte'); if(!ctx) fe('err-contexte','f-contexte');
+  fc('err-motif','f-motif');       if(!motif)fe('err-motif','f-motif');
+  fc('err-nb','f-nb');             if(!nb)   fe('err-nb','f-nb');
+  fc('err-contexte','f-contexte'); if(!ctx)  fe('err-contexte','f-contexte');
   if(!ok){ document.querySelector('#pg-contact .cnt').scrollIntoView({behavior:'smooth'}); return; }
 
-  // ── Populate hidden form and submit ──
-  var set=function(id,v){var e=document.getElementById(id);if(e)e.value=v;};
-  set('h-replyto', email);
-  set('h-subject', 'Demande AICDI — '+org+' — '+motif);
-  set('h-civilite', civ); set('h-titre', tit); set('h-name', name);
-  set('h-fonction', fn);  set('h-email', email); set('h-org', org);
-  set('h-tel', tel);      set('h-type', type);   set('h-motif', motif);
-  set('h-prog', prog);    set('h-nb', nb);        set('h-contexte', ctx);
-  document.getElementById('aicdi-form').submit();
+  // Désactiver bouton
+  var btn = document.getElementById('btn-send');
+  if(btn){ btn.disabled=true; btn.textContent='Envoi en cours…'; }
+
+  // Envoi Google Apps Script
+  var payload = JSON.stringify({
+    civilite:civ, titre:tit, nom:name, fonction:fn,
+    email:email, organisation:org, telephone:tel,
+    type_org:type, motif:motif, programmes:prog,
+    participants:nb, contexte:ctx
+  });
+
+  fetch('https://script.google.com/macros/s/AKfycbzw4UPT8Cta-wP4555vm8_bVzMG7vTn_--QJK3uZPUin5-qW2T-MzLBS7oSlcv-ms9W/exec', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: payload
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if(data.status==='ok'){
+      aicdiPopShow();
+    } else {
+      alert('Une erreur est survenue. Merci de nous contacter directement : contact@aicdi-formation.com');
+    }
+  })
+  .catch(function(){
+    var mailBody = 'Civilite : '+civ+'\nNom : '+name+'\nFonction : '+fn
+      +'\nEmail : '+email+'\nOrganisation : '+org+'\nTelephone : '+tel
+      +'\nType : '+type+'\nMotif : '+motif+'\nProgrammes : '+prog
+      +'\nParticipants : '+nb+'\n\nContexte :\n'+ctx;
+    window.location.href = 'mailto:contact@aicdi-formation.com'
+      +'?subject='+encodeURIComponent('Demande AICDI — '+org)
+      +'&body='+encodeURIComponent(mailBody);
+  })
+  .finally(function(){
+    if(btn){ btn.disabled=false; btn.textContent='Envoyer la demande →'; }
+  });
 }
 
 
