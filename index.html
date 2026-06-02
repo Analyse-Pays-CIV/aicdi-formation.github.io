@@ -97,11 +97,11 @@ nav {
 .nav-menu {display:flex;align-items:center;gap:0;}
 .nitem {position:relative;}
 .nlink {
-  display:flex;align-items:center;gap:4px;
+  display:flex;align-items:center;gap:3px;
   color:var(--ink3);
   font-family:'Source Sans 3',sans-serif;
-  font-size:0.73rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
-  padding:0 1rem;height:68px;
+  font-size:0.68rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;
+  padding:0 0.6rem;height:68px;
   background:none;border:none;cursor:pointer;
   transition:color 0.2s;white-space:nowrap;
   border-bottom:2px solid transparent;
@@ -141,11 +141,11 @@ nav {
 }
 .nav-contact {
   background:var(--ink);color:var(--white);
-  padding:8px 16px;
+  padding:7px 12px;
   font-family:'Source Sans 3',sans-serif;
-  font-size:0.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  font-size:0.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;
   border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:background 0.2s;
-  margin-left:0.75rem;white-space:nowrap;flex-shrink:0;
+  margin-left:0.5rem;white-space:nowrap;flex-shrink:0;
 }
 .nav-contact:hover{background:var(--gold2);}
 
@@ -3102,14 +3102,14 @@ p.t.on { display: inline !important; }
       <div style="display:grid;grid-template-columns:1fr 200px;gap:0.75rem;margin-bottom:1rem;">
         <div>
           <label style="display:block;font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);margin-bottom:0.4rem;">Programme(s) souhaité(s)</label>
-          <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1.25rem;padding:0.65rem 0.875rem;border:1px solid var(--rule);background:var(--white);">
-            <label style="display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AP — Analyse Pays"> AP</label>
-            <label style="display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AR — Analyse Régionale"> AR</label>
-            <label style="display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="OIPH — Orientation & Immersion"> OIPH</label>
-            <label style="display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="D&N — Diplomatie & Négociation"> D&N</label>
-            <label style="display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="CI — Compétences Interculturelles"> CI</label>
-            <label style="display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="LI — Leadership Interculturel"> LI</label>
-            <label style="display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="Programme sur mesure"> Sur mesure</label>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;padding:0.75rem 0.875rem;border:1px solid var(--rule);background:var(--white);">
+            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AP — Analyse Pays" style="accent-color:var(--ink);"> Analyse Pays</label>
+            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="AR — Analyse Régionale" style="accent-color:var(--ink);"> Analyse Régionale</label>
+            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="OIPH — Orientation & Immersion Pays Hôtes" style="accent-color:var(--ink);"> Orientation &amp; Immersion Pays Hôtes</label>
+            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="D&N — Diplomatie & Négociation" style="accent-color:var(--ink);"> Diplomatie &amp; Négociation</label>
+            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="CI — Compétences Interculturelles" style="accent-color:var(--ink);"> Compétences Interculturelles</label>
+            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="LI — Leadership interculturel & coordination terrain" style="accent-color:var(--ink);"> Leadership interculturel &amp; coordination terrain</label>
+            <label style="display:flex;align-items:center;gap:0.5rem;font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);cursor:pointer;"><input type="checkbox" name="programme" value="Programme sur mesure" style="accent-color:var(--ink);"> Sur mesure</label>
           </div>
         </div>
         <div>
