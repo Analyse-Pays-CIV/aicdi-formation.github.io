@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
@@ -1296,6 +1295,7 @@ select.cform-input {
 </style>
 </head>
 <body data-lang="fr">
+
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-inner">
@@ -1303,13 +1303,9 @@ select.cform-input {
       AICDI · Ivoire Consulting · Freiburg&nbsp;🇩🇪 · Abidjan&nbsp;🇨🇮
     </div>
     <div class="lang-bar">
-      <div style="display:flex;align-items:center;gap:0;border:1px solid rgba(155,125,46,0.6);overflow:hidden;">
-      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:800;letter-spacing:2.5px;color:#1A1A2E;text-transform:uppercase;padding:5px 12px;background:#C9A84C;cursor:default;">FR</span>
-      <a href="/" onclick="localStorage.setItem('aicdi-lang','en')" style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2.5px;color:rgba(255,255,255,0.9);text-transform:uppercase;padding:5px 12px;background:rgba(255,255,255,0.1);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">EN</a>
-    </div>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.75);text-transform:uppercase;">Français</span>
     </div>
   </div>
-</div>
 </div>
 
 <!-- NAV -->
@@ -1341,7 +1337,7 @@ select.cform-input {
           <a href="#" onclick="go(&#39;j3&#39;)"><span class="drop-num">J.3</span>Jour 3 — Développement &amp; Terrain</a>
           <a href="#" onclick="go(&#39;nego&#39;)"><span class="drop-num">M+</span>Négociation culturelle</a>
           <a href="#" onclick="go(&#39;bonus&#39;)"><span class="drop-num">B+</span>Bonus — Sport &amp; Culture</a>
-          <a onclick="go('catalogue')" href="/AICDI_Catalogue_2026-2028.pdf" download="AICDI_Catalogue_2026-2028.pdf" style="border-top:1px solid var(--rule);margin-top:4px;padding-top:12px;color:var(--gold2);font-weight:600;"><span class="drop-num">📄</span>Télécharger le catalogue</a>
+          <a onclick="go('catalogue')" href="#" download="AICDI_Catalogue_2026-2028.pdf" style="border-top:1px solid var(--rule);margin-top:4px;padding-top:12px;color:var(--gold2);font-weight:600;"><span class="drop-num">📄</span>Télécharger le catalogue</a>
         </div>
       </div>
       <div class="nitem"><button class="nlink" onclick="go(&#39;vision&#39;)">Vision</button></div>
@@ -1361,6 +1357,7 @@ select.cform-input {
       <span></span><span></span><span></span>
     </button>
   </div>
+  <a href="/" style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2.5px;color:rgba(255,255,255,0.9);text-transform:uppercase;padding:5px 12px;border:1px solid rgba(201,168,76,0.6);text-decoration:none;margin-left:8px;border-radius:2px;" title="English version">EN</a>
 </nav>
 
 <!-- MOBILE MENU -->
@@ -1377,7 +1374,7 @@ select.cform-input {
       <a href="#" onclick="go(&#39;j3&#39;);closeMenu()">Jour 3 — Développement &amp; Terrain</a>
       <a href="#" onclick="go(&#39;nego&#39;);closeMenu()">Négociation culturelle</a>
       <a href="#" onclick="go(&#39;bonus&#39;);closeMenu()">Bonus — Sport &amp; Culture</a>
-      <a onclick="go('catalogue')" href="/AICDI_Catalogue_2026-2028.pdf" download="AICDI_Catalogue_2026-2028.pdf" style="color:var(--gold2);font-weight:600;border-top:1px solid var(--rule);margin-top:4px;padding-top:10px;">📄 Télécharger le catalogue</a>
+      <a onclick="go('catalogue')" href="#" download="AICDI_Catalogue_2026-2028.pdf" style="color:var(--gold2);font-weight:600;border-top:1px solid var(--rule);margin-top:4px;padding-top:10px;">📄 Télécharger le catalogue</a>
     </div>
   </div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;vision&#39;);closeMenu()">Notre Vision</button></div>
@@ -1393,6 +1390,11 @@ select.cform-input {
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;catalogue&#39;);closeMenu()">📄 Catalogue</button></div>
   <button class="mm-contact" onclick="go(&#39;contact&#39;);closeMenu()">Nous contacter</button>
   
+  <div class="mm-item" style="border-top:1px solid var(--rule);margin-top:8px;padding-top:4px;">
+    <a href="/" style="display:block;width:100%;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2);padding:12px 0;text-decoration:none;">
+      🌐 English version — EN
+    </a>
+  </div>
 </div>
 
 <!-- ═══ ACCUEIL ═══ -->
@@ -2050,7 +2052,7 @@ select.cform-input {
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--white);font-weight:400;">AICDI — Catalogue des programmes 2026–2028</h3>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Ivoire Consulting · Franck Albert Vanié · Freiburg &amp; Abidjan</p>
     </div>
-    <a href="/AICDI_Catalogue_2026-2028.pdf" download="AICDI_Catalogue_2026-2028.pdf" style="background:var(--gold);color:var(--ink);padding:14px 28px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap;">
+    <a onclick="go('catalogue')" href="#" download style="background:var(--gold);color:var(--ink);padding:14px 28px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap;">
       ↓ Télécharger le catalogue
     </a>
   </div>
@@ -2647,7 +2649,7 @@ select.cform-input {
 
     <div>
       <div style="background:var(--ink);padding:2rem 2rem 2.25rem;text-align:center;">
-        <img src="/Photo_Franck_Vanie.jpeg" alt="Franck Albert Vanié"
+        <img src="Photo_Franck_Vanie.jpeg" alt="Franck Albert Vanié"
           style="width:200px;height:200px;border-radius:50%;object-fit:cover;object-position:60% 25%;border:3px solid var(--gold);display:block;margin:0 auto 1.5rem;transform:scale(1.05);"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div style="display:none;width:200px;height:200px;border-radius:50%;background:var(--gold);margin:0 auto 1.5rem;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:3rem;color:var(--ink);font-weight:700;border:3px solid var(--gold-pale);">FV</div>
@@ -3260,7 +3262,7 @@ select.cform-input {
     </div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;">
       <button class="btn-primary" onclick="go('contact')">Nous contacter →</button>
-      <a href="/AICDI_Catalogue_2026-2028.pdf" download="AICDI_Catalogue_2026-2028.pdf" style="display:inline-flex;align-items:center;gap:8px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);border:1px solid rgba(155,125,46,0.4);padding:14px 28px;text-decoration:none;">📄 Télécharger le PDF</a>
+      <a onclick="go('catalogue')" href="#" download style="display:inline-flex;align-items:center;gap:8px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);border:1px solid rgba(155,125,46,0.4);padding:14px 28px;text-decoration:none;">📄 Télécharger le PDF</a>
     </div>
   </div>
 
