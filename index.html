@@ -1003,7 +1003,7 @@ html, body { overflow-x: hidden !important; }
 
 
 
-/* ── PUBLICS CONCERNÉS — visible sur mobile sous le hero ── */
+/* ── TARGET AUDIENCES — visible on mobile below the hero ── */
 
 @media(min-width:1025px){
   .hero-r-mobile { display: none !important; }
@@ -1310,7 +1310,6 @@ select.cform-input {
     </div>
   </div>
 </div>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -1329,19 +1328,24 @@ select.cform-input {
     </div>
     <div class="nav-menu">
       <div class="nitem"><button class="nlink" onclick="go(&#39;accueil&#39;)">Home</button></div>
-      <div class="nitem"><button class="nlink" onclick="go(&#39;diagnostic&#39;)">Self-Assessment</button></div>
-    <div class="nitem"><button class="nlink" onclick="go(&#39;quoi&#39;)">Our Programmes</button></div>
-    <div class="nitem"><button class="nlink" onclick="go(&#39;formations&#39;)">Training</button></div>
       <div class="nitem">
-        <button class="nlink">Programme <span class="arr">▼</span></button>
+        <button class="nlink">Take the Assessment <span class="arr">▼</span></button>
         <div class="drop">
-          <a href="#" onclick="go(&#39;programme&#39;)"><span class="drop-num">—</span>Overview</a>
-          <a href="#" onclick="go(&#39;j1&#39;)"><span class="drop-num">J.1</span>Day 1 — History &amp; Politics</a>
-          <a href="#" onclick="go(&#39;j2&#39;)"><span class="drop-num">J.2</span>Day 2 — Values, Culture &amp; Society</a>
-          <a href="#" onclick="go(&#39;j3&#39;)"><span class="drop-num">J.3</span>Day 3 — Development &amp; Field Realities</a>
-          <a href="#" onclick="go(&#39;nego&#39;)"><span class="drop-num">M+</span>Cultural Negotiation</a>
-          <a href="#" onclick="go(&#39;bonus&#39;)"><span class="drop-num">B+</span>Supplementary — Sport &amp; Culture</a>
-          <a href="AICDI_Catalogue_2026-2028_EN.pdf" download="AICDI_Catalogue_2026-2028_EN.pdf" style="border-top:1px solid var(--rule);margin-top:4px;padding-top:12px;color:var(--gold2);font-weight:600;"><span class="drop-num">📄</span>Download the Catalogue</a>
+          <a href="#" onclick="go('diagnostic-institution')"><span class="drop-num" style="background:var(--ink);">—</span>Institutional Assessment</a>
+          <a href="#" onclick="go('diagnostic')"><span class="drop-num">—</span>Individual Assessment</a>
+        </div>
+      </div>
+    <div class="nitem"><button class="nlink" onclick="go(&#39;quoi&#39;)">Our Programmes</button></div>
+    <div class="nitem">
+        <button class="nlink">Training <span class="arr">▼</span></button>
+        <div class="drop">
+          <a href="#" onclick="goSection('formations','parcours')"><span class="drop-num">—</span>Career Pathway</a>
+          <a href="#" onclick="goSection('formations','ap')"><span class="drop-num">AP</span>Country Analysis</a>
+          <a href="#" onclick="goSection('formations','ar')"><span class="drop-num">AR</span>Regional Analysis</a>
+          <a href="#" onclick="goSection('formations','oiph')"><span class="drop-num">OIPH</span>Host Country Orientation &amp; Immersion</a>
+          <a href="#" onclick="goSection('formations','ci')"><span class="drop-num">CI</span>Intercultural Competencies</a>
+          <a href="#" onclick="goSection('formations','dn')"><span class="drop-num">D&amp;N</span>Diplomacy &amp; Negotiation</a>
+          <a href="#" onclick="goSection('formations','li')"><span class="drop-num">LI</span>Intercultural Leadership</a>
         </div>
       </div>
       <div class="nitem"><button class="nlink" onclick="go(&#39;vision&#39;)">Vision</button></div>
@@ -1366,18 +1370,24 @@ select.cform-input {
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;accueil&#39;);closeMenu()">Home</button></div>
+    <div class="mm-item">
+    <button class="mm-link" onclick="toggleSub(&#39;sub-diagnostic&#39;)">Take the Assessment ▾</button>
+    <div class="mm-sub" id="sub-diagnostic">
+      <a href="#" onclick="go(&#39;diagnostic-institution&#39;);closeMenu()">Institutional Assessment</a>
+      <a href="#" onclick="go(&#39;diagnostic&#39;);closeMenu()">Individual Assessment</a>
+    </div>
+  </div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;quoi&#39;);closeMenu()">Our Programmes</button></div>
-  <div class="mm-item"><button class="mm-link" onclick="go(&#39;formations&#39;);closeMenu()">Training</button></div>
   <div class="mm-item">
-    <button class="mm-link" onclick="toggleSub(&#39;sub-prog&#39;)">Programme ▾</button>
-    <div class="mm-sub" id="sub-prog">
-      <a href="#" onclick="go(&#39;programme&#39;);closeMenu()">Overview</a>
-      <a href="#" onclick="go(&#39;j1&#39;);closeMenu()">Day 1 — History &amp; Politics</a>
-      <a href="#" onclick="go(&#39;j2&#39;);closeMenu()">Day 2 — Values, Culture &amp; Society</a>
-      <a href="#" onclick="go(&#39;j3&#39;);closeMenu()">Day 3 — Development &amp; Field Realities</a>
-      <a href="#" onclick="go(&#39;nego&#39;);closeMenu()">Cultural Negotiation</a>
-      <a href="#" onclick="go(&#39;bonus&#39;);closeMenu()">Supplementary — Sport &amp; Culture</a>
-      <a href="AICDI_Catalogue_2026-2028_EN.pdf" download="AICDI_Catalogue_2026-2028_EN.pdf" style="color:var(--gold2);font-weight:600;border-top:1px solid var(--rule);margin-top:4px;padding-top:10px;">📄 Download the Catalogue</a>
+    <button class="mm-link" onclick="toggleSub(&#39;sub-formations&#39;)">Training ▾</button>
+    <div class="mm-sub" id="sub-formations">
+      <a href="#" onclick="goSection('formations','parcours');closeMenu()">Career Pathway</a>
+      <a href="#" onclick="goSection('formations','ap');closeMenu()">AP — Country Analysis</a>
+      <a href="#" onclick="goSection('formations','ar');closeMenu()">AR — Regional Analysis</a>
+      <a href="#" onclick="goSection('formations','oiph');closeMenu()">OIPH — Host Country Orientation &amp; Immersion</a>
+      <a href="#" onclick="goSection('formations','ci');closeMenu()">CI — Intercultural Competencies</a>
+      <a href="#" onclick="goSection('formations','dn');closeMenu()">D&amp;N — Diplomacy &amp; Negotiation</a>
+      <a href="#" onclick="goSection('formations','li');closeMenu()">LI — Intercultural Leadership</a>
     </div>
   </div>
   <div class="mm-item"><button class="mm-link" onclick="go(&#39;vision&#39;);closeMenu()">Our Vision</button></div>
@@ -1410,7 +1420,7 @@ select.cform-input {
     <p class="hero-statement">Country analysis, contextual intelligence, and intercultural readiness — delivered within a professional, institutional, and strictly confidential framework.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="go('contact')">Request a Preparatory Consultation</button>
-      <button onclick="go('diagnostic')" style="background:rgba(255,255,255,0.08);color:var(--white);border:1px solid rgba(255,255,255,0.35);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;transition:all 0.2s;">Self-Assessment</button>
+      <button onclick="go('diagnostic-choix')" style="background:rgba(255,255,255,0.08);color:var(--white);border:1px solid rgba(255,255,255,0.35);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;transition:all 0.2s;">Self-Assessment</button>
     </div>
     <div style="display:flex;gap:2.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <div>
@@ -1606,9 +1616,9 @@ select.cform-input {
 <section style="background:var(--ink);padding:5rem 0;">
   <div style="max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
     <div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Accompagnement personnalisé</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Personalised Support</p>
       <h2 style="font-family:'Libre Baskerville',serif;font-size:1.8rem;color:var(--white);font-weight:700;margin-bottom:1.25rem;">Supporting Accompanying Families in International Assignments</h2>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1rem;">En complément des interventions institutionnelles, AICDI propose un accompagnement sur mesure pour diplomates, coopérants et leurs conjoints.</p>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1rem;">In addition to institutional engagements, AICDI offers tailored support for diplomats, cooperation officers, and their spouses.</p>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1rem;">Each engagement is tailored to the participant's level of responsibility, the specific mission context, and the political and institutional sensitivity of the operating environment.</p>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--gold-pale);line-height:1.75;font-style:italic;">The objective: concrete, discreet, and operational readiness.</p>
     </div>
@@ -1647,7 +1657,7 @@ select.cform-input {
       <button onclick="go('contact')" style="background:var(--ink);color:var(--white);padding:15px 32px;border:none;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;">
         Request a Preparatory Consultation →
       </button>
-      <button onclick="go('diagnostic')" style="background:rgba(155,125,46,0.15);color:var(--gold2);border:1px solid rgba(155,125,46,0.4);padding:15px 32px;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;">
+      <button onclick="go('diagnostic-choix')" style="background:rgba(155,125,46,0.15);color:var(--gold2);border:1px solid rgba(155,125,46,0.4);padding:15px 32px;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;">
         Self-Assessment
       </button>
     </div>
@@ -1777,8 +1787,8 @@ select.cform-input {
   <!-- EXPERTISE RÉGIONALE -->
   <div style="background:var(--ink);padding:2.5rem;margin-bottom:2rem;">
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Regional Dimension</p>
-    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;">Une expertise régionale</h3>
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.8;max-width:680px;">Les interventions peuvent intégrer les dynamiques ouest-africaines et les relations entre la Côte d'Ivoire et les pays voisins, selon le contexte de mission.</p>
+    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;">A Regional Footprint</h3>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.8;max-width:680px;">Engagements may incorporate West African dynamics and the relations between Côte d'Ivoire and neighbouring countries, depending on the mission context.</p>
   </div>
 
   <!-- PHRASE DE CLÔTURE -->
@@ -1883,11 +1893,116 @@ select.cform-input {
     Each programme is adapted to the participant's profile, mission context, and operational requirements of the field environment.
   </p>
 
+  <!-- CAREER PATHWAY -->
+  <div id="parcours" style="margin-bottom:1.5rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.5rem;">Phase · Modules</p>
+    <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--ink);font-weight:400;margin-bottom:0.5rem;">Career <em style="color:var(--gold2);">Pathway</em></h2>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);margin-bottom:1.5rem;">The 4 phases that structure an international assignment, and the modules associated with each.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="background:var(--ink);padding:1.75rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+        <span style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--gold-pale);">01</span>
+        <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);">Pre-Departure</h3>
+      </div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:0.85rem;">Understanding the country and region before taking up the assignment.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="display:inline-block;background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">AP</span>
+        <span style="display:inline-block;background:var(--gold);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">AR</span>
+        <span style="display:inline-block;background:var(--ink2);border:1px solid var(--gold);color:var(--gold-pale);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">CI</span>
+      </div>
+    </div>
+    <div style="background:var(--ink);padding:1.75rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+        <span style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--gold-pale);">02</span>
+        <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);">Taking Up the Assignment</h3>
+      </div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:0.85rem;">Securing operational integration on arrival.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="display:inline-block;background:var(--civ-green);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">OIPH</span>
+        <span style="display:inline-block;background:var(--ink2);border:1px solid var(--gold);color:var(--gold-pale);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">CI</span>
+      </div>
+    </div>
+    <div style="background:var(--ink);padding:1.75rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+        <span style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--gold-pale);">03</span>
+        <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);">Operational Integration</h3>
+      </div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:0.85rem;">Embedding effectiveness over the long term.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="display:inline-block;background:var(--civ-green);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">OIPH</span>
+        <span style="display:inline-block;background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">D&amp;N</span>
+        <span style="display:inline-block;background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">LI</span>
+      </div>
+    </div>
+    <div style="background:var(--ink);padding:1.75rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+        <span style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--gold-pale);">04</span>
+        <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);">During the Assignment</h3>
+      </div>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:0.85rem;">Strengthening capacities throughout the mission.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="display:inline-block;background:var(--ink2);border:1px solid var(--gold);color:var(--gold-pale);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">CI</span>
+        <span style="display:inline-block;background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">D&amp;N</span>
+        <span style="display:inline-block;background:var(--civ-orange);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:0.68rem;font-weight:700;padding:3px 9px;letter-spacing:1px;">LI</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIND YOUR MODULE -->
+  <div style="margin-bottom:1.5rem;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.5rem;">Your Situation</p>
+    <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--ink);font-weight:400;margin-bottom:0.5rem;">Find Your <em style="color:var(--gold2);">Module</em></h2>
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);margin-bottom:1.5rem;">Identify your situation to find the most relevant module(s).</p>
+  </div>
+  <div style="border:1px solid var(--rule);margin-bottom:3rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Taking up a diplomatic posting</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">AP · CI</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Assignment with a regional dimension</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">AR · AP</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Recently arrived in the field</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">OIPH</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Expatriate in post — deepening understanding</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">OIPH · CI</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Negotiation responsibilities</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">D&amp;N · AP</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Leading multicultural teams</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">LI · CI</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Establishing operations or investment</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">AP · AR</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Economic outreach mission</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">AP · AR · OIPH</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Economic delegation / chamber of commerce</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">AP · AR · D&amp;N</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.85rem 1.5rem;flex-wrap:wrap;">
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink);">Institutional partnerships</span>
+      <span style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);">AP · AR · D&amp;N</span>
+    </div>
+  </div>
+
   <!-- AP -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
+  <div id="ap" style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
     <div style="display:grid;grid-template-columns:auto 1fr;background:var(--ink);">
       <div style="background:var(--civ-orange);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:center;min-width:90px;">
-        <span style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--white);">CA</span>
+        <span style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--white);">AP</span>
       </div>
       <div style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div>
@@ -1921,10 +2036,10 @@ select.cform-input {
   </div>
 
   <!-- AR -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
+  <div id="ar" style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
     <div style="display:grid;grid-template-columns:auto 1fr;background:var(--ink);">
       <div style="background:var(--gold);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:center;min-width:90px;">
-        <span style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--white);">RA</span>
+        <span style="font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700;color:var(--white);">AR</span>
       </div>
       <div style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div>
@@ -1958,10 +2073,10 @@ select.cform-input {
   </div>
 
   <!-- OIPH -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
+  <div id="oiph" style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
     <div style="display:grid;grid-template-columns:auto 1fr;background:var(--ink);">
       <div style="background:var(--civ-green);padding:1.75rem 1.25rem;display:flex;align-items:center;justify-content:center;min-width:90px;">
-        <span style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--white);">HCOI</span>
+        <span style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--white);">OIPH</span>
       </div>
       <div style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div>
@@ -1997,7 +2112,7 @@ select.cform-input {
   <!-- D&N + CI -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem;">
 
-    <div style="border:1px solid var(--rule);overflow:hidden;">
+    <div id="dn" style="border:1px solid var(--rule);overflow:hidden;">
       <div style="display:flex;align-items:stretch;background:var(--ink);">
         <div style="background:var(--civ-orange);padding:1.5rem;display:flex;align-items:center;justify-content:center;min-width:80px;">
           <span style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--white);">D&amp;N</span>
@@ -2021,10 +2136,10 @@ select.cform-input {
       </div>
     </div>
 
-    <div style="border:1px solid var(--rule);overflow:hidden;">
+    <div id="ci" style="border:1px solid var(--rule);overflow:hidden;">
       <div style="display:flex;align-items:stretch;background:var(--ink);">
         <div style="background:var(--ink2);border-right:2px solid var(--gold);padding:1.5rem;display:flex;align-items:center;justify-content:center;min-width:80px;">
-          <span style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold-pale);">IC</span>
+          <span style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold-pale);">CI</span>
         </div>
         <div style="padding:1.25rem 1.5rem;">
           <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;">Specialisation</p>
@@ -2033,9 +2148,9 @@ select.cform-input {
       </div>
       <div style="padding:1.75rem;background:var(--white);">
         <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.5rem;">Objective</p>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);line-height:1.75;margin-bottom:1rem;">Renforcer l'efficacité interculturelle avant ou en cours de mission.</p>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);line-height:1.75;margin-bottom:1rem;">Strengthening intercultural effectiveness before or during an assignment.</p>
         <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.5rem;">Target Profiles</p>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);line-height:1.75;margin-bottom:1rem;">Tous professionnels en mobilité internationale.</p>
+        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);line-height:1.75;margin-bottom:1rem;">All professionals on international assignment.</p>
         <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.5rem;">Core Competencies Developed</p>
         <div style="display:flex;flex-direction:column;gap:0.5rem;">
           <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Understanding intercultural misunderstandings and communication barriers</div>
@@ -2049,8 +2164,8 @@ select.cform-input {
   <!-- CATALOGUE PDF -->
   <div style="background:var(--ink);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem;">
     <div>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;opacity:0.7;">Catalogue officiel</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--white);font-weight:400;">AICDI — Catalogue des programmes 2026–2028</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;opacity:0.7;">Official Catalogue</p>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--white);font-weight:400;">AICDI — Training Programme Catalogue 2026–2028</h3>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Ivoire Consulting · Franck Albert Vanié · Freiburg &amp; Abidjan</p>
     </div>
     <a href="AICDI_Catalogue_2026-2028_EN.pdf" download="AICDI_Catalogue_2026-2028_EN.pdf" style="background:var(--gold);color:var(--ink);padding:14px 28px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap;">
@@ -2059,19 +2174,19 @@ select.cform-input {
   </div>
 
     <!-- LI -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
+  <div id="li" style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
     <div style="display:grid;grid-template-columns:auto 1fr;background:var(--ink);">
       <div style="background:var(--ink2);border-right:2px solid var(--civ-orange);padding:1.75rem 1.25rem;display:flex;align-items:center;justify-content:center;min-width:90px;">
-        <span style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--civ-orange);text-align:center;line-height:1.2;">IL</span>
+        <span style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--civ-orange);text-align:center;line-height:1.2;">LI</span>
       </div>
       <div style="padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div>
           <p style="font-family:'Source Sans 3',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;">Specialisation</p>
-          <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;color:var(--white);font-weight:700;">Leadership interculturel &amp; coordination d'équipes terrain</h3>
+          <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;color:var(--white);font-weight:700;">Intercultural Leadership &amp; Field Team Coordination</h3>
         </div>
         <div style="text-align:right;flex-shrink:0;">
           <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);">Format: <strong style="color:var(--gold-pale);">In-person / Remote</strong></p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);">Duration: <strong style="color:var(--gold-pale);">Sur mesure</strong></p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.5);">Duration: <strong style="color:var(--gold-pale);">Custom</strong></p>
         </div>
       </div>
     </div>
@@ -2079,7 +2194,7 @@ select.cform-input {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
         <div>
           <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.5rem;">Objective</p>
-          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.75;margin-bottom:1.25rem;">Préparer des responsables amenés à coordonner des équipes, partenaires et interlocuteurs institutionnels dans des environnements multiculturels en Afrique de l'Ouest.</p>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.75;margin-bottom:1.25rem;">To prepare managers tasked with coordinating teams, partners, and institutional counterparts in multicultural environments across West Africa.</p>
           <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.5rem;">Target Profiles</p>
           <div style="display:flex;flex-direction:column;gap:0.4rem;">
             <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Project leads and coordinators</div>
@@ -2129,506 +2244,8 @@ select.cform-input {
   <!-- CTA -->
   <div style="display:flex;gap:1rem;flex-wrap:wrap;">
     <button class="btn-primary" onclick="go('contact')">Prepare Your Assignment →</button>
-    <button class="btn-outline" onclick="go('programme')">View the Programme</button>
-    <button onclick="go('diagnostic')" style="background:transparent;color:var(--ink3);border:1px solid var(--rule);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Self-Assessment</button>
-  </div>
-
-</div>
-</div>
-
-<!-- ═══ PROGRAMME ═══ -->
-<div class="page" id="pg-programme">
-<div class="pg-header"><div class="pg-header-inner">
-  <div>
-    <p class="pg-eyebrow">Operational Pathway</p>
-    <h1 class="pg-title">Programme · <em>Mission Readiness</em></h1>
-  </div>
-  <p class="pg-desc">A structured capacity-building pathway for professionals assigned to West Africa in diplomatic, institutional, and international cooperation contexts.</p>
-</div></div>
-<div class="cnt">
-
-  <!-- 3 PHASES -->
-  <div style="display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
-
-    <!-- PHASE 1 -->
-    <div style="background:var(--white);padding:2.5rem;border-left:4px solid var(--civ-orange);">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.6rem;">Phase 1 · Country Analysis</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Understanding the Assignment Environment</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.8;margin-bottom:1.25rem;">Developing a thorough understanding of the political, institutional, and social dynamics of the Ivorian operating environment.</p>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Core Competencies Developed</p>
-      <div style="display:flex;flex-direction:column;gap:0.85rem;">
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Analysis of the political and institutional landscape</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Mapping of key stakeholders and influence networks</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-orange);font-weight:700;flex-shrink:0;">—</span>Anticipation of risks and regional dynamics</div>
-      </div>
-    </div>
-
-    <!-- PHASE 2 -->
-    <div style="background:var(--ink);padding:2.5rem;border-left:4px solid var(--gold);">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.6rem;">Phase 2 · Relational Codes</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;">Decoding Local Codes of Conduct</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1.25rem;">Developing proficiency in the social, cultural, and relational codes essential to effective field operations.</p>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">Core Competencies Developed</p>
-      <div style="display:flex;flex-direction:column;gap:0.85rem;">
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Implicit communication and signal interpretation</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Status, hierarchy, and deference codes</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Relationship to time and informal decision-making processes</div>
-      </div>
-    </div>
-
-    <!-- PHASE 3 -->
-    <div style="background:var(--paper);padding:2.5rem;border-left:4px solid var(--civ-green);">
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-green);margin-bottom:0.6rem;">Phase 3 · Field Preparation</p>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Preparing for High-Stakes Operational Interactions</h3>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.8;margin-bottom:1.25rem;">Preparing participants for high-stakes professional interactions through field-based simulation exercises.</p>
-      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:0.75rem;">Core Competencies Developed</p>
-      <div style="display:flex;flex-direction:column;gap:0.85rem;">
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Negotiation and management of sensitive situations</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Institutional protocols and local stakeholder networks</div>
-        <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--civ-green);font-weight:700;flex-shrink:0;">—</span>Simulations with personalised feedback</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- 5 PROGRAMMES -->
-  <h2 style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--ink);font-weight:400;margin-bottom:0.5rem;">The 5 <em style="color:var(--gold2);">Programmes</em></h2>
-  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);margin-bottom:1.5rem;">Each programme targets a specific phase of the assignment.</p>
-  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:3rem;">
-    <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--civ-orange);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">CA</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Country Analysis</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Pre-Departure</div>
-    </div>
-    <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--gold);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold2);margin-bottom:0.5rem;">RA</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Regional Analysis</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Regional Pre-Departure</div>
-    </div>
-    <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--civ-green);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--civ-green);margin-bottom:0.5rem;">HCOI</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Orientation & Immersion</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Post-Arrival</div>
-    </div>
-    <div style="background:var(--paper);padding:1.5rem;text-align:center;border-top:3px solid var(--civ-orange);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">D&N</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--ink);margin-bottom:4px;">Diplomacy &amp; Neg.</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:var(--ink3);">Specialisation</div>
-    </div>
-    <div style="background:var(--ink);padding:1.5rem;text-align:center;border-top:3px solid var(--gold);">
-      <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--gold-pale);margin-bottom:0.5rem;">IC</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:4px;">Intercultural Competencies</div>
-      <div style="font-family:'Source Sans 3',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.55);">Specialisation</div>
-    </div>
-  </div>
-
-  <!-- FORMATS -->
-  <div style="background:var(--ink);border:1px solid var(--ink);padding:2.5rem;margin-bottom:3rem;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1.5rem;opacity:0.8;">Delivery Modalities</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
-      <div>
-        <div style="font-size:1.4rem;margin-bottom:0.6rem;">🏢</div>
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;">In-Person</h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:0.5rem;">3 days · 6h/day · 18 hours total</p>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.65);line-height:1.7;">Abidjan or Europe · Group max. 10</p>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:0.5rem;font-style:italic;">Extension possible in a split-session format, subject to mission context and operational constraints.</p>
-      </div>
-      <div>
-        <div style="font-size:1.4rem;margin-bottom:0.6rem;">💻</div>
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;">Videoconference</h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:0.5rem;">5 interactive sessions · 3h30 each</p>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.65);line-height:1.7;">Zoom or Microsoft Teams · Global access</p>
-      </div>
-      <div>
-        <div style="font-size:1.4rem;margin-bottom:0.6rem;">🎯</div>
-        <h4 style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;">Targeted Module</h4>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:0.5rem;">½-day thematic session · 3h30</p>
-        <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.65);line-height:1.7;">In-person or remote delivery</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SITUATIONS RÉELLES -->
-  <div style="background:var(--ink);padding:2.5rem;margin-bottom:3rem;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Field Grounding</p>
-    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;">Real-World Scenarios &amp; Simulation Exercises</h3>
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1.5rem;">All modules are grounded in concrete situations encountered during international assignments in Côte d'Ivoire and across West Africa.</p>
-    <div style="display:flex;flex-direction:column;gap:0.85rem;">
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Negotiation simulations</div>
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Institutional meetings</div>
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Management of sensitive situations</div>
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;"><span style="color:var(--gold-pale);font-weight:700;flex-shrink:0;">—</span>Engagement with local counterparts</div>
-    </div>
-  </div>
-
-  <!-- APPROCHE SUR MESURE -->
-  <div style="background:var(--paper);border:1px solid var(--rule);padding:2.5rem;margin-bottom:2.5rem;">
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:0.75rem;">Tailored Approach</p>
-    <h3 style="font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">A Tailored Approach</h3>
-    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.9rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;">Each engagement is adapted to:</p>
-    <div style="display:flex;flex-direction:column;gap:0.85rem;">
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>The profile and background of participants</div>
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>The specific mission context</div>
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>The level of responsibility and seniority</div>
-      <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.5;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>The operational stakes and field environment</div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-    <button class="btn-primary" onclick="go('contact')">Discover Our Programmes →</button>
-    <button class="btn-outline" onclick="go('formations')">Download the Programme</button>
-    <button onclick="go('diagnostic')" style="background:transparent;color:var(--ink3);border:1px solid var(--rule);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Self-Assessment</button>
-  </div>
-
-  <!-- LIEN VUE D'ENSEMBLE -->
-  <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--rule);">
-    <button onclick="go('formations')" style="background:none;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:4px;padding:0.75rem 0;display:inline-flex;align-items:center;gap:0.5rem;min-height:44px;">
-      ← Programme Overview
-    </button>
-  </div>
-
-</div>
-</div>
-
-<!-- ═══ JOUR 1 ═══ -->
-<div class="page" id="pg-j1">
-<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow">Day 1 · Module</p><h1 class="pg-title">History &amp; <em>Politics</em></h1></div><p class="pg-desc">The historical foundations and political landscape for a thorough understanding of contemporary Côte d'Ivoire.</p></div></div>
-
-<div class="cnt">
-
-  <!-- Objectifs -->
-  <div style="background:var(--ink);padding:2rem 2.5rem;margin-bottom:2rem;">
-    <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:1rem;">Programme Objectives</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-      <div style="display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.82);line-height:1.7;">Develop an understanding and appreciation of the culture of the target country or region</p></div>
-      <div style="display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.82);line-height:1.7;">Identify key institutions and influential groups of actors</p></div>
-      <div style="display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.82);line-height:1.7;">Navigate significant intercultural situations in the target country or region</p></div>
-      <div style="display:flex;gap:10px;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span><p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.82);line-height:1.7;">Build behavioural confidence by revisiting one's understanding of roles and values</p></div>
-    </div>
-  </div>
-
-  <!-- Module 1 -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
-    <div style="background:var(--civ-orange);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.2rem;color:var(--white);font-weight:700;">01</span>
-      <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);">General Overview of the Host Country or Region</span>
-    </div>
-    <div style="padding:1.75rem 2rem;background:var(--white);">
-      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Location &amp; Natural Environment</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Population &amp; Demographics</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Histoire</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Politique</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Economy</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Ecology</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Society</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Culture</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Religion</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Module 2 -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
-    <div style="background:var(--ink2);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.2rem;color:var(--white);font-weight:700;">02</span>
-      <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);">Historical, Political, Socio-Economic &amp; Ecological Framework Conditions</span>
-    </div>
-    <div style="padding:1.75rem 2rem;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-      <div>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Historical Phases</p>
-        <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Colonial period &amp; independence movement</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Historical consciousness &amp; influences</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Key historical figures</div>
-        </div>
-      </div>
-      <div>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Social Framework</p>
-        <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Ethnic groups, social classes &amp; communities</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Distribution of poverty &amp; wealth</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Family structures &amp; urban/rural duality</div>
-        </div>
-      </div>
-      <div>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Economic &amp; Ecological Conditions</p>
-        <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Economic resources &amp; current situation</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Phases of economic development</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Tensions between economic development &amp; ecology</div>
-        </div>
-      </div>
-      <div>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Political &amp; Legal Framework</p>
-        <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Political system &amp; political culture</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Power structures &amp; key actors</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-orange);">→</span>Education, health &amp; access to rights</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="text-align:center;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-    <button class="btn-light" onclick="go(&#39;programme&#39;)">← Overview</button>
-    <button class="btn-dark" onclick="go(&#39;j2&#39;)">Day 2 — Values &amp; Culture →</button>
-  </div>
-</div>
-</div>
-
-<!-- ═══ JOUR 2 ═══ -->
-<div class="page" id="pg-j2">
-<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow">Day 2 · Modules</p><h1 class="pg-title">Economy, Society <em>&amp; Education</em></h1></div><p class="pg-desc">The economic and social pillars structuring contemporary Côte d'Ivoire.</p></div></div>
-
-<div class="cnt">
-
-  <!-- Module 3 -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
-    <div style="background:var(--civ-green);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.2rem;color:var(--white);font-weight:700;">03</span>
-      <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);">Values, Norms &amp; Behaviours — Cross-Cultural Comparison</span>
-    </div>
-    <div style="padding:1.75rem 2rem;background:var(--white);">
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.88rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem;font-style:italic;border-left:3px solid var(--gold);padding-left:1rem;">This is where the depth of country analysis lies — what no travel guide can provide.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-        <div>
-          <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Worldviews &amp; Religion</p>
-          <div style="display:flex;flex-direction:column;gap:0.4rem;">
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Religious beliefs &amp; institutions</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Religion in daily life</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Development philosophies &amp; ideologies</div>
-          </div>
-        </div>
-        <div>
-          <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Identity</p>
-          <div style="display:flex;flex-direction:column;gap:0.4rem;">
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>National &amp; ethnic identity formation</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Cultural symbols &amp; meanings</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Globalisation &amp; shifting values</div>
-          </div>
-        </div>
-        <div>
-          <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Intercultural Working Situations</p>
-          <div style="display:flex;flex-direction:column;gap:0.4rem;">
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Culture-specific behaviours</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Understanding of hierarchy &amp; leadership</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Discussions, negotiations &amp; decision-making</div>
-          </div>
-        </div>
-        <div>
-          <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Cultural Expressions</p>
-          <div style="display:flex;flex-direction:column;gap:0.4rem;">
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Festivals, music &amp; dance</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Art, literature &amp; architecture</div>
-            <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--civ-green);">→</span>Images &amp; perceptions of foreigners</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Encart zones de tension -->
-      <div style="background:var(--paper);border-left:3px solid var(--civ-orange);padding:1rem 1.25rem;margin-top:1.5rem;">
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--civ-orange);margin-bottom:0.5rem;">Friction Points &amp; Crisis Behaviour</p>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-          <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">→ Cultural irritants</span>
-          <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">→ Security concerns</span>
-          <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">→ Corruption as a social issue</span>
-          <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">→ Managing interpersonal conflicts</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="text-align:center;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-    <button class="btn-light" onclick="go(&#39;j1&#39;)">← Day 1</button>
-    <button class="btn-dark" onclick="go(&#39;j3&#39;)">Day 3 — Development &amp; Cooperation →</button>
-  </div>
-</div>
-</div>
-
-<!-- ═══ JOUR 3 ═══ -->
-<div class="page" id="pg-j3">
-<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow">Day 3 · Modules</p><h1 class="pg-title">Development, Field Realities <em>&amp; Cooperation</em></h1></div><p class="pg-desc">The operational dimensions for effective field engagement in the Ivorian context.</p></div></div>
-
-<div class="cnt">
-
-  <!-- Module 4 -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
-    <div style="background:var(--gold);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.2rem;color:var(--white);font-weight:700;">04</span>
-      <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);">Development Challenges — Perspectives &amp; International Cooperation</span>
-    </div>
-    <div style="padding:1.75rem 2rem;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-      <div>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Problèmes &amp; opportunités</p>
-        <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>Indicateurs de développement</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>Barrières de développement exogènes/endogènes</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>ODD — Objectifs de Développement Durable</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>Public-private partnerships</div>
-        </div>
-      </div>
-      <div>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:0.75rem;">Coopération allemande &amp; internationale</p>
-        <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>GIZ · BMZ · KfW — rôles &amp; instruments</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>Acteurs bilatéraux &amp; multilatéraux</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>Déclaration de Paris — mise en œuvre</div>
-          <div style="display:flex;gap:8px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);"><span style="color:var(--gold2);">→</span>Meilleures pratiques &amp; leçons apprises</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Module 5 -->
-  <div style="border:1px solid var(--rule);margin-bottom:1.5rem;overflow:hidden;">
-    <div style="background:var(--ink);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.2rem;color:var(--white);font-weight:700;">05</span>
-      <span style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);">Questions de la vie au quotidien</span>
-    </div>
-    <div style="padding:1.75rem 2rem;background:var(--white);">
-      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Réglementations d'entrée &amp; douane</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Logement &amp; marché immobilier</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Ressources financières</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Personnel domestique</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Santé &amp; soins médicaux</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Transports &amp; circulation</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Sécurité locale</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Internet &amp; communication</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Établissements d'enseignement</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Loisirs &amp; vie sociale</span>
-        <span style="background:var(--paper);border:1px solid var(--rule);padding:5px 12px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.78rem;color:var(--ink2);">Contacts &amp; adresses importantes</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Méthodologie -->
-  <div style="background:var(--paper);border:1px solid var(--rule);padding:2rem;margin-bottom:2rem;">
-    <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1rem;">Méthodologie pédagogique</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
-      <div style="display:flex;gap:10px;align-items:flex-start;">
-        <span style="font-size:1.2rem;flex-shrink:0;">🎭</span>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);line-height:1.6;">Experiential training — simulation of real-life situations</p>
-      </div>
-      <div style="display:flex;gap:10px;align-items:flex-start;">
-        <span style="font-size:1.2rem;flex-shrink:0;">👥</span>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);line-height:1.6;">Individual or small-group training — practical cases &amp; team exercises</p>
-      </div>
-      <div style="display:flex;gap:10px;align-items:flex-start;">
-        <span style="font-size:1.2rem;flex-shrink:0;">📊</span>
-        <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink2);line-height:1.6;">Évaluation formelle à la fin — rapport personnalisé remis à chaque participant</p>
-      </div>
-    </div>
-  </div>
-
-  <div style="text-align:center;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-    <button class="btn-light" onclick="go(&#39;j2&#39;)">← Jour 2</button>
-    <button class="btn-dark" onclick="go(&#39;contact&#39;)">Request a Quote →</button>
-  </div>
-</div>
-</div>
-
-<!-- ═══ NÉGOCIATION ═══ -->
-<div class="page" id="pg-nego">
-<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow">Module spécial</p><h1 class="pg-title">Cultural <em>Negotiation</em></h1></div><p class="pg-desc">Les clés pour négocier avec efficacité selon les groupes ethniques et culturels ivoiriens.</p></div></div>
-<div class="cnt">
-
-  <!-- Intro -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.5rem;">
-    <div style="background:var(--ink);padding:2.5rem;">
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:1rem;">Pourquoi ce module ?</p>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.7;">En Côte d'Ivoire, chaque négociation intègre une dimension culturelle forte. Comprendre les codes ethniques et sociaux n'est pas optionnel — c'est stratégique.</p>
-    </div>
-    <div style="background:var(--paper);padding:2.5rem;">
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1rem;">Ce que vous maîtriserez</p>
-      <div style="display:flex;flex-direction:column;gap:0.75rem;">
-        <div style="display:flex;gap:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--gold);font-weight:700;">→</span>Codes de la hiérarchie et du respect</div>
-        <div style="display:flex;gap:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--gold);font-weight:700;">→</span>Role of elders and intermediaries</div>
-        <div style="display:flex;gap:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--gold);font-weight:700;">→</span>Ivorian temporality of decision-making</div>
-        <div style="display:flex;gap:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--gold);font-weight:700;">→</span>Indirect and non-verbal communication</div>
-        <div style="display:flex;gap:10px;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.85rem;color:var(--ink3);"><span style="color:var(--gold);font-weight:700;">→</span>Managing disagreements without breaking the relationship</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4 groupes culturels -->
-  <h2 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.3rem;color:var(--ink);font-weight:700;margin-bottom:1.5rem;">4 Major Cultural Groups</h2>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.5rem;">
-    <div style="background:var(--white);padding:2rem;border-top:3px solid var(--civ-orange);">
-      <div style="font-size:2rem;margin-bottom:0.75rem;">🌳</div>
-      <h3 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Akan</h3>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.6;">Baoulé, Agni… Matrilineal hierarchy, collective consensus, central role of the family head.</p>
-    </div>
-    <div style="background:var(--white);padding:2rem;border-top:3px solid var(--gold);">
-      <div style="font-size:2rem;margin-bottom:0.75rem;">🏛️</div>
-      <h3 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Krou</h3>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.6;">Bété, Guéré… Strong individual decision-making, direct expression, sense of honour.</p>
-    </div>
-    <div style="background:var(--white);padding:2rem;border-top:3px solid var(--civ-green);">
-      <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
-      <h3 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Mandé</h3>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.6;">Dioula, Malinké… Commercial tradition, networks of trust, patience in negotiation.</p>
-    </div>
-    <div style="background:var(--white);padding:2rem;border-top:3px solid var(--ink);">
-      <div style="font-size:2rem;margin-bottom:0.75rem;">🌾</div>
-      <h3 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Gour</h3>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.8rem;color:var(--ink3);line-height:1.6;">Sénoufo, Lobi… Strict respect for elders, initiation rites, silence as a sign of assent.</p>
-    </div>
-  </div>
-
-  <div style="text-align:center;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-    <button class="btn-light" onclick="go(&#39;j3&#39;)">← Day 3</button>
-    <button class="btn-dark" onclick="go(&#39;bonus&#39;)">Supplementary →</button>
-  </div>
-
-</div>
-</div>
-
-<!-- ═══ BONUS ═══ -->
-<div class="page" id="pg-bonus">
-<div class="pg-header"><div class="pg-header-inner"><div><p class="pg-eyebrow">Supplementary — Sport &amp; Culture</p><h1 class="pg-title">Sport, Culture <em>&amp; Heritage</em></h1></div><p class="pg-desc">The cultural, sporting, and heritage dimension for comprehensive field immersion.</p></div></div>
-<div class="cnt">
-
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.5rem;">
-
-    <!-- Sport -->
-    <div style="background:var(--white);padding:2.5rem;border-top:3px solid var(--civ-orange);">
-      <div style="font-size:2.5rem;margin-bottom:1rem;">⚽</div>
-      <h3 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Sport &amp; Identity</h3>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;">Football is far more than a sport in Côte d'Ivoire — it is a powerful vector of national identity. The Elephants of Côte d'Ivoire, Didier Drogba, the Stade Félix Houphouët-Boigny… essential cultural reference points for building rapport with local counterparts.</p>
-    </div>
-
-    <!-- Culture -->
-    <div style="background:var(--ink);padding:2.5rem;border-top:3px solid var(--gold);">
-      <div style="font-size:2.5rem;margin-bottom:1rem;">🥁</div>
-      <h3 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;">Culture &amp; Customs</h3>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.7;">Traditional dances, sacred masks, initiation ceremonies — understanding the richness of Ivorian culture is essential to building authentic trust with local partners and interlocutors.</p>
-    </div>
-
-    <!-- Tourisme -->
-    <div style="background:var(--paper);padding:2.5rem;border-top:3px solid var(--civ-green);">
-      <div style="font-size:2.5rem;margin-bottom:1rem;">🌴</div>
-      <h3 style="font-family:&#39;Libre Baskerville&#39;,serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">Heritage &amp; Discovery</h3>
-      <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.7;">Cosmopolitan Abidjan, Grand-Bassam and its history, the western forests, the Basilica of Yamoussoukro… Prepare your assignment by discovering the Ivorian heritage.</p>
-    </div>
-
-  </div>
-
-  <!-- Tips pratiques -->
-  <div style="background:var(--ink);padding:2.5rem;margin-bottom:2.5rem;">
-    <p style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:1.25rem;">Practical Tips from the Facilitator</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
-      <div style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);"><span style="color:var(--gold);font-weight:700;">✓ </span>Parler du football crée immédiatement du lien</div>
-      <div style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);"><span style="color:var(--gold);font-weight:700;">✓ </span>Éviter les comparaisons avec d'autres pays africains</div>
-      <div style="font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);"><span style="color:var(--gold);font-weight:700;">✓ </span>Se montrer curieux de la gastronomie locale</div>
-    </div>
-  </div>
-
-  <div style="text-align:center;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-    <button class="btn-light" onclick="go(&#39;nego&#39;)">← Negotiation</button>
-    <button class="btn-dark" onclick="go(&#39;contact&#39;)">Contact Us →</button>
+    <button class="btn-outline" onclick="go('formations')">View the Modules</button>
+    <button onclick="go('diagnostic-choix')" style="background:transparent;color:var(--ink3);border:1px solid var(--rule);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Take the Assessment</button>
   </div>
 
 </div>
@@ -2765,7 +2382,7 @@ select.cform-input {
     <button class="btn-primary" onclick="go('contact')">Request a Preparatory Consultation →</button>
     <button class="btn-outline" onclick="go('references')">References &amp; Experience →</button>
     <button class="btn-outline" onclick="go('formations')">Discover Our Programmes →</button>
-    <button class="btn-outline" onclick="go('diagnostic')" style="border-color:var(--rule);color:var(--ink3);">Self-Assessment</button>
+    <button class="btn-outline" onclick="go('diagnostic-choix')" style="border-color:var(--rule);color:var(--ink3);">Take the Assessment</button>
   </div>
 
 </div>
@@ -2799,7 +2416,7 @@ select.cform-input {
       </div>
       <div style="display:flex;gap:1rem;align-items:flex-start;">
         <div style="width:28px;height:28px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Libre Baskerville',serif;font-size:0.75rem;font-weight:700;color:var(--white);">2</span></div>
-        <div><p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-weight:700;color:var(--ink);margin-bottom:0.2rem;">Institutional Reference Frameworks</p><p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.65;margin:0;">Les environnements professionnels et programmatiques dans lesquels les engagements de préparation à l'expatriation et de coopération internationale ont été réalisés.</p></div>
+        <div><p style="font-family:'Source Sans 3',sans-serif;font-size:0.85rem;font-weight:700;color:var(--ink);margin-bottom:0.2rem;">Institutional Reference Frameworks</p><p style="font-family:'Source Sans 3',sans-serif;font-size:0.82rem;color:var(--ink3);line-height:1.65;margin:0;">The professional and programmatic environments within which the postings preparation and international cooperation engagements were carried out.</p></div>
       </div>
       <div style="display:flex;gap:1rem;align-items:flex-start;">
         <div style="width:28px;height:28px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Libre Baskerville',serif;font-size:0.75rem;font-weight:700;color:var(--white);">3</span></div>
@@ -2949,7 +2566,7 @@ select.cform-input {
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.77rem;color:var(--ink3);">Development finance institution</div>
       </div>
       <div style="background:var(--white);padding:0.6rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
-        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.83rem;font-weight:700;color:var(--ink);">GIZ — Société allemande pour la coopération internationale</div>
+        <div style="font-family:'Source Sans 3',sans-serif;font-size:0.83rem;font-weight:700;color:var(--ink);">GIZ — German Agency for International Cooperation</div>
         <div style="font-family:'Source Sans 3',sans-serif;font-size:0.77rem;color:var(--ink3);">German development cooperation agency</div>
       </div>
       <div style="background:var(--paper);padding:0.6rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
@@ -3458,6 +3075,7 @@ select.cform-input {
               <option>Organise preparation for a team</option>
               <option>Establish a multi-session framework</option>
               <option>Request a tailored preparedness programme</option>
+              <option>Institutional Assessment — Preparatory Discussion</option>
               <option>Other enquiry</option>
             </select>
             <div id="err-motif" class="cform-err">Required</div>
@@ -3547,7 +3165,7 @@ select.cform-input {
 
       <div class="cinfo-note">
         <p class="cinfo-note-title">Guaranteed Response</p>
-        <p class="cinfo-note-text">Sous 24 heures ouvrées.<br>A tailored proposal aligned with your operational context and institutional requirements.</p>
+        <p class="cinfo-note-text">Within 24 business hours.<br>A tailored proposal aligned with your operational context and institutional requirements.</p>
       </div>
 
       <div class="cinfo-note cinfo-note-urgent">
@@ -3744,7 +3362,7 @@ select.cform-input {
     <h3 style="font-family:'Libre Baskerville',serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:1.25rem;">Institutional Support Framework</h3>
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.85;margin-bottom:1rem;">Annual or multi-year frameworks may be established for organisations seeking to integrate multiple capacity-building sessions within their international missions and programme activities.</p>
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.85;margin-bottom:2rem;">The modalities are adapted to the volume of interventions, the profiles involved, and the operational context.</p>
-    <button onclick="goContact('Mettre en place plusieurs sessions pour une organisation')" style="background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">
+    <button onclick="goContact('Establish a multi-session framework')" style="background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">
       Demander un devis →
     </button>
   </div>
@@ -3756,13 +3374,13 @@ select.cform-input {
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75;">A tailored proposal aligned with your operational context and institutional requirements.</p>
     <div style="display:flex;flex-direction:column;align-items:center;gap:0.875rem;max-width:380px;margin:0 auto;">
       <button onclick="go('contact')" style="width:100%;background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:18px 28px;">
-        Préparer votre mission →
+        Prepare Your Mission →
       </button>
       <button onclick="go('contact')" style="width:100%;background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.35);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;">
-        Organiser un échange préparatoire
+        Arrange a Preparatory Discussion
       </button>
-      <button onclick="go('diagnostic')" style="width:100%;background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">
-        Testez votre niveau
+      <button onclick="go('diagnostic-choix')" style="width:100%;background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">
+        Test Your Level
       </button>
     </div>
   </div>
@@ -3917,7 +3535,7 @@ select.cform-input {
     <div style="display:flex;flex-direction:column;align-items:center;gap:0.875rem;max-width:380px;margin:0 auto;">
       <button onclick="go('contact')" style="width:100%;background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:18px 28px;">Discover Our Programmes →</button>
       <button onclick="go('contact')" style="width:100%;background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.35);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;">Request a Preparatory Consultation</button>
-      <button onclick="go('diagnostic')" style="width:100%;background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Self-Assessment</button>
+      <button onclick="go('diagnostic-choix')" style="width:100%;background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Self-Assessment</button>
     </div>
   </div>
 
@@ -4045,6 +3663,97 @@ select.cform-input {
     </div>
 
   </div>
+
+</div>
+</div>
+
+
+<!-- ═══ PAGE CHOIX DU DIAGNOSTIC ═══ -->
+<div class="page" id="pg-diagnostic-choix">
+<div class="pg-header"><div class="pg-header-inner">
+  <div>
+    <p class="pg-eyebrow">Self-Assessment · Mission Preparation</p>
+    <h1 class="pg-title">Take the <em>Assessment</em></h1>
+  </div>
+  <p class="pg-desc">Two pathways, depending on whether you are assessing your own preparation or your organisation's preparation needs.</p>
+</div></div>
+<div class="cnt">
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+    <div style="border:1px solid var(--rule);padding:2.5rem;display:flex;flex-direction:column;">
+      <span style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;">01</span>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">Institutional Assessment</p>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:0.75rem;">For ministries, embassies, international organisations, development banks, foundations, universities and companies</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.75;margin-bottom:1.5rem;">I am assessing the preparation needs of my staff or my organisation.</p>
+      <div style="margin-top:auto;">
+        <button onclick="go('diagnostic-institution')" style="background:var(--ink);color:var(--white);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Discover</button>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--rule);padding:2.5rem;display:flex;flex-direction:column;">
+      <span style="font-family:'Libre Baskerville',serif;font-size:1.3rem;font-weight:700;color:var(--civ-orange);margin-bottom:0.75rem;">02</span>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--civ-orange);margin-bottom:0.5rem;">Individual Assessment</p>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:0.75rem;">For experts, consultants, diplomats, cooperation officers and staff on international assignment</h3>
+      <p style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.75;margin-bottom:1.5rem;">I am assessing my own level of preparation for an international assignment.</p>
+      <div style="margin-top:auto;">
+        <button onclick="go('diagnostic')" style="background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Start</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<!-- ═══ PAGE DIAGNOSTIC INSTITUTIONNEL ═══ -->
+<div class="page" id="pg-diagnostic-institution">
+<div class="pg-header"><div class="pg-header-inner">
+  <div>
+    <p class="pg-eyebrow">Institutional Assessment</p>
+    <h1 class="pg-title">Assessing the needs of <em>your organisation</em></h1>
+  </div>
+  <p class="pg-desc">Identify your organisation's profile, the staff sent on assignment, preparation needs, and the most relevant modules.</p>
+</div></div>
+<div class="cnt">
+
+<div id="inst-intro">
+  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:var(--ink3);line-height:1.85;margin-bottom:2.5rem;max-width:750px;">AICDI also supports organisations that send staff on assignment to Côte d'Ivoire and West Africa. This assessment identifies, at your organisation's level, the modules and formats best suited to the staff you send into the field.</p>
+
+  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1rem;">Who this assessment is for</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem;margin-bottom:2.5rem;">
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);padding:0.5rem 0;border-bottom:1px solid var(--rule);"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Embassy / diplomatic mission</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);padding:0.5rem 0;border-bottom:1px solid var(--rule);"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Ministry / public administration</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);padding:0.5rem 0;border-bottom:1px solid var(--rule);"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>International organisation</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);padding:0.5rem 0;border-bottom:1px solid var(--rule);"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Development bank or institution</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);padding:0.5rem 0;border-bottom:1px solid var(--rule);"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Foundation / cultural or political institute</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);padding:0.5rem 0;border-bottom:1px solid var(--rule);"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>University / research institution</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);padding:0.5rem 0;border-bottom:1px solid var(--rule);"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Company / economic delegation</div>
+  </div>
+
+  <p style="font-family:'Source Sans 3',sans-serif;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:1rem;">What this assessment identifies</p>
+  <div style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2.5rem;">
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.6;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Your organisation's profile and the staff sent on assignment (diplomats, experts, managers, economic delegations, accompanying families...)</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.6;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>Priority preparation needs, mapped to the official modules — <strong>AP · AR · OIPH · CI · D&amp;N · LI</strong></div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.6;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>The relevance of a regional dimension (Regional Analysis — AR) if your assignments cover several countries in the sub-region</div>
+    <div style="display:flex;gap:10px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;color:var(--ink3);line-height:1.6;"><span style="color:var(--gold2);font-weight:700;flex-shrink:0;">—</span>The most suitable collaboration formats — in-person, remote, or a targeted module</div>
+  </div>
+
+  <div style="background:var(--ink);padding:2.5rem;text-align:center;">
+    <p style="font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto;">The Institutional Assessment is conducted as a preparatory discussion with your organisation, to precisely identify the modules and formats suited to your needs.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+      <button onclick="startInstDiag()" style="background:var(--gold);color:var(--ink);border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Start the Assessment</button>
+      <button onclick="go('contact')" style="background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.3);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Arrange a Preparatory Discussion</button>
+    </div>
+  </div>
+</div>
+
+<div id="inst-diag-wrap" style="max-width:720px;margin:0 auto;display:none;">
+  <div style="height:4px;background:var(--rule);border-radius:2px;margin-bottom:2.5rem;">
+    <div id="inst-progress" style="height:100%;background:var(--gold);transition:width 0.4s;width:0%;border-radius:2px;"></div>
+  </div>
+  <div id="inst-diag-container"></div>
+</div>
 
 </div>
 </div>
@@ -4276,7 +3985,7 @@ function aicdiPopClose(){
     go('contact');
     setTimeout(function(){aicdiPopShow();history.replaceState(null,'',window.location.pathname);},400);
   } else if(window.location.hash==='#diagnostic'){
-    go('diagnostic');
+    go('diagnostic-choix');
   }
   // Ensure quiz-container gets populated if page loads on diagnostic
   window.addEventListener('load', function() {
@@ -4299,6 +4008,338 @@ function goContact(motif) {
       }
     }
     // scroll to contact
+    var pg = document.getElementById('pg-contact');
+    if (pg) pg.scrollIntoView({behavior:'smooth'});
+  }, 100);
+}
+
+// ─── INSTITUTIONAL ASSESSMENT ───
+var INST_SITUATIONS = {
+  S1: { label: "We prepare staff before their assignment", modules: ['AP','CI'], fragment: "preparing staff before their assignment" },
+  S2: { label: "We support newly arrived staff", modules: ['OIPH','CI'], fragment: "supporting newly arrived staff" },
+  S3: { label: "We already have teams in post in the country", modules: ['CI','D&N','LI'], fragment: "teams already in post" },
+  S4: { label: "We manage mixed local and international teams", modules: ['LI','CI'], fragment: "managing mixed local and international teams" },
+  S5: { label: "We want to strengthen our managers' capacities", modules: ['LI','CI'], fragment: "strengthening managerial capacities" },
+  S6: { label: "We regularly conduct negotiations or institutional representation", modules: ['D&N','AP'], fragment: "regular negotiations and institutional representation" }
+};
+
+var INST_ENJEUX = {
+  E1: { label: "Understanding the country context", module: 'AP', fragment: "understanding the country context" },
+  E2: { label: "Intercultural communication", module: 'CI', fragment: "intercultural communication" },
+  E3: { label: "Operational integration", module: 'OIPH', fragment: "operational integration" },
+  E4: { label: "Diplomacy and negotiation", module: 'D&N', fragment: "diplomacy and negotiation skills" },
+  E5: { label: "Multicultural leadership", module: 'LI', fragment: "multicultural leadership" },
+  E6: { label: "Full programme" }
+};
+
+var INST_MODULE_ORDER = ['AP','AR','OIPH','CI','D&N','LI'];
+var INST_MODULE_NAMES = {
+  AP: 'AP — Country Analysis', AR: 'AR — Regional Analysis',
+  OIPH: 'OIPH — Host Country Orientation &amp; Immersion',
+  CI: 'CI — Intercultural Competencies',
+  'D&N': 'D&amp;N — Diplomacy &amp; Negotiation',
+  LI: 'LI — Intercultural Leadership'
+};
+var INST_MODULE_ANCHORS = { AP:'ap', AR:'ar', OIPH:'oiph', CI:'ci', 'D&N':'dn', LI:'li' };
+var INST_MODULE_FRAGMENTS = {
+  AP: "country context analysis", AR: "regional analysis",
+  OIPH: "operational integration in the host country",
+  CI: "intercultural competencies",
+  'D&N': "diplomacy and negotiation",
+  LI: "multicultural leadership"
+};
+var INST_AR_ZONES = ["West Africa","Francophone Africa","Sub-Saharan Africa","Multiple regions"];
+
+var INST_FORMAT_TABLE = {
+  "1 to 5": "Targeted module (half-day, concentrated format)",
+  "6 to 20": "In-person (3 days, group)",
+  "21 to 50": "Remote or in-person in several groups",
+  "More than 50": "Annual institutional cycle"
+};
+
+var INST_PUBLIC_TABLE = {
+  "Ministry / Public administration": "Programme managers, experts and staff on assignment",
+  "Embassy / Diplomatic mission": "Diplomats and embassy staff",
+  "International organisation": "Staff of international organisations, experts and technical advisers",
+  "Cooperation agency": "Cooperation officers, project managers and field experts",
+  "Foundation": "Programme managers and project officers",
+  "Institute / Research centre": "Researchers, lecturers and staff on academic mobility",
+  "NGO / Association": "Cooperation officers, field managers and local teams",
+  "Development bank or institution": "Project officers, sector experts and economic delegations",
+  "Company / Private group": "Expatriate managers, executives and local teams"
+};
+
+var INST_QUESTIONS = [
+  { key:'q1', type:'single', label:'Profile', q:"What type of organisation do you represent?", options:[
+    "Ministry / Public administration","Embassy / Diplomatic mission","International organisation",
+    "Cooperation agency","Foundation","Institute / Research centre","NGO / Association",
+    "Development bank or institution","Company / Private group"
+  ]},
+  { key:'q2', type:'single', label:"Area of operation", q:"What is your main area of operation?", options:[
+    "Côte d'Ivoire","West Africa","Francophone Africa","Sub-Saharan Africa","Multiple regions"
+  ]},
+  { key:'q3', type:'single', label:'Staff concerned', q:"How many staff members are concerned?", options:[
+    "1 to 5","6 to 20","21 to 50","More than 50"
+  ]},
+  { key:'q4', type:'multi', label:'Organisational situation',
+    q:"What is your organisational situation? Select all situations that apply to your organisation.",
+    optionCodes:['S1','S2','S3','S4','S5','S6'] },
+  { key:'q5', type:'multi', label:'Main priorities', q:"What are your main priorities?",
+    optionCodes:['E1','E2','E3','E4','E5','E6'], exclusive:'E6' }
+];
+
+var instState = {}, instStep = 0, instLastSummary = '';
+
+function startInstDiag() {
+  instState = { q1:null, q2:null, q3:null, q4:[], q5:[] };
+  instStep = 0;
+  var intro = document.getElementById('inst-intro');
+  if (intro) intro.style.display = 'none';
+  var wrap = document.getElementById('inst-diag-wrap');
+  if (wrap) wrap.style.display = 'block';
+  renderInstQuestion();
+  wrap.scrollIntoView({behavior:'instant', block:'start'});
+}
+
+function renderInstQuestion() {
+  var prog = document.getElementById('inst-progress');
+  if (prog) prog.style.width = Math.round((instStep / 5) * 100) + '%';
+
+  var qd = INST_QUESTIONS[instStep];
+  var html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">'
+    + '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);">' + qd.label + '</p>'
+    + '<p style="font-family:var(--sans);font-size:0.72rem;color:var(--ink3);">' + (instStep+1) + ' / 5</p>'
+    + '</div>'
+    + '<p style="font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:2rem;line-height:1.6;">' + qd.q + '</p>'
+    + '<div>';
+
+  if (qd.type === 'single') {
+    qd.options.forEach(function(opt, i) {
+      var sel = instState[qd.key] === opt;
+      html += '<button onclick="instSelectSingle(\'' + qd.key + '\',' + i + ')" style="background:'
+        + (sel ? 'rgba(26,92,53,0.06)' : '#fff') + ';border:1px solid ' + (sel ? 'var(--civ-green)' : 'var(--rule)')
+        + ';padding:1rem 1.25rem;cursor:pointer;font-family:var(--sans);font-size:0.88rem;color:var(--ink);text-align:left;width:100%;margin-bottom:0.6rem;line-height:1.6;">'
+        + opt + '</button>';
+    });
+  } else {
+    qd.optionCodes.forEach(function(code) {
+      var src = (code.charAt(0) === 'S') ? INST_SITUATIONS : INST_ENJEUX;
+      var label = src[code].label;
+      var checked = instState[qd.key].indexOf(code) !== -1;
+      html += '<button onclick="instToggleMulti(\'' + qd.key + '\',\'' + code + '\',' + (qd.exclusive ? "'" + qd.exclusive + "'" : 'null') + ')" style="background:'
+        + (checked ? 'rgba(26,92,53,0.06)' : '#fff') + ';border:1px solid ' + (checked ? 'var(--civ-green)' : 'var(--rule)')
+        + ';padding:1rem 1.25rem;cursor:pointer;font-family:var(--sans);font-size:0.88rem;color:var(--ink);text-align:left;width:100%;margin-bottom:0.6rem;line-height:1.6;display:flex;gap:0.75rem;align-items:flex-start;">'
+        + '<span style="flex-shrink:0;width:18px;height:18px;margin-top:1px;border:1px solid ' + (checked ? 'var(--civ-green)' : 'var(--ink3)')
+        + ';background:' + (checked ? 'var(--civ-green)' : 'transparent') + ';display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.7rem;font-weight:700;">'
+        + (checked ? '✓' : '') + '</span><span>' + label + '</span></button>';
+    });
+  }
+  html += '</div>';
+
+  html += '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;">';
+  html += (instStep > 0)
+    ? '<button onclick="instGoPrev()" style="background:transparent;border:none;color:var(--ink3);font-family:var(--sans);font-size:0.78rem;cursor:pointer;text-decoration:underline;padding:0;">← Back</button>'
+    : '<span></span>';
+  if (qd.type === 'multi') {
+    var canGo = (qd.key !== 'q4') || (instState.q4.length > 0);
+    html += '<button onclick="instGoNext()" ' + (canGo ? '' : 'disabled') + ' style="background:' + (canGo ? 'var(--gold)' : 'var(--rule)')
+      + ';color:' + (canGo ? 'var(--ink)' : 'var(--ink3)') + ';border:none;cursor:' + (canGo ? 'pointer' : 'not-allowed')
+      + ';font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">Continue</button>';
+  } else {
+    html += '<span></span>';
+  }
+  html += '</div>';
+
+  document.getElementById('inst-diag-container').innerHTML = html;
+}
+
+function instSelectSingle(key, idx) {
+  instState[key] = INST_QUESTIONS[instStep].options[idx];
+  renderInstQuestion();
+  setTimeout(function(){ instGoNext(); }, 350);
+}
+
+function instToggleMulti(key, code, exclusive) {
+  var arr = instState[key];
+  if (exclusive) {
+    if (code === exclusive) {
+      arr = (arr.indexOf(exclusive) === -1) ? [exclusive] : [];
+    } else {
+      arr = arr.filter(function(c){ return c !== exclusive; });
+      var idx = arr.indexOf(code);
+      if (idx === -1) arr.push(code); else arr.splice(idx,1);
+    }
+  } else {
+    var idx2 = arr.indexOf(code);
+    if (idx2 === -1) arr.push(code); else arr.splice(idx2,1);
+  }
+  instState[key] = arr;
+  renderInstQuestion();
+}
+
+function instGoNext() {
+  if (instStep < INST_QUESTIONS.length - 1) { instStep++; renderInstQuestion(); }
+  else instShowRestitution();
+}
+
+function instGoPrev() {
+  if (instStep > 0) { instStep--; renderInstQuestion(); }
+}
+
+function instComputeRecommendation() {
+  if (instState.q5.indexOf('E6') !== -1) {
+    return { prioritaires: INST_MODULE_ORDER.slice(), complementaires: [], e6: true };
+  }
+  var occ = {AP:0, AR:0, OIPH:0, CI:0, 'D&N':0, LI:0};
+  instState.q4.forEach(function(code){ INST_SITUATIONS[code].modules.forEach(function(m){ occ[m]++; }); });
+  instState.q5.forEach(function(code){ var m = INST_ENJEUX[code].module; if (m) occ[m]++; });
+  if (INST_AR_ZONES.indexOf(instState.q2) !== -1) occ['AR']++;
+  return {
+    occ: occ,
+    prioritaires: INST_MODULE_ORDER.filter(function(m){ return occ[m] >= 2; }),
+    complementaires: INST_MODULE_ORDER.filter(function(m){ return occ[m] === 1; }),
+    e6: false
+  };
+}
+
+function instBuildSituationPhrase() {
+  var frags = instState.q4.map(function(c){ return INST_SITUATIONS[c].fragment; });
+  var phrase, single = false;
+  if (frags.length <= 3) {
+    var joined;
+    if (frags.length === 1) { joined = frags[0]; single = true; }
+    else if (frags.length === 2) joined = frags[0] + " and " + frags[1];
+    else joined = frags[0] + ", " + frags[1] + " and " + frags[2];
+    phrase = joined.charAt(0).toUpperCase() + joined.slice(1);
+  } else {
+    phrase = "An organisation engaged across the full assignment cycle — from pre-departure preparation through to managing teams in post";
+  }
+  var e6 = instState.q5.indexOf('E6') !== -1;
+  var enjeux = instState.q5.filter(function(c){ return c !== 'E6'; });
+  var connector = single ? " with" : ", with";
+  if (e6) {
+    phrase += connector + " a wish for full coverage of the AICDI programme.";
+  } else if (enjeux.length === 1 || enjeux.length === 2) {
+    var eFrags = enjeux.map(function(c){ return INST_ENJEUX[c].fragment; });
+    phrase += connector + " a need to strengthen " + (eFrags.length === 1 ? eFrags[0] : eFrags[0] + " and " + eFrags[1]) + ".";
+  } else if (enjeux.length >= 3) {
+    phrase += connector + " capacity-building needs across several dimensions (intercultural, operational and strategic).";
+  } else {
+    phrase += ".";
+  }
+  return phrase;
+}
+
+function instBuildPrioritesPhrase(prioritaires, e6) {
+  if (e6 || prioritaires.length === 0) return null;
+  var frags = prioritaires.map(function(m){ return INST_MODULE_FRAGMENTS[m]; });
+  var joined;
+  if (frags.length === 1) {
+    joined = frags[0];
+    return joined.charAt(0).toUpperCase() + joined.slice(1) + " emerges from multiple stated situations and priorities.";
+  }
+  joined = (frags.length === 2) ? frags[0] + " and " + frags[1] : frags.slice(0,-1).join(", ") + " and " + frags[frags.length-1];
+  return joined.charAt(0).toUpperCase() + joined.slice(1) + " emerge from multiple stated situations and priorities.";
+}
+
+function instModuleLink(m) {
+  return '<a href="#" onclick="goSection(\'formations\',\'' + INST_MODULE_ANCHORS[m] + '\');return false;" style="color:inherit;text-decoration:underline;">' + INST_MODULE_NAMES[m] + '</a>';
+}
+
+function instShowRestitution() {
+  var prog = document.getElementById('inst-progress');
+  if (prog) prog.style.width = '100%';
+
+  var reco = instComputeRecommendation();
+  var situation = instBuildSituationPhrase();
+  var priorites = instBuildPrioritesPhrase(reco.prioritaires, reco.e6);
+  var format = INST_FORMAT_TABLE[instState.q3];
+  var publicBase = INST_PUBLIC_TABLE[instState.q1];
+  var publicC = (instState.q4.indexOf('S5') !== -1) ? ("Managers, " + publicBase.charAt(0).toLowerCase() + publicBase.slice(1)) : publicBase;
+
+  var html = '<div style="background:var(--ink);padding:2.5rem;margin-bottom:1.5rem;">';
+  html += '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:1.5rem;">AICDI Institutional Assessment</p>';
+
+  html += '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;">Profile</p>';
+  html += '<p style="font-family:var(--serif);font-size:1.05rem;color:#fff;margin-bottom:1.25rem;">' + instState.q1 + ' · ' + instState.q2 + '</p>';
+
+  html += '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;">Situation</p>';
+  html += '<p style="font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1.25rem;">' + situation + '</p>';
+
+  if (priorites) {
+    html += '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;">Priorities identified</p>';
+    html += '<p style="font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1.25rem;">' + priorites + '</p>';
+  }
+
+  if (reco.prioritaires.length === 0 && !reco.e6) {
+    html += '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Recommended modules</p>';
+    html += '<div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1.5rem;">';
+    reco.complementaires.forEach(function(m){
+      html += '<span style="background:rgba(255,255,255,0.06);border:1px solid var(--gold-pale);color:#fff;padding:6px 12px;font-family:var(--sans);font-size:0.78rem;">✓ ' + instModuleLink(m) + '</span>';
+    });
+    html += '</div>';
+  } else {
+    html += '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Priority modules</p>';
+    html += '<div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1.25rem;">';
+    reco.prioritaires.forEach(function(m){
+      html += '<span style="background:var(--gold);border:1px solid var(--gold);color:var(--ink);padding:6px 12px;font-family:var(--sans);font-size:0.78rem;font-weight:700;">✓ ' + instModuleLink(m) + '</span>';
+    });
+    html += '</div>';
+
+    if (reco.complementaires.length) {
+      html += '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.75rem;">Complementary modules</p>';
+      html += '<div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1.5rem;">';
+      reco.complementaires.forEach(function(m){
+        html += '<span style="background:transparent;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.85);padding:6px 12px;font-family:var(--sans);font-size:0.78rem;">— ' + instModuleLink(m) + '</span>';
+      });
+      html += '</div>';
+    }
+  }
+
+  html += '<div style="display:flex;flex-wrap:wrap;gap:2rem;margin-top:0.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">';
+  html += '<div><p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;">Recommended format</p>'
+    + '<p style="font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.85);">' + format + '</p></div>';
+  html += '<div><p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold-pale);margin-bottom:0.4rem;">Target audience</p>'
+    + '<p style="font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.85);">' + publicC + '</p></div>';
+  html += '</div></div>';
+
+  html += '<p style="font-family:var(--sans);font-size:0.92rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;">Next step: a discussion with AICDI to design a pathway tailored to your organisation.</p>';
+  html += '<div style="display:flex;gap:1rem;flex-wrap:wrap;">';
+  html += '<button onclick="goContactInst()" style="background:var(--gold);color:var(--ink);border:none;padding:14px 28px;cursor:pointer;font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Arrange a Preparatory Discussion</button>';
+  html += '<button onclick="startInstDiag()" style="background:transparent;color:var(--ink);border:1px solid var(--rule);padding:14px 28px;cursor:pointer;font-family:var(--sans);font-size:0.78rem;">Start Over</button>';
+  html += '</div>';
+
+  document.getElementById('inst-diag-container').innerHTML = html;
+
+  // summary for pre-filling the contact form
+  var modNames = function(arr){ return arr.map(function(m){ return INST_MODULE_NAMES[m].replace(/&amp;/g,'&'); }).join(', '); };
+  var lines = [];
+  lines.push('AICDI Institutional Assessment');
+  lines.push('Profile: ' + instState.q1 + ' · ' + instState.q2);
+  lines.push('Situation: ' + situation);
+  if (priorites) lines.push('Priorities identified: ' + priorites);
+  if (reco.prioritaires.length === 0 && !reco.e6) {
+    lines.push('Recommended modules: ' + modNames(reco.complementaires));
+  } else {
+    lines.push('Priority modules: ' + modNames(reco.prioritaires));
+    if (reco.complementaires.length) lines.push('Complementary modules: ' + modNames(reco.complementaires));
+  }
+  lines.push('Recommended format: ' + format);
+  lines.push('Target audience: ' + publicC);
+  instLastSummary = lines.join('\n');
+}
+
+function goContactInst() {
+  go('contact');
+  setTimeout(function() {
+    var sel = document.getElementById('f-motif');
+    if (sel) {
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === 'Institutional Assessment — Preparatory Discussion') { sel.selectedIndex = i; break; }
+      }
+    }
+    var ta = document.getElementById('f-contexte');
+    if (ta && instLastSummary) ta.value = instLastSummary;
     var pg = document.getElementById('pg-contact');
     if (pg) pg.scrollIntoView({behavior:'smooth'});
   }, 100);
@@ -4327,7 +4368,7 @@ var quizData = [
     ]
   },
   {
-    q: "Situation : un partenaire répond « oui », mais aucune action ne suit. Êtes-vous capable d'interpréter ce type de réponse indirecte ?",
+    q: "Situation: a partner responds 'yes', but no action follows. Are you able to interpret this type of indirect response?",
     label: "Q3 — Implicit Communication",
     a: [
       "I would take this 'yes' at face value.",
@@ -4337,7 +4378,7 @@ var quizData = [
     ]
   },
   {
-    q: "Dans quelle mesure pouvez-vous anticiper et éviter des faux pas liés aux codes sociaux et aux attentes implicites dans le contexte ivoirien ?",
+    q: "To what extent can you anticipate and avoid missteps related to social codes and implicit expectations in the Ivorian context?",
     label: "Q4 — Local Practices",
     a: [
       "I am not familiar with local social codes.",
@@ -4347,7 +4388,7 @@ var quizData = [
     ]
   },
   {
-    q: "Savez-vous adapter votre posture en fonction du statut social, du genre, de l'âge et de la position hiérarchique de votre interlocuteur ?",
+    q: "Can you adapt your posture according to the social status, gender, age, and hierarchical position of your counterpart?",
     label: "Q5 — Status, Gender and Age",
     a: [
       "I generally engage with all counterparts in a similar manner.",
@@ -4357,7 +4398,7 @@ var quizData = [
     ]
   },
   {
-    q: "Êtes-vous à l'aise dans des contextes où les règles de négociation sont implicites, relationnelles ou non formalisées ?",
+    q: "Are you comfortable in contexts where negotiation rules are implicit, relational, or informal?",
     label: "Q6 — Negotiation",
     a: [
       "I am only comfortable within formal and structured negotiation frameworks.",
@@ -4367,7 +4408,7 @@ var quizData = [
     ]
   },
   {
-    q: "Situation : un membre du personnel accepte une consigne mais ne l'applique pas. Êtes-vous capable d'analyser les causes sans conclure trop vite ?",
+    q: "Situation: a staff member agrees to an instruction but does not follow through. Are you able to analyse the underlying causes without jumping to conclusions?",
     label: "Q7 — Local Staff Management",
     a: [
       "I would attribute this to a lack of competence or motivation.",
@@ -4377,7 +4418,7 @@ var quizData = [
     ]
   },
   {
-    q: "Avez-vous déjà travaillé avec des ministères, administrations ou partenaires institutionnels en Afrique de l'Ouest ?",
+    q: "Have you already worked with ministries, administrations, or institutional partners in West Africa?",
     label: "Q8 — Local Institutions",
     a: [
       "No, I have no experience of this nature.",
@@ -4387,7 +4428,7 @@ var quizData = [
     ]
   },
   {
-    q: "Votre environnement personnel — conjoint ou famille — est-il préparé aux réalités sociales, pratiques et relationnelles du terrain ?",
+    q: "Is your personal environment — spouse or family — prepared for the social, practical, and relational realities of the field?",
     label: "Q9 — Personal Adaptation",
     a: [
       "This dimension has not been addressed.",
@@ -4397,7 +4438,7 @@ var quizData = [
     ]
   },
   {
-    q: "Avez-vous une compréhension des dynamiques régionales et des enjeux politiques sous-régionaux en Afrique de l'Ouest ?",
+    q: "Do you have an understanding of the regional dynamics and sub-regional political issues in West Africa?",
     label: "Q10 — Regional Perspective",
     a: [
       "My knowledge is limited to Côte d'Ivoire in the strict sense.",
@@ -4556,7 +4597,7 @@ function showQuizResult() {
     </div>
     <p style="font-family:'Source Sans 3',sans-serif;font-size:0.875rem;color:var(--ink3);line-height:1.8;margin:0 0 1.25rem 0;">
       Thank you for reaching out to AICDI.<br>
-      L'équipe AICDI examinera votre demande et reviendra vers vous sous <strong style="color:var(--ink);">24 heures ouvrées</strong>.
+      The AICDI team will review your request and get back to you within <strong style="color:var(--ink);">24 business hours</strong>.
     </p>
     <button onclick="aicdiPopClose()" style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--ink);color:var(--white);border:none;padding:0.75rem 2rem;cursor:pointer;width:100%;">Close</button>
   </div>
