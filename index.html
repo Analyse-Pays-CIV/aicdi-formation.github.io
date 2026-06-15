@@ -3859,6 +3859,30 @@ function go(id) {
   var navBtn = document.getElementById('nav-' + id);
   if (navBtn) navBtn.classList.add('active');
   if (id === 'diagnostic') initQuiz();
+  if (id === 'diagnostic-institution') resetInstDiag();
+}
+
+function resetInstDiag() {
+  instState = {}; instStep = 0; instLastSummary = '';
+  var intro = document.getElementById('inst-intro');
+  if (intro) intro.style.display = '';
+  var wrap = document.getElementById('inst-diag-wrap');
+  if (wrap) wrap.style.display = 'none';
+  var cont = document.getElementById('inst-diag-container');
+  if (cont) cont.innerHTML = '';
+  var prog = document.getElementById('inst-progress');
+  if (prog) prog.style.width = '0%';
+}
+
+function goSection(pageId, sectionId) {
+  go(pageId);
+  requestAnimationFrame(function(){
+    var el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({behavior:'instant', block:'start'});
+      window.scrollBy(0, -90);
+    }
+  });
 }
 
 function toggleMenu() {
