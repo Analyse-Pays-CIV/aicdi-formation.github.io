@@ -4770,10 +4770,6 @@ function quizAnswer(score) {
   }, 600);
 }
 
-function quizModLink(label, anchor) {
-  return '<a href="#" onclick="goSection(\'formations\',\'' + anchor + '\');return false;" style="color:inherit;text-decoration:underline;">' + label + '</a>';
-}
-
 function showQuizResult() {
   var total = quizScores.reduce(function(a,b){ return a+b; }, 0);
   var prog = document.getElementById('qprogress');
@@ -4786,39 +4782,39 @@ function showQuizResult() {
     color = '#B85C1E';
     msg = 'Vous disposez de premières bases, mais plusieurs dimensions essentielles de la mission restent à sécuriser.';
     reco = [
-      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + '</strong> — lecture structurée du paysage politique et institutionnel',
-      '<strong>' + quizModLink('Orientation &amp; Immersion Pays Hôtes (OIPH)', 'oiph') + '</strong> — codes sociaux et adaptation au terrain',
-      '<strong>' + quizModLink('Compétences Interculturelles (CI)', 'ci') + '</strong> — décryptage de la communication implicite',
-      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — bases de la négociation en contexte local'
+      '<strong>Analyse Pays (AP)</strong> — lecture structurée du paysage politique et institutionnel',
+      '<strong>Orientation &amp; Immersion Pays Hôtes (OIPH)</strong> — codes sociaux et adaptation au terrain',
+      '<strong>Compétences Interculturelles (CI)</strong> — décryptage de la communication implicite',
+      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — bases de la négociation en contexte local'
     ];
   } else if (total <= 27) {
     level = 'Niveau de préparation intermédiaire';
     color = '#9B7D2E';
     msg = 'Vous avez déjà des repères utiles, mais certains angles morts peuvent fragiliser votre mission.';
     reco = [
-      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + '</strong> — approfondissement politique et institutionnel',
-      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — négociation en contexte local',
-      '<strong>' + quizModLink('Compétences Interculturelles (CI)', 'ci') + '</strong> — gestion des interactions sensibles',
-      '<strong>' + quizModLink('Orientation &amp; Immersion Pays Hôtes (OIPH)', 'oiph') + '</strong> — relations avec partenaires et personnel local'
+      '<strong>Analyse Pays (AP)</strong> — approfondissement politique et institutionnel',
+      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — négociation en contexte local',
+      '<strong>Compétences Interculturelles (CI)</strong> — gestion des interactions sensibles',
+      '<strong>Orientation &amp; Immersion Pays Hôtes (OIPH)</strong> — relations avec partenaires et personnel local'
     ];
   } else if (total <= 34) {
     level = 'Niveau de préparation avancé';
     color = '#1A5C35';
     msg = 'Votre préparation est solide, mais un ajustement stratégique peut renforcer votre efficacité sur le terrain.';
     reco = [
-      '<strong>' + quizModLink('Compétences Interculturelles (CI)', 'ci') + '</strong> — études de cas et situations sensibles',
-      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + '</strong> — décryptage des acteurs et dynamiques locales',
-      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — scénarios de négociation complexe',
-      '<strong>' + quizModLink('Leadership Interculturel (LI)', 'li') + '</strong> — coordination d\'équipes en contexte complexe'
+      '<strong>Compétences Interculturelles (CI)</strong> — études de cas et situations sensibles',
+      '<strong>Analyse Pays (AP)</strong> — décryptage des acteurs et dynamiques locales',
+      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — scénarios de négociation complexe',
+      '<strong>Leadership Interculturel (LI)</strong> — coordination d\'équipes en contexte complexe'
     ];
   } else {
     level = 'Niveau expert';
     color = '#1A1A2E';
     msg = 'Vous disposez d\'une tr\u00e8s bonne compr\u00e9hension des enjeux. L\'accompagnement porte sur la finesse d\'analyse adapt\u00e9e \u00e0 votre poste sp\u00e9cifique.';
     reco = [
-      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + ' &amp; ' + quizModLink('Analyse Régionale (AR)', 'ar') + '</strong> — brief stratégique et lecture politique et régionale approfondie',
-      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — interactions institutionnelles de haut niveau',
-      '<strong>' + quizModLink('Leadership Interculturel (LI)', 'li') + '</strong> — pilotage d\'équipes et d\'interfaces institutionnelles',
+      '<strong>Analyse Pays (AP) &amp; Analyse Régionale (AR)</strong> — brief stratégique et lecture politique et régionale approfondie',
+      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — interactions institutionnelles de haut niveau',
+      '<strong>Leadership Interculturel (LI)</strong> — pilotage d\'équipes et d\'interfaces institutionnelles',
       '<strong>Module sur mesure</strong> — adapté aux enjeux propres à votre poste'
     ];
   }
