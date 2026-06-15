@@ -1370,7 +1370,7 @@ select.cform-input {
     <p class="hero-akwaba-sub" style="margin-bottom:0.5rem;">Académie Ivoirienne de Coopération et de Développement International</p>
     <div class="hero-akwaba">AKWABA</div>
     <p class="hero-baoulé">« Akwaba » — Bienvenue en Baoulé, langue du peuple Akan · Côte d'Ivoire</p>
-    <h1 class="hero-statement" style="font-size:1.55rem;font-family:'Libre Baskerville',serif;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:0.75rem;">Préparez vos missions en Afrique de l'Ouest</h1>
+    <h1 class="hero-statement" style="font-size:1.55rem;font-family:'Libre Baskerville',serif;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:0.75rem;">Préparez vos équipes et vos missions en Afrique de l'Ouest</h1>
     <p class="hero-statement">Analyse politique, décryptage des environnements locaux et préparation humaine.<br>Un dispositif institutionnel et confidentiel.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="go('contact')">Organiser un échange préparatoire</button>
@@ -2456,7 +2456,7 @@ select.cform-input {
       <h3 style="font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--white);font-weight:400;">AICDI — Catalogue des modules de formation 2026–2028</h3>
       <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Ivoire Consulting · Franck Albert Vanié · Freiburg &amp; Abidjan</p>
     </div>
-    <a href="AICDI_Catalogue_2026-2028_FR_V2.pdf" download style="background:var(--gold);color:var(--ink);padding:14px 28px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap;">
+    <a href="AICDI_Catalogue_2026-2028_FR_V2.pdf" target="_blank" download style="background:var(--gold);color:var(--ink);padding:14px 28px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;white-space:nowrap;">
       ↓ Télécharger le catalogue
     </a>
   </div>
@@ -3213,7 +3213,7 @@ select.cform-input {
     </div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;">
       <button class="btn-primary" onclick="go('contact')">Nous contacter →</button>
-      <a href="AICDI_Catalogue_2026-2028_FR_V2.pdf" download style="display:inline-flex;align-items:center;gap:8px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);border:1px solid rgba(155,125,46,0.4);padding:14px 28px;text-decoration:none;">📄 Télécharger le PDF</a>
+      <a href="AICDI_Catalogue_2026-2028_FR_V2.pdf" target="_blank" download style="display:inline-flex;align-items:center;gap:8px;font-family:'Source Sans 3',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);border:1px solid rgba(155,125,46,0.4);padding:14px 28px;text-decoration:none;">📄 Télécharger le PDF</a>
     </div>
   </div>
 
@@ -4109,6 +4109,19 @@ function go(id) {
   var navBtn = document.getElementById('nav-' + id);
   if (navBtn) navBtn.classList.add('active');
   if (id === 'diagnostic') initQuiz();
+  if (id === 'diagnostic-institution') resetInstDiag();
+}
+
+function resetInstDiag() {
+  instState = {}; instStep = 0; instLastSummary = '';
+  var intro = document.getElementById('inst-intro');
+  if (intro) intro.style.display = '';
+  var wrap = document.getElementById('inst-diag-wrap');
+  if (wrap) wrap.style.display = 'none';
+  var cont = document.getElementById('inst-diag-container');
+  if (cont) cont.innerHTML = '';
+  var prog = document.getElementById('inst-progress');
+  if (prog) prog.style.width = '0%';
 }
 
 function goSection(pageId, sectionId) {
@@ -4770,6 +4783,10 @@ function quizAnswer(score) {
   }, 600);
 }
 
+function quizModLink(label, anchor) {
+  return '<a href="#" onclick="goSection(\'formations\',\'' + anchor + '\');return false;" style="color:inherit;text-decoration:underline;">' + label + '</a>';
+}
+
 function showQuizResult() {
   var total = quizScores.reduce(function(a,b){ return a+b; }, 0);
   var prog = document.getElementById('qprogress');
@@ -4782,39 +4799,39 @@ function showQuizResult() {
     color = '#B85C1E';
     msg = 'Vous disposez de premières bases, mais plusieurs dimensions essentielles de la mission restent à sécuriser.';
     reco = [
-      '<strong>Analyse Pays (AP)</strong> — lecture structurée du paysage politique et institutionnel',
-      '<strong>Orientation &amp; Immersion Pays Hôtes (OIPH)</strong> — codes sociaux et adaptation au terrain',
-      '<strong>Compétences Interculturelles (CI)</strong> — décryptage de la communication implicite',
-      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — bases de la négociation en contexte local'
+      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + '</strong> — lecture structurée du paysage politique et institutionnel',
+      '<strong>' + quizModLink('Orientation &amp; Immersion Pays Hôtes (OIPH)', 'oiph') + '</strong> — codes sociaux et adaptation au terrain',
+      '<strong>' + quizModLink('Compétences Interculturelles (CI)', 'ci') + '</strong> — décryptage de la communication implicite',
+      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — bases de la négociation en contexte local'
     ];
   } else if (total <= 27) {
     level = 'Niveau de préparation intermédiaire';
     color = '#9B7D2E';
     msg = 'Vous avez déjà des repères utiles, mais certains angles morts peuvent fragiliser votre mission.';
     reco = [
-      '<strong>Analyse Pays (AP)</strong> — approfondissement politique et institutionnel',
-      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — négociation en contexte local',
-      '<strong>Compétences Interculturelles (CI)</strong> — gestion des interactions sensibles',
-      '<strong>Orientation &amp; Immersion Pays Hôtes (OIPH)</strong> — relations avec partenaires et personnel local'
+      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + '</strong> — approfondissement politique et institutionnel',
+      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — négociation en contexte local',
+      '<strong>' + quizModLink('Compétences Interculturelles (CI)', 'ci') + '</strong> — gestion des interactions sensibles',
+      '<strong>' + quizModLink('Orientation &amp; Immersion Pays Hôtes (OIPH)', 'oiph') + '</strong> — relations avec partenaires et personnel local'
     ];
   } else if (total <= 34) {
     level = 'Niveau de préparation avancé';
     color = '#1A5C35';
     msg = 'Votre préparation est solide, mais un ajustement stratégique peut renforcer votre efficacité sur le terrain.';
     reco = [
-      '<strong>Compétences Interculturelles (CI)</strong> — études de cas et situations sensibles',
-      '<strong>Analyse Pays (AP)</strong> — décryptage des acteurs et dynamiques locales',
-      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — scénarios de négociation complexe',
-      '<strong>Leadership Interculturel (LI)</strong> — coordination d\'équipes en contexte complexe'
+      '<strong>' + quizModLink('Compétences Interculturelles (CI)', 'ci') + '</strong> — études de cas et situations sensibles',
+      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + '</strong> — décryptage des acteurs et dynamiques locales',
+      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — scénarios de négociation complexe',
+      '<strong>' + quizModLink('Leadership Interculturel (LI)', 'li') + '</strong> — coordination d\'équipes en contexte complexe'
     ];
   } else {
     level = 'Niveau expert';
     color = '#1A1A2E';
     msg = 'Vous disposez d\'une tr\u00e8s bonne compr\u00e9hension des enjeux. L\'accompagnement porte sur la finesse d\'analyse adapt\u00e9e \u00e0 votre poste sp\u00e9cifique.';
     reco = [
-      '<strong>Analyse Pays (AP) &amp; Analyse Régionale (AR)</strong> — brief stratégique et lecture politique et régionale approfondie',
-      '<strong>Diplomatie &amp; Négociation (D&amp;N)</strong> — interactions institutionnelles de haut niveau',
-      '<strong>Leadership Interculturel (LI)</strong> — pilotage d\'équipes et d\'interfaces institutionnelles',
+      '<strong>' + quizModLink('Analyse Pays (AP)', 'ap') + ' &amp; ' + quizModLink('Analyse Régionale (AR)', 'ar') + '</strong> — brief stratégique et lecture politique et régionale approfondie',
+      '<strong>' + quizModLink('Diplomatie &amp; Négociation (D&amp;N)', 'dn') + '</strong> — interactions institutionnelles de haut niveau',
+      '<strong>' + quizModLink('Leadership Interculturel (LI)', 'li') + '</strong> — pilotage d\'équipes et d\'interfaces institutionnelles',
       '<strong>Module sur mesure</strong> — adapté aux enjeux propres à votre poste'
     ];
   }
