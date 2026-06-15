@@ -4509,6 +4509,10 @@ function quizAnswer(score) {
   }, 600);
 }
 
+function quizModLink(label, anchor) {
+  return '<a href="#" onclick="goSection(\'formations\',\'' + anchor + '\');return false;" style="color:inherit;text-decoration:underline;">' + label + '</a>';
+}
+
 function showQuizResult() {
   var total = quizScores.reduce(function(a,b){ return a+b; }, 0);
   var prog = document.getElementById('qprogress');
@@ -4521,41 +4525,40 @@ function showQuizResult() {
     color = '#B85C1E';
     msg = 'You have initial foundations in place, but several critical dimensions of the assignment remain to be addressed.';
     reco = [
-      'In-depth country analysis',
-      'Social and institutional codes of conduct',
-      'Implicit communication',
-      'Field preparation',
-      'Personal and family adaptation'
+      '<strong>' + quizModLink('Country Analysis (AP)', 'ap') + '</strong> — a structured reading of the political and institutional landscape',
+      '<strong>' + quizModLink('Host Country Orientation &amp; Immersion (OIPH)', 'oiph') + '</strong> — social codes and adaptation to the field',
+      '<strong>' + quizModLink('Intercultural Competencies (CI)', 'ci') + '</strong> — decoding implicit communication',
+      '<strong>' + quizModLink('Diplomacy &amp; Negotiation (D&amp;N)', 'dn') + '</strong> — fundamentals of negotiation in the local context'
     ];
   } else if (total <= 27) {
     level = 'Intermediate Preparedness Level';
     color = '#9B7D2E';
     msg = 'You have useful reference points, but certain blind spots may undermine the effectiveness of your assignment.';
     reco = [
-      'Political and institutional analysis',
-      'Local negotiation',
-      'Management of sensitive interactions',
-      'Working with local partners and staff'
+      '<strong>' + quizModLink('Country Analysis (AP)', 'ap') + '</strong> — deepening political and institutional understanding',
+      '<strong>' + quizModLink('Diplomacy &amp; Negotiation (D&amp;N)', 'dn') + '</strong> — negotiation in the local context',
+      '<strong>' + quizModLink('Intercultural Competencies (CI)', 'ci') + '</strong> — managing sensitive interactions',
+      '<strong>' + quizModLink('Host Country Orientation &amp; Immersion (OIPH)', 'oiph') + '</strong> — relations with local partners and staff'
     ];
   } else if (total <= 34) {
     level = 'Advanced Preparedness Level';
     color = '#1A5C35';
     msg = 'Your preparedness is solid, but strategic fine-tuning can further strengthen your operational effectiveness in the field.';
     reco = [
-      'Field case studies',
-      'Preparation for sensitive situations',
-      'Mapping of local actors and dynamics',
-      'Complex negotiation scenarios'
+      '<strong>' + quizModLink('Intercultural Competencies (CI)', 'ci') + '</strong> — case studies and sensitive situations',
+      '<strong>' + quizModLink('Country Analysis (AP)', 'ap') + '</strong> — mapping local actors and dynamics',
+      '<strong>' + quizModLink('Diplomacy &amp; Negotiation (D&amp;N)', 'dn') + '</strong> — complex negotiation scenarios',
+      '<strong>' + quizModLink('Intercultural Leadership (LI)', 'li') + '</strong> — coordinating teams in complex contexts'
     ];
   } else {
     level = 'Expert Level';
     color = '#1A1A2E';
     msg = 'You have an advanced understanding of the issues at stake. Support focuses on refined analysis tailored to your specific posting.';
     reco = [
-      'Personalised strategic brief',
-      'Analysis of issues specific to your posting',
-      'Preparation for high-level interactions',
-      'Advanced political and regional analysis'
+      '<strong>' + quizModLink('Country Analysis (AP)', 'ap') + ' &amp; ' + quizModLink('Regional Analysis (AR)', 'ar') + '</strong> — strategic briefing with in-depth political and regional analysis',
+      '<strong>' + quizModLink('Diplomacy &amp; Negotiation (D&amp;N)', 'dn') + '</strong> — high-level institutional interactions',
+      '<strong>' + quizModLink('Intercultural Leadership (LI)', 'li') + '</strong> — managing teams and institutional interfaces',
+      '<strong>Tailored Module</strong> — adapted to the specific issues of your posting'
     ];
   }
 
@@ -4570,18 +4573,18 @@ function showQuizResult() {
     '<div style="background:#1A1A2E;padding:2.5rem;margin-bottom:1.5rem;">'
     + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">'
     + '<div>'
-    + '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#D4B96A;margin-bottom:0.5rem;">Résultat</p>'
+    + '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#D4B96A;margin-bottom:0.5rem;">Result</p>'
     + '<h3 style="font-family:var(--serif);font-size:1.2rem;color:#fff;font-weight:700;border-left:3px solid ' + color + ';padding-left:0.75rem;">' + level + '</h3>'
     + '</div>'
     + '<div style="font-family:var(--serif);font-size:2.5rem;font-weight:700;color:#D4B96A;line-height:1;">' + total + '<span style="font-size:1.6rem;color:rgba(255,255,255,0.85);font-weight:700;">/40</span></div>'
     + '</div>'
     + '<p style="font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:2rem;">' + msg + '</p>'
-    + '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#D4B96A;margin-bottom:1rem;">Accompagnement recommandé</p>'
+    + '<p style="font-family:var(--sans);font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#D4B96A;margin-bottom:1rem;">Recommended Support</p>'
     + recoHtml
     + '</div>'
     + '<div style="display:flex;gap:1rem;flex-wrap:wrap;">'
     + '<button onclick=\"go(\'contact\')\" style="background:#9B7D2E;color:#fff;border:none;padding:14px 28px;cursor:pointer;font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Schedule a Preparatory Consultation →</button>'
-    + '<button onclick="initQuiz()" style="background:transparent;color:#1A1A2E;border:1px solid #E8E4DC;padding:14px 28px;cursor:pointer;font-family:var(--sans);font-size:0.78rem;">Recommencer</button>'
+    + '<button onclick="initQuiz()" style="background:transparent;color:#1A1A2E;border:1px solid #E8E4DC;padding:14px 28px;cursor:pointer;font-family:var(--sans);font-size:0.78rem;">Start Over</button>'
     + '</div>';
 }</script>
 
